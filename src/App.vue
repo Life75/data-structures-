@@ -1,14 +1,18 @@
 <script setup lang="ts">
+import NavigationHeader from "./components/NavigationHeader.vue";
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-
 </script>
 
 <template>
-<!--TODO add git control and ElementPlus UI as well -->
-<RouterView></RouterView>
+  <!--TODO add git control and ElementPlus UI as well -->
+  <div>
+    <NavigationHeader></NavigationHeader>
+    <span class="">
+    <div class="text-center text-xl mt-4">Okay</div>
+      <RouterView></RouterView>
+    </span>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
