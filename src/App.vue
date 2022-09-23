@@ -7,9 +7,9 @@ import NavigationHeader from "./components/NavigationHeader.vue";
 <template>
   <!--TODO add git control and ElementPlus UI as well -->
   <div>
-    <NavigationHeader></NavigationHeader>
-    <span class="">
-    <div class="text-center text-xl mt-4">Okay</div>
+    <NavigationHeader class="shadow-md"></NavigationHeader>
+    <span class=" p-6">
+    <div class=""></div>
       <RouterView></RouterView>
     </span>
   </div>
