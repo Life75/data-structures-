@@ -6,7 +6,7 @@
       :ellipsis="false"
       @select="handleSelect"
     >
-      <el-menu-item index="0">Algorithms and Data Structures</el-menu-item>
+      <el-menu-item index="0">Algorithms and Data Structures <router-link to="/"></router-link></el-menu-item>
       <div class="flex-grow" />
       <el-sub-menu index="1">
         <template #title>Sorting Algorithms</template>

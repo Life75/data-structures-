@@ -7,10 +7,15 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home,
+        children: [
+            {
+                path: 'BubbleSort',
+                component: BubbleSort
+            }
+        ]
     },
     {
         path: '/Sorting',
-        name: "Sorting", 
         component: VSorting,
         children: [{
             path: 'BubbleSort',
