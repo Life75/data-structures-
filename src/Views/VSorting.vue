@@ -8,6 +8,5 @@
 
 
 <script setup lang="ts">
-import BubbleSort from "../components/Algo/BubbleSort.vue";
 
 </script>

@@ -1,5 +1,7 @@
 <template>
-    <div>Bubble s
+    <!--Weird bug, when making nested routes in vue you'll need to make the sure that the folder hiearchy needs to not be nested in order for hot reloading -->
+    <div>
+         
     </div>
 </template>
 
