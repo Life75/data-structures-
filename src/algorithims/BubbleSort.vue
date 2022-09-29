@@ -5,7 +5,6 @@
         <VerticalNode :value="node" ></VerticalNode>   
     </li>
     <el-button @click="bubbleSort.startSort()">Start Sorting</el-button>
-        
     </div>
 </template>
 
@@ -16,34 +15,32 @@ import VerticalNode from '../components/VerticalNode.vue';
 import BubbleSort from '../algorithims-ts/BubbleSort';
 import { ref } from 'vue';
 
-
-
 export default defineComponent({
     name: 'BubbleSort',
     components: { Node, VerticalNode },
     props: { amountOfValues: {type: Number, default: 23}},
     setup(props) {
-        const selected = ref(props.amountOfValues)
         var bubbleSort = ref(new BubbleSort(props.amountOfValues));
-        var arrayLength = bubbleSort.value.getCurrentValues().length
-        //bubbleSort.value.startSort()
-        console.log(props.amountOfValues)
-        watch(selected, (newX) => {
-            console.log(newX)
-            console.log("new data")
-        } )
+        var currentIteration = ref();
 
+        //watching a prop 
+        watch(() => props.amountOfValues, (selected, prevSelc) => {
+            bubbleSort.value.initArray(selected);
+            
+        })
+
+        watch(bubbleSort.value.getIterations(), (newValue) => {
+            console.log('currentIteration')
+            currentIteration.value = newValue
+        })
         return {
             bubbleSort,
-            arrayLength,
+            currentIteration
         }
         //bubbleSort.value.startSort()
         //make random array 
         //sort random array 
         //update the values reactively 
-    },
-    methods: {
-        
     }
 })
 </script>

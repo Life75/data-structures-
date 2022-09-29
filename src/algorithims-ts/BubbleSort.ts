@@ -7,19 +7,25 @@ export default class BubbleSort implements ISort {
     private beforeBeingSorted: number[];
     private afterBeingSorted: number[];
     private amountOfValues: number;
+    private iterations: number[][];
 
     constructor(amountOfValues: number) {
         this.amountOfValues = amountOfValues;
         this.values = [];
         this.beforeBeingSorted = [];
         this.afterBeingSorted = [];
+        this.iterations = [];
 
-        //make random values 
-        this.initArray();
-        this.beforeBeingSorted = [...this.getCurrentValues()];
+        //make random values
+        this.initArray(this.amountOfValues);
+        this.beforeBeingSorted = [...this.getCurrentValues()]; 
     }
 
-    private initArray() {
+    public initArray(amount: number) {
+        this.amountOfValues = amount
+        this.values = [];
+        this.iterations = [];
+
         if(this.amountOfValues) {
             for(var i=0; i< this.amountOfValues; i++) {
                 this.addNumToArray(Math.floor(Math.random() * 500))
@@ -42,10 +48,15 @@ export default class BubbleSort implements ISort {
                     this.values[j + 1] = temp;
                 }
             }
-            console.log(this.values);
+
+           // console.log(this.values);
             //end of sort place this in sorted values 
             this.afterBeingSorted = [...this.values];
         }
+    }
+
+    public addToIterations(iteration: Array<number>) {
+        this.iterations.push(iteration);
     }
 
     public getCurrentValues(): Array<number> {
@@ -59,4 +70,11 @@ export default class BubbleSort implements ISort {
         return this.afterBeingSorted;
     }
     
+    getAmountOfValues(): number {
+        return this.amountOfValues;
+    }
+    
+    public getIterations(): number[][] {
+        return this.iterations;
+    }
 }
