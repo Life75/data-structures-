@@ -2,7 +2,10 @@ export default interface ISort {
     /**
      * name
      */
-    startSort(): void
-    getCurrentValues(): void 
+    startSort(): void,
+    getCurrentValues(): Array<number>, 
+
+    getBeforeSortedValues(): Array<number>,
+    getSortedValues(): Array<number>,
   
 }

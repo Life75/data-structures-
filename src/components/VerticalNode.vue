@@ -1,10 +1,6 @@
 <template>
-    <el-popover placement="top-start" title="Title" :width="200" trigger="hover"
-        content="Some number here">
-        <template #reference>
-            <div class="border-l-4 border-green-500 h-52"> </div>
-        </template>
-    </el-popover>
+    <div class="border-l-8 border-green-500" :style="{'height': nodeHeight() + 'px'}">
+    </div>
 </template>
 
 
@@ -12,6 +8,19 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-    name: "VerticalNode"
+    name: "VerticalNode",
+    props: { value: Number },
+    methods: {
+        verticalNodeStyles(): string {
+            return "border-l-5 border-green-500";
+        },
+        nodeHeight(): string {
+            var height =0;
+            if(this.value)
+            height = this.value;
+            
+            return height.toString();
+        }
+    }
 })
 </script>
