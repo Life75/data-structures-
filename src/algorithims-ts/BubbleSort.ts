@@ -1,4 +1,5 @@
 import ISort from "./ISort";
+import Iteration from "./Iterations";
 
 export default class BubbleSort implements ISort {
     //Makes random array, 
@@ -7,13 +8,14 @@ export default class BubbleSort implements ISort {
     private beforeBeingSorted: number[];
     private afterBeingSorted: number[];
     private amountOfValues: number;
-    private iterations: number[][] = []
+    private iterations: Iteration[] = [];
 
     constructor(amountOfValues: number) {
         this.amountOfValues = amountOfValues;
         this.values = [];
         this.beforeBeingSorted = [];
         this.afterBeingSorted = [];
+        this.iterations = [];
 
         //make random values
         this.initArray(this.amountOfValues);
@@ -47,11 +49,12 @@ export default class BubbleSort implements ISort {
                     this.values[j] = this.values[j + 1];
                     this.values[j + 1] = temp;
                     //console.log(this.values);
-                    console.log(this.values);
+                   //    console.log(this.values);
+                    this.addToIterations(this.values)
+
                     
                 }
                 //this.addToIterations(this.values)
-                this.addToIterations(this.values)
 
             }
 
@@ -62,14 +65,10 @@ export default class BubbleSort implements ISort {
     }
 
     public addToIterations(iteration: Array<number>) {
-        this.iterations.push(iteration)
-
-        if(this.iterations[this.iterations.length - 1] == this.iterations[this.iterations.length-2]) {
-            console.log("the same")
-        }
-        console.log(this.iterations[this.iterations.length - 1])
-        console.log(this.iterations[this.iterations.length-2])
         
+        //console.log(iteration)
+        var iterationObject = new Iteration(iteration);
+        this.iterations.push(iterationObject)
 
     }
 
@@ -88,8 +87,8 @@ export default class BubbleSort implements ISort {
         return this.amountOfValues;
     }
     
-    public getIterations(): number[][] {
-        console.log("getting iterations")
+    public getIterations(): Iteration[] {
+      //  console.log("getting iterations")
         return this.iterations;
     }
 }

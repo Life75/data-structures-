@@ -18,7 +18,7 @@ export default defineComponent({
             var height =0;
             if(this.value)
             height = this.value;
-            
+            //console.log(this.value)
             return height.toString();
         }
     }
