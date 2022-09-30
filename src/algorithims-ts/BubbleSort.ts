@@ -7,14 +7,13 @@ export default class BubbleSort implements ISort {
     private beforeBeingSorted: number[];
     private afterBeingSorted: number[];
     private amountOfValues: number;
-    private iterations: number[][];
+    private iterations: number[][] = []
 
     constructor(amountOfValues: number) {
         this.amountOfValues = amountOfValues;
         this.values = [];
         this.beforeBeingSorted = [];
         this.afterBeingSorted = [];
-        this.iterations = [];
 
         //make random values
         this.initArray(this.amountOfValues);
@@ -24,7 +23,7 @@ export default class BubbleSort implements ISort {
     public initArray(amount: number) {
         this.amountOfValues = amount
         this.values = [];
-        this.iterations = [];
+        //this.iterations =  [[], []]
 
         if(this.amountOfValues) {
             for(var i=0; i< this.amountOfValues; i++) {
@@ -40,13 +39,20 @@ export default class BubbleSort implements ISort {
     }
 
     public startSort(): void {
+        //this.addToIterations(this.values)
         for(var i=0; i < this.values.length; i++) {
             for(var j=0; j < this.values.length - i; j++) {
                 if(this.values[j] > this.values[j+1]) {
                     var temp = this.values[j];
                     this.values[j] = this.values[j + 1];
                     this.values[j + 1] = temp;
+                    //console.log(this.values);
+                    console.log(this.values);
+                    
                 }
+                //this.addToIterations(this.values)
+                this.addToIterations(this.values)
+
             }
 
            // console.log(this.values);
@@ -56,7 +62,15 @@ export default class BubbleSort implements ISort {
     }
 
     public addToIterations(iteration: Array<number>) {
-        this.iterations.push(iteration);
+        this.iterations.push(iteration)
+
+        if(this.iterations[this.iterations.length - 1] == this.iterations[this.iterations.length-2]) {
+            console.log("the same")
+        }
+        console.log(this.iterations[this.iterations.length - 1])
+        console.log(this.iterations[this.iterations.length-2])
+        
+
     }
 
     public getCurrentValues(): Array<number> {
@@ -75,6 +89,7 @@ export default class BubbleSort implements ISort {
     }
     
     public getIterations(): number[][] {
+        console.log("getting iterations")
         return this.iterations;
     }
 }

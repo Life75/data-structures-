@@ -4,7 +4,8 @@
     <li class="flex" v-for="node in bubbleSort.getCurrentValues()">
         <VerticalNode :value="node" ></VerticalNode>   
     </li>
-    <el-button @click="bubbleSort.startSort()">Start Sorting</el-button>
+    <el-button @click="startSortingClick()">Start Sorting</el-button>
+    
     </div>
 </template>
 
@@ -22,6 +23,8 @@ export default defineComponent({
     setup(props) {
         var bubbleSort = ref(new BubbleSort(props.amountOfValues));
         var currentIteration = ref();
+        var bub2 = new BubbleSort(props.amountOfValues)
+        
 
         //watching a prop 
         watch(() => props.amountOfValues, (selected, prevSelc) => {
@@ -30,17 +33,35 @@ export default defineComponent({
         })
 
         watch(bubbleSort.value.getIterations(), (newValue) => {
-            console.log('currentIteration')
+            //console.log('currentIteration') //make composable sorting shell for reuse 
             currentIteration.value = newValue
         })
+
+        function sortAnimation() {
+          //  console.log(bubbleSort.value.getIterations())
+            bub2.initArray(23);
+            bub2.startSort();
+            console.log(bub2.getIterations())
+        }
+
+        
+
         return {
             bubbleSort,
-            currentIteration
+            currentIteration,
+            sortAnimation
         }
         //bubbleSort.value.startSort()
         //make random array 
         //sort random array 
         //update the values reactively 
+    },
+    methods: {
+        startSortingClick() {
+            this.bubbleSort.startSort();
+            this.sortAnimation();
+            console.log(this.currentIteration)
+        }
     }
 })
 </script>
