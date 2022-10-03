@@ -14,3 +14,6 @@ export default class Iteration {
         this.iteration = [...iteration];
     }
 }
+
+//Next should be able to make class give information on which elements were last moved 
+//figure them out and be a boolean value. 

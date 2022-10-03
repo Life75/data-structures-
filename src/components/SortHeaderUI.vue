@@ -18,6 +18,5 @@ const slider = ref(0)
 
 function emitSliderValue() {
   emit('emitSliderValue', slider.value)
-  console.log('emiting')
 }
 </script>

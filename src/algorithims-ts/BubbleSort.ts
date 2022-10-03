@@ -26,7 +26,7 @@ export default class BubbleSort implements ISort {
         this.amountOfValues = amount
         this.values = [];
         //this.iterations =  [[], []]
-
+        this.iterations = []
         if(this.amountOfValues) {
             for(var i=0; i< this.amountOfValues; i++) {
                 this.addNumToArray(Math.floor(Math.random() * 500))
@@ -48,25 +48,16 @@ export default class BubbleSort implements ISort {
                     var temp = this.values[j];
                     this.values[j] = this.values[j + 1];
                     this.values[j + 1] = temp;
-                    //console.log(this.values);
-                   //    console.log(this.values);
                     this.addToIterations(this.values)
-
-                    
                 }
-                //this.addToIterations(this.values)
 
             }
-
-           // console.log(this.values);
             //end of sort place this in sorted values 
             this.afterBeingSorted = [...this.values];
         }
     }
 
-    public addToIterations(iteration: Array<number>) {
-        
-        //console.log(iteration)
+    public addToIterations(iteration: Array<number>) {      
         var iterationObject = new Iteration(iteration);
         this.iterations.push(iterationObject)
 
@@ -88,7 +79,6 @@ export default class BubbleSort implements ISort {
     }
     
     public getIterations(): Iteration[] {
-      //  console.log("getting iterations")
         return this.iterations;
     }
 }

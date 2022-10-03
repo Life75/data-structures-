@@ -14,7 +14,7 @@
 import { ref } from 'vue';
 import SortHeaderUI from '../components/SortHeaderUI.vue';
 
-const amountOfValues = ref(23);
+const amountOfValues = ref(0);
 const reset = ref(false);
 
 
