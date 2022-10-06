@@ -10,7 +10,8 @@
       <VerticalNode :value="node"></VerticalNode>
     </li>
 
-    <el-button @click="startSortingClick()">Start Sorting</el-button>
+    <el-button v-show="!animating" @click="startSortingClick()" :disabled="animating">Start Sorting</el-button>
+    <el-button v-show="animating" @click="cancelAnimation()">Cancel Animation</el-button>
   </div>
 </template>
 
@@ -31,7 +32,7 @@ export default defineComponent({
     var frame = ref(0);
     var id = ref();
     var animating = ref(false);
-    var animationSpeed = ref(1)
+    var animationSpeed = ref(40)
 
     //watching a prop
     watch(
@@ -56,14 +57,22 @@ export default defineComponent({
 
     });
 
+    function cancelAnimation() {
+      clearInterval(id.value)
+      frame.value = 0;
+      currentIteration.value = bubbleSort.value.getIterations()[0].getIteration();
+      animating.value = false; 
+    }
+
 
     function sortAnimation(): void {
       animating.value = true;
-      var someValue = setInterval(() => {
+      var animationID = setInterval(() => {
         if (frame.value == bubbleSort.value.getIterations().length) {
-          clearInterval(someValue); //finished
+          clearInterval(animationID); //finished
+          animating.value = false; 
         } else {
-
+          id.value = animationID
         try {
           currentIteration.value = bubbleSort.value
             .getIterations()
@@ -72,7 +81,7 @@ export default defineComponent({
         }
         catch(e: unknown) {
           //user has switched the inputs during the animation, now clear the interval 
-          clearInterval(someValue)
+          clearInterval(animationID)
         }
     
         }
@@ -85,6 +94,7 @@ export default defineComponent({
       sortAnimation,
       animating,
       timer: frame,
+      cancelAnimation,
     };
   },
   methods: {
