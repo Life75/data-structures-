@@ -3,6 +3,11 @@
     <div>Amount to be sorted</div>
     <el-slider v-model="slider" @change="emitSliderValue()"></el-slider>
     <div>Speed</div>
+
+    <slot>
+      <template>
+      </template>
+    </slot>
   </div>
 </template>
 

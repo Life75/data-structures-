@@ -11,7 +11,7 @@
     </li>
 
     <el-button v-show="!animating" @click="startSortingClick()" :disabled="animating">Start Sorting</el-button>
-    <el-button v-show="animating" @click="cancelAnimation()">Cancel Animation</el-button>
+    <el-button v-show="animating" @click="cancelAnimation()"   style="{background-color: red;}">Cancel Animation</el-button>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ import { ref } from "vue";
 export default defineComponent({
   name: "BubbleSort",
   components: { Node, VerticalNode },
-  props: { amountOfValues: { type: Number, default: 23 } },
+  props: { amountOfValues: { type: Number, default: 0 } },
   setup(props) {
     var bubbleSort = ref(new BubbleSort(props.amountOfValues));
     var currentIteration = ref();
@@ -45,7 +45,6 @@ export default defineComponent({
 
     watch(bubbleSort.value.getCurrentValues(), (newValue) => {
       //calculations finished start animating
-      console.log("start animating");
       animating.value = true;
 
       id.value = setInterval(() => {
@@ -80,7 +79,7 @@ export default defineComponent({
             frame.value++;
         }
         catch(e: unknown) {
-          //user has switched the inputs during the animation, now clear the interval 
+          //user has switched the inputs during the animation, now clear the interval s
           clearInterval(animationID)
         }
     
@@ -99,7 +98,7 @@ export default defineComponent({
   },
   methods: {
     startSortingClick() {
-      this.timer = 0;
+      //this.timer = 0;
       this.bubbleSort.startSort();
       this.sortAnimation();
     },
