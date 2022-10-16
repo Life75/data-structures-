@@ -1,8 +1,8 @@
 <template>
-    <div class="flex justify-center">
+    <div class=" justify-center">
         <!--Setup where you can view a header that will emit events to update from the components, will need interface on what data to emit to VSorting Component TODO-->
-        <SortHeaderUI @emit-slider-value="setAmountOfValues" @emit-animation-speed="setAnimationSpeed"></SortHeaderUI>
-        <RouterView :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed">
+        <SortHeaderUI @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" @emit-animation-speed="setAnimationSpeed"></SortHeaderUI>
+        <RouterView  :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed">
         </RouterView>   
     </div>
     <!--Make a component for the header for Sorting that way to deal with this problem -->
@@ -29,4 +29,6 @@ function setAmountOfValues(amount: number) {
 
     //reset array 
 }
+
+
 </script>
