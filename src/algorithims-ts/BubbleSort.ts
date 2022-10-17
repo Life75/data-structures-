@@ -1,7 +1,8 @@
-import ISort from "./ISort";
-import Iteration from "./Iterations";
+import IIterations from "./Interfaces/IIterations";
+import ISort from "./Interfaces/ISort";
+import Iteration from "./Iteration";
 
-export default class BubbleSort implements ISort {
+export default class BubbleSort implements ISort, IIterations {
     //Makes random array, 
     //needs to have a timer class that extends to the sort to keep track of how long algo takes 
     private values: number[];

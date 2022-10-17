@@ -1,5 +1,6 @@
 import { ref, onMounted, onUnmounted } from 'vue'
-import ISort from '../algorithims-ts/ISort'
+import IIterations from '../algorithims-ts/Interfaces/IIterations'
+import ISort from '../algorithims-ts/Interfaces/ISort'
 
 // by convention, composable function names start with "use"
 export function useMouse() {
@@ -22,6 +23,10 @@ export function useMouse() {
   return { x, y }
 }
 
-export function useSortAlgorithim( sortAlgo: ISort) {
-    //todo Make BubbleSort class extend to Iterations, implementing ISort 
+//make UI elements packaged into an object for the sortHeader
+export function useSortAlgorithim(sortAlgo: ISort & IIterations, amountOfValues: number, animationSpeed: number) {
+    
+    
+    
+    
 }
