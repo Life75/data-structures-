@@ -8,12 +8,12 @@
     >
     <el-button
       v-show="animating"
-      @click="cancelAnimation()"
+      @click="cancelAnimation2()"
       >Cancel Animation</el-button
     >
   </span>
     <div class="flex items-center justify-center p-5">
-      <li v-show="!animating" class="flex" v-for="node in bubbleSort.getCurrentValues()">
+      <li v-show="!animating" class="flex" v-for="node in sorter.getCurrentValues()">
         <VerticalNode :value="node"></VerticalNode>
       </li>
 
@@ -47,45 +47,47 @@ export default defineComponent({
     var currentIteration = ref();
     var frame = ref(0);
     var id = ref();
-    var animating = ref(false);
+    //var animating = ref(false);
     const {x, y} = useMouse();
 
-    const {sortRef} = useSortAlgorithim(new BubbleSort(props.amountOfValues));
-    
+    var {sortRef, sortAnimation2, cancelAnimation2, animating} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
+    var sorter = sortRef
 
     //watching a prop
     watch(
       () => props.amountOfValues,
       (amountOfValues, prevSelc) => {
-        bubbleSort.value.initArray(amountOfValues);
-        animating.value = false;
+       // sortRef.value.initArray(amountOfValues);
+       // animating.value = false;
+        const {sortRef, sortAnimation2, cancelAnimation2, animating} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
+        sorter = sortRef;
       }
     );
 
-    watch(bubbleSort.value.getCurrentValues(), (newValue) => {
+    watch(sortRef.value.getCurrentValues(), (newValue) => {
       //calculations finished start animating
       animating.value = true;
     });
-
+/*
     function cancelAnimation() {
       console.log("canceling");
       clearInterval(id.value);
       frame.value = 0;
-      currentIteration.value = bubbleSort.value.getIterations()[0].getIteration();
+      currentIteration.value = sortRef.value.getIterations()[0].getIteration();
       animating.value = false;
     }
 
     function sortAnimation(): void {
       animating.value = true;
       var animationID = setInterval(() => {
-        if (frame.value == bubbleSort.value.getIterations().length) {
+        if (frame.value == sortRef.value.getIterations().length) {
           frame.value = 0;
           clearInterval(animationID); //finished
           animating.value = false;
         } else {
           id.value = animationID;
           try {
-            currentIteration.value = bubbleSort.value
+            currentIteration.value = sortRef.value
               .getIterations()
               [frame.value].getIteration();
             frame.value++;
@@ -96,21 +98,24 @@ export default defineComponent({
         }
       }, props.animationSpeed);
     }
-
+*/
     return {
-      bubbleSort,
+      sortRef,
       currentIteration,
-      sortAnimation,
+    //  sortAnimation,
+      sortAnimation2,
       animating,
-      cancelAnimation,
+      cancelAnimation2,
+    //  cancelAnimation,
       x,
-      y
+      y,
+      sorter
     };
   },
   methods: {
     startSortingClick() {
-      this.bubbleSort.startSort();
-      this.sortAnimation();
+      this.sortRef.startSort();
+      this.sortAnimation2();
     },
   },
 });
