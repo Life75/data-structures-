@@ -33,7 +33,7 @@ import Node from "../components/Node.vue";
 import VerticalNode from "../components/VerticalNode.vue";
 import BubbleSort from "../algorithims-ts/BubbleSort";
 import { ref } from "vue";
-import {useMouse} from '../composables/BubbleSortComposable'
+import {useMouse, useSortAlgorithim} from '../composables/BubbleSortComposable'
 
 export default defineComponent({
   name: "BubbleSort",
@@ -49,6 +49,9 @@ export default defineComponent({
     var id = ref();
     var animating = ref(false);
     const {x, y} = useMouse();
+
+    const {sortRef} = useSortAlgorithim(new BubbleSort(props.amountOfValues));
+    
 
     //watching a prop
     watch(

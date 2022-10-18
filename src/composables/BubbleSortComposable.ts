@@ -24,9 +24,9 @@ export function useMouse() {
 }
 
 //make UI elements packaged into an object for the sortHeader
-export function useSortAlgorithim(sortAlgo: ISort & IIterations, amountOfValues: number, animationSpeed: number) {
+export function useSortAlgorithim(sortAlgo: ISort & IIterations) {
+    var sortRef = ref(sortAlgo)
     
     
-    
-    
+    return {sortRef}
 }
