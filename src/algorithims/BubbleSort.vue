@@ -20,7 +20,7 @@
       <li v-show="animating" class="flex" v-for="node in currentIteration">
         <VerticalNode :value="node"></VerticalNode>
       </li>
-
+      <div>{{sorter.getCurrentValues()}}</div>
     </div>
     <div>Mouse position is at: {{ x }}, {{ y }}</div>
 
@@ -47,6 +47,7 @@ export default defineComponent({
     var currentIteration = ref();
     var frame = ref(0);
     var id = ref();
+  
     //var animating = ref(false);
     const {x, y} = useMouse();
 
@@ -60,7 +61,8 @@ export default defineComponent({
        // sortRef.value.initArray(amountOfValues);
        // animating.value = false;
         const {sortRef, sortAnimation2, cancelAnimation2, animating} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
-        sorter = sortRef;
+        sorter.value = sortRef.value;
+        console.log(sorter.value)
       }
     );
 
