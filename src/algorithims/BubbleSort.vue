@@ -20,10 +20,7 @@
       <li v-show="animating" class="flex" v-for="node in currentIteration">
         <VerticalNode :value="node"></VerticalNode>
       </li>
-      <div>{{sorter.getCurrentValues()}}</div>
     </div>
-    <div>Mouse position is at: {{ x }}, {{ y }}</div>
-
   </div>
 </template>
 
@@ -33,7 +30,7 @@ import Node from "../components/Node.vue";
 import VerticalNode from "../components/VerticalNode.vue";
 import BubbleSort from "../algorithims-ts/BubbleSort";
 import { ref } from "vue";
-import {useMouse, useSortAlgorithim} from '../composables/BubbleSortComposable'
+import {useSortAlgorithim} from '../composables/BubbleSortComposable'
 
 export default defineComponent({
   name: "BubbleSort",
@@ -43,16 +40,11 @@ export default defineComponent({
     animationSpeed: { type: Number, default: 200 },
   },
   setup(props) {
-    var bubbleSort = ref(new BubbleSort(props.amountOfValues));
     var currentIteration = ref();
-    var frame = ref(0);
-    var id = ref();
-  
-    //var animating = ref(false);
-    const {x, y} = useMouse();
-
-    var {sortRef, sortAnimation2, cancelAnimation2, animating} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
+    var animationSpeedRef = ref(props.amountOfValues);
+    var {sortRef, sortAnimation2, cancelAnimation2, animating, currentIteration} = useSortAlgorithim(new BubbleSort(props.amountOfValues), animationSpeedRef.value , props.amountOfValues);
     var sorter = sortRef
+    
 
     //watching a prop
     watch(
@@ -60,11 +52,29 @@ export default defineComponent({
       (amountOfValues, prevSelc) => {
        // sortRef.value.initArray(amountOfValues);
        // animating.value = false;
-        const {sortRef, sortAnimation2, cancelAnimation2, animating} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
+        const {sortRef, currentIteration} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
         sorter.value = sortRef.value;
+        currentIteration.value = currentIteration.value
+
         console.log(sorter.value)
       }
     );
+
+
+    watch(
+      () => props.animationSpeed,
+      (animationSpeed, prevSelc) => {
+       // sortRef.value.initArray(amountOfValues);
+       // animating.value = false;
+        const {sortRef, animating, currentIteration} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
+        sorter.value = sortRef.value;
+        currentIteration.value = currentIteration.value
+        animating.value = false
+        console.log(props.animationSpeed)
+      }
+    );
+
+    
 
     watch(sortRef.value.getCurrentValues(), (newValue) => {
       //calculations finished start animating
@@ -109,15 +119,14 @@ export default defineComponent({
       animating,
       cancelAnimation2,
     //  cancelAnimation,
-      x,
-      y,
+   
       sorter
     };
   },
   methods: {
     startSortingClick() {
       this.sortRef.startSort();
-      this.sortAnimation2();
+      this.sortAnimation2(this.animationSpeed);
     },
   },
 });
