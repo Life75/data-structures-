@@ -8,7 +8,7 @@
     >
     <el-button
       v-show="animating"
-      @click="cancelAnimation2()"
+      @click="cancelAnimation()"
       >Cancel Animation</el-button
     >
   </span>
@@ -42,7 +42,7 @@ export default defineComponent({
   setup(props) {
     var currentIteration = ref();
     var animationSpeedRef = ref(props.amountOfValues);
-    var {sortRef, sortAnimation2, cancelAnimation2, animating, currentIteration} = useSortAlgorithim(new BubbleSort(props.amountOfValues), animationSpeedRef.value , props.amountOfValues);
+    var {sortRef, sortAnimation, cancelAnimation, animating, currentIteration} = useSortAlgorithim(new BubbleSort(props.amountOfValues), animationSpeedRef.value , props.amountOfValues);
     var sorter = sortRef
     
 
@@ -51,11 +51,13 @@ export default defineComponent({
       () => props.amountOfValues,
       (amountOfValues, prevSelc) => {
        // sortRef.value.initArray(amountOfValues);
-       // animating.value = false;
+       //TODO need to fix bug when changing the sorted amount value while animation value is true 
         const {sortRef, currentIteration} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
         sorter.value = sortRef.value;
         currentIteration.value = currentIteration.value
 
+        
+        
         console.log(sorter.value)
       }
     );
@@ -80,44 +82,14 @@ export default defineComponent({
       //calculations finished start animating
       animating.value = true;
     });
-/*
-    function cancelAnimation() {
-      console.log("canceling");
-      clearInterval(id.value);
-      frame.value = 0;
-      currentIteration.value = sortRef.value.getIterations()[0].getIteration();
-      animating.value = false;
-    }
 
-    function sortAnimation(): void {
-      animating.value = true;
-      var animationID = setInterval(() => {
-        if (frame.value == sortRef.value.getIterations().length) {
-          frame.value = 0;
-          clearInterval(animationID); //finished
-          animating.value = false;
-        } else {
-          id.value = animationID;
-          try {
-            currentIteration.value = sortRef.value
-              .getIterations()
-              [frame.value].getIteration();
-            frame.value++;
-          } catch (e: unknown) {
-            //user has switched the inputs during the animation, now clear the interval s
-            clearInterval(animationID);
-          }
-        }
-      }, props.animationSpeed);
-    }
-*/
     return {
       sortRef,
       currentIteration,
     //  sortAnimation,
-      sortAnimation2,
+      sortAnimation,
       animating,
-      cancelAnimation2,
+      cancelAnimation,
     //  cancelAnimation,
    
       sorter
@@ -126,7 +98,7 @@ export default defineComponent({
   methods: {
     startSortingClick() {
       this.sortRef.startSort();
-      this.sortAnimation2(this.animationSpeed);
+      this.sortAnimation(this.animationSpeed);
     },
   },
 });

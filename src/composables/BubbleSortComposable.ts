@@ -33,7 +33,7 @@ export function useSortAlgorithim(sortAlgo: ISort & IIterations, animationSpeed:
 
     });
 
-    function cancelAnimation2() {
+    function cancelAnimation() {
       console.log("canceling");
       clearInterval(id.value);
       frame.value = 0;
@@ -41,7 +41,7 @@ export function useSortAlgorithim(sortAlgo: ISort & IIterations, animationSpeed:
       animating.value = false;
     }
 
-    function sortAnimation2(speed: number): void {
+    function sortAnimation(speed: number): void {
       animating.value = true;
       var animationID = setInterval(() => {
         if(frame.value == sortRef.value.getIterations().length) {
@@ -63,5 +63,5 @@ export function useSortAlgorithim(sortAlgo: ISort & IIterations, animationSpeed:
       }, speed)
     }
     
-    return {sortRef, sortAnimation2, cancelAnimation2, animating, currentIteration, animationSpeed}
+    return {sortRef, sortAnimation, cancelAnimation, animating, currentIteration, animationSpeed}
 }
