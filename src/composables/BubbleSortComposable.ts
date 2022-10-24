@@ -9,8 +9,6 @@ export function useSortAlgorithim(sortAlgo: ISort & IIterations, animationSpeed:
     var frame = ref(0);
     var id = ref()
     var currentIteration = ref();
-    var test = ref(animationSpeed);
-    console.log(animationSpeed)
 
     watch(
       () => amountOfValues,
@@ -34,22 +32,19 @@ export function useSortAlgorithim(sortAlgo: ISort & IIterations, animationSpeed:
     });
 
     function cancelAnimation() {
-      console.log("canceling");
       clearInterval(id.value);
       frame.value = 0;
-      currentIteration.value = sortRef.value.getIterations()[0].getIteration();
       animating.value = false;
     }
 
     function sortAnimation(speed: number): void {
       animating.value = true;
       var animationID = setInterval(() => {
+        
         if(frame.value == sortRef.value.getIterations().length) {
           frame.value = 0;
           clearInterval(animationID);
           animating.value = false;
-          console.log(test.value)
-
         } else {
           id.value = animationID
         }

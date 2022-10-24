@@ -45,16 +45,18 @@ export default defineComponent({
     var {sortRef, sortAnimation, cancelAnimation, animating, currentIteration} = useSortAlgorithim(new BubbleSort(props.amountOfValues), animationSpeedRef.value , props.amountOfValues);
     var sorter = sortRef
     
-
     //watching a prop
     watch(
       () => props.amountOfValues,
       (amountOfValues, prevSelc) => {
        // sortRef.value.initArray(amountOfValues);
        //TODO need to fix bug when changing the sorted amount value while animation value is true 
-        const {sortRef, currentIteration} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
+       
+       console.log("change values")
+       const {sortRef, currentIteration} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
         sorter.value = sortRef.value;
         currentIteration.value = currentIteration.value
+       if(animating.value) cancelAnimation()
 
         
         
@@ -62,21 +64,17 @@ export default defineComponent({
       }
     );
 
-
     watch(
       () => props.animationSpeed,
       (animationSpeed, prevSelc) => {
-       // sortRef.value.initArray(amountOfValues);
-       // animating.value = false;
-        const {sortRef, animating, currentIteration} = useSortAlgorithim(new BubbleSort(props.amountOfValues), props.animationSpeed, props.amountOfValues);
-        sorter.value = sortRef.value;
-        currentIteration.value = currentIteration.value
-        animating.value = false
-        console.log(props.animationSpeed)
+     
+        if(animating.value) {
+          cancelAnimation()
+          sortAnimation(props.animationSpeed)
+        }
+
       }
     );
-
-    
 
     watch(sortRef.value.getCurrentValues(), (newValue) => {
       //calculations finished start animating
@@ -84,20 +82,16 @@ export default defineComponent({
     });
 
     return {
-      sortRef,
       currentIteration,
-    //  sortAnimation,
       sortAnimation,
       animating,
       cancelAnimation,
-    //  cancelAnimation,
-   
       sorter
     };
   },
   methods: {
     startSortingClick() {
-      this.sortRef.startSort();
+      this.sorter.startSort();
       this.sortAnimation(this.animationSpeed);
     },
   },

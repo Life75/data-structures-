@@ -1,5 +1,6 @@
 import IIterations from "./Interfaces/IIterations";
 import ISort from "./Interfaces/ISort";
+import Timer from "./Timer";
 import Iteration from "./Iteration";
 //TODO add a layer of abstraction of a sorting class with most of the code written out 
 export default class BubbleSort implements ISort, IIterations {
@@ -10,8 +11,10 @@ export default class BubbleSort implements ISort, IIterations {
     private afterBeingSorted: number[];
     private amountOfValues: number;
     private iterations: Iteration[] = [];
+    private timer: Timer; 
 
     constructor(amountOfValues: number) {
+        this.timer = new Timer();
         this.amountOfValues = amountOfValues;
         this.values = [];
         this.beforeBeingSorted = [];
@@ -43,6 +46,8 @@ export default class BubbleSort implements ISort, IIterations {
 
     public startSort(): void {
         //this.addToIterations(this.values)
+        //start the timer 
+        this.timer.start();
         for(var i=0; i < this.values.length; i++) {
             for(var j=0; j < this.values.length - i; j++) {
                 if(this.values[j] > this.values[j+1]) {
@@ -56,6 +61,7 @@ export default class BubbleSort implements ISort, IIterations {
             //end of sort place this in sorted values 
             this.afterBeingSorted = [...this.values];
         }
+        this.timer.stop();
     }
 
     public addToIterations(iteration: Array<number>) {      
@@ -82,4 +88,9 @@ export default class BubbleSort implements ISort, IIterations {
     public getIterations(): Iteration[] {
         return this.iterations;
     }
+
+    public getTimer(): Timer {
+        return this.timer;
+    }
+    //TODO get timer results and propagate the values up 
 }

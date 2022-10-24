@@ -4,7 +4,9 @@
     <el-slider v-model="amountOfValues" @change="emitSliderValue()"></el-slider>
     <div>Speed</div>
     <el-slider v-model="animationSpeed" @change="emitAnimationSpeed()"></el-slider>
- 
+    <div>
+    Time taken: 
+    </div>
     <slot>
       <template> </template>
     </slot>

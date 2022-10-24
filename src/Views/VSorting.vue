@@ -1,5 +1,5 @@
 <template>
-    <div class=" justify-center">
+    <div class="flex justify-center">
         <!--Setup where you can view a header that will emit events to update from the components, will need interface on what data to emit to VSorting Component TODO-->
         <SortHeaderUI @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" @emit-animation-speed="setAnimationSpeed"></SortHeaderUI>
         <RouterView  :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed">
@@ -9,7 +9,7 @@
 
 </template>
 
-
+//TODO mention the ordering of the values h1 
 <script setup lang="ts">
 import { ref } from 'vue';
 import SortHeaderUI from '../components/SortHeaderUI.vue';

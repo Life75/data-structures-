@@ -1,3 +1,5 @@
+import Timer from "../Timer";
+
 export default interface ISort {
     /**
      * name
@@ -9,5 +11,6 @@ export default interface ISort {
     
     getBeforeSortedValues(): Array<number>,
     getSortedValues(): Array<number>,
+    getTimer(): Timer,
   
 }
