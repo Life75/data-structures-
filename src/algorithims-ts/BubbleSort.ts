@@ -2,7 +2,7 @@ import IIterations from "./Interfaces/IIterations";
 import ISort from "./Interfaces/ISort";
 import Timer from "./Timer";
 import Iteration from "./Iteration";
-//TODO add a layer of abstraction of a sorting class with most of the code written out 
+
 export default class BubbleSort implements ISort, IIterations {
     //Makes random array, 
     //needs to have a timer class that extends to the sort to keep track of how long algo takes 
@@ -47,6 +47,15 @@ export default class BubbleSort implements ISort, IIterations {
     public startSort(): void {
         //this.addToIterations(this.values)
         //start the timer 
+        //make sure the values aren't already sorted 
+        if(this.isSorted()) {
+            console.log("is sorted");
+            this.values = [...this.beforeBeingSorted];
+            //working now and fixed up 
+        }
+        
+        
+        
         this.timer.start();
         for(var i=0; i < this.values.length; i++) {
             for(var j=0; j < this.values.length - i; j++) {
@@ -58,10 +67,14 @@ export default class BubbleSort implements ISort, IIterations {
                 }
 
             }
-            //end of sort place this in sorted values 
-            this.afterBeingSorted = [...this.values];
         }
         this.timer.stop();
+        this.afterBeingSorted = [...this.values];
+
+    }
+
+    private isSorted() {
+      return this.afterBeingSorted.length != 0;  
     }
 
     public addToIterations(iteration: Array<number>) {      
