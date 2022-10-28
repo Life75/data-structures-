@@ -2,6 +2,8 @@ export default class Timer {
     private startTime?: number;
     private interval?: number;
     private timer: number; 
+    private endTime?: number;
+    private performance?: number; 
 
     constructor() {
         //default 
@@ -11,19 +13,18 @@ export default class Timer {
 
     public start(): void {
         //starts timer 
-        this.startTime = Date.now();
-        this.interval = setInterval(() => {
-            var elapsedTime = Date.now() - this.startTime!;
-            this.timer = (elapsedTime / 1000);
-        })
+        this.startTime = performance.now()
     }
 
     public stop(): void {
-        clearInterval(this.interval)
+        this.endTime = performance.now();
+
+        this.performance = this.endTime - this.startTime!;
     }
 
     public getTime(): number {
-        return this.timer;
+
+        return this.performance!;
     }
     
 }

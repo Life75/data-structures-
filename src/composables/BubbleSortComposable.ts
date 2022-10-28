@@ -9,6 +9,7 @@ export function useSortAlgorithim(sortAlgo: ISort & IIterations, animationSpeed:
     var frame = ref(0);
     var id = ref()
     var currentIteration = ref();
+    var timer = ref();
 
     watch(
       () => amountOfValues,
@@ -24,6 +25,12 @@ export function useSortAlgorithim(sortAlgo: ISort & IIterations, animationSpeed:
         console.log("speed: " + animationSpeed)
       }
     );
+
+    watch(
+      () => sortRef.value.getTimer(), (newTimer, oldTimer) => {
+        timer.value = sortRef.value.getTimer();
+      }
+    )
 
     watch(sortRef.value.getCurrentValues(), (newValue) => {
       //calculations finished start animating
@@ -58,5 +65,5 @@ export function useSortAlgorithim(sortAlgo: ISort & IIterations, animationSpeed:
       }, speed)
     }
     
-    return {sortRef, sortAnimation, cancelAnimation, animating, currentIteration, animationSpeed}
+    return {sortRef, sortAnimation, cancelAnimation, animating, currentIteration, animationSpeed, timer}
 }

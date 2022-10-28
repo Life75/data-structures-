@@ -7,6 +7,8 @@
     <div>
     Time taken: 
     </div>
+    {{props.timer?.value?.getTime()}}
+    
     <slot>
       <template> </template>
     </slot>
@@ -14,11 +16,16 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { Ref, ref } from "vue";
+import Timer from "../algorithims-ts/Timer";
 const emit = defineEmits<{
   (e: "emitSliderValue", amountOfValues: number): void;
   (e: "emitAnimationSpeed", speedSliderValue: number): void;
 }>();
+
+const props = defineProps({
+  timer: {type: ref<Timer>}
+})
 
 const amountOfValues = ref(0);
 const animationSpeed = ref(0);
