@@ -49,7 +49,13 @@ export default defineComponent({
     var sortObj = sortAlgoRef;
 
 
-    
+    /*
+
+
+putting into code was a struggle, walkthrough 
+highlighting the code and visualization of a binary tree for example 
+
+    */
     //watching a prop
     watch(
       () => props.amountOfValues,
