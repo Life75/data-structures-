@@ -26,9 +26,7 @@ function setAnimationSpeed(animationSpeed: number) {
 
 function setAmountOfValues(amount: number) {    
     amountOfValues.value = amount;
-    reset.value = true; 
-
-    //reset array 
+    reset.value = true; //reset array 
 }
 
 function setTimer(timer: Timer): void {
