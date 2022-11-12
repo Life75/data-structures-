@@ -4,106 +4,96 @@ import Timer from "./Timer";
 import Iteration from "./Iteration";
 
 export default class BubbleSort implements ISort, IIterations {
-    //Makes random array, 
-    //needs to have a timer class that extends to the sort to keep track of how long algo takes 
-    private values: number[];
-    private beforeBeingSorted: number[];
-    private afterBeingSorted: number[];
-    private amountOfValues: number;
-    private iterations: Iteration[] = [];
-    private timer: Timer; 
+  //Makes random array,
+  private values: number[];
+  private beforeBeingSorted: number[];
+  private afterBeingSorted: number[];
+  private amountOfValues: number;
+  private iterations: Iteration[] = [];
+  private timer: Timer;
 
-    constructor(amountOfValues: number) {
-        this.timer = new Timer();
-        this.amountOfValues = amountOfValues;
-        this.values = [];
-        this.beforeBeingSorted = [];
-        this.afterBeingSorted = [];
-        this.iterations = [];
+  constructor(amountOfValues: number) {
+    this.timer = new Timer();
+    this.amountOfValues = amountOfValues;
+    this.values = [];
+    this.beforeBeingSorted = [];
+    this.afterBeingSorted = [];
+    this.iterations = [];
 
-        //make random values
-        this.initArray(this.amountOfValues);
-        this.beforeBeingSorted = [...this.getCurrentValues()]; 
+    //make random values
+    this.initArray(this.amountOfValues);
+    this.beforeBeingSorted = [...this.getCurrentValues()];
+  }
+
+  public initArray(amount: number) {
+    this.amountOfValues = amount;
+    this.values = [];
+
+    this.iterations = [];
+    if (this.amountOfValues) {
+      for (var i = 0; i < this.amountOfValues; i++) {
+        this.addNumToArray(Math.floor(Math.random() * 500));
+      }
+      //once finished this is the complete random array of values
+      this.beforeBeingSorted = [...this.values];
+    }
+  }
+
+  private addNumToArray(num: number) {
+    this.values.push(num);
+  }
+
+  public startSort(): void {
+    //start the timer
+    //make sure the values aren't already sorted
+    if (this.isSorted()) {
+      this.values = [...this.beforeBeingSorted];
     }
 
-    public initArray(amount: number) {
-        this.amountOfValues = amount
-        this.values = [];
-        //this.iterations =  [[], []]
-        this.iterations = []
-        if(this.amountOfValues) {
-            for(var i=0; i< this.amountOfValues; i++) {
-                this.addNumToArray(Math.floor(Math.random() * 500))
-            }
-            //once finished this is the complete random array of values 
-            this.beforeBeingSorted = [...this.values]
+    this.timer.start();
+    for (var i = 0; i < this.values.length; i++) {
+      for (var j = 0; j < this.values.length - i; j++) {
+        if (this.values[j] > this.values[j + 1]) {
+          var temp = this.values[j];
+          this.values[j] = this.values[j + 1];
+          this.values[j + 1] = temp;
+          this.addToIterations(this.values);
         }
+      }
     }
+    this.timer.stop();
+    this.afterBeingSorted = [...this.values];
+  }
 
-    private addNumToArray(num: number) {
-        this.values.push(num);
-    }
+  private isSorted() {
+    return this.afterBeingSorted.length != 0;
+  }
 
-    public startSort(): void {
-        //this.addToIterations(this.values)
-        //start the timer 
-        //make sure the values aren't already sorted 
-        if(this.isSorted()) {
-            console.log("is sorted");
-            this.values = [...this.beforeBeingSorted];
-            //working now and fixed up 
-        }
-        
-        
-        
-        this.timer.start();
-        for(var i=0; i < this.values.length; i++) {
-            for(var j=0; j < this.values.length - i; j++) {
-                if(this.values[j] > this.values[j+1]) {
-                    var temp = this.values[j];
-                    this.values[j] = this.values[j + 1];
-                    this.values[j + 1] = temp;
-                    this.addToIterations(this.values)
-                }
+  public addToIterations(iteration: Array<number>) {
+    var iterationObject = new Iteration(iteration);
+    this.iterations.push(iterationObject);
+  }
 
-            }
-        }
-        this.timer.stop();
-        this.afterBeingSorted = [...this.values];
+  public getCurrentValues(): Array<number> {
+    return this.values;
+  }
 
-    }
+  getBeforeSortedValues(): number[] {
+    return this.beforeBeingSorted;
+  }
+  getSortedValues(): number[] {
+    return this.afterBeingSorted;
+  }
 
-    private isSorted() {
-      return this.afterBeingSorted.length != 0;  
-    }
+  getAmountOfValues(): number {
+    return this.amountOfValues;
+  }
 
-    public addToIterations(iteration: Array<number>) {      
-        var iterationObject = new Iteration(iteration);
-        this.iterations.push(iterationObject)
+  public getIterations(): Iteration[] {
+    return this.iterations;
+  }
 
-    }
-
-    public getCurrentValues(): Array<number> {
-        return this.values;
-    }    
-    
-    getBeforeSortedValues(): number[] {
-        return this.beforeBeingSorted;
-    }
-    getSortedValues(): number[] {
-        return this.afterBeingSorted;
-    }
-    
-    getAmountOfValues(): number {
-        return this.amountOfValues;
-    }
-    
-    public getIterations(): Iteration[] {
-        return this.iterations;
-    }
-
-    public getTimer(): Timer {
-        return this.timer;
-    }
-    //TODO get timer results and propagate the values up 
+  public getTimer(): Timer {
+    return this.timer;
+  }
 }

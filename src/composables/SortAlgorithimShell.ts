@@ -3,7 +3,7 @@ import IIterations from '../algorithims-ts/Interfaces/IIterations'
 import ISort from '../algorithims-ts/Interfaces/ISort'
 
 //make UI elements packaged into an object for the sortHeader
-export function SortAlgorithimShell(sortAlgo: ISort & IIterations, amountOfValues: number) {
+export function SortAlgorithimShell(sortAlgo: ISort & IIterations) {
     var sortAlgoRef = ref(sortAlgo);
     var animating = ref(false);
     var frame = ref(0);
@@ -15,7 +15,6 @@ export function SortAlgorithimShell(sortAlgo: ISort & IIterations, amountOfValue
     watch(
       () => sortAlgoRef.value.getTimer(), (newTimer, oldTimer) => {
         timer.value = sortAlgoRef.value.getTimer();
-        console.log("working")
       }
     )
 

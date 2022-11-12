@@ -2,16 +2,14 @@
   <!--Weird bug, when making nested routes in vue you'll need to make the sure that the folder hiearchy needs to not be nested in order for hot reloading -->
   <div class="flex items-center justify-center">
     <!--Need to be able to show before and after-->
-  <span class="">
-    <el-button v-show="!animating" @click="startSortingClick()" :disabled="animating"
-      >Start Sorting</el-button
-    >
-    <el-button
-      v-show="animating"
-      @click="cancelAnimation()"
-      >Cancel Animation</el-button
-    >
-  </span>
+    <span class="">
+      <el-button v-show="!animating" @click="startSortingClick()" :disabled="animating"
+        >Start Sorting</el-button
+      >
+      <el-button v-show="animating" @click="cancelAnimation()"
+        >Cancel Animation</el-button
+      >
+    </span>
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
         <VerticalNode :value="node"></VerticalNode>
@@ -25,14 +23,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch, defineEmits, Ref } from "vue";
+import { defineComponent, watch } from "vue";
 import Node from "../components/Node.vue";
 import VerticalNode from "../components/VerticalNode.vue";
 import BubbleSort from "../algorithims-ts/BubbleSort";
-import { ref } from "vue";
-import {SortAlgorithimShell} from '../composables/SortAlgorithimComposable';
-import Timer from "../algorithims-ts/Timer";
-import Iteration from "../algorithims-ts/Iteration";
+import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
 
 export default defineComponent({
   name: "BubbleSort",
@@ -42,52 +37,46 @@ export default defineComponent({
     animationSpeed: { type: Number, default: 200 },
   },
   emits: ["timer"],
-  setup(props, {emit}) {
-    var currentIterationRef = ref<Iteration>;
-    var timerRef = ref<Timer>; 
-    var {sortAlgoRef, sortAnimation, cancelAnimation, animating, currentIteration, timer} = SortAlgorithimShell(new BubbleSort(props.amountOfValues) , props.amountOfValues);
+  setup(props, { emit }) {
+    var {
+      sortAlgoRef,
+      sortAnimation,
+      cancelAnimation,
+      animating,
+      currentIteration,
+      timer,
+    } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
     var sortObj = sortAlgoRef;
-
-
-    /*
-
-
-putting into code was a struggle, walkthrough 
-highlighting the code and visualization of a binary tree for example 
-
-    */
     //watching a prop
     watch(
       () => props.amountOfValues,
       (amountOfValues, prevSelc) => {
-   
-       const {sortAlgoRef, currentIteration, timer} = SortAlgorithimShell(new BubbleSort(props.amountOfValues), props.amountOfValues);
+        const { sortAlgoRef } = SortAlgorithimShell(
+          new BubbleSort(props.amountOfValues)
+        );
         sortObj.value = sortAlgoRef.value;
-        currentIterationRef = currentIteration.value;
-        timerRef = timer.value;
-       if(animating.value) cancelAnimation()
 
+        if (animating.value) cancelAnimation();
       }
     );
 
     watch(
       () => props.animationSpeed,
       (animationSpeed, prevSelc) => {
-      
-        if(animating.value) {
-          cancelAnimation()
-          sortAnimation(props.animationSpeed)
+        if (animating.value) {
+          cancelAnimation();
+          sortAnimation(props.animationSpeed);
         }
-
       }
     );
 
     watch(
-      () => timer.value, (currentTimer, oldTimer) => {
-        //emit this event 
-        emit('timer', timer);
+      () => timer.value,
+      (currentTimer, oldTimer) => {
+        //emit this event
+        emit("timer", timer.value);
       }
-    )
+    );
 
     return {
       currentIteration,
@@ -95,7 +84,7 @@ highlighting the code and visualization of a binary tree for example
       animating,
       cancelAnimation,
       sortObj,
-      timer
+      timer,
     };
   },
   methods: {

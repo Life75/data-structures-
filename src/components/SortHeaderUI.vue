@@ -7,7 +7,7 @@
     <div>
     Time taken: 
     </div>
-    {{props.timer?.value?.getTime()}}
+    {{props.timer?.getTime()}} ms
     
     <slot>
       <template> </template>
@@ -24,7 +24,7 @@ const emit = defineEmits<{
 }>();
 
 const props = defineProps({
-  timer: {type: ref<Timer>}
+  timer: {type: Timer}
 })
 
 const amountOfValues = ref(0);

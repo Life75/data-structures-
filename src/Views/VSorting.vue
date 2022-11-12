@@ -33,6 +33,5 @@ function setAmountOfValues(amount: number) {
 
 function setTimer(timer: Timer): void {
     trackTime.value = timer;
-    console.log(trackTime.value)
 }
 </script>
