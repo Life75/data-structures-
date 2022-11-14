@@ -1,9 +1,7 @@
-import Timer from "../Timer";
+import Timer from "../Classes/Timer";
 
 export default interface ISort {
-    /**
-     * name
-     */
+
     startSort(): void,
     initArray(amountOfValues: number): void, 
     getCurrentValues(): Array<number>, 

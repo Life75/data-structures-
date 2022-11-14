@@ -12,7 +12,7 @@
 //TODO mention the ordering of the values h1 
 <script setup lang="ts">
 import { ref } from 'vue';
-import Timer from '../algorithims-ts/Timer';
+import Timer from '../Contracts/Classes/Timer';
 import SortHeaderUI from '../components/SortHeaderUI.vue';
 
 const animeSpeed = ref(0); 

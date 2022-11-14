@@ -1,7 +1,7 @@
-import IIterations from "./Interfaces/IIterations";
-import ISort from "./Interfaces/ISort";
-import Timer from "./Timer";
-import Iteration from "./Iteration";
+import IIterations from "../Contracts/Interfaces/IIterations"
+import ISort from "../Contracts/Interfaces/ISort";
+import Timer from "../Contracts/Classes/Timer";
+import Iteration from "../Contracts/Classes/Iteration";
 
 export default class BubbleSort implements ISort, IIterations {
   //Makes random array,

@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 import { Ref, ref } from "vue";
-import Timer from "../algorithims-ts/Timer";
+import Timer from "../Contracts/Classes/Timer";
 const emit = defineEmits<{
   (e: "emitSliderValue", amountOfValues: number): void;
   (e: "emitAnimationSpeed", speedSliderValue: number): void;
