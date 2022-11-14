@@ -15,8 +15,8 @@
         <VerticalNode :value="node"></VerticalNode>
       </li>
 
-      <li v-show="animating" class="flex" v-for="node in currentIteration">
-        <VerticalNode :value="node"></VerticalNode>
+      <li v-show="animating" class="flex" v-for="node in currentIteration?.getIteration()">
+        <VerticalNode :value="node"></VerticalNode><!--Setup new inputs for this node-->
       </li>
     </div>
   </div>
@@ -79,7 +79,7 @@ export default defineComponent({
     );
 
     return {
-      currentIteration,
+      currentIteration, //currentIteration is an iterationObject 
       sortAnimation,
       animating,
       cancelAnimation,
