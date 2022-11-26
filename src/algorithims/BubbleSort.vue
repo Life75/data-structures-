@@ -41,6 +41,7 @@ export default defineComponent({
       animating,
       currentIteration,
       timer,
+      clearIterations
     } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
     var sortObj = sortAlgoRef;
 
@@ -84,10 +85,12 @@ export default defineComponent({
       cancelAnimation,
       sortObj,
       timer,
+      clearIterations
     };
   },
   methods: {
     startSortingClick(): void {
+      this.clearIterations();
       this.sortObj.startSort();
       this.sortAnimation(this.animationSpeed);
     },

@@ -2,47 +2,9 @@ import IIterations from "../Contracts/Interfaces/IIterations"
 import ISort from "../Contracts/Interfaces/ISort";
 import Timer from "../Contracts/Classes/Timer";
 import Iteration from "../Contracts/Classes/Iteration";
+import Sort from "./Sort";
 
-export default class BubbleSort implements ISort, IIterations {
-  //Makes random array,
-  private values: number[];
-  private beforeBeingSorted: number[];
-  private afterBeingSorted: number[];
-  private amountOfValues: number;
-  private iterations: Iteration[] = [];
-  private timer: Timer;
-
-  constructor(amountOfValues: number) {
-    this.timer = new Timer();
-    this.amountOfValues = amountOfValues;
-    this.values = [];
-    this.beforeBeingSorted = [];
-    this.afterBeingSorted = [];
-    this.iterations = [];
-    //make random values
-    this.initArray(this.amountOfValues);
-    this.beforeBeingSorted = [...this.getCurrentValues()];
-  }
-  
-
-  public initArray(amount: number) {
-    this.amountOfValues = amount;
-    this.values = [];
-    this.iterations = [] as Iteration[];
-    
-    if (this.amountOfValues) {
-      for (var i = 0; i < this.amountOfValues; i++) {
-        this.addNumToArray(Math.floor(Math.random() * 500));
-      }
-      //once finished this is the complete random array of values
-      this.beforeBeingSorted = [...this.values];
-    }
-  }
-
-  private addNumToArray(num: number) {
-    this.values.push(num);
-  }
-
+export default class BubbleSort extends Sort implements ISort, IIterations {
   public startSort(): void {
     //start the timer
     //make sure the values aren't already sorted
@@ -74,10 +36,6 @@ export default class BubbleSort implements ISort, IIterations {
     var iterationObject = new Iteration(iteration);
     iterationObject.setLastIndexesMoved(lastMovedIndex)
     this.iterations.push(iterationObject);
-  }
-
-  public getCurrentValues(): Array<number> {
-    return this.values;
   }
 
   getBeforeSortedValues(): number[] {

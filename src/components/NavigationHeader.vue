@@ -14,7 +14,8 @@
         <router-link to="/Sorting/BubbleSort/">Bubble Sort</router-link>
         </el-menu-item>
         <el-menu-item index="1-2">Merge Sort</el-menu-item>
-        <el-menu-item index="1-3">Quick Sort</el-menu-item>
+        <el-menu-item index="1-3">
+          <router-link to="/Sorting/QuickSort/">Quick Sort </router-link></el-menu-item>
         <el-sub-menu index="2-4">
           <template #title>item four</template>
           <el-menu-item index="2-4-1">item one</el-menu-item>

@@ -2,9 +2,10 @@ import { Ref, ref, watch } from 'vue'
 import IIterations from '../Contracts/Interfaces/IIterations'
 import ISort from '../Contracts/Interfaces/ISort'
 import Iteration from '../Contracts/Classes/Iteration';
+import Sort from '../algorithims-ts/Sort';
 
 //make UI elements packaged into an object for the sortHeader
-export function SortAlgorithimShell(sortAlgo: ISort & IIterations) {
+export function SortAlgorithimShell(sortAlgo: Sort & ISort & IIterations) {
     var sortAlgoRef = ref(sortAlgo);
     var animating = ref(false);
     var frame = ref(0);
@@ -27,6 +28,10 @@ export function SortAlgorithimShell(sortAlgo: ISort & IIterations) {
       clearInterval(id.value);
       frame.value = 0;
       animating.value = false;
+    }
+
+    function clearIterations(): void {
+      sortAlgoRef.value.clearIterations();
     }
 
     //check if the values are already sorted, if so return the values to before being sorted 
@@ -53,5 +58,5 @@ export function SortAlgorithimShell(sortAlgo: ISort & IIterations) {
       }, speed)
     }
     
-    return {sortAlgoRef, sortAnimation, cancelAnimation, animating, currentIteration, timer}
+    return {sortAlgoRef, sortAnimation, cancelAnimation, animating, currentIteration, timer, clearIterations}
 }
