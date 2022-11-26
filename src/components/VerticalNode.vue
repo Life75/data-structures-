@@ -21,6 +21,7 @@ export default defineComponent({
             //console.log(this.value)
             return height.toString();
         }
+        
     }
 })
 </script>

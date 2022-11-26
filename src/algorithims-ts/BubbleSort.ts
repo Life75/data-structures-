@@ -19,17 +19,17 @@ export default class BubbleSort implements ISort, IIterations {
     this.beforeBeingSorted = [];
     this.afterBeingSorted = [];
     this.iterations = [];
-
     //make random values
     this.initArray(this.amountOfValues);
     this.beforeBeingSorted = [...this.getCurrentValues()];
   }
+  
 
   public initArray(amount: number) {
     this.amountOfValues = amount;
     this.values = [];
-
-    this.iterations = [];
+    this.iterations = [] as Iteration[];
+    
     if (this.amountOfValues) {
       for (var i = 0; i < this.amountOfValues; i++) {
         this.addNumToArray(Math.floor(Math.random() * 500));
@@ -57,7 +57,8 @@ export default class BubbleSort implements ISort, IIterations {
           var temp = this.values[j];
           this.values[j] = this.values[j + 1];
           this.values[j + 1] = temp;
-          this.addToIterations(this.values);
+          this.addToIterations(this.values, j+1);
+        
         }
       }
     }
@@ -69,8 +70,9 @@ export default class BubbleSort implements ISort, IIterations {
     return this.afterBeingSorted.length != 0;
   }
 
-  public addToIterations(iteration: Array<number>) {
+  public addToIterations(iteration: Array<number>, lastMovedIndex: number) {
     var iterationObject = new Iteration(iteration);
+    iterationObject.setLastIndexesMoved(lastMovedIndex)
     this.iterations.push(iterationObject);
   }
 
@@ -95,5 +97,9 @@ export default class BubbleSort implements ISort, IIterations {
 
   public getTimer(): Timer {
     return this.timer;
+  }
+
+  public clearIterations(): void {
+    this.iterations = []
   }
 }

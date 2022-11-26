@@ -9,9 +9,8 @@ export function SortAlgorithimShell(sortAlgo: ISort & IIterations) {
     var animating = ref(false);
     var frame = ref(0);
     var id = ref();
-    var currentIteration: Ref<Iteration | undefined> = ref(undefined);
+    var currentIteration: Ref<Iteration | undefined> = ref();
     var timer = ref();
-
 
     watch(
       () => sortAlgoRef.value.getTimer(), (newTimer, oldTimer) => {
@@ -31,18 +30,21 @@ export function SortAlgorithimShell(sortAlgo: ISort & IIterations) {
     }
 
     //check if the values are already sorted, if so return the values to before being sorted 
-
     function sortAnimation(speed: number): void {
+      //clear iterations 
+
       animating.value = true;
       var animationID = setInterval(() => {
         if(frame.value == sortAlgoRef.value.getIterations().length) {
+          sortAlgoRef.value.clearIterations()
           cancelAnimation();
         } else {
           id.value = animationID
         }
         try {
           // getting the currentIteration value within the animation frame 
-          currentIteration.value?.setIteration(sortAlgoRef.value.getIterations()[frame.value].getIteration());
+          currentIteration.value = sortAlgoRef.value.getIterations()[frame.value]
+          //currentIteration.value?.setIteration(sortAlgoRef.value.getIterations()[frame.value].getIteration());
           frame.value++;
         }
         catch (e: unknown) {

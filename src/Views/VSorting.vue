@@ -9,7 +9,6 @@
 
 </template>
 
-//TODO mention the ordering of the values h1 
 <script setup lang="ts">
 import { ref } from 'vue';
 import Timer from '../Contracts/Classes/Timer';

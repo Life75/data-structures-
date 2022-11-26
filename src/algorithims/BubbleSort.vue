@@ -13,31 +13,30 @@
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
         <VerticalNode :value="node"></VerticalNode>
-      </li>
-
-      <li v-show="animating" class="flex" v-for="node in currentIteration?.getIteration()">
-        <VerticalNode :value="node"></VerticalNode><!--Setup new inputs for this node-->
-      </li>
+      </li>      
+      <VerticalNodeAdapter v-if="animating" :iteration="currentIteration"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from "vue";
+import { defineComponent, ref, watch } from "vue";
 import Node from "../components/Node.vue";
 import VerticalNode from "../components/VerticalNode.vue";
 import BubbleSort from "../algorithims-ts/BubbleSort";
 import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
+import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
 
 export default defineComponent({
   name: "BubbleSort",
-  components: { Node, VerticalNode },
+  components: { Node, VerticalNode, VerticalNodeAdapter },
   props: {
     amountOfValues: { type: Number, default: 0 },
     animationSpeed: { type: Number, default: 200 },
   },
   emits: ["timer"],
   setup(props, { emit }) {
+    ////var currentIterationObj = ref()
     var {
       sortAlgoRef,
       sortAnimation,
@@ -47,14 +46,18 @@ export default defineComponent({
       timer,
     } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
     var sortObj = sortAlgoRef;
+    
     //watching a prop
+   // console.log(currentIteration.value);
     watch(
       () => props.amountOfValues,
       (amountOfValues, prevSelc) => {
+
         const { sortAlgoRef } = SortAlgorithimShell(
           new BubbleSort(props.amountOfValues)
         );
         sortObj.value = sortAlgoRef.value;
+        console.log(sortObj.value.getIterations().length)
 
         if (animating.value) cancelAnimation();
       }

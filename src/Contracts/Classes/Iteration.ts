@@ -1,11 +1,11 @@
 export default class Iteration {
     //holds an iteration array 
     private iteration: Array<number> = [];
-    private lastIndexMoved: number;
+    private lastIndexesMoved: number = 0;
 
     constructor(iteration: Array<number>) {
         this.iteration = [...iteration];
-        this.lastIndexMoved = 0;
+        
     }
 
     public getIteration(): Array<number> {
@@ -17,15 +17,16 @@ export default class Iteration {
     }
 
     public setIteration(iteration: Array<number>) {
+        
         this.iteration = [...iteration];
     }
 //TODO implement functionality
-    public setLastIndexesMoved(){
-
+    public setLastIndexesMoved(lastIndexesMoved: number){
+        this.lastIndexesMoved = lastIndexesMoved
     }
 
-    public getLastIndexesMoved(){
-
+    public getLastIndexesMoved(): number{
+        return this.lastIndexesMoved;
     }
 }
 
