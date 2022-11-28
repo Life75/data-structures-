@@ -22,9 +22,7 @@ export default class QuickSort extends Sort implements ISort, IIterations {
         }
 
         this.timer.start();
-        console.log(this.values)
         this.quickSort(this.values, 0, this.values.length - 1);
-        console.log(this.values);
         this.timer.stop();
 
         this.afterBeingSorted = [...this.values];
@@ -32,7 +30,7 @@ export default class QuickSort extends Sort implements ISort, IIterations {
     }
 
     private quickSort(arr: Array<number>, low: number, high: number){
-        if(low > high) {
+        if(low < high) {
             let part = this.partition(arr, low, high);
             this.quickSort(arr, low, part - 1);
 
@@ -55,6 +53,7 @@ export default class QuickSort extends Sort implements ISort, IIterations {
             }
         }
         this.swap(arr, i + 1, high);
+        this.addToIterations(arr, 0);
         return (i + 1);
     }
 

@@ -4,17 +4,16 @@
       class="el-menu-demo"
       mode="horizontal"
       :ellipsis="false"
-      @select="handleSelect"
     >
       <el-menu-item index="0">Algorithms and Data Structures <router-link to="/"></router-link></el-menu-item>
       <div class="flex-grow" />
       <el-sub-menu index="1">
         <template #title>Sorting Algorithms</template>
-        <el-menu-item index="1-1">
+        <el-menu-item index="1-1" @click="changeRoute('BubbleSort')">  
         <router-link to="/Sorting/BubbleSort/">Bubble Sort</router-link>
         </el-menu-item>
         <el-menu-item index="1-2">Merge Sort</el-menu-item>
-        <el-menu-item index="1-3">
+        <el-menu-item index="1-3" @click="changeRoute('QuickSort')">
           <router-link to="/Sorting/QuickSort/">Quick Sort </router-link></el-menu-item>
         <el-sub-menu index="2-4">
           <template #title>item four</template>
@@ -35,10 +34,12 @@
   
   <script lang="ts" setup>
   import { ref } from 'vue'
+  import router from '../router';
   
   const activeIndex = ref('1')
-  const handleSelect = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
+
+  function changeRoute(route: string) {
+    router.push({path: `/Sorting/${route}`});
   }
   </script>
   
