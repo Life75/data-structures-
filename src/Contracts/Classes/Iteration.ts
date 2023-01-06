@@ -20,7 +20,7 @@ export default class Iteration {
         
         this.iteration = [...iteration];
     }
-//TODO implement functionality
+    
     public setLastIndexesMoved(lastIndexesMoved: number){
         this.lastIndexesMoved = lastIndexesMoved
     }

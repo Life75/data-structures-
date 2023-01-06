@@ -1,5 +1,5 @@
 <template>
-    <li class="flex" v-for="node in iteration?.getIteration()">
+    <li class="flex" v-for="(node,index) in iteration?.getIteration()">
     <div class="border-x-2">
         <VerticalNode :value="node"></VerticalNode>
     </div>
@@ -18,7 +18,9 @@ export default defineComponent({
         iteration: { type: Iteration, default: undefined }
     },
     setup(props) {
-    }
+      
+    },
+    
 })
 
 </script>
