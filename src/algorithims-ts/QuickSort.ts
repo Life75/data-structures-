@@ -33,11 +33,7 @@ export default class QuickSort extends Sort implements ISort, IIterations {
         if(low < high) {
             let part = this.partition(arr, low, high);
             this.quickSort(arr, low, part - 1);
-
             this.quickSort(arr, part+1, high);
-
-
-            
         }
 
     }

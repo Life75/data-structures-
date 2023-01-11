@@ -1,7 +1,7 @@
 <template>
     <li class="flex" v-for="(node,index) in iteration?.getIteration()">
     <div class="border-x-2">
-        <VerticalNode :value="node"></VerticalNode>
+        <VerticalNode :value="node" :highlight="iteration?.getLastIndexesMoved() == index"></VerticalNode>
     </div>
     </li>
 </template>
@@ -18,7 +18,7 @@ export default defineComponent({
         iteration: { type: Iteration, default: undefined }
     },
     setup(props) {
-      
+      console.log(props.iteration)
     },
     
 })

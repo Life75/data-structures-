@@ -1,5 +1,5 @@
 <template>
-    <div class="border-l-8 border-green-500" :style="{'height': nodeHeight() + 'px'}">
+    <div :class="verticalNodeStyles()" :style="{'height': nodeHeight() + 'px'}">
     
     </div>
 </template>
@@ -10,11 +10,13 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: "VerticalNode",
-    props: { value: Number, highlight: Boolean }, //Make this an object 
+    props: { value: Number, highlight: {type: Boolean, default: false} }, //Make this an object 
     methods: {
         verticalNodeStyles(): string {
+            if(this.highlight)
+            return "border-l-8 border-blue-500";
 
-            return "border-l-5 border-green-500";
+            return "border-l-8 border-green-500";
         },
         nodeHeight(): string {
             

@@ -5,8 +5,9 @@
       mode="horizontal"
       :ellipsis="false"
     >
-      <el-menu-item index="0">Algorithms and Data Structures <router-link to="/"></router-link></el-menu-item>
-      <div class="flex-grow" />
+      <el-menu-item index="0">Algorithms and Data Structures  
+ <router-link to="/"></router-link>{{props.title  }}</el-menu-item>
+      <div class="flex-grow" /> 
       <el-sub-menu index="1">
         <template #title>Sorting Algorithms</template>
         <el-menu-item index="1-1" @click="changeRoute('BubbleSort')">  
@@ -28,13 +29,17 @@
         <el-menu-item index="2-2">Binary Trees</el-menu-item>
         <el-menu-item index="2-3">Doublely Linked List</el-menu-item>
       </el-sub-menu>
-
     </el-menu>
+    
   </template>
   
   <script lang="ts" setup>
   import { ref } from 'vue'
   import router from '../router';
+
+  const props = defineProps({
+    title: {type: String, default: ''}
+  })
   
   const activeIndex = ref('1')
 

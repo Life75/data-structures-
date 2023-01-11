@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Ref, ref } from "vue";
+import { ref } from "vue";
 import Timer from "../Contracts/Classes/Timer";
 const emit = defineEmits<{
   (e: "emitSliderValue", amountOfValues: number): void;
@@ -35,7 +35,7 @@ function emitSliderValue() {
 }
 
 function emitAnimationSpeed() {
-  emit("emitAnimationSpeed", animationSpeed.value);
+  emit("emitAnimationSpeed", 100 - animationSpeed.value);
 }
 
 </script>

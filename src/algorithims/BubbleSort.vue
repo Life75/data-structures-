@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from "vue";
+import { defineComponent, onMounted, watch } from "vue";
 import Node from "../components/Node.vue";
 import VerticalNode from "../components/VerticalNode.vue";
 import BubbleSort from "../algorithims-ts/BubbleSort";
@@ -32,7 +32,7 @@ export default defineComponent({
     amountOfValues: { type: Number, default: 0 },
     animationSpeed: { type: Number, default: 200 },
   },
-  emits: ["timer"],
+  emits: ["timer", "header"],
   setup(props, { emit }) {
     var {
       sortAlgoRef,
@@ -44,6 +44,11 @@ export default defineComponent({
       clearIterations
     } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
     var sortObj = sortAlgoRef;
+
+    onMounted(() => {
+      console.log('hello')
+      emit("header", "Bubble Sort")
+    })
 
     //watching a prop
     watch(
