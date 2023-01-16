@@ -22,7 +22,6 @@ export default defineComponent({
     },
     methods: {
         highlighter(index: number) {
-            //console.log(this.iteration?.getLastIndexesMoved() == index)
             return this.iteration?.getLastIndexesMoved() == index
         }
     }

@@ -24,7 +24,6 @@ const emit = defineEmits(['header'])
 
 function setHeaderTitle(headerTitle: string) {
     header.value = headerTitle
-    console.log(header.value)
     emit("header", header.value)
 } 
 

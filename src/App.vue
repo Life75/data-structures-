@@ -6,7 +6,6 @@ import NavigationHeader from "./components/NavigationHeader.vue";
 const header = ref("");
 function setHeaderTitle(headerTitle: string) {
     header.value = headerTitle
-    console.log(header.value)
 } 
 
 </script>

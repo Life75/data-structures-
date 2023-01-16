@@ -3,8 +3,12 @@
   <div class="flex items-center justify-center">
     <!--Need to be able to show before and after-->
     <span class="p-2">
-      <el-button v-show="!animating" @click="startSortingClick()" :disabled="animating">Start Sorting</el-button>
-      <el-button class="p-2" v-show="animating" @click="cancelAnimation()">Cancel Animation</el-button>
+      <el-button v-show="!animating" @click="startSortingClick()" :disabled="animating"
+        >Start Sorting</el-button
+      >
+      <el-button class="p-2" v-show="animating" @click="cancelAnimation()"
+        >Cancel Animation</el-button
+      >
     </span>
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
@@ -12,7 +16,7 @@
           <VerticalNode :value="node"></VerticalNode>
         </div>
       </li>
-      <VerticalNodeAdapter v-if="animating" :iteration="currentIteration"/>
+      <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
   </div>
 </template>
@@ -41,22 +45,19 @@ export default defineComponent({
       animating,
       currentIteration,
       timer,
-      clearIterations
+      clearIterations,
     } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
     var sortObj = sortAlgoRef;
 
     onMounted(() => {
-      emit("header", "Bubble Sort")
-    })
+      emit("header", "Bubble Sort");
+    });
 
     //watching a prop
     watch(
       () => props.amountOfValues,
       (amountOfValues, prevSelc) => {
-          
-        const { sortAlgoRef } = SortAlgorithimShell(
-          new BubbleSort(props.amountOfValues)
-        );
+        const { sortAlgoRef } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
         sortObj.value = sortAlgoRef.value;
 
         if (animating.value) cancelAnimation();
@@ -82,32 +83,25 @@ export default defineComponent({
     );
 
     return {
-      currentIteration, //currentIteration is an iterationObject 
+      currentIteration, //currentIteration is an iterationObject
       sortAnimation,
       animating,
       cancelAnimation,
       sortObj,
       timer,
-      clearIterations
+      clearIterations,
     };
   },
   methods: {
     startSortingClick(): void {
       this.clearIterations();
       this.sortObj.startSort();
-      
-      if(this.animationSpeed == 0)
-      this.sortAnimation(100);
-      else
-      this.sortAnimation(this.animationSpeed);
 
-      console.log(this.sortObj.getIterations()[0].getLastIndexesMoved())
-
+      if (this.animationSpeed == 0) this.sortAnimation(100);
+      else this.sortAnimation(this.animationSpeed);
     },
   },
 });
 </script>
 
-<style>
-
-</style>
+<style></style>

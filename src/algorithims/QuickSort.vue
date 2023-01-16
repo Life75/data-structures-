@@ -54,7 +54,6 @@
             new QuickSort(props.amountOfValues)
           );
           sortObj.value = sortAlgoRef.value;
-          console.log(sortObj.value.getIterations().length)
   
           if (animating.value) cancelAnimation();
         }

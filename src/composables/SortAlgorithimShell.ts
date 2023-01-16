@@ -47,10 +47,8 @@ export function SortAlgorithimShell(sortAlgo: Sort & ISort & IIterations) {
           id.value = animationID
         }
         try {
-          console.log("hey")
           // getting the currentIteration value within the animation frame 
           currentIteration.value = sortAlgoRef.value.getIterations()[frame.value]
-          console.log(currentIteration.value.getLastIndexesMoved())
           //currentIteration.value?.setIteration(sortAlgoRef.value.getIterations()[frame.value].getIteration());
           frame.value++;
         }
