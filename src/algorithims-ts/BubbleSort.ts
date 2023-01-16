@@ -35,8 +35,9 @@ export default class BubbleSort extends Sort implements ISort, IIterations {
   public addToIterations(iteration: Array<number>, lastMovedIndex: number) {
     var iterationObject = new Iteration(iteration);
     iterationObject.setLastIndexesMoved(lastMovedIndex)
-    console.log(lastMovedIndex)
+    //console.log(lastMovedIndex)
     this.iterations.push(iterationObject);
+    //console.log(this.iterations)
   }
 
   getBeforeSortedValues(): number[] {

@@ -12,7 +12,7 @@
           <VerticalNode :value="node"></VerticalNode>
         </div>
       </li>
-      <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
+      <VerticalNodeAdapter v-if="animating" :iteration="currentIteration"/>
     </div>
   </div>
 </template>
@@ -46,7 +46,6 @@ export default defineComponent({
     var sortObj = sortAlgoRef;
 
     onMounted(() => {
-      console.log('hello')
       emit("header", "Bubble Sort")
     })
 
@@ -54,12 +53,11 @@ export default defineComponent({
     watch(
       () => props.amountOfValues,
       (amountOfValues, prevSelc) => {
-
+          
         const { sortAlgoRef } = SortAlgorithimShell(
           new BubbleSort(props.amountOfValues)
         );
         sortObj.value = sortAlgoRef.value;
-        console.log(sortObj.value.getIterations().length)
 
         if (animating.value) cancelAnimation();
       }
@@ -97,7 +95,14 @@ export default defineComponent({
     startSortingClick(): void {
       this.clearIterations();
       this.sortObj.startSort();
+      
+      if(this.animationSpeed == 0)
+      this.sortAnimation(100);
+      else
       this.sortAnimation(this.animationSpeed);
+
+      console.log(this.sortObj.getIterations()[0].getLastIndexesMoved())
+
     },
   },
 });
