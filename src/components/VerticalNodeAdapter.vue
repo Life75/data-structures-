@@ -22,7 +22,7 @@ export default defineComponent({
     },
     methods: {
         highlighter(index: number) {
-            return this.iteration?.getLastIndexesMoved() == index
+            return this.iteration?.getLastIndexesMoved().includes(index)
         }
     }
     

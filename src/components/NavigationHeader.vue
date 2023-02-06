@@ -6,8 +6,11 @@
       :ellipsis="false"
     >
       <el-menu-item index="0">Algorithms and Data Structures  
- <router-link to="/"></router-link>{{props.title  }}</el-menu-item>
-      <div class="flex-grow" /> 
+ <router-link to="/"></router-link></el-menu-item>
+        
+      <span class=""></span>
+      <div class="flex-grow" />
+      <div>{{props.title}}</div> 
       <el-sub-menu index="1">
         <template #title>Sorting Algorithms</template>
         <el-menu-item index="1-1" @click="changeRoute('BubbleSort')">  
@@ -45,6 +48,13 @@
 
   function changeRoute(route: string) {
     router.push({path: `/Sorting/${route}`});
+  }
+
+  function getTitle(): string {
+    if(props.title != ''){
+      return props.title
+    }
+    return "Sorting Algorithms"
   }
   </script>
   

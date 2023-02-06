@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-center">
         <!--Setup where you can view a header that will emit events to update from the components, will need interface on what data to emit to VSorting Component TODO-->
-        <SortHeaderUI @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed"></SortHeaderUI>
+        <SortHeaderUI @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" :header="header"></SortHeaderUI>
         <RouterView  :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed" @timer="setTimer" @header="setHeaderTitle">
         </RouterView>   
     </div>
@@ -24,7 +24,7 @@ const emit = defineEmits(['header'])
 
 function setHeaderTitle(headerTitle: string) {
     header.value = headerTitle
-    emit("header", header.value)
+    //emit("header", header.value)
 } 
 
 function setAnimationSpeed(animationSpeed: number) {

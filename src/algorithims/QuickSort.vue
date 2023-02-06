@@ -18,7 +18,7 @@
   </template>
   
   <script lang="ts">
-  import { defineComponent, watch } from "vue";
+  import { defineComponent, onMounted, watch } from "vue";
   import Node from "../components/Node.vue";
   import VerticalNode from "../components/VerticalNode.vue";
   import QuickSort from "../algorithims-ts/QuickSort";
@@ -32,7 +32,7 @@
       amountOfValues: { type: Number, default: 0 },
       animationSpeed: { type: Number, default: 200 },
     },
-    emits: ["timer"],
+    emits: ["timer", "header"],
     setup(props, { emit }) {
       var {
         sortAlgoRef,
@@ -76,6 +76,11 @@
           emit("timer", timer.value);
         }
       );
+
+      onMounted(() => {
+      emit("header", "Quick Sort");
+    });
+
   
       return {
         currentIteration, //currentIteration is an iterationObject 

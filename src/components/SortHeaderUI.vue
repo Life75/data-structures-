@@ -1,5 +1,6 @@
 <template>
   <div>
+    <span class="py-11">{{ props.header }}</span>
     <div>Amount to be sorted</div>
     <el-slider v-model="amountOfValues" @change="emitSliderValue()"></el-slider>
     <div>Speed</div>
@@ -24,7 +25,8 @@ const emit = defineEmits<{
 }>();
 
 const props = defineProps({
-  timer: {type: Timer}
+  timer: {type: Timer},
+  header: {type: String}
 })
 
 const amountOfValues = ref(0);

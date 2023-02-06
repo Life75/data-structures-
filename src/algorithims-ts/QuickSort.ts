@@ -3,12 +3,12 @@ import IIterations from "../Contracts/Interfaces/IIterations";
 import ISort from "../Contracts/Interfaces/ISort";
 import Sort from "./Sort";
 //https://www.geeksforgeeks.org/quick-sort/
-//TODO FIX ANIMATION AND ITERATIONS ON WHERE EACH ITERATION IS AT 
 export default class QuickSort extends Sort implements ISort, IIterations {
-    addToIterations(iteration: number[], lastMovedIndex: number): void {
+    addToIterations(iteration: number[], lastMovedIndex: number, swappedIndex: number): void {
         var iterationObject = new Iteration(iteration);
-        iterationObject.setLastIndexesMoved(lastMovedIndex)
+        iterationObject.setLastIndexesMoved(lastMovedIndex, swappedIndex)
         this.iterations.push(iterationObject);
+        console.log(iterationObject.getLastIndexesMoved())
     }
     getIterations(): Iteration[] {
         return this.iterations;
@@ -49,7 +49,8 @@ export default class QuickSort extends Sort implements ISort, IIterations {
             }
         }
         this.swap(arr, i + 1, high);
-        this.addToIterations(arr, 0);
+        this.addToIterations(arr, i, i+1);
+        
         return (i + 1);
     }
 
