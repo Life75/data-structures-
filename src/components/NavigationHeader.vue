@@ -19,16 +19,14 @@
         <el-menu-item index="1-2">Merge Sort</el-menu-item>
         <el-menu-item index="1-3" @click="changeRoute('QuickSort')">
           <router-link to="/Sorting/QuickSort/">Quick Sort </router-link></el-menu-item>
-        <el-sub-menu index="2-4">
-          <template #title>item four</template>
-          <el-menu-item index="2-4-1">item one</el-menu-item>
-          <el-menu-item index="2-4-2">item two</el-menu-item>
-          <el-menu-item index="2-4-3">item three</el-menu-item>
-        </el-sub-menu>
       </el-sub-menu>
       <el-sub-menu index="2">
         <template #title>Data Structures</template>
-        <el-menu-item index="2-1">Linked List</el-menu-item>
+        <el-sub-menu index="2-4">
+          <template #title>Linked Lists</template>
+          <el-menu-item index="2-4-1">Queues</el-menu-item>
+          <el-menu-item index="2-4-2">Stack</el-menu-item>
+        </el-sub-menu>
         <el-menu-item index="2-2">Binary Trees</el-menu-item>
         <el-menu-item index="2-3">Doublely Linked List</el-menu-item>
       </el-sub-menu>

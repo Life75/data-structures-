@@ -41,23 +41,25 @@ export default class QuickSort extends Sort implements ISort, IIterations {
     private partition(arr: Array<number>, low: number, high: number){
         let pivot = arr[high];
         let i = (low - 1);
-
+        let swappedIndex = 0;
         for(let j = low; j <= high -1; j++){
             if(arr[j] < pivot ){
                 i++;
                 this.swap(arr, i, j);
+                swappedIndex = j
             }
         }
         this.swap(arr, i + 1, high);
-        this.addToIterations(arr, i, i+1);
+        this.addToIterations(arr, i, swappedIndex);
         
         return (i + 1);
     }
 
-    private swap(arr: Array<number>, i: number, j: number){
+    private swap(arr: Array<number>, i: number, j: number): number{
         let temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp; 
+        return j
     }
 
     private isSorted() {
