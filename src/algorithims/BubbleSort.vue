@@ -97,7 +97,7 @@ export default defineComponent({
       this.clearIterations();
       this.sortObj.startSort();
 
-      if (this.animationSpeed == 0) this.sortAnimation(100);
+      if (this.animationSpeed == 0) this.sortAnimation(200);
       else this.sortAnimation(this.animationSpeed);
     },
   },

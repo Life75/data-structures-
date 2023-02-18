@@ -37,7 +37,7 @@ function emitSliderValue() {
 }
 
 function emitAnimationSpeed() {
-  emit("emitAnimationSpeed", 100 - animationSpeed.value);
+  emit("emitAnimationSpeed", 200 - animationSpeed.value);
 }
 
 </script>

@@ -20,7 +20,7 @@ const routes = [
         component: VSorting,
         children: [{
             path: 'BubbleSort',
-            component: BubbleSort
+            component: BubbleSort,
         },
         {
             path: 'QuickSort',

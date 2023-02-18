@@ -51,6 +51,7 @@ export function SortAlgorithimShell(sortAlgo: Sort & ISort & IIterations) {
           currentIteration.value = sortAlgoRef.value.getIterations()[frame.value]
           //currentIteration.value?.setIteration(sortAlgoRef.value.getIterations()[frame.value].getIteration());
           frame.value++;
+          console.log(speed)
         }
         catch (e: unknown) {
           clearInterval(animationID);
