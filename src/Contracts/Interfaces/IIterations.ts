@@ -1,7 +1,7 @@
 import Iteration from "../Classes/Iteration"
 
 export default interface IIterations {
-    addToIterations(iteration: Array<number>, lastMovedIndex: number, swappedIndex: number): void 
+    addToIterations(iteration: Array<number>, movedIndexes: Array<number>): void 
     getIterations(): Iteration[]
     clearIterations(): void
 }

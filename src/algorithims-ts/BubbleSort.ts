@@ -19,7 +19,10 @@ export default class BubbleSort extends Sort implements ISort, IIterations {
           var temp = this.values[j];
           this.values[j] = this.values[j + 1];
           this.values[j + 1] = temp;
-          this.addToIterations(this.values, j+1, j);
+          var movedIndexes: Array<number> = [] 
+          movedIndexes.push(j+1)
+          movedIndexes.push(j)
+          this.addToIterations(this.values, movedIndexes);
         
         }
       }
@@ -32,9 +35,9 @@ export default class BubbleSort extends Sort implements ISort, IIterations {
     return this.afterBeingSorted.length != 0;
   }
 
-  public addToIterations(iteration: Array<number>, lastMovedIndex: number, swappedIndex: number) {
+  public addToIterations(iteration: Array<number>, movedIndexes: Array<number>) {
     var iterationObject = new Iteration(iteration);
-    iterationObject.setLastIndexesMoved(lastMovedIndex, swappedIndex)
+    iterationObject.setLastIndexesMoved(movedIndexes)
     this.iterations.push(iterationObject);
   }
 

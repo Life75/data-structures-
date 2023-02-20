@@ -4,11 +4,11 @@ import ISort from "../Contracts/Interfaces/ISort";
 import Sort from "./Sort";
 //https://www.geeksforgeeks.org/quick-sort/
 export default class QuickSort extends Sort implements ISort, IIterations {
-    addToIterations(iteration: number[], lastMovedIndex: number, swappedIndex: number): void {
+    addToIterations(iteration: number[], movedIndexes: Array<number>): void {
         var iterationObject = new Iteration(iteration);
-        iterationObject.setLastIndexesMoved(lastMovedIndex, swappedIndex)
+        iterationObject.setLastIndexesMoved(movedIndexes)
         this.iterations.push(iterationObject);
-        console.log(iterationObject.getLastIndexesMoved())
+       // console.log(iterationObject.getLastIndexesMoved())
     }
     getIterations(): Iteration[] {
         return this.iterations;
@@ -39,18 +39,23 @@ export default class QuickSort extends Sort implements ISort, IIterations {
     }
 
     private partition(arr: Array<number>, low: number, high: number){
+        let movedIndexes: Array<number> = []
         let pivot = arr[high];
         let i = (low - 1);
-        let swappedIndex = 0;
+
         for(let j = low; j <= high -1; j++){
             if(arr[j] < pivot ){
                 i++;
                 this.swap(arr, i, j);
-                swappedIndex = j
+
+                movedIndexes.push(i);
+                movedIndexes.push(j);
             }
         }
         this.swap(arr, i + 1, high);
-        this.addToIterations(arr, i, swappedIndex);
+        movedIndexes.push(i + 1);
+        movedIndexes.push(high)
+        this.addToIterations(arr, movedIndexes);
         
         return (i + 1);
     }

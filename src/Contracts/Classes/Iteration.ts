@@ -1,7 +1,7 @@
 export default class Iteration {
     //holds an iteration array 
     private iteration: Array<number> = [];
-    private lastIndexesMoved: number[] = []; //making this an array to take in m
+    private movedIndexes: number[] = []; //making this an array to take in m
 
     constructor(iteration: Array<number>) {
         this.iteration = [...iteration];
@@ -21,13 +21,12 @@ export default class Iteration {
         this.iteration = [...iteration];
     }
     
-    public setLastIndexesMoved(lastIndexesMoved: number, swappedIndex: number){
-        this.lastIndexesMoved.push(lastIndexesMoved)
-        this.lastIndexesMoved.push(swappedIndex)
+    public setLastIndexesMoved(movedIndexes: Array<number>){
+        this.movedIndexes = movedIndexes;
     }
 
     public getLastIndexesMoved(): number[]{
-        return this.lastIndexesMoved;
+        return this.movedIndexes;
     }
 }
 
