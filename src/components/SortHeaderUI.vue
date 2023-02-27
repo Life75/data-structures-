@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <span class="py-11">{{ props.header }}</span>
-    <div>Amount to be sorted</div>
-    <el-slider v-model="amountOfValues" @change="emitSliderValue()"></el-slider>
-    <div>Speed</div>
-    <el-slider v-model="animationSpeed" @change="emitAnimationSpeed()"></el-slider>
+  <div class="border-2 shadow-sm space-y-3">
+    <span class="">{{ props.header }}</span>
     <div>
-    Time taken: 
+      Amount to be sorted
+      <el-slider v-model="amountOfValues" @change="emitSliderValue()"></el-slider>
     </div>
-    {{props.timer?.getTime()}} ms
-    
+    <div>
+      Animation Speed
+      <el-slider v-model="animationSpeed" @change="emitAnimationSpeed()"></el-slider>
+    </div>
+    <div>Time taken: {{ props.timer?.getTime() }} ms</div>
+
     <slot>
       <template> </template>
     </slot>
@@ -25,9 +26,9 @@ const emit = defineEmits<{
 }>();
 
 const props = defineProps({
-  timer: {type: Timer},
-  header: {type: String}
-})
+  timer: { type: Timer },
+  header: { type: String },
+});
 
 const amountOfValues = ref(0);
 const animationSpeed = ref(0);
@@ -39,5 +40,4 @@ function emitSliderValue() {
 function emitAnimationSpeed() {
   emit("emitAnimationSpeed", 200 - animationSpeed.value);
 }
-
 </script>

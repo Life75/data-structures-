@@ -39,6 +39,11 @@ export function SortAlgorithimShell(sortAlgo: Sort & ISort & IIterations) {
       //clear iterations 
 
       animating.value = true;
+      if(speed == 0) {
+        speed = 200
+      }
+      
+
       var animationID = setInterval(() => {
         if(frame.value == sortAlgoRef.value.getIterations().length) {
           sortAlgoRef.value.clearIterations()
@@ -51,7 +56,7 @@ export function SortAlgorithimShell(sortAlgo: Sort & ISort & IIterations) {
           currentIteration.value = sortAlgoRef.value.getIterations()[frame.value]
           //currentIteration.value?.setIteration(sortAlgoRef.value.getIterations()[frame.value].getIteration());
           frame.value++;
-          console.log(speed)
+    
         }
         catch (e: unknown) {
           clearInterval(animationID);
