@@ -35,8 +35,9 @@ export default defineComponent({
   props: {
     amountOfValues: { type: Number, default: 0 },
     animationSpeed: { type: Number, default: 200 },
+    startSorting: {type: Boolean, default: false}
   },
-  emits: ["timer", "header"],
+  emits: ["timer", "header", "sort-clicked"],
   setup(props, { emit }) {
     var {
       sortAlgoRef,
@@ -63,6 +64,18 @@ export default defineComponent({
         if (animating.value) cancelAnimation();
       }
     );
+
+    watch(
+      () => props.startSorting, 
+      (before, after) => {
+        console.log('sorting clicked')
+        clearIterations();
+        sortObj.value.startSort();
+
+      if (props.animationSpeed == 0) sortObj.value.sortAnimation(200);
+      else this.sortAnimation(this.animationSpeed);
+      }
+    )
 
     watch(
       () => props.animationSpeed,
