@@ -9,6 +9,7 @@
       <el-button class="p-2" v-show="animating" @click="cancelAnimation()"
         >Cancel Animation</el-button
       >
+      {{ animating }}
     </span>
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
@@ -37,7 +38,7 @@ export default defineComponent({
     animationSpeed: { type: Number, default: 200 },
     startSorting: {type: Boolean, default: false}
   },
-  emits: ["timer", "header", "sort-clicked"],
+  emits: ["timer", "header", "sort-clicked", "animating"],
   setup(props, { emit }) {
     var {
       sortAlgoRef,
@@ -71,12 +72,22 @@ export default defineComponent({
         console.log('sorting clicked')
         clearIterations();
         sortObj.value.startSort();
+        
 
-      if (props.animationSpeed == 0) sortObj.value.sortAnimation(200);
-      else this.sortAnimation(this.animationSpeed);
+      
+
+        if (props.animationSpeed == 0) sortAnimation(200);
+        else sortAnimation(props.animationSpeed);
       }
     )
 
+    watch(
+       animating, 
+      (before, after) => {
+        console.log('hey')
+        emit('animating', animating)
+      }
+    )
     watch(
       () => props.animationSpeed,
       (animationSpeed, prevSelc) => {

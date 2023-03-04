@@ -67,9 +67,7 @@ export default class QuickSort extends Sort implements ISort, IIterations {
         return j
     }
 
-    private isSorted() {
-        return this.afterBeingSorted.length != 0;
-      }
+
     //QuickSort 
     
 }

@@ -45,4 +45,9 @@ export default class Sort {
     getTimer(): Timer {
         return this.timer;
     }
+
+    isSorted() {
+        return this.afterBeingSorted.length != 0
+    }
+
 }
