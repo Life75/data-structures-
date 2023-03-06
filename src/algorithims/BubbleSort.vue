@@ -1,16 +1,8 @@
 <template>
   <!--Weird bug, when making nested routes in vue you'll need to make the sure that the folder hiearchy needs to not be nested in order for hot reloading -->
-  <div class="flex items-center justify-center">
+  <div class="flex-col items-center justify-center">
     <!--Need to be able to show before and after-->
-    <span class="p-2">
-      <el-button v-show="!animating" @click="startSortingClick()" :disabled="animating"
-        >Start Sorting</el-button
-      >
-      <el-button class="p-2" v-show="animating" @click="cancelAnimation()"
-        >Cancel Animation</el-button
-      >
-      {{ animating }}
-    </span>
+
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
         <div class="border-x-2">
@@ -19,6 +11,14 @@
       </li>
       <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
+    <span class="p-2">
+      <el-button v-show="!animating" v-if="amountOfValues" @click="startSortingClick()" :disabled="animating"
+        >Start Sorting</el-button
+      >
+      <el-button class="p-2" v-show="animating" @click="cancelAnimation()"
+        >Cancel Animation</el-button
+      >
+    </span>
   </div>
 </template>
 
@@ -29,6 +29,7 @@ import VerticalNode from "../components/VerticalNode.vue";
 import BubbleSort from "../algorithims-ts/BubbleSort";
 import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
 import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
+import QuickSort from "../algorithims-ts/QuickSort";
 
 export default defineComponent({
   name: "BubbleSort",
@@ -36,9 +37,8 @@ export default defineComponent({
   props: {
     amountOfValues: { type: Number, default: 0 },
     animationSpeed: { type: Number, default: 200 },
-    startSorting: {type: Boolean, default: false}
   },
-  emits: ["timer", "header", "sort-clicked", "animating"],
+  emits: ["timer", "header"],
   setup(props, { emit }) {
     var {
       sortAlgoRef,
@@ -66,28 +66,15 @@ export default defineComponent({
       }
     );
 
-    watch(
-      () => props.startSorting, 
-      (before, after) => {
-        console.log('sorting clicked')
-        clearIterations();
-        sortObj.value.startSort();
-        
+    function initSort() {
+      const { sortAlgoRef } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
+        sortObj.value = sortAlgoRef.value;
 
-      
+        if (animating.value) cancelAnimation();
+    }
 
-        if (props.animationSpeed == 0) sortAnimation(200);
-        else sortAnimation(props.animationSpeed);
-      }
-    )
+  
 
-    watch(
-       animating, 
-      (before, after) => {
-        console.log('hey')
-        emit('animating', animating)
-      }
-    )
     watch(
       () => props.animationSpeed,
       (animationSpeed, prevSelc) => {
@@ -105,6 +92,10 @@ export default defineComponent({
         emit("timer", timer.value);
       }
     );
+
+    onMounted(() => {
+      initSort()
+    })
 
     return {
       currentIteration, //currentIteration is an iterationObject

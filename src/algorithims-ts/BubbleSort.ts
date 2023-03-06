@@ -31,7 +31,7 @@ export default class BubbleSort extends Sort implements ISort, IIterations {
     this.afterBeingSorted = [...this.values];
   }
 
-  private isSorted() {
+  isSorted() {
     return this.afterBeingSorted.length != 0;
   }
 

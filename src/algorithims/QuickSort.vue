@@ -1,21 +1,27 @@
 <template>
-    <!--Weird bug, when making nested routes in vue you'll need to make the sure that the folder hiearchy needs to not be nested in order for hot reloading -->
-    <div class="flex items-center justify-center">
-      <!--Need to be able to show before and after-->
-      <span class="p-2">
-        <el-button v-show="!animating" @click="startSortingClick()" :disabled="animating">Start Sorting</el-button>
-        <el-button class="p-2" v-show="animating" @click="cancelAnimation()">Cancel Animation</el-button>
-      </span>
-      <div class="flex items-center justify-center p-5">
-        <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
-          <div class="border-x-2">
-            <VerticalNode :value="node"></VerticalNode>
-          </div>
-        </li>
-        <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
-      </div>
+  <!--Weird bug, when making nested routes in vue you'll need to make the sure that the folder hiearchy needs to not be nested in order for hot reloading -->
+  <div class="flex-col items-center justify-center">
+    <!--Need to be able to show before and after-->
+
+    <div class="flex items-center justify-center p-5">
+      <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
+        <div class="border-x-2">
+          <VerticalNode :value="node"></VerticalNode>
+        </div>
+      </li>
+      <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
-  </template>
+    <span class="p-2">
+      <el-button v-show="!animating" v-if="amountOfValues" @click="startSortingClick()" :disabled="animating"
+        >Start Sorting</el-button
+      >
+      <el-button class="p-2" v-show="animating" @click="cancelAnimation()"
+        >Cancel Animation</el-button
+      >
+    </span>
+  </div>
+</template>
+
   
   <script lang="ts">
   import { defineComponent, onMounted, watch } from "vue";
@@ -70,15 +76,27 @@
       );
   
       watch(
-        () => timer.value,
+      ()=>timer.value,
         (currentTimer, oldTimer) => {
           //emit this event
           emit("timer", timer.value);
+          console.log('emitting time ', timer.value)
         }
       );
 
+
+      function initSort() {
+        const { sortAlgoRef } = SortAlgorithimShell(
+            new QuickSort(props.amountOfValues)
+          );
+          sortObj.value = sortAlgoRef.value;
+  
+          if (animating.value) cancelAnimation();
+      }
+
       onMounted(() => {
       emit("header", "Quick Sort");
+      initSort()
     });
 
   
@@ -96,6 +114,7 @@
       startSortingClick(): void {
         this.clearIterations();
         this.sortObj.startSort();
+        console.log(this.timer)
         this.sortAnimation(this.animationSpeed);
       },
     },

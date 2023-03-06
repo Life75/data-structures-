@@ -2,14 +2,8 @@
     <div class="flex ">
         <!--Setup where you can view a header that will emit events to update from the components, will need interface on what data to emit to VSorting Component TODO-->
         <SortHeaderUI class="p-5" @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" :header="header">
-        <template #default>
-        <span class="">
-            <el-button v-if="!animating" class="p-3" @click="startSortingClick()">Start Sorting</el-button>
-            <el-button v-if="animating" class="p-3" @click="cancelAnimation">Start Sorting</el-button>
-        </span>
-        </template>
         </SortHeaderUI>
-        <RouterView class="flex w-3/4 " @animating="test" :startSorting="isSorting" :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed" @timer="setTimer" @header="setHeaderTitle">
+        <RouterView class="flex w-3/4 " :startSorting="isSorting" :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed" @timer="setTimer" @header="setHeaderTitle">
         </RouterView>   
     </div>
     <!--Make a component for the header for Sorting that way to deal with this problem -->
@@ -30,9 +24,6 @@ const reset = ref(false);
 let header = ref(" ");
 let trackTime = ref();
 
-function test(z: boolean) {
-    console.log(z)
-}
 
 function cancelAnimation(){
     animating.value = false
