@@ -11,11 +11,11 @@
       </li>
       <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
-    <span class="p-2">
-      <el-button v-show="!animating" v-if="amountOfValues" @click="startSortingClick()" :disabled="animating"
+    <span class="p-2 ">Work on color palettee
+      <el-button v-show="!animating" class="bg-emerald-500" type="primary" round  color=""  v-if="amountOfValues" @click="startSortingClick()" :disabled="animating"
         >Start Sorting</el-button
       >
-      <el-button class="p-2" v-show="animating" @click="cancelAnimation()"
+      <el-button class="p-2" v-show="animating"  @click="cancelAnimation()"
         >Cancel Animation</el-button
       >
     </span>

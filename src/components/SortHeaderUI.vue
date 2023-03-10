@@ -1,5 +1,5 @@
 <template>
-  <div class=" shadow-sm space-y-3">
+  <div class=" shadow-sm space-y-3 text-white">
     <span class="">{{ props.header }}</span>
     <div>
       Amount to be sorted

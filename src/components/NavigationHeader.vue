@@ -1,19 +1,22 @@
 <template>
     <el-menu 
       :default-active="activeIndex"
-      class="el-menu-demo"
+      class="border-gray-900"
       mode="horizontal"
       :ellipsis="false"
+      background-color="#181818"
+      text-color="#ffffff"
+      activ
     >
-      <el-menu-item index="0">Algorithms and Data Structures  
+      <el-menu-item index="0"> <span class="text-white">Algorithms and Data Structures</span>
  <router-link to="/"></router-link></el-menu-item>
         
       <span class=""></span>
       <div class="flex-grow" />
       <div>{{props.title}}</div> 
-      <el-sub-menu index="1">
-        <template #title>Sorting Algorithms</template>
-        <el-menu-item index="1-1" @click="changeRoute('BubbleSort')">  
+      <el-sub-menu   index="1">
+        <template #title> <span class="text-white">Sorting Algorithms </span></template>
+        <el-menu-item  index="1-1" @click="changeRoute('BubbleSort')">  
         <router-link to="/Sorting/BubbleSort/">Bubble Sort</router-link>
         </el-menu-item>
         <el-menu-item index="1-2">Merge Sort</el-menu-item>

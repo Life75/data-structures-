@@ -13,7 +13,7 @@ function setHeaderTitle(headerTitle: string) {
 <template>
   <!--TODO add git control and ElementPlus UI as well -->
   <div>
-    <NavigationHeader :title="header" class="shadow-md"></NavigationHeader>
+    <NavigationHeader :title="header" class="shadow-md" style=""></NavigationHeader>
     <span class="">
     <div class=""></div>
       <RouterView @header="setHeaderTitle"></RouterView>
