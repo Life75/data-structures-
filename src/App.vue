@@ -5,9 +5,8 @@ import NavigationHeader from "./components/NavigationHeader.vue";
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 const header = ref("");
 function setHeaderTitle(headerTitle: string) {
-    header.value = headerTitle
-} 
-
+  header.value = headerTitle;
+}
 </script>
 
 <template>
@@ -15,7 +14,7 @@ function setHeaderTitle(headerTitle: string) {
   <div>
     <NavigationHeader :title="header" class="shadow-md" style=""></NavigationHeader>
     <span class="">
-    <div class=""></div>
+      <div class=""></div>
       <RouterView @header="setHeaderTitle"></RouterView>
     </span>
   </div>

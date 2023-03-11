@@ -5,7 +5,7 @@
 
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
-        <div class="border-x-2">
+        <div class="">
           <VerticalNode :value="node"></VerticalNode>
         </div>
       </li>

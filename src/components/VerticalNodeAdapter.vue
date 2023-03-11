@@ -1,6 +1,6 @@
 <template>
     <li class="flex" v-for="(node,index) in iteration?.getIteration()">
-    <div class="border-x-2">
+    <div class="">
         <VerticalNode :value="node" :highlight="highlighter(index)"></VerticalNode>
     </div>
     </li>

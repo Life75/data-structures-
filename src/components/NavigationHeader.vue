@@ -4,8 +4,8 @@
       class="border-gray-900"
       mode="horizontal"
       :ellipsis="false"
-      background-color="#181818"
-      text-color="#ffffff"
+      background-color="#1D1E1F"
+      text-color="#E5EAF3"
       activ
     >
       <el-menu-item index="0"> <span class="text-white">Algorithms and Data Structures</span>

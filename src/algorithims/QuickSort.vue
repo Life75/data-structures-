@@ -4,14 +4,14 @@
     <!--Need to be able to show before and after-->
 
     <div class="flex items-center justify-center p-5">
-      <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
-        <div class="border-x-2">
+      <li v-show="!animating" class="flex " v-for="node in sortObj.getCurrentValues()">
+        <div class="">
           <VerticalNode :value="node"></VerticalNode>
         </div>
       </li>
       <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
-    <span class="p-2">
+    <span class="">
       <el-button v-show="!animating" v-if="amountOfValues" @click="startSortingClick()" :disabled="animating"
         >Start Sorting</el-button
       >
