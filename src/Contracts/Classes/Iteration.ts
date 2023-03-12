@@ -1,7 +1,9 @@
+import MovedIndex from "./MovedIndex";
+
 export default class Iteration {
     //holds an iteration array 
     private iteration: Array<number> = [];
-    private movedIndexes: number[] = []; //making this an array to take in m
+    private movedIndexes: MovedIndex[] = []; //making this an array to take in m
 
     constructor(iteration: Array<number>) {
         this.iteration = [...iteration];
@@ -21,11 +23,11 @@ export default class Iteration {
         this.iteration = [...iteration];
     }
     
-    public setLastIndexesMoved(movedIndexes: Array<number>){
+    public setLastIndexesMoved(movedIndexes: Array<MovedIndex>){
         this.movedIndexes = movedIndexes;
     }
 
-    public getLastIndexesMoved(): number[]{
+    public getLastIndexesMoved(): MovedIndex[]{
         return this.movedIndexes;
     }
 }

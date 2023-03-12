@@ -3,6 +3,8 @@ import ISort from "../Contracts/Interfaces/ISort";
 import Timer from "../Contracts/Classes/Timer";
 import Iteration from "../Contracts/Classes/Iteration";
 import Sort from "./Sort";
+import MovedIndex from "../Contracts/Classes/MovedIndex";
+import { Direction } from "../Contracts/Classes/Direction";
 
 export default class BubbleSort extends Sort implements ISort, IIterations {
   public startSort(): void {
@@ -17,11 +19,13 @@ export default class BubbleSort extends Sort implements ISort, IIterations {
       for (var j = 0; j < this.values.length - i; j++) {
         if (this.values[j] > this.values[j + 1]) {
           var temp = this.values[j];
-          this.values[j] = this.values[j + 1];
-          this.values[j + 1] = temp;
-          var movedIndexes: Array<number> = [] 
-          movedIndexes.push(j+1)
-          movedIndexes.push(j)
+          this.values[j] = this.values[j + 1];//LEFT 2 1
+          this.values[j + 1] = temp; //RIGHT 
+
+          var movedIndexes: Array<MovedIndex> = [] 
+          movedIndexes.push(new MovedIndex( Direction.left , j+1))
+          movedIndexes.push(new MovedIndex( Direction.right, j))
+          
           this.addToIterations(this.values, movedIndexes);
         
         }
@@ -35,7 +39,7 @@ export default class BubbleSort extends Sort implements ISort, IIterations {
     return this.afterBeingSorted.length != 0;
   }
 
-  public addToIterations(iteration: Array<number>, movedIndexes: Array<number>) {
+  public addToIterations(iteration: Array<number>, movedIndexes: Array<MovedIndex>) {
     var iterationObject = new Iteration(iteration);
     iterationObject.setLastIndexesMoved(movedIndexes)
     this.iterations.push(iterationObject);

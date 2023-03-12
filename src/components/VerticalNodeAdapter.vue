@@ -1,14 +1,17 @@
 <template>
     <li class="flex" v-for="(node,index) in iteration?.getIteration()">
     <div class="">
-        <VerticalNode :value="node" :highlight="highlighter(index)"></VerticalNode>
+        <VerticalNode :value="node" :highlight="highlighter(index)" :direction="getDirection(index)" >
+        </VerticalNode>
     </div>
     </li>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { Direction } from '../Contracts/Classes/Direction';
 import Iteration from '../Contracts/Classes/Iteration';
+import MovedIndex from '../Contracts/Classes/MovedIndex';
 import VerticalNode from './VerticalNode.vue';
 
 export default defineComponent({
@@ -22,7 +25,26 @@ export default defineComponent({
     },
     methods: {
         highlighter(index: number) {
-            return this.iteration?.getLastIndexesMoved().includes(index)
+            let highlight = false
+
+            this.iteration?.getLastIndexesMoved().forEach((_: MovedIndex) => {
+                if(_.getMovedIndex() == index) {
+                    highlight = true;     
+                } 
+            })
+            return highlight 
+        },
+
+        getDirection(index: number): Direction {
+            let direction = Direction.left;
+
+            this.iteration?.getLastIndexesMoved().forEach((_: MovedIndex) => {
+                if(_.getMovedIndex() == index) {
+                    direction = _.getDirection()     
+                } 
+            })
+
+            return direction;
         }
     }
     
