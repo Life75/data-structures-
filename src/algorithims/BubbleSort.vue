@@ -6,16 +6,25 @@
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
         <div class="">
+        <el-popover
+        :content="node"
+        effect="dark"
+        :width="150"
+        transition="null"
+        >
+        <template #reference>
           <VerticalNode :value="node"></VerticalNode>
+        </template>
+        </el-popover>
         </div>
       </li>
       <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
-    <span class="p-2 ">Work on color palettee
-      <el-button v-show="!animating" class="bg-emerald-500" type="primary" round  color=""  v-if="amountOfValues" @click="startSortingClick()" :disabled="animating"
+    <span class="p-2 ">
+      <el-button v-show="!animating"  type="primary" color="green" v-if="amountOfValues" @click="startSortingClick()" :disabled="animating"
         >Start Sorting</el-button
       >
-      <el-button class="p-2" v-show="animating"  @click="cancelAnimation()"
+      <el-button class="p-2" v-show="animating"  type="primary" color="green" @click="cancelAnimation()"
         >Cancel Animation</el-button
       >
     </span>

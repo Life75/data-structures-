@@ -1,10 +1,12 @@
+import { Direction } from "../Contracts/Classes/Direction";
 import Iteration from "../Contracts/Classes/Iteration";
+import MovedIndex from "../Contracts/Classes/MovedIndex";
 import IIterations from "../Contracts/Interfaces/IIterations";
 import ISort from "../Contracts/Interfaces/ISort";
 import Sort from "./Sort";
 //https://www.geeksforgeeks.org/quick-sort/
 export default class QuickSort extends Sort implements ISort, IIterations {
-    addToIterations(iteration: number[], movedIndexes: Array<number>): void {
+    addToIterations(iteration: number[], movedIndexes: Array<MovedIndex>): void {
         var iterationObject = new Iteration(iteration);
         iterationObject.setLastIndexesMoved(movedIndexes)
         this.iterations.push(iterationObject);
@@ -39,7 +41,7 @@ export default class QuickSort extends Sort implements ISort, IIterations {
     }
 
     private partition(arr: Array<number>, low: number, high: number){
-        let movedIndexes: Array<number> = []
+        let movedIndexes: Array<MovedIndex> = []
         let pivot = arr[high];
         let i = (low - 1);
 
@@ -48,13 +50,13 @@ export default class QuickSort extends Sort implements ISort, IIterations {
                 i++;
                 this.swap(arr, i, j);
 
-                movedIndexes.push(i);
-                movedIndexes.push(j);
+                movedIndexes.push(new MovedIndex(Direction.left, i));
+                movedIndexes.push(new MovedIndex(Direction.right, j));
             }
         }
         this.swap(arr, i + 1, high);
-        movedIndexes.push(i + 1);
-        movedIndexes.push(high)
+        movedIndexes.push(new MovedIndex(Direction.left, i+1))
+        movedIndexes.push(new MovedIndex(Direction.right, high))
         this.addToIterations(arr, movedIndexes);
         
         return (i + 1);
@@ -64,6 +66,8 @@ export default class QuickSort extends Sort implements ISort, IIterations {
         let temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp; 
+        
+
         return j
     }
 

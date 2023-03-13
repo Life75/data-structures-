@@ -6,7 +6,7 @@
       :ellipsis="false"
       background-color="#1D1E1F"
       text-color="#E5EAF3"
-      activ
+      active-text-color="#85ce61"
     >
       <el-menu-item index="0"> <span class="text-white">Algorithms and Data Structures</span>
  <router-link to="/"></router-link></el-menu-item>
@@ -15,7 +15,7 @@
       <div class="flex-grow" />
       <div>{{props.title}}</div> 
       <el-sub-menu   index="1">
-        <template #title> <span class="text-white">Sorting Algorithms </span></template>
+        <template #title> Sorting Algorithms </template>
         <el-menu-item  index="1-1" @click="changeRoute('BubbleSort')">  
         <router-link to="/Sorting/BubbleSort/">Bubble Sort</router-link>
         </el-menu-item>
