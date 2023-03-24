@@ -10,7 +10,6 @@ function setHeaderTitle(headerTitle: string) {
 </script>
 
 <template>
-  <!--TODO add git control and ElementPlus UI as well -->
   <div>
     <NavigationHeader :title="header" class="shadow-md" style=""></NavigationHeader>
     <span class="">

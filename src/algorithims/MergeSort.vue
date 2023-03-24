@@ -2,15 +2,11 @@
   <!--Weird bug, when making nested routes in vue you'll need to make the sure that the folder hiearchy needs to not be nested in order for hot reloading -->
   <div class="flex-col items-center justify-center">
     <!--Need to be able to show before and after-->
-    <div v-if="amountOfValues == 0">No Values</div>
+
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
         <div class="">
-          <el-popover :content="node.toString()" effect="dark" :width="150" transition="null">
-            <template #reference>
-              <VerticalNode :value="node"></VerticalNode>
-            </template>
-          </el-popover>
+          <VerticalNode :value="node"></VerticalNode>
         </div>
       </li>
       <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
@@ -42,12 +38,12 @@
 import { defineComponent, onMounted, watch } from "vue";
 import Node from "../components/Node.vue";
 import VerticalNode from "../components/VerticalNode.vue";
-import BubbleSort from "../algorithims-ts/BubbleSort";
 import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
 import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
+import MergeSort from "../algorithims-ts/MergeSort";
 
 export default defineComponent({
-  name: "BubbleSort",
+  name: "Merge Sort",
   components: { Node, VerticalNode, VerticalNodeAdapter },
   props: {
     amountOfValues: { type: Number, default: 0 },
@@ -63,30 +59,18 @@ export default defineComponent({
       currentIteration,
       timer,
       clearIterations,
-    } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
+    } = SortAlgorithimShell(new MergeSort(props.amountOfValues));
     var sortObj = sortAlgoRef;
 
-    onMounted(() => {
-      emit("header", "Bubble Sort");
-    });
-
-    //watching a prop
     watch(
       () => props.amountOfValues,
       (amountOfValues, prevSelc) => {
-        const { sortAlgoRef } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
+        const { sortAlgoRef } = SortAlgorithimShell(new MergeSort(props.amountOfValues));
         sortObj.value = sortAlgoRef.value;
-
+        console.log(sortObj.value)
         if (animating.value) cancelAnimation();
       }
     );
-
-    function initSort() {
-      const { sortAlgoRef } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
-      sortObj.value = sortAlgoRef.value;
-
-      if (animating.value) cancelAnimation();
-    }
 
     watch(
       () => props.animationSpeed,
@@ -97,16 +81,25 @@ export default defineComponent({
         }
       }
     );
-    
+
     watch(
       () => timer.value,
       (currentTimer, oldTimer) => {
         //emit this event
         emit("timer", timer.value);
+        console.log("emitting time ", timer.value);
       }
     );
 
+    function initSort() {
+      const { sortAlgoRef } = SortAlgorithimShell(new MergeSort(props.amountOfValues));
+      sortObj.value = sortAlgoRef.value;
+
+      if (animating.value) cancelAnimation();
+    }
+
     onMounted(() => {
+      emit("header", "Merge Sort");
       initSort();
     });
 
@@ -124,12 +117,9 @@ export default defineComponent({
     startSortingClick(): void {
       this.clearIterations();
       this.sortObj.startSort();
-
-      if (this.animationSpeed == 0) this.sortAnimation(200);
-      else this.sortAnimation(this.animationSpeed);
+      this.sortAnimation(this.animationSpeed);
     },
   },
 });
 </script>
-
 <style></style>

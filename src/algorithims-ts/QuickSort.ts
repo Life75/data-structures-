@@ -6,12 +6,6 @@ import ISort from "../Contracts/Interfaces/ISort";
 import Sort from "./Sort";
 //https://www.geeksforgeeks.org/quick-sort/
 export default class QuickSort extends Sort implements ISort, IIterations {
-    addToIterations(iteration: number[], movedIndexes: Array<MovedIndex>): void {
-        var iterationObject = new Iteration(iteration);
-        iterationObject.setLastIndexesMoved(movedIndexes)
-        this.iterations.push(iterationObject);
-       // console.log(iterationObject.getLastIndexesMoved())
-    }
     getIterations(): Iteration[] {
         return this.iterations;
     }

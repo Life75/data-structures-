@@ -3,7 +3,7 @@
     <span class="">{{ props.header }}</span>
     <div>
       Amount to be sorted
-      <el-slider v-model="amountOfValues" @change="emitSliderValue()"></el-slider>
+      <el-slider  v-model="amountOfValues" @change="emitSliderValue()"></el-slider>
     </div>
     <div>
       Animation Speed

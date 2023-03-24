@@ -3,6 +3,7 @@ import Home from '/src/components/Home.vue'
 import VSorting from '/src/Views/VSorting.vue'
 import BubbleSort from '/src/algorithims/BubbleSort.vue'
 import QuickSort from '/src/algorithims/QuickSort.vue'
+import MergeSort from '/src/algorithims/MergeSort.vue'
 const routes = [
     {
         path: '/',
@@ -25,6 +26,10 @@ const routes = [
         {
             path: 'QuickSort',
             component: QuickSort
+        },
+        {
+            path: 'MergeSort',
+            component: MergeSort
         }
     ]
     }

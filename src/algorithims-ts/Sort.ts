@@ -1,4 +1,5 @@
 import Iteration from "../Contracts/Classes/Iteration";
+import MovedIndex from "../Contracts/Classes/MovedIndex";
 import Timer from "../Contracts/Classes/Timer";
 export default class Sort {
     protected values: number[];
@@ -49,5 +50,11 @@ export default class Sort {
     isSorted() {
         return this.afterBeingSorted.length != 0
     }
+
+    addToIterations(iteration: Array<number>, movedIndexes: Array<MovedIndex>) {
+        var iterationObject = new Iteration(iteration);
+        iterationObject.setLastIndexesMoved(movedIndexes)
+        this.iterations.push(iterationObject);
+      }
 
 }

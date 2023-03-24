@@ -8,7 +8,7 @@
       text-color="#E5EAF3"
       active-text-color="#85ce61"
     >
-      <el-menu-item index="0"> <span class="text-white">Algorithms and Data Structures</span>
+      <el-menu-item index="0"> <span class="text-white" @click="homeRoute()">Algorithms and Data Structures</span>
  <router-link to="/"></router-link></el-menu-item>
         
       <span class=""></span>
@@ -19,7 +19,7 @@
         <el-menu-item  index="1-1" @click="changeRoute('BubbleSort')">  
         <router-link to="/Sorting/BubbleSort/">Bubble Sort</router-link>
         </el-menu-item>
-        <el-menu-item index="1-2">Merge Sort</el-menu-item>
+        <el-menu-item index="1-2" @click="changeRoute('MergeSort')">Merge Sort</el-menu-item>
         <el-menu-item index="1-3" @click="changeRoute('QuickSort')">
           <router-link to="/Sorting/QuickSort/">Quick Sort </router-link></el-menu-item>
       </el-sub-menu>
@@ -49,6 +49,10 @@
 
   function changeRoute(route: string) {
     router.push({path: `/Sorting/${route}`});
+  }
+
+  function homeRoute() {
+    router.push({path: '/'})
   }
 
   function getTitle(): string {
