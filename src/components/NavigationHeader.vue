@@ -16,19 +16,19 @@
       <div>{{props.title}}</div> 
       <el-sub-menu   index="1">
         <template #title> Sorting Algorithms </template>
-        <el-menu-item  index="1-1" @click="changeRoute('BubbleSort')">  
+        <el-menu-item  index="1-1" @click="sortingRoutChange('BubbleSort')">  
         <router-link to="/Sorting/BubbleSort/">Bubble Sort</router-link>
         </el-menu-item>
-        <el-menu-item index="1-2" @click="changeRoute('MergeSort')">Merge Sort</el-menu-item>
-        <el-menu-item index="1-3" @click="changeRoute('QuickSort')">
+        <el-menu-item index="1-2" @click="sortingRoutChange('MergeSort')">Merge Sort</el-menu-item>
+        <el-menu-item index="1-3" @click="sortingRoutChange('QuickSort')">
           <router-link to="/Sorting/QuickSort/">Quick Sort </router-link></el-menu-item>
       </el-sub-menu>
       <el-sub-menu index="2">
         <template #title>Data Structures</template>
         <el-sub-menu index="2-4">
           <template #title>Linked Lists</template>
-          <el-menu-item index="2-4-1">Queues</el-menu-item>
-          <el-menu-item index="2-4-2">Stack</el-menu-item>
+          <el-menu-item index="2-4-1" @click="dataStructureRouteChange('Queue')">Queues</el-menu-item>
+          <el-menu-item index="2-4-2" @click="dataStructureRouteChange('Stack')">Stack</el-menu-item>
         </el-sub-menu>
         <el-menu-item index="2-2">Binary Trees</el-menu-item>
         <el-menu-item index="2-3">Doublely Linked List</el-menu-item>
@@ -47,8 +47,12 @@
   
   const activeIndex = ref('1')
 
-  function changeRoute(route: string) {
+  function sortingRoutChange(route: string) {
     router.push({path: `/Sorting/${route}`});
+  }
+
+  function dataStructureRouteChange(route: string) {
+    router.push({path: `/DataStructures/${route}`});
   }
 
   function homeRoute() {

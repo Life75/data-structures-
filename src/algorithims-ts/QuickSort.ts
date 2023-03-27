@@ -60,7 +60,7 @@ export default class QuickSort extends Sort implements ISort, IIterations {
         let temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp; 
-        
+         
 
         return j
     }

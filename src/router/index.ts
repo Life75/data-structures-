@@ -4,6 +4,10 @@ import VSorting from '/src/Views/VSorting.vue'
 import BubbleSort from '/src/algorithims/BubbleSort.vue'
 import QuickSort from '/src/algorithims/QuickSort.vue'
 import MergeSort from '/src/algorithims/MergeSort.vue'
+import VDataStructures from '/src/Views/VDataStructures.vue'
+import Queue from '/src/components/DataStructures/Queue.vue'
+import Stack from '/src/components//DataStructures/Stack.vue'
+
 const routes = [
     {
         path: '/',
@@ -30,6 +34,19 @@ const routes = [
         {
             path: 'MergeSort',
             component: MergeSort
+        }
+    ]
+    },
+    {
+        path: '/DataStructures',
+        component: VDataStructures, 
+        children: [{
+            path: 'Queue',
+            component: Queue
+        },
+        {
+            path: 'Stack',
+            component: Stack
         }
     ]
     }
