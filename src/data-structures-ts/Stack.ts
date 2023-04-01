@@ -1,14 +1,18 @@
 import ILinkedLists from "../Contracts/Interfaces/ILinkedList";
 
 export default class Stack implements ILinkedLists {
-    push(): void {
-        throw new Error("Method not implemented.");
+    private stack: Array<number> = [] 
+
+    push(payload: number) {
+        this.stack.push(payload)
     }
-    pop(): number {
-        throw new Error("Method not implemented.");
+
+    pop(): number | undefined {
+        return this.stack.pop()
     }
+
     peek(): number {
-        throw new Error("Method not implemented.");
+        return this.stack[this.stack.length]
     }
     
 }

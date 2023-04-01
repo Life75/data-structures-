@@ -1,5 +1,5 @@
 export default interface ILinkedLists {
-    push(): void 
-    pop(): number
+    push(payload: number): void 
+    pop(): number | undefined
     peek(): number 
 }
