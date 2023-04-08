@@ -15,3 +15,5 @@ export default abstract class HeaderRequest {
         this.header = header
     }
 }
+
+//The reason for this dependency injection coupling is to make sure I remember to add a header for that specific type of data structure 

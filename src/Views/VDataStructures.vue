@@ -1,22 +1,34 @@
 <template>
     <div class="flex">
         <!--Dependent on the class currently in place it will need to switch to different header components-->
-        <LinkedListHeaderUI v-show="currentHeader == Header.LinkedList"></LinkedListHeaderUI>
-        <RouterView class="flex w-3/4" @ui-header-request="setHeader" />
+        <LinkedListHeaderUI @pop-event="popEvent" @push-event="pushEvent" v-show="currentHeader == Header.LinkedList"></LinkedListHeaderUI>
+        <RouterView :linked-list-header="linkedListAttributes" class="flex w-3/4" @ui-header-request="setHeader" />
     </div>
 </template>
 
 <script setup lang="ts">
-import { Ref, ref } from 'vue';
+import { Ref, ref, watch } from 'vue';
 import { Header } from '../Contracts/Classes/Headers';
 import LinkedListHeaderUI from '../components/LinkedListHeaderUI.vue';
 
 var currentHeader = ref(0)
 
+
+
+var linkedListAttributes = ref<LinkedListHeader>({ popIterator: 0, pushIterator:  0}) 
+
 function setHeader(header: Header) {
-    console.log(Header.LinkedList)
     currentHeader.value = header
 }
+
+function popEvent(iterator: number) {
+    linkedListAttributes.value.popIterator++;
+}
+
+function pushEvent(iterator: number) {
+    linkedListAttributes.value.pushIterator++;
+}
+
 </script>
 
 <style>

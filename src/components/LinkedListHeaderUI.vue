@@ -1,16 +1,46 @@
 <template>
-    <div class="shadow-sm space-y-3 text-white">
-    <span> </span>
-        <div>
-            Linked List Header
-        </div>
+  <div class="shadow-sm flex-col p-3 space-y-3">
+    <span>Linked List</span>
+    <div>
+      <el-button
+        class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F]"
+        type="primary"
+        color="#1D1E1F"
+        @click="popEvent()"
+        >Pop</el-button
+      >
     </div>
+    <div>
+      <el-button
+        class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F]"
+        type="primary"
+        color="#1D1E1F"
+        @click="pushEvent()"
+        >Push</el-button
+      >
+    </div>
+  </div>
 </template>
 
-
 <script lang="ts" setup>
+import { ref, defineEmits } from "vue";
 
+var popIterator = ref(0);
+var pushIterator = ref(0);
 
+const emit = defineEmits<{
+    (e: "pop-event", popIterator: number): void;
+    (e: "push-event", pushIterator: number): void;
+}>()
+
+function popEvent() {
+    popIterator.value++;
+    emit("pop-event", popIterator.value)
+    
+}
+
+function pushEvent() {
+    pushIterator.value++;
+    emit("push-event", pushIterator.value)
+}
 </script>
-
-
