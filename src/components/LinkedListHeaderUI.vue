@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-sm flex-col p-3 space-y-3">
+  <div class="shadow-sm flex-col p-3 mr-12 space-y-3">
     <span>Linked List</span>
     <div>
       <el-button
