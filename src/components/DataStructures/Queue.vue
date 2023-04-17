@@ -1,10 +1,9 @@
 <template>
     <!--Take in a list shell for Queue, workout the template and then refactor it later on like before -->
     <div ref="Queue">
-    <span class="w-2/5"></span>
-        <div class="flex flex-wrap py-12 items-center justify-center">
-            <li class="flex " v-for="node in queue.peekAll()">
-                
+        <div class="flex flex-row flex-wrap py-12 items-center justify-center ">
+            <li class="flex flex-row " v-for="node in queue.peekAll()">
+                <span v-show="node == 0">No Values currently </span>
                 <CircularNode/>
             </li>
         </div>
