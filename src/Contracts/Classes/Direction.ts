@@ -1,5 +1,7 @@
 
 export const enum Direction {
     right, 
-    left 
+    left,
+    down,
+    up 
 }
