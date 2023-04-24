@@ -1,8 +1,9 @@
 <template>
   <div class="flex py-2">
-    <div class="w-12 h-12 bg-emerald-500 rounded-full "></div>
-   
+    <div class="w-12 h-12 bg-emerald-700 rounded-full "></div>
+   <span class=" absolute w-12 my-3 z-10 justify-center items-center text-center">{{ props.value }}</span>
   </div>
+  
 </template>
 
 <script setup lang="ts">
@@ -12,7 +13,10 @@ import Arrow from "./Arrow.vue";
 import { ElIcon } from "element-plus";
 
 const props = defineProps({
-  direction: Object as PropType<Direction>,
+  direction: Number as PropType<Direction>,
+  value: Number,
+  highlight: {type: Boolean, default: false}
 });
-//directional arrows will be needed
+//directional arrows will be needed 
+//animation will need to be added 
 </script>

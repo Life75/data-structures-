@@ -3,8 +3,8 @@
   <div ref="Queue">
     <div class="flex flex-row flex-wrap py-12 items-center justify-center">
       <li class="flex flex-row" v-for="node in queue.peekAll()">
-        <span v-show="node == 0">No Values currently </span>
-        <CircularNode />
+        <span v-show="queue.peekAll().length == 0">No Values currently </span>
+        <CircularNode :value="node"/>
         <span class="flex w-7">
           <Minus class=""></Minus>
           <Arrow class="mt-6" :direction="direction" />
@@ -22,6 +22,7 @@ import LinkedListAttributes from "../../Contracts/Interfaces/LinkedListAttribute
 import CircularNode from "../CircularNode.vue";
 import Arrow from "../Arrow.vue";
 import { Direction } from "../../Contracts/Classes/Direction";
+import RandomNumberGenerator from "../../Contracts/Classes/RandomNumberGenerator";
 
 export default defineComponent({
   name: "Queue",
@@ -46,7 +47,8 @@ export default defineComponent({
           queue.value.pop();
         }
         if (props.linkedListAttributes?.latestAction == "push") {
-          queue.value.push(2);
+          const generator = new RandomNumberGenerator()
+          queue.value.push(generator.getRandomNumber());
           console.log(queue.value.peekAll());
         }
       },
