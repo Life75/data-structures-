@@ -15,8 +15,8 @@
       </li>
       <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
-    <span class="p-2">
-      <el-button
+    <span v-if="!autostart" class="p-2">
+      <el-button 
         v-show="!animating"
         class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F]"
         type="primary"
@@ -52,6 +52,7 @@ export default defineComponent({
   props: {
     amountOfValues: { type: Number, default: 0 },
     animationSpeed: { type: Number, default: 200 },
+    autostart: { type: Boolean, default: false},
   },
   emits: ["timer", "header"],
   setup(props, { emit }) {

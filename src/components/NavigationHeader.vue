@@ -1,12 +1,13 @@
 <template>
     <el-menu 
       :default-active="activeIndex"
-      class="border-gray-900"
+      class="border-[#141414]"
       mode="horizontal"
       :ellipsis="false"
-      background-color="#1D1E1F"
+      background-color="#141414"
       text-color="#E5EAF3"
       active-text-color="#85ce61"
+      style="background-color: transparent"
     >
       <el-menu-item index="0"> <span class="text-white" @click="homeRoute()">Algorithms and Data Structures</span>
  <router-link to="/"></router-link></el-menu-item>
