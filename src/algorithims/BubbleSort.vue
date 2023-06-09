@@ -22,7 +22,7 @@
         type="primary"
         color="#1D1E1F"
         v-if="amountOfValues"
-        @click="startSortingClick()"
+        @click="startSorting()"
         :disabled="animating"
         >Start Sorting</el-button
       >
@@ -109,7 +109,18 @@ export default defineComponent({
 
     onMounted(() => {
       initSort();
+      if(props.autostart) {
+        startSorting()
+      }
     });
+
+    function startSorting(): void {
+      clearIterations();
+      sortObj.value.startSort();
+
+      if (props.animationSpeed == 0) sortAnimation(200);
+      else sortAnimation(props.animationSpeed);
+    }
 
     return {
       currentIteration, //currentIteration is an iterationObject
@@ -119,16 +130,8 @@ export default defineComponent({
       sortObj,
       timer,
       clearIterations,
+      startSorting
     };
-  },
-  methods: {
-    startSortingClick(): void {
-      this.clearIterations();
-      this.sortObj.startSort();
-
-      if (this.animationSpeed == 0) this.sortAnimation(200);
-      else this.sortAnimation(this.animationSpeed);
-    },
   },
 });
 </script>

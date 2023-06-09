@@ -1,5 +1,5 @@
 <template>
-    <component :is="BubbleSort"/>
+    <component :is="BubbleSort" v-bind="{autostart: true, amountOfValues: 14}" />
 </template>
 
 <script setup lang="ts">
