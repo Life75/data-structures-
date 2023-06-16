@@ -8,10 +8,11 @@ export default class Queue extends HeaderRequest implements ILinkedLists {
         this.queue.push(payload)
     }
     pop(): number | undefined {
-       var firstIndex = this.queue[0]
+       var firstIndex = undefined 
 
-       if(firstIndex != undefined) {
-            this.queue.slice(0,1)
+       if(this.queue.length != 0) {
+
+            firstIndex = this.queue.shift()
        }
 
        return firstIndex

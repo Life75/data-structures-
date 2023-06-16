@@ -44,7 +44,7 @@ export default defineComponent({
       () => props.linkedListAttributes!,
       (old: LinkedListAttributes, updated: LinkedListAttributes) => {
         if (props.linkedListAttributes?.latestAction == "pop") {
-          queue.value.pop();
+          queue.value.pop()
         }
         if (props.linkedListAttributes?.latestAction == "push") {
           const generator = new RandomNumberGenerator()
