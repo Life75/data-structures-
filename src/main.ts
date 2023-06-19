@@ -17,5 +17,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app
 .use(ElementPlus)
 .use(autoAnimatePlugin)
-.use(router)
+.use(router.router)
 .mount('#app')

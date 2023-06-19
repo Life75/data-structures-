@@ -22,6 +22,7 @@ const routes = [
     },
     {
         path: '/Sorting',
+        name: 'Sorting',
         component: VSorting,
         children: [{
             path: 'BubbleSort',
@@ -39,6 +40,7 @@ const routes = [
     },
     {
         path: '/DataStructures',
+        name: 'Data Structures',
         component: VDataStructures, 
         children: [{
             path: 'Queue',
@@ -56,4 +58,4 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 })
-export default router
+export default {router, routes}

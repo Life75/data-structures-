@@ -1,4 +1,5 @@
 <template>
+  
     <el-menu 
       :default-active="activeIndex"
       class="border-[#141414]"
@@ -15,6 +16,7 @@
       <span class=""></span>
       <div class="flex-grow" />
       <div>{{props.title}}</div> 
+      <div class="flex" v-if="!isMobile()">
       <el-sub-menu   index="1">
         <template #title> Sorting Algorithms </template>
         <el-menu-item  index="1-1" @click="sortingRoutChange('BubbleSort')">  
@@ -34,13 +36,30 @@
         <el-menu-item index="2-2">Binary Trees</el-menu-item>
         <el-menu-item index="2-3">Doublely Linked List</el-menu-item>
       </el-sub-menu>
+    </div>
+    <div v-else class="flex justify-center items-center">
+      <el-icon @click="drawerVisibility = true" class="pt-2" :size="28"><Fold/></el-icon>
+    </div>
     </el-menu>
-    
+    <el-drawer custom-class="bg-[#0A0A0A] " class="bg-black" size="70%" v-model="drawerVisibility" direction="ltr">
+      <DrawerRouteDisplay/>
+    </el-drawer>
+
   </template>
   
   <script lang="ts" setup>
   import { ref } from 'vue'
   import router from '../router';
+  import DrawerRouteDisplay from './DrawerRouteDisplay.vue'
+
+  //check if mobile device 
+  function isMobile() {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) return true;
+    else return false 
+  }
+
+  var drawerVisibility = ref(false)
+  
 
   const props = defineProps({
     title: {type: String, default: ''}
@@ -49,15 +68,15 @@
   const activeIndex = ref('1')
 
   function sortingRoutChange(route: string) {
-    router.push({path: `/Sorting/${route}`});
+    router.router.push({path: `/Sorting/${route}`});
   }
 
   function dataStructureRouteChange(route: string) {
-    router.push({path: `/DataStructures/${route}`});
+    router.router.push({path: `/DataStructures/${route}`});
   }
 
   function homeRoute() {
-    router.push({path: '/'})
+    router.router.push({path: '/'})
   }
 
   function getTitle(): string {
