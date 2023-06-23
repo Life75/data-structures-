@@ -13,17 +13,14 @@ export default class MergeSort extends Sort implements ISort, IIterations {
 
     if (this.isSorted()) {
       this.values = [...this.beforeBeingSorted];
-      console.log(this.arrClone)
     }
     this.timer.start();
-    console.log(this.values)
     this.arrClone = Object.assign([], this.values)
     this.mergeSort(this.values, 0, this.values.length - 1);
     this.timer.stop();
 
 
     this.afterBeingSorted = [... this.values];
-    console.log(this.afterBeingSorted)
 
   }//TODO make sure this works 
 
@@ -87,7 +84,6 @@ export default class MergeSort extends Sort implements ISort, IIterations {
 }
 
   getIterations(): Iteration[] {
-    console.log(this.iterations)
     return this.iterations;
   }
   clearIterations(): void {

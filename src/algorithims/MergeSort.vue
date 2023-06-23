@@ -67,7 +67,6 @@ export default defineComponent({
       (amountOfValues, prevSelc) => {
         const { sortAlgoRef } = SortAlgorithimShell(new MergeSort(props.amountOfValues));
         sortObj.value = sortAlgoRef.value;
-        console.log(sortObj.value)
         if (animating.value) cancelAnimation();
       }
     );
@@ -87,7 +86,6 @@ export default defineComponent({
       (currentTimer, oldTimer) => {
         //emit this event
         emit("timer", timer.value);
-        console.log("emitting time ", timer.value);
       }
     );
 

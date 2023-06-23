@@ -7,7 +7,7 @@ import MergeSort from '/src/algorithims/MergeSort.vue'
 import VDataStructures from '/src/Views/VDataStructures.vue'
 import Queue from '/src/components/DataStructures/Queue.vue'
 import Stack from '/src/components//DataStructures/Stack.vue'
-
+ 
 const routes = [
     {
         path: '/',

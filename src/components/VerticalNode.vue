@@ -42,7 +42,6 @@ export default defineComponent({
                 node += "background-color: #85ce61; ";
             }
 
-            console.log(node)
             return node;
         },
         nodeHeightStyling(node: string): string {

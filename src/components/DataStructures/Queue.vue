@@ -49,7 +49,6 @@ export default defineComponent({
         if (props.linkedListAttributes?.latestAction == "push") {
           const generator = new RandomNumberGenerator()
           queue.value.push(generator.getRandomNumber());
-          console.log(queue.value.peekAll());
         }
       },
       { deep: true }

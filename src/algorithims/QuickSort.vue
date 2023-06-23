@@ -80,7 +80,6 @@
         (currentTimer, oldTimer) => {
           //emit this event
           emit("timer", timer.value);
-          console.log('emitting time ', timer.value)
         }
       );
 
@@ -114,7 +113,6 @@
       startSortingClick(): void {
         this.clearIterations();
         this.sortObj.startSort();
-        console.log(this.timer)
         this.sortAnimation(this.animationSpeed);
       },
     },
