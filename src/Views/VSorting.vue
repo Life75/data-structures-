@@ -3,7 +3,7 @@
         <!--Setup where you can view a header that will emit events to update from the components, will need interface on what data to emit to VSorting Component TODO-->
         <SortHeaderUI class="p-5 pb-10" @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" :header="header">
         </SortHeaderUI>
-        <RouterView class="flex w-3/4 " :startSorting="isSorting" :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed" @timer="setTimer" @header="setHeaderTitle">
+        <RouterView class="flex w-3/4 pt-56" :startSorting="isSorting" :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed" @timer="setTimer" @header="setHeaderTitle">
         </RouterView>   
     </div>
     <!--Make a component for the header for Sorting that way to deal with this problem -->

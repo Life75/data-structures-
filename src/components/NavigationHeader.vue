@@ -33,8 +33,7 @@
           <el-menu-item index="2-4-1" @click="dataStructureRouteChange('Queue')">Queues</el-menu-item>
           <el-menu-item index="2-4-2" @click="dataStructureRouteChange('Stack')">Stack</el-menu-item>
         </el-sub-menu>
-        <el-menu-item index="2-2">Binary Trees</el-menu-item>
-        <el-menu-item index="2-3">Doublely Linked List</el-menu-item>
+        <el-menu-item index="2-2" disabled>Binary Trees</el-menu-item>
       </el-sub-menu>
     </div>
     <div v-else class="flex justify-center items-center">
