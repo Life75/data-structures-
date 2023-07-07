@@ -39,7 +39,7 @@ function setHeaderTitle(headerTitle: string) {
   position: absolute;
   bottom: 0;
   width: 40%;
-  left: 62%;
+  left: 80%;
   align-self:flex-end;
   height: 2.5rem;            /* Footer height */
 }

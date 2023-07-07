@@ -17,7 +17,7 @@
               type="Sorting algorithim"
           >
           <template #footer>
-            <button class=" text-green-500 font-semibold  border border-gray-400 rounded shadow buttonAnimation">Explore</button>
+            <button class=" text-green-500 font-semibold  border border-gray-400 rounded shadow buttonAnimation" @click="$router.push('Sorting/QuickSort')">Explore</button>
           </template>
               </HorizontalCard>
         
@@ -28,7 +28,7 @@
               type="Sorting algorithim"
           >
           <template #footer>
-            <button class=" text-green-500 font-semibold  border border-gray-400 rounded shadow buttonAnimation">Explore</button>
+            <button class=" text-green-500 font-semibold  border border-gray-400 rounded shadow buttonAnimation" @click="$router.push('Sorting/BubbleSort')">Explore</button>
           </template>
               </HorizontalCard>
         
@@ -40,7 +40,7 @@
               type="Sorting algorithim"
           >
           <template #footer>
-            <button class=" text-green-500 font-semibold  border border-gray-400 rounded shadow buttonAnimation">Explore</button>
+            <button class=" text-green-500 font-semibold  border border-gray-400 rounded shadow buttonAnimation" @click="$router.push('Sorting/MergeSort')">Explore</button>
           </template>
               </HorizontalCard>
         
@@ -53,8 +53,8 @@
           >
           <template #footer>
             <span class="flex space-x-10">
-              <button class=" text-green-500 font-semibold  border border-gray-400 rounded shadow buttonAnimation p-2 px-2">Explore Queue </button>
-              <button class=" text-green-500 font-semibold  border border-gray-400 rounded shadow buttonAnimation p-2">Explore Stack </button>
+              <button class=" text-green-500 font-semibold  border border-gray-400 rounded shadow buttonAnimation p-2 px-2" @click="$router.push('DataStructures/Queue')">Explore Queue </button>
+              <button class=" text-green-500 font-semibold  border border-gray-400 rounded shadow buttonAnimation p-2" @click="$router.push('DataStructures/Stack')">Explore Stack </button>
                 
             </span>
           </template>
@@ -71,7 +71,6 @@ import { onMounted, ref } from 'vue';
 import AnimationDisplay from './AnimationDisplay.vue';
 import BentoLayout from './BentoLayout.vue';
 import HorizontalCard from './HorizontalCard.vue';
-//    <Card class="w-28 h-2/5"><AnimationDisplay/> </Card>
 
 var headerMotion = ref(false)
 const arr = [24, 32, 36, 32]
@@ -84,7 +83,6 @@ function isMobile(): boolean {
 
 }
 
-//const bubbleSortDescription = ref("")
 
 </script>
 //fit this color schema https://realtimecolors.com/?colors=e5eaf3-141414-bef264-f9f5fa-22d3ee 300 green/cyan
