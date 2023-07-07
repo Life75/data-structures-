@@ -18,7 +18,7 @@
     <span v-if="!autostart" class="p-2">
       <el-button 
         v-show="!animating"
-        class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F]"
+        class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F] p-4"
         type="primary"
         color="#1D1E1F"
         v-if="amountOfValues"

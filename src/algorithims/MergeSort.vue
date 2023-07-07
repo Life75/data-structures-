@@ -2,6 +2,7 @@
   <!--Weird bug, when making nested routes in vue you'll need to make the sure that the folder hiearchy needs to not be nested in order for hot reloading -->
   <div class="flex-col items-center justify-center">
     <!--Need to be able to show before and after-->
+    <div v-if="amountOfValues == 0">No Values</div>
 
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
