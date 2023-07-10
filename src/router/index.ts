@@ -13,12 +13,9 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home,
-        children: [
-            {
-                path: 'BubbleSort',
-                component: BubbleSort
-            }
-        ]
+        meta: {
+            fullPath: `/`
+        }
     },
     {
         path: '/Sorting',
@@ -27,14 +24,23 @@ const routes = [
         children: [{
             path: 'BubbleSort',
             component: BubbleSort,
+            meta: {
+                fullPath: `/Sorting/BubbleSort`
+            }
         },
         {
             path: 'QuickSort',
-            component: QuickSort
+            component: QuickSort,
+            meta: {
+                fullPath: `/Sorting/QuickSort`
+            }
         },
         {
             path: 'MergeSort',
-            component: MergeSort
+            component: MergeSort,
+            meta: {
+                fullPath: `/Sorting/MergeSort`
+            }
         }
     ]
     },
@@ -44,11 +50,17 @@ const routes = [
         component: VDataStructures, 
         children: [{
             path: 'Queue',
-            component: Queue
+            component: Queue,
+            meta: {
+                fullPath: `/DataStructures/Queue`
+            }
         },
         {
             path: 'Stack',
-            component: Stack
+            component: Stack,
+            meta: {
+                fullPath: `/DataStructures/Stack`
+            }
         }
     ]
     }

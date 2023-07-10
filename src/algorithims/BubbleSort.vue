@@ -47,7 +47,7 @@ import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
 import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
 
 export default defineComponent({
-  name: "BubbleSort",
+  name: "Bubble Sort",
   components: { Node, VerticalNode, VerticalNodeAdapter },
   props: {
     amountOfValues: { type: Number, default: 0 },
