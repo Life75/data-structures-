@@ -10,7 +10,7 @@
     style="background-color: transparent"
   >
     <el-menu-item index="0">
-      <span class="text-white" @click="homeRoute()">Algorithms and Data Structures</span>
+      <span class="text-white " @click="homeRoute()">Algorithms and Data Structures</span>
       <router-link to="/"></router-link
     ></el-menu-item>
 
@@ -84,15 +84,15 @@ const props = defineProps({
 const activeIndex = ref("1");
 
 function sortingRoutChange(route: string) {
-  router.router.push({ path: `/Sorting/${route}` });
+  router.router.push({ path: `${router.base}Sorting/${route}` });
 }
 
 function dataStructureRouteChange(route: string) {
-  router.router.push({ path: `/DataStructures/${route}` });
+  router.router.push({ path: `${router.base}DataStructures/${route}` });
 }
 
 function homeRoute() {
-  router.router.push({ path: "/" });
+  router.router.push({ path: `${router.base}` });
 }
 
 function getTitle(): string {

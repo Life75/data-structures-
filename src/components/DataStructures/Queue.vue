@@ -30,7 +30,7 @@ export default defineComponent({
   props: {
     linkedListAttributes: { type: Object as PropType<LinkedListAttributes> },
     default: (): LinkedListAttributes => {
-      const linkedList: LinkedListAttributes = { popIterator: 0, pushIterator: 0 };
+      const linkedList: LinkedListAttributes = { popIterator: 0, pushIterator: 0, latestAction: undefined };
       return linkedList;
     },
   },

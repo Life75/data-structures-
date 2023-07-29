@@ -7,59 +7,60 @@ import MergeSort from '/src/algorithims/MergeSort.vue'
 import VDataStructures from '/src/Views/VDataStructures.vue'
 import Queue from '/src/components/DataStructures/Queue.vue'
 import Stack from '/src/components//DataStructures/Stack.vue'
+const base = '/data-structures-/'
  
 const routes = [
     {
-        path: '/',
+        path: base,
         name: 'Home',
         component: Home,
         meta: {
-            fullPath: `/`
+            fullPath: `${base}`
         }
     },
     {
-        path: '/Sorting',
+        path: `${base}Sorting`,
         name: 'Sorting',
         component: VSorting,
         children: [{
             path: 'BubbleSort',
             component: BubbleSort,
             meta: {
-                fullPath: `/Sorting/BubbleSort`
+                fullPath: `${base}Sorting/BubbleSort`
             }
         },
         {
-            path: 'QuickSort',
+            path: `QuickSort`,
             component: QuickSort,
             meta: {
-                fullPath: `/Sorting/QuickSort`
+                fullPath: `${base}Sorting/QuickSort`
             }
         },
         {
-            path: 'MergeSort',
+            path: `MergeSort`,
             component: MergeSort,
             meta: {
-                fullPath: `/Sorting/MergeSort`
+                fullPath: `${base}Sorting/MergeSort`
             }
         }
     ]
     },
     {
-        path: '/DataStructures',
+        path: `${base}DataStructures`,
         name: 'Data Structures',
         component: VDataStructures, 
         children: [{
             path: 'Queue',
             component: Queue,
             meta: {
-                fullPath: `/DataStructures/Queue`
+                fullPath: `${base}DataStructures/Queue`
             }
         },
         {
-            path: 'Stack',
+            path: `Stack`,
             component: Stack,
             meta: {
-                fullPath: `/DataStructures/Stack`
+                fullPath: `${base}DataStructures/Stack`
             }
         }
     ]
@@ -70,4 +71,4 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 })
-export default {router, routes}
+export default {router, routes, base}

@@ -1,16 +1,18 @@
-# Vue 3 + TypeScript + Vite
+# Data Structures in Action 
+## Created by Austyn Washington 
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+The reason for the creation of this project was to help see data structures in motion and be able to grasp the concept better through visualization. This project was also a test and showcase of my abilities programming thus far in my journey. I've been able to understand different concepts the UI/ UX design along with programmatic design patterns to assist greatly with the creation of this project. Working with tools such as Vue 3, Tailwind CSS, Element-Plus, HTML, CSS and more tools in my repertoire has been a pleasure and great learning experience. 
 
-## Recommended IDE Setup
+Not only was this a learning project for myself, but a project that others can learn from as well. I've had great fun working on this project and hopefully others will be able to understand more on how to use data structures along with the different pros and cons associated with their respected algorithim. 
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
-## Type Support For `.vue` Imports in TS
+# Want to view the project in action? 
+[Click here](https://life75.github.io/data-structures-/) to view the project!
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+# Future projection plans 
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+This is a solo one man project so this project won't be recieving constant updates since I'm typically working on multiple different projects at the same time. Since this one is at a stable version I'll be adding incrementally and setting deliverables for the future. I do want to add more sorting alogrithims along with Data structures (like binary trees for example) in the future! The core intent has been accomplished, but there's much more to explore beyond the horizon as well for this project and I look forward to it and hope you the reader do as well!
+ 
+
+ ### Life before death, strength before weakness, journey before destination 
