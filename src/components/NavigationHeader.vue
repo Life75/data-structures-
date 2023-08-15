@@ -93,6 +93,7 @@ function dataStructureRouteChange(route: string) {
 
 function homeRoute() {
   router.router.push({ path: `${router.base}` });
+  console.log(`${router.base}` )
 }
 
 function getTitle(): string {
