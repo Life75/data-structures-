@@ -36,7 +36,7 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     let queue = ref(new Stack(Header.LinkedList));
-    let direction = Direction.right; //TODO fix 
+    let direction = Direction.right; 
     onMounted(() => {
       emit("ui-header-request", queue.value.getHeader());
     });

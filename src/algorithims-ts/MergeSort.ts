@@ -22,7 +22,7 @@ export default class MergeSort extends Sort implements ISort, IIterations {
 
     this.afterBeingSorted = [... this.values];
 
-  }//TODO make sure this works 
+  } 
 
   mergeSort(arr: Array<number>, low: number, high: number) {
     if (low >= high) {
