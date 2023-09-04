@@ -1,6 +1,6 @@
 <template>
   <div class="text-xl mt-4 font-serif text-white pt-20 w-full flex-row justify-between">
-    <div class="text-left md:flex gap-x-72">
+    <div class="text-center md:text-left md:flex gap-x-72">
       <h1 class="text-3xl md:w-1/3 md:text-4xl">
         <p>
           <Transition name="slide-fade">
@@ -16,12 +16,13 @@
         <p class="pt-40 text-2xl">
           This project was designed to help showcase the beauty in data structures and
           help soldify a firm grasp into how these respected algorithms work
-        </p>
+        </p> 
       </h1>
       <div class="md:w-1/2 md:ml-5"><AnimationDisplay /></div>
     </div>
-    <div class="pt-20 pb-10 w-2/3"></div>
-    
+    <div class="pt-20 pb-10 flex items-center justify-center">
+     
+    </div>
   </div>
 </template>
 
@@ -33,10 +34,16 @@ import HorizontalCard from "./HorizontalCard.vue";
 import router from "../router";
 
 var headerMotion = ref(false);
-const arr = [24, 32, 36, 32];
+var sortMouseOverEvent = ref(false)
 onMounted(() => {
   headerMotion.value = true;
 });
+
+function onMouseHover(event: boolean) {
+  console.log(event)
+
+   sortMouseOverEvent.value = true
+}
 
 function isMobile(): boolean {
   return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

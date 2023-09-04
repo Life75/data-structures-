@@ -15,7 +15,7 @@
       </li>
       <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
-    <span v-if="!autostart" class="p-2">
+    <span v-if="!hideStart" class="p-2">
       <el-button 
         v-show="!animating"
         class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F] p-4"
@@ -53,6 +53,8 @@ export default defineComponent({
     amountOfValues: { type: Number, default: 0 },
     animationSpeed: { type: Number, default: 200 },
     autostart: { type: Boolean, default: false},
+    start: { type: Boolean, default: false},
+    hideStart: {type: Boolean, default: false}
   },
   emits: ["timer", "header"],
   setup(props, { emit }) {
@@ -81,6 +83,13 @@ export default defineComponent({
         if (animating.value) cancelAnimation();
       }
     );
+
+    watch(
+      () => props.start, (before, after) => {
+        initSort()
+        startSorting()
+      }
+    )
 
     function initSort() {
       const { sortAlgoRef } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
