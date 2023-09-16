@@ -54,14 +54,13 @@ export function SortAlgorithimShell(sortAlgo: Sort & ISort & IIterations) {
         try {
           // getting the currentIteration value within the animation frame 
           currentIteration.value = sortAlgoRef.value.getIterations()[frame.value]
-          //currentIteration.value?.setIteration(sortAlgoRef.value.getIterations()[frame.value].getIteration());
           frame.value++;
     
         }
         catch (e: unknown) {
           clearInterval(animationID);
         }
-      }, speed)
+      }, speed)//TODO
     }
     
     return {sortAlgoRef, sortAnimation, cancelAnimation, animating, currentIteration, timer, clearIterations}

@@ -74,11 +74,11 @@ export default defineComponent({
 
 
 .slide-fade-enter-active {
-  transition: all 0.6s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,
@@ -106,11 +106,11 @@ export default defineComponent({
 
 
 .slide-left-enter-active {
-  transition: all 0.6s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .slide-left-leave-active {
-  transition: all 0.8s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+  transition: all 0.6s cubic-bezier(0.1, 0.7, 1.0, 0.1);
 }
 
 .slide-left-enter-from,
