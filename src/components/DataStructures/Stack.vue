@@ -4,9 +4,8 @@
     <div class="flex flex-row flex-wrap py-12 items-center justify-center">
       <li class="flex flex-row" v-for="node in queue.peekAll()">
         <span v-show="queue.peekAll().length == 0">No Values currently </span>
-        <CircularNode :value="node"/>
-        <span class="flex w-7">
-          <Minus class=""></Minus>
+        <CircularNode class="pr-2" :value="node"/>
+        <span class="flex pr-2">
           <Arrow class="mt-6" :direction="direction" />
         </span>
       </li>

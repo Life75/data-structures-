@@ -16,13 +16,11 @@
         <p class="pt-40 text-2xl">
           This project was designed to help showcase the beauty in data structures and
           help soldify a firm grasp into how these respected algorithms work
-        </p> 
+        </p>
       </h1>
       <div class="md:w-1/2 md:ml-5"><AnimationDisplay /></div>
     </div>
-    <div class="pt-20 pb-10 flex items-center justify-center">
-     
-    </div>
+    <div class="pt-20 pb-10 flex items-center justify-center"></div>
   </div>
 </template>
 
@@ -34,15 +32,15 @@ import HorizontalCard from "./HorizontalCard.vue";
 import router from "../router";
 
 var headerMotion = ref(false);
-var sortMouseOverEvent = ref(false)
+var sortMouseOverEvent = ref(false);
 onMounted(() => {
   headerMotion.value = true;
 });
 
 function onMouseHover(event: boolean) {
-  console.log(event)
+  console.log(event);
 
-   sortMouseOverEvent.value = true
+  sortMouseOverEvent.value = true;
 }
 
 function isMobile(): boolean {
