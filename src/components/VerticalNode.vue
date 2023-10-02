@@ -8,6 +8,7 @@
 import { TransitionPresets, useTransition } from "@vueuse/core";
 import { defineComponent, PropType, ref } from "vue";
 import { Direction } from "../Contracts/Classes/Direction";
+import isMobile from "../composables/MobileCheck";
 
 export default defineComponent({
     name: "VerticalNode",
@@ -29,7 +30,13 @@ export default defineComponent({
         },
         getNode(): string {
             var node: string;
-            node = "width: 25px;";
+            var width = 25;
+
+            if(isMobile())
+            width = 15;
+
+
+            node = `width: ${width}px;`
             node = this.highlightStyling(node);
             node = this.nodeHeightStyling(node);
             return node;

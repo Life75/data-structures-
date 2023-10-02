@@ -11,7 +11,7 @@ function setHeaderTitle(headerTitle: string) {
 </script>
 
 <template>
-  <div id="page-container" class="flex-col">
+  <div id="page-container" class="flex-col font-serif">
     <NavigationHeader :title="header" class="shadow-md" style=""></NavigationHeader>
     <span class="">
       <div id="content-wrap"></div>

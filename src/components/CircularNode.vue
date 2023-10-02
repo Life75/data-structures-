@@ -1,7 +1,7 @@
 <template>
   <div class="flex py-2">
     <div class="w-12 h-12 bg-green-600 rounded-full "></div>
-   <span class=" absolute w-12 my-3 z-10 justify-center items-center text-center text-xl">{{ props.value }}</span>
+   <span class=" absolute w-12 my-3 z-10 justify-center items-center text-center text-xl font-sans">{{ props.value }}</span>
   </div>
   
 </template>
