@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import NavigationHeader from "./components/NavigationHeader.vue";
 import Footer from "./components/Footer.vue"
+import Descriptions from "./components/Descriptions.vue";
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 const header = ref("");
@@ -16,7 +17,6 @@ function setHeaderTitle(headerTitle: string) {
     <span class="">
       <div id="content-wrap"></div>
       <RouterView @header="setHeaderTitle"></RouterView>
-
     </span>
     <Footer class=" align-middle" id="footer"/>
 

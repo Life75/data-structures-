@@ -21,6 +21,7 @@
       <div class="md:w-1/2 md:ml-5"><AnimationDisplay /></div>
     </div>
     <div class="pt-20 pb-10 flex items-center justify-center"></div>
+    <Descriptions/>
   </div>
 </template>
 
@@ -30,6 +31,7 @@ import AnimationDisplay from "./AnimationDisplay.vue";
 import BentoLayout from "./BentoLayout.vue";
 import HorizontalCard from "./HorizontalCard.vue";
 import router from "../router";
+import Descriptions from "./Descriptions.vue";
 
 var headerMotion = ref(false);
 var sortMouseOverEvent = ref(false);
