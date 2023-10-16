@@ -21,7 +21,9 @@
       <div class="md:w-1/2 md:ml-5"><AnimationDisplay /></div>
     </div>
     <div class="pt-20 pb-10 flex items-center justify-center"></div>
-    <Descriptions/>
+    <Descriptions title="What is Bubble Sort?"
+      contents="Bubble sort is a simple sorting algorithm that works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which means the list is sorted."
+    />
   </div>
 </template>
 
@@ -40,7 +42,6 @@ onMounted(() => {
 });
 
 function onMouseHover(event: boolean) {
-  console.log(event);
 
   sortMouseOverEvent.value = true;
 }

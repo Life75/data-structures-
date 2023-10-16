@@ -54,7 +54,8 @@ export default defineComponent({
     animationSpeed: { type: Number, default: 200 },
     autostart: { type: Boolean, default: false},
     start: { type: Boolean, default: false},
-    hideStart: {type: Boolean, default: false}
+    hideStart: {type: Boolean, default: false},
+    showDescription: {type: Boolean, default: false}
   },
   emits: ["timer", "header"],
   setup(props, { emit }) {
