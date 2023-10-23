@@ -1,17 +1,31 @@
 <template>
-<ul class="flex justify-between space-x-10">
+<div>
+<ul class="flex justify-between space-x-10 pt-8">
   <li class="">
-    <a class="inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="#"></a>
+    <el-icon :size="24" @click="openDrawer()"><Menu /></el-icon>
   </li>
   <li class=" justify-center">
-    <a class="inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-4" href="#">Pill</a>
   </li>
-  <li class="mr-3">
-    <a class="inline-block py-2 px-4 text-gray-400 cursor-not-allowed" href="#">Disabled Pill</a>
+  <li class="">
+    
   </li>
 </ul>
+<el-drawer v-model="drawer" title="I am the title" :with-header="false" size="70%" direction="ltr" custom-class="bg-neutral-950">
+    <span>Hi there!</span>
+    <!--Here we work and place the animation for the routes to follow through as well-->
+  </el-drawer>
+</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+var drawer = ref(false)
+
+function openDrawer() {
+  console.log('open :D')
+  drawer.value = true
+}
+
+</script>
 
 <style></style>

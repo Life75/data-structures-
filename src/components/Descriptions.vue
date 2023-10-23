@@ -1,8 +1,10 @@
 <template>
     <div id="descriptions">
+
         <article class="p-6  rounded-lg border  shadow-lg bg-neutral-800  border-black">
+            <img class="-rotate-90" width="80" height="80" src="https://img.icons8.com/officel/80/generic-sorting.png" alt="generic-sorting"/>
               <div class="flex justify-between items-center mb-5 text-gray-500">
-                    
+
                   <span class="text-sm"></span>
                
               </div>

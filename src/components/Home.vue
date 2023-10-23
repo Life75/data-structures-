@@ -21,10 +21,23 @@
       <div class="md:w-1/2 md:ml-5"><AnimationDisplay /></div>
     </div>
     <div class="pt-20 pb-10 flex items-center justify-center"></div>
-    <Descriptions title="What is Bubble Sort?"
+    <span>
+    <div class="md:flex md:space-x-4 ">
+    <Descriptions title="What is Bubble Sort?" class="  "
       contents="Bubble sort is a simple sorting algorithm that works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which means the list is sorted."
     />
+    <Descriptions title="What is Merge Sort?"
+      contents="Merge sort is a popular and efficient sorting algorithm that follows the divide and conquer strategy to sort an array or list of elements. It works by breaking the input into smaller pieces, sorting those pieces, and then merging them back together to produce a fully sorted output."
+    />
   </div>
+  <div class="pt-4">
+    <Descriptions title="What is Merge Sort?"
+      contents="Merge sort is a popular and efficient sorting algorithm that follows the divide and conquer strategy to sort an array or list of elements. It works by breaking the input into smaller pieces, sorting those pieces, and then merging them back together to produce a fully sorted output."
+    />
+  </div>
+  </span>
+  </div>
+
 </template>
 
 <script setup lang="ts">
