@@ -8,6 +8,7 @@ import VDataStructures from '/src/Views/VDataStructures.vue'
 import Queue from '/src/components/DataStructures/Queue.vue'
 import Stack from '/src/components//DataStructures/Stack.vue'
 import NotFound from '/src/components/NotFound.vue'
+import Roadmap from '../components/Roadmap.vue'
 const base = '/data-structures-/'
  
 const routes = [
@@ -17,6 +18,14 @@ const routes = [
         component: Home,
         meta: {
             fullPath: `${base}`
+        }
+    },
+    {
+        path: `${base}Roadmap`,
+        name: 'Roadmap',
+        component: Roadmap,
+        meta: {
+            fullPath: `${base}Roadmap`
         }
     },
     {

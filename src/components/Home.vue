@@ -1,43 +1,35 @@
 <template>
   <div class="text-xl mt-4 font-serif text-white pt-20 w-full flex-row justify-between">
-    <div class="text-center md:text-left md:flex gap-x-72">
+    <Announcements @click="() => {
+      router.router.push({ path: `${router.base}Roadmap` })
+    }" />
+    <div class="text-center md:text-left md:flex gap-x-72 mt-3">
       <h1 class="text-3xl md:w-1/3 md:text-4xl">
         <p>
           <Transition name="slide-fade">
             <p v-show="headerMotion">Visualize</p>
           </Transition>
-          <Transition name="slide-fade-delay1"
-            ><p v-show="headerMotion" class="text-green-400">Algorithims</p>
+          <Transition name="slide-fade-delay1">
+            <p v-show="headerMotion" class="text-green-400">Algorithims</p>
           </Transition>
           <Transition name="slide-fade-delay2">
-            <p v-show="headerMotion">in Action</p></Transition
-          >
+            <p v-show="headerMotion">in Action</p>
+          </Transition>
         </p>
         <p class="pt-40 text-2xl">
           This project was designed to help showcase the beauty in data structures and
           help soldify a firm grasp into how these respected algorithms work
         </p>
       </h1>
-      <div class="md:w-1/2 md:ml-5"><AnimationDisplay /></div>
+      <div class="md:w-1/2 md:ml-5">
+        <AnimationDisplay />
+      </div>
     </div>
     <div class="pt-20 pb-10 flex items-center justify-center"></div>
     <span>
-    <div class="md:flex md:space-x-4 ">
-    <Descriptions title="What is Bubble Sort?" class="  "
-      contents="Bubble sort is a simple sorting algorithm that works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which means the list is sorted."
-    />
-    <Descriptions title="What is Merge Sort?"
-      contents="Merge sort is a popular and efficient sorting algorithm that follows the divide and conquer strategy to sort an array or list of elements. It works by breaking the input into smaller pieces, sorting those pieces, and then merging them back together to produce a fully sorted output."
-    />
+     
+    </span>
   </div>
-  <div class="pt-4">
-    <Descriptions title="What is Merge Sort?"
-      contents="Merge sort is a popular and efficient sorting algorithm that follows the divide and conquer strategy to sort an array or list of elements. It works by breaking the input into smaller pieces, sorting those pieces, and then merging them back together to produce a fully sorted output."
-    />
-  </div>
-  </span>
-  </div>
-
 </template>
 
 <script setup lang="ts">
@@ -47,6 +39,7 @@ import BentoLayout from "./BentoLayout.vue";
 import HorizontalCard from "./HorizontalCard.vue";
 import router from "../router";
 import Descriptions from "./Descriptions.vue";
+import Announcements from "./Announcements.vue";
 
 var headerMotion = ref(false);
 var sortMouseOverEvent = ref(false);
@@ -76,8 +69,8 @@ https://realtimecolors.com/?colors=e5eaf3-141414-bef264-f9f5fa-22d3ee 300 green/
 }
 
 @keyframes up-movement {
-  from {
-  }
+  from {}
+
   to {
     transform: translateY(-4px);
   }
