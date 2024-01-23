@@ -1,6 +1,6 @@
 <template>
   <div class=" p-3 mr-12 space-y-3">
-    <span class="w-14">Linked List</span>
+    <span class="w-14 text-2xl py-4">Linked List</span>
     <div>
       <el-button
         class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F]"

@@ -1,5 +1,5 @@
 <template>
-    <div id="timeline-card">
+    <div id="timeline-card" class="">
         <el-card class="text-neutral-100 border-black bg-neutral-900 shadow-md border-1">
                     <h4 class="text-2xl font-semibold">{{ header }}</h4>
                     <p class="text-lg py-4">

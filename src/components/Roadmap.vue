@@ -42,10 +42,14 @@
             </el-timeline-item>
             <el-timeline-item timestamp="2022" placement="top">
                 <TimelineCard 
-                header="Beginning" 
+                header="Foundation" 
                 log="Main objective in the beginning was establishing the objective and purpose of this website. I wanted this to first focus on being a showcase website and then I wanted to focus on it being 
                     primarily a website that people could interact and learn from as well. I showed this to peers of mine for their review and how to make it better to the point it helping other people computer science and 
-                    making the proccess a lot easier. 
+                    making the proccess a lot easier.
+                    
+                    In the beginning I built this project when I was just starting to learn web development process. The foundational tools that I've used have been from libraries like 
+                    Element Plus, Vue 3, and Tailwind CSS. The reason why I chose these was because they were the main ones I used in my professional work life. I typically used them in a way or variation of smaller components so that a 
+                    majority of my time focused on the developing the data structures visualization process. (I'll go more deeper in the foundational standpoint of these later ) 
                 " 
                 date="2023"/>
             </el-timeline-item>
