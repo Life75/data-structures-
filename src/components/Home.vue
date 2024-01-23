@@ -1,5 +1,5 @@
 <template>
-  <div class="text-xl mt-4 font-serif text-white pt-20 w-full flex-row justify-between">
+  <div class="text-xl  font-serif text-white  w-full flex-row justify-between">
     <Announcements @click="() => {
       router.router.push({ path: `${router.base}Roadmap` })
     }" />
@@ -25,7 +25,6 @@
         <AnimationDisplay />
       </div>
     </div>
-    <div class="pt-20 pb-10 flex items-center justify-center"></div>
     <span>
   
     </span>
