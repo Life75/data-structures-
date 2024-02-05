@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import NavigationHeader from "./components/NavigationHeader.vue";
+import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue"
 import Descriptions from "./components/Descriptions.vue";
 import NavBarDaisyUI from "./components/NavBarDaisyUI.vue";
@@ -18,11 +19,13 @@ function setHeaderTitle(headerTitle: string) {
 
 <template>
   <div id="page-container" class="flex-col font-serif">
-    <NavBarDaisyUI></NavBarDaisyUI>
+    <!--<NavigationHeader :title="header" class="shadow-md" style=""></NavigationHeader>-->
+    <NavBar></NavBar>
     <span class="">
       <div id="content-wrap"></div>
       <RouterView @header="setHeaderTitle"></RouterView>
     </span>
+    <!--<Footer class=" align-middle" id="footer"/>-->
 
   </div>
 </template>
