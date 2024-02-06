@@ -1,6 +1,6 @@
 <template>
     <!--New Nav-->
-    <div class="navbar ">
+    <div class="navbar bg-base-200 backdrop-blur	">
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -21,7 +21,8 @@
                     <li><a>Item 3</a></li>
                 </ul>
             </div>
-            <a class="btn btn-ghost text-2xl">Sparklight</a>
+            <!--add an icon to the end -->
+            <a class="text-2xl">Sparklight</a>
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
@@ -38,21 +39,27 @@
                 <li><a>Item 3</a></li>
             </ul>
         </div>
-        <div class="navbar-end"><!--Search bar to search for algo/ds -->
-            <div class="form-control w-24">
+        <div class="navbar-end"><!--TODO index the items and link them to the actual results on push  -->
+            <div class="w-1/3">
                 <v-autocomplete
-                    :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+                    :items="['Bubble Sort', 'Merge Sort', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
                     auto-select-first
                     class="flex-full-width "
                     density="comfortable"
                     item-props
                     menu-icon=""
-                    placeholder="Search Google..."
+                    placeholder="Search..."
                     prepend-inner-icon="mdi-magnify"
                     rounded
                     theme="dark"
                     variant="solo"  
-                 ></v-autocomplete>
+                 >  
+                 <template v-slot:["prepend-inner"]>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </template>
+                </v-autocomplete>
             </div>
         </div>
     </div>
