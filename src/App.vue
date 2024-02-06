@@ -18,16 +18,12 @@ function setHeaderTitle(headerTitle: string) {
 </script>
 
 <template>
-  <div id="page-container" class="flex-col font-serif">
     <!--<NavigationHeader :title="header" class="shadow-md" style=""></NavigationHeader>-->
     <NavBar></NavBar>
-    <span class="">
-      <div id="content-wrap"></div>
+
       <RouterView @header="setHeaderTitle"></RouterView>
-    </span>
     <!--<Footer class=" align-middle" id="footer"/>-->
 
-  </div>
 </template>
 
 <style >

@@ -25,9 +25,6 @@
         <AnimationDisplay />
       </div>
     </div>
-    <span>
-  
-    </span>
   </div>
 </template>
 
