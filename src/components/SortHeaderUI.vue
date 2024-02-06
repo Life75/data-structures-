@@ -20,6 +20,7 @@
 </template>
 
 <script lang="ts" setup>
+//replace with vuetify navigation drawers  https://vuetifyjs.com/en/components/navigation-drawers/#caveats
 import { ref } from "vue";
 import Timer from "../Contracts/Classes/Timer";
 const emit = defineEmits<{
