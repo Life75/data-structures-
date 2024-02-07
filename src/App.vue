@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import NavigationHeader from "./components/NavigationHeader.vue";
 import NavBar from "./components/NavBar.vue";
-import Footer from "./components/Footer.vue"
-import Descriptions from "./components/Descriptions.vue";
-import NavBarDaisyUI from "./components/NavBarDaisyUI.vue";
+
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 const header = ref("");
@@ -20,8 +17,7 @@ function setHeaderTitle(headerTitle: string) {
 <template>
     <!--<NavigationHeader :title="header" class="shadow-md" style=""></NavigationHeader>-->
     <NavBar class="px-3"></NavBar>
-
-      <RouterView @header="setHeaderTitle"></RouterView>
+     <RouterView @header="setHeaderTitle"></RouterView> 
     <!--<Footer class=" align-middle" id="footer"/>-->
 
 </template>

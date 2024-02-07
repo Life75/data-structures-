@@ -1,24 +1,21 @@
 <template>
   <div class="text-xl  font-serif text-white  w-full flex-row justify-between">
-    <Announcements @click="() => {
-      router.router.push({ path: `${router.base}Roadmap` })
-    }" />
-    <div class="text-center md:text-left md:flex gap-x-72 mt-3">
-      <h1 class="text-3xl md:w-1/3 md:text-4xl">
+    <div class=" md:text-left md:flex   mt-20  mx-40">
+      <h1 class=" text-9xl  md:text-4xl ">
         <p>
           <Transition name="slide-fade">
-            <p v-show="headerMotion">Visualize</p>
+            <p class=" text-7xl" v-show="headerMotion">Visualize</p>
           </Transition>
           <Transition name="slide-fade-delay1">
-            <p v-show="headerMotion" class="text-green-400">Algorithims</p>
+            <p v-show="headerMotion" class="text-7xl text-green-400">Algorithims</p>
           </Transition>
           <Transition name="slide-fade-delay2">
-            <p v-show="headerMotion">in Action</p>
+            <p v-show="headerMotion" class="text-7xl ">in Action</p>
           </Transition>
         </p>
         <p class="pt-40 text-2xl">
           This project was designed to help showcase the beauty in data structures and
-          help soldify a firm grasp into how these respected algorithms work
+          help soldify a firm grasp into how these respected algorithms works
         </p>
       </h1>
       <div class="md:w-1/2 md:ml-5">
@@ -31,12 +28,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import AnimationDisplay from "./AnimationDisplay.vue";
-import BentoLayout from "./BentoLayout.vue";
-import HorizontalCard from "./HorizontalCard.vue";
 import router from "../router";
-import Descriptions from "./Descriptions.vue";
-import Announcements from "./Announcements.vue";
-
 var headerMotion = ref(false);
 var sortMouseOverEvent = ref(false);
 onMounted(() => {
@@ -47,6 +39,8 @@ function onMouseHover(event: boolean) {
 
   sortMouseOverEvent.value = true;
 }
+
+
 
 function isMobile(): boolean {
   return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

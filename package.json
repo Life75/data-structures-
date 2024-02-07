@@ -12,6 +12,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "@formkit/auto-animate": "^1.0.0-beta.3",
+    "clean": "^4.0.2",
     "daisyui": "^4.6.1",
     "element-plus": "^2.2.17",
     "pinia": "^2.0.32",

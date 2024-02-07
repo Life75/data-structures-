@@ -1,6 +1,6 @@
 <template>
     <!--New Nav-->
-    <div class="navbar bg-base-200 backdrop-blur ">
+    <div class="navbar bg-base-200 shadow-md backdrop-blur  ">
         <div class="navbar-start ">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -85,7 +85,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import isMobile from '../composables/MobileCheck';
+//import isMobile from '../composables/MobileCheck';
 
 const search = ref("")
 
