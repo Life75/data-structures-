@@ -16,7 +16,7 @@ function setHeaderTitle(headerTitle: string) {
 
 <template>
     <!--<NavigationHeader :title="header" class="shadow-md" style=""></NavigationHeader>-->
-    <NavBar class="px-3"></NavBar>
+    <NavBar class="w-full"></NavBar>
      <RouterView @header="setHeaderTitle"></RouterView> 
     <!--<Footer class=" align-middle" id="footer"/>-->
 
