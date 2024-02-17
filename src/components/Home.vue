@@ -1,24 +1,24 @@
 <template>
-  <div class="text-xl  font-serif text-white  w-full flex-row justify-between">
-    <div class=" md:text-left md:flex   mt-20  mx-40">
-      <h1 class=" text-9xl  md:text-4xl ">
+  <div class="text-xl  font-serif text-white  w-full flex-row  justify-between">
+    <div class=" md:flex textFix  mt-20  lg:mx-40">
+      <h1 class=" text-6xl lg:text-7xl  ">
         <p>
           <Transition name="slide-fade">
-            <p class=" text-7xl" v-show="headerMotion">Visualize</p>
+            <p class=" " v-show="headerMotion">Visualize</p>
           </Transition>
           <Transition name="slide-fade-delay1">
-            <p v-show="headerMotion" class="text-7xl text-green-400">Algorithims</p>
+            <p v-show="headerMotion" class=" text-green-400">Algorithims</p>
           </Transition>
           <Transition name="slide-fade-delay2">
-            <p v-show="headerMotion" class="text-7xl ">in Action</p>
+            <p v-show="headerMotion" class=" ">in Motion</p>
           </Transition>
         </p>
-        <p class="pt-40 text-2xl">
+        <p class="md:my-40 my-20 text-2xl md:w-1/2">
           This project was designed to help showcase the beauty in data structures and
           help soldify a firm grasp into how these respected algorithms works
         </p>
       </h1>
-      <div class="md:w-1/2 md:ml-5">
+      <div class="md:w-3/4 md:ml-5">
         <AnimationDisplay />
       </div>
     </div>
@@ -107,4 +107,8 @@ https://realtimecolors.com/?colors=e5eaf3-141414-bef264-f9f5fa-22d3ee 300 green/
   transform: translateX(40px);
   opacity: 0;
 }
+
+ .textFix {
+  @apply text-center md:!text-left
+ }
 </style>
