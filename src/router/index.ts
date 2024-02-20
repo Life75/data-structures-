@@ -12,6 +12,7 @@ import Roadmap from '../components/Roadmap.vue'
 const base = '/data-structures-/'
  
 const routes = [
+    
     {
         path: base,
         name: 'Home',
@@ -20,14 +21,7 @@ const routes = [
             fullPath: `${base}`
         }
     },
-    {
-        path: `${base}Roadmap`,
-        name: 'Roadmap',
-        component: Roadmap,
-        meta: {
-            fullPath: `${base}Roadmap`
-        }
-    },
+
     {
         path: `${base}Sorting`,
         name: 'Sorting',

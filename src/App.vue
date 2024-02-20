@@ -15,15 +15,13 @@ function setHeaderTitle(headerTitle: string) {
 </script>
 
 <template>
-    <!--<NavigationHeader :title="header" class="shadow-md" style=""></NavigationHeader>-->
+
     <NavBar class="w-full"></NavBar>
-     <RouterView @header="setHeaderTitle"></RouterView> 
-    <!--<Footer class=" align-middle" id="footer"/>-->
+    <RouterView class="" @header="setHeaderTitle"></RouterView> 
 
 </template>
 
 <style >
-
 
 
 
