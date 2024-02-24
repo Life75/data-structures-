@@ -9,6 +9,8 @@ import Queue from '/src/components/DataStructures/Queue.vue'
 import Stack from '/src/components//DataStructures/Stack.vue'
 import NotFound from '/src/components/NotFound.vue'
 import Roadmap from '../components/Roadmap.vue'
+import VRecursion from '../Views/VRecursion.vue'
+import FibonacciRecursion from '../Recursion/FibonacciRecursion.vue'
 const base = '/data-structures-/'
  
 const routes = [
@@ -29,6 +31,7 @@ const routes = [
         children: [{
             path: 'BubbleSort',
             component: BubbleSort,
+            name: "Bubble Sort",
             meta: {
                 fullPath: `${base}Sorting/BubbleSort`
             }
@@ -36,6 +39,7 @@ const routes = [
         {
             path: `QuickSort`,
             component: QuickSort,
+            name: "Quick Sort",
             meta: {
                 fullPath: `${base}Sorting/QuickSort`
             }
@@ -43,6 +47,7 @@ const routes = [
         {
             path: `MergeSort`,
             component: MergeSort,
+            name: "Merge Sort",
             meta: {
                 fullPath: `${base}Sorting/MergeSort`
             }
@@ -56,12 +61,14 @@ const routes = [
         children: [{
             path: 'Queue',
             component: Queue,
+            name: "Queue",
             meta: {
                 fullPath: `${base}DataStructures/Queue`
             }
         },
         {
             path: `Stack`,
+            name: "Stack",
             component: Stack,
             meta: {
                 fullPath: `${base}DataStructures/Stack`
@@ -69,6 +76,19 @@ const routes = [
         }
     ]
     },
+    {
+        path: `${base}Recursion`, 
+        name: `Recursion`,
+        component : VRecursion, 
+        children: [{
+            path: `Fibonacci`,
+            component: FibonacciRecursion, 
+            name: `Fibonacci Recursion`,
+            meta: {
+                fullPath: `${base}Recursion/FibonacciRecursion`
+            }
+        }]
+    }
 
 
 ]
