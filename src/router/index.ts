@@ -85,7 +85,7 @@ const routes = [
             component: FibonacciRecursion, 
             name: `Fibonacci Recursion`,
             meta: {
-                fullPath: `${base}Recursion/FibonacciRecursion`
+                fullPath: `${base}Recursion/Fibonacci`
             }
         }]
     }
