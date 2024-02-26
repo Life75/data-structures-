@@ -7,7 +7,7 @@ import Sort from "./Sort";
 //https://www.geeksforgeeks.org/quick-sort/
 export default class QuickSort extends Sort implements ISort, IIterations {
     getIterations(): Iteration[] {
-        return this.iterations;
+        return this.iterations; 
     }
     clearIterations(): void {
         this.iterations = []

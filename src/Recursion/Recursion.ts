@@ -4,11 +4,15 @@ import Timer from "../Contracts/Classes/Timer";
 export default class Recursion {
     protected timer: Timer; 
     protected n: number;
-    protected frames: Iteration[] = []
     constructor(n: number) {
         this.timer = new Timer()
         this.n = n 
     }
+    getN(): number {
+        return this.n 
+    }
 
-
+    geTimer(): Timer {
+        return this.timer
+    }
 }
