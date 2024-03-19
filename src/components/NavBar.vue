@@ -13,7 +13,7 @@
 
             </div>
             <!--add an icon to the end -->
-            <a class="text-2xl hidden lg:flex ">
+            <a class="text-2xl  lg:flex ml-0 md:pl-3 hover:cursor-pointer " href="data-structures-/">
                 <p class="text-green-400">Index</p>
                 <p>Zero</p>
             </a>
