@@ -42,7 +42,7 @@ export function AnimateEngine<T>(entity: Snapshots<T> & Timer) {
             } catch (e: unknown) {
                 clearInterval(animationID)
             }
-        }, speed)
+        }, speed) 
     }
     return {animate, cancelAnimation, animating, timer, }
 }
