@@ -1,14 +1,10 @@
 <template>
-    <div >
+    <div class="p-1">
       
-        <SquareNode  :value="20"/>
-        <SquareNode  :value="20"/>
-        <SquareNode  :value="20"/>
-
-        <SquareNode  :value="20"/>
-        {{ currentIteration }}
-        <div v-if="n == 0">N is 0</div>
-        <div class="flex items-center justify-center">
+     
+        <div class="flex ">
+          
+            
             
         </div>
     </div>
@@ -27,9 +23,8 @@ defineProps<{
 
 var {animate, cancelAnimation, animating, currentIteration} = AnimateEngine(new FibannociRecursion(2))
 onMounted(() => {
-    animate(20)
-    console.log(currentIteration)
-
+    animate(2000)
+    console.log(currentIteration.value)
 })
 
 </script>

@@ -32,19 +32,20 @@ export function AnimateEngine<T>(entity: Snapshots<T>) {
         }
 
         var animationID = setInterval(() => {
-            id.value = animationID
-
+            //id.value = animationID
             if(frame.value == entityRef.value.getSnapshots().length) {
                 cancelAnimation()
             } else {
                 id.value = animationID
+
+                try {
+                    currentIteration.value = entityRef.value.getSnapshots()[frame.value]
+                    frame.value++
+                } catch (e: unknown) {
+                    clearInterval(animationID)
+                }
             }
-            try {
-                currentIteration.value = entityRef.value.getSnapshots()[frame.value]
-                frame.value++
-            } catch (e: unknown) {
-                clearInterval(animationID)
-            }
+          
         }, speed) 
     }
     return {animate, cancelAnimation, animating, currentIteration }

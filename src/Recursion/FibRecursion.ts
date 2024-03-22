@@ -11,7 +11,7 @@ export default class FibannociRecursion extends Recursion implements IRecursion,
 
       createSnapshot(entity: number): Snapshot<Array<number>> {
         this.currentState.push(entity) //keeps track of the current state of the class 
-
+        console.log("current state" + this.currentState)
         return new Snapshot(this.currentState) 
       }
 

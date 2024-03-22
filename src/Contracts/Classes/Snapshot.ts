@@ -5,7 +5,8 @@ export default class Snapshot<T> {
 
 
     constructor(snapshot: T) {
-        this.snapshot = snapshot
+        const snap = {... snapshot}
+        this.snapshot = snap
     }
 
 
