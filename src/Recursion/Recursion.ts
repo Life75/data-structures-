@@ -14,7 +14,15 @@ export default class Recursion extends Snapshots<Array<number>> {
         return this.n 
     }
 
-    geTimer(): Timer {
+    getTimer(): Timer {
         return this.timer
+    }
+
+    startTimer(): void {
+        this.timer.start()
+    }
+
+    stopTimer(): void {
+        this.timer.stop()
     }
 }

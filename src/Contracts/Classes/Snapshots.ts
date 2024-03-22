@@ -9,4 +9,8 @@ export default class Snapshots<T> { //try to implement this logic into the Sort 
     public addSnapshot(snapshot: Snapshot<T>): void {
         this.snapshots.push(snapshot)
     }
+
+    public start() {
+        
+    }
 }

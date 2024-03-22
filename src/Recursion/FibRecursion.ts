@@ -19,6 +19,10 @@ export default class FibannociRecursion extends Recursion implements IRecursion,
           this.fibanocciRecursion(super.getN())
       }
 
+      start() {
+        this.fibanocciRecursion(super.getN())
+      }
+
       fibanocciRecursion(n: number): number {
         //test this logic, should give us the current states throughout the recursion 
         this.addSnapshot(this.createSnapshot(n))

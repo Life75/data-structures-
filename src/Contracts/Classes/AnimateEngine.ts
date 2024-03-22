@@ -2,19 +2,19 @@ import { ref, watch } from "vue";
 import Snapshots from "./Snapshots";
 import Timer from "./Timer";
 
-export function AnimateEngine<T>(entity: Snapshots<T> & Timer) {
+export function AnimateEngine<T>(entity: Snapshots<T>) {
     var entityRef = ref(entity)
-    var timer = ref()
+   // var timer = ref()
     var animating = ref(false)
     var frame = ref(0)
     var id = ref()
     var currentIteration = ref()
 
-    watch(
-        () => entityRef.value.getTime(), (newTimer, oldTimer) => {
-            timer.value = entityRef.value.getTime()
-        }
-    )
+   // watch(
+   //     () => entityRef.value.getTime(), (newTimer, oldTimer) => {
+   //         timer.value = entityRef.value.getTime()
+   //     }
+   // )
 
     function cancelAnimation(): void {
         clearInterval(id.value)
@@ -24,6 +24,7 @@ export function AnimateEngine<T>(entity: Snapshots<T> & Timer) {
 
     //Should make this function slot like to be able to put in we can do this later
     function animate(speed: number): void {
+        entity.start()
         animating.value = true
         
         if(speed == 0) {
@@ -31,6 +32,8 @@ export function AnimateEngine<T>(entity: Snapshots<T> & Timer) {
         }
 
         var animationID = setInterval(() => {
+            id.value = animationID
+
             if(frame.value == entityRef.value.getSnapshots().length) {
                 cancelAnimation()
             } else {
@@ -44,5 +47,5 @@ export function AnimateEngine<T>(entity: Snapshots<T> & Timer) {
             }
         }, speed) 
     }
-    return {animate, cancelAnimation, animating, timer, }
+    return {animate, cancelAnimation, animating, currentIteration }
 }
