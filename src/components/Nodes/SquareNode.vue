@@ -1,6 +1,6 @@
 <template>
-    <div class=" w-28 h-20 shadow-lg  bg-green-500">
-        <p>{{ value }}</p>
+    <div class=" w-14 h-14 shadow-lg flex justify-center align-middle   bg-green-500">
+        <p class="mb-auto mt-auto font-semibold text-black">{{ value }}</p>
     </div>
 </template>
 

@@ -11,7 +11,6 @@ export default class FibannociRecursion extends Recursion implements IRecursion,
 
       createSnapshot(entity: number): Snapshot<Array<number>> {
         this.currentState.push(entity) //keeps track of the current state of the class 
-        console.log("current state" + this.currentState)
         return new Snapshot(this.currentState) 
       }
 
@@ -25,6 +24,7 @@ export default class FibannociRecursion extends Recursion implements IRecursion,
 
       fibanocciRecursion(n: number): number {
         //test this logic, should give us the current states throughout the recursion 
+        //later we should track the f(n) and list them within the reciever 
         this.addSnapshot(this.createSnapshot(n))
         if(n <= 1) {
             return n 

@@ -1,12 +1,14 @@
 <template>
-    <div class="p-1">
-      
-     
-        <div class="flex ">
-          
-            
-            
+    <div class="p-1 flex flex-col  h-full">
+        <div class="flex flex-row flex-wrap gap-4">
+                <span v-for="n in displayValues">
+                    <SquareNode :value="n"/>
+                </span>
+                
         </div>
+        <span class=" bottom-0">
+            <p class="">Output</p>
+        </span>
     </div>
 </template>
 
@@ -14,20 +16,31 @@
 import SquareNode from '../components/Nodes/SquareNode.vue';
 import FibannociRecursion from './FibRecursion';
 import { AnimateEngine } from '../Contracts/Classes/AnimateEngine';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
+import { watch } from 'vue';
 //values are returning, next thing to do is add the nodes and animation engine 
+let displayValues = ref([])
 defineProps<{
     n?: number,
-    startAnimation: boolean 
+    startAnimation: boolean
 }>()
 
-var {animate, cancelAnimation, animating, currentIteration} = AnimateEngine(new FibannociRecursion(2))
+var { animate, cancelAnimation, animating, currentIteration } = AnimateEngine(new FibannociRecursion(5))
+
 onMounted(() => {
-    animate(2000)
-    console.log(currentIteration.value)
+    animate(300)
+    //console.log(currentIteration.value)
+})
+
+
+watch((currentIteration), () => {
+    //turning object into an array for readability
+    const snapshot = Object.values(currentIteration.value.snapshot)
+    displayValues.value.push(snapshot.pop())
+    //need to interpet the logic of the incoming iteration 
+    
 })
 
 </script>
 
-<style>
-</style>
+<style></style>
