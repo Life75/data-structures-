@@ -71,10 +71,7 @@
                     </div>
                 </v-list-subheader>
                 <v-list-item v-for="(route, i) in router.routes" class="" :key="i" :value="route" :ripple="false">
-
-                   
                         <RouteNode :route="route"></RouteNode>
-                   
                 </v-list-item>
             </v-list>
 

@@ -38,6 +38,7 @@ watch((currentIteration), () => {
     const snapshot = Object.values(currentIteration.value.snapshot)
     displayValues.value.push(snapshot.pop())
     //need to interpet the logic of the incoming iteration 
+    console.log(snapshot)
     
 })
 
