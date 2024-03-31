@@ -1,11 +1,12 @@
 <template>
     <div id="treemap">
         {{ treemap.length }}
-        <div v-for="node in treemap.length" :key="node">
+        <div v-for="level in treemap" >
             <div class="w-full h-20 ">
                 <div class="flex justify-center " >
-                    <div class=" h-20" v-for="nodes in (Math.pow(2, node-1))" >
-                        <SquareNode class=" mx-2" :value="nodes"/> 
+                    <div class=" h-20" v-for="node in level" >
+                        <SquareNode v-if="node !== undefined" class=" mx-2" :value="node"/> 
+                        <SquareNode v-else class=" mx-2"  :value="node"/>
                     </div>
                 </div>
               
@@ -21,6 +22,13 @@ import { onBeforeMount } from "vue";
 const TREE_LEVELS = 3
 const arr = [1, 2, 3, 4, 5, 6, 7]
 
+
+const props = defineProps({
+    tree: {type: Array<number>, default: []} 
+})
+
+
+
 function generateTreeMap(arr: number[]): number[][] {
     let container = []
     for(var i=0; i < TREE_LEVELS; i++) {
@@ -34,6 +42,7 @@ function generateTreeMap(arr: number[]): number[][] {
             if(element) {
                 level.push(element)
             } else {
+                break
                 level.push(undefined)
             }
             slider++
@@ -44,10 +53,11 @@ function generateTreeMap(arr: number[]): number[][] {
     return container
 }
 
-const treemap = ref(generateTreeMap(arr))
+const treemap = ref(generateTreeMap(props.tree))
+console.log(treemap.value)
 
 onBeforeMount(() => {
-
+    
 })
 
 </script>

@@ -33,4 +33,9 @@ export default class FibannociRecursion extends Recursion implements IRecursion,
             return this.fibanocciRecursion(n-2) + this.fibanocciRecursion(n-1)
         }
       }
+
+
+      getCurrentState(): Array<number> {
+        return this.currentState
+      }
 }

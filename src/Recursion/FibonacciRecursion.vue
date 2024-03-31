@@ -1,12 +1,6 @@
 <template>
     <div class="p-1 flex flex-col  h-full">
-        <div v-if="false" class="flex flex-row flex-wrap gap-4">
-                <span v-for="n in displayValues">
-                    <SquareNode :value="n"/>
-                </span>
-                
-        </div>
-        <TreeMaping/>
+        <TreeMaping :tree="displayValues"/>
         <span class=" bottom-0">
             <p class="">Output</p>
         </span>
@@ -27,20 +21,20 @@ defineProps<{
     startAnimation: boolean
 }>()
 
-var { animate, cancelAnimation, animating, currentIteration } = AnimateEngine(new FibannociRecursion(5))
+var { animate, cancelAnimation, animating, currentIteration } = AnimateEngine(new FibannociRecursion(2))
 
 onMounted(() => {
-    animate(300)
+    animate(300, false)
     //console.log(currentIteration.value)
 })
 
 
 watch((currentIteration), () => {
     //turning object into an array for readability
-    const snapshot = Object.values(currentIteration.value.snapshot)
-    displayValues.value.push(snapshot.pop())
+    const snapshot = Object.values(currentIteration.value.snapshot) //we need to convert these into a type that's acceptable aka array 
+    //displayValues.value.push(snapshot.pop())
     //need to interpet the logic of the incoming iteration 
-    //console.log(snapshot)
+    console.log(displayValues.value)
     
 })
 
