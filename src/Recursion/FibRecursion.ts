@@ -30,7 +30,7 @@ export default class FibannociRecursion extends Recursion implements IRecursion,
             return n 
         }
         else {
-            return this.fibanocciRecursion(n-2) + this.fibanocciRecursion(n-1)
+            return this.fibanocciRecursion(n-1) + this.fibanocciRecursion(n-2)
         }
       }
 
