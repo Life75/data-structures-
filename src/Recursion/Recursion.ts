@@ -5,6 +5,7 @@ import Timer from "../Contracts/Classes/Timer";
 export default class Recursion extends Snapshots<Array<number>> {
     protected timer: Timer; 
     protected n: number;
+    protected output: number = 0
     constructor(n: number) {
         super();
         this.timer = new Timer()
@@ -24,5 +25,13 @@ export default class Recursion extends Snapshots<Array<number>> {
 
     stopTimer(): void {
         this.timer.stop()
+    }
+
+    getRecursiveOutput(): number {
+        return this.output
+    }
+
+    setRecursiveOutput(output: number) {
+        this.output = output
     }
 }

@@ -2,40 +2,40 @@
     <div class="p-1 flex flex-col  h-full">
         <TreeMaping :tree="displayValues" />
         <span class=" bottom-0">
-            <p class="">Output</p>
+            <p class="">Output: {{ displayOutput }} </p>
+            <p></p>
         </span>
     </div>
 </template>
 
 <script setup lang="ts">
-import SquareNode from '../components/Nodes/SquareNode.vue';
 import FibannociRecursion from './FibRecursion';
-import { AnimateEngine } from '../Contracts/Classes/AnimateEngine';
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import { watch } from 'vue';
 import TreeMaping from "../components/Nodes/TreeMaping.vue"
 import { onBeforeMount } from 'vue';
-//values are returning, next thing to do is add the nodes and animation engine 
 let displayValues = ref()
-defineProps<{
+let displayOutput = ref(0)
+const props = defineProps<{
     n?: number,
     startAnimation: boolean
 }>()
 
-//var { animate, cancelAnimation, animating, currentIteration } = AnimateEngine(new FibannociRecursion(2))
+watch( () => props.startAnimation, () => {
+    //console.log(props.startAnimation)
+    if(props.startAnimation)
+        startAnimating()
+})
 
 
-
-
-onBeforeMount(() => {
-    //animate(300, false)
-    //console.log(currentIteration.value)
-    const recursionService = new FibannociRecursion(4)
+function startAnimating() {
+    const recursionService = new FibannociRecursion(2)
     recursionService.start()
     displayValues.value = recursionService.getCurrentState()
+    displayOutput.value = recursionService.getRecursiveOutput()
+    
+}
 
-
-})
 
 </script>
 
