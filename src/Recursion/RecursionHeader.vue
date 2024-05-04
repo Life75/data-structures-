@@ -6,9 +6,9 @@
         </span>
         <div class="divider"></div>
 
-        <div class="mx-5 mb-auto">
+        <div class="mx-5 mb-auto flex flex-col items-center align-middle gap-y-2">
             <p class=" font-semibold">N</p>
-           
+            <NumberInput @on-change-value="emitN"/>
         </div>
         <div class="bottom-0 mx-5 mb-4">
             <button class="btn btn-wide bg-base-300" @click="startEvent()">Start</button>
@@ -17,8 +17,8 @@
 </template>
 
 <script setup lang="ts">
-
 import { ref } from 'vue';
+import NumberInput from '../components/NumberInput.vue';
 
 
 
@@ -37,8 +37,8 @@ function handleChange() {
 
 }
 
-function emitN() {
-    emit("n", n.value)
+function emitN(incomingValue: number) {
+    emit("n", incomingValue)
 }
 </script>
 

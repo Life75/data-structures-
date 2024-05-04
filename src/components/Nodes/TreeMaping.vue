@@ -65,6 +65,7 @@ function generateTreeMap(arr: number[]): (number | undefined)[][] {
 }
 
 watch(() => props.tree, () => {
+    console.log("generate map")
     treemap.value = generateTreeMap([...props.tree])
 })
 </script>
