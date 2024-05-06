@@ -1,9 +1,9 @@
 <template>
     <div class="p-1 flex flex-col  h-full">
-        <TreeMaping :tree="displayValues" />
-        <span v-show="showOutput" class=" bottom-0">
-            <p class="">Output: {{ displayOutput }} </p>
-            <p></p>
+        <TreeMaping class=" " :tree="displayValues" />
+        <div class="h-6"></div>
+        <span v-show="showOutput" class=" mt-auto flex-shrink bottom-0 ">
+            <p class=" pr-1 font-semibold">Result:  {{ displayOutput }} </p>
         </span>
     </div>
 </template>

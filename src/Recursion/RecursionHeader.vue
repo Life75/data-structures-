@@ -19,11 +19,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import NumberInput from '../components/NumberInput.vue';
-
-
-
 const n = ref(0)
-
 const emit = defineEmits<{
     (e: "start"): void
     (e: "n", n: number): void

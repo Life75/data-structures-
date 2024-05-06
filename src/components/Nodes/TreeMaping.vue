@@ -2,8 +2,8 @@
     <div id="treemap">
         <div v-for="level in treemap ">
             <div class="w-full h-20 ">
-                <div class="flex justify-center ">
-                    <div class=" h-20" v-for="node in level">
+                <div class="flex items-center justify-center ">
+                    <div class=" flex items-center h-20" v-for="node in level">
                         <SquareNode v-if="node !== undefined" class=" mx-2" :value="node" />
                         <SquareNode v-else class=" mx-2" :value="node" />
                     </div>
