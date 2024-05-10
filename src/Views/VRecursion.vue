@@ -34,8 +34,8 @@
                 </div>
             </span>
             <v-sheet :min-height="300" :min-width="250" max-height="500" border="md" rounded :elevation="10"
-                color="#141518" class="w-full  ">
-                <RouterView class=" h-full w-full col-span-2 " :n="Number(n)" :startAnimation="startAnimation"
+                color="#141518" class="w-full h-full ">
+                <RouterView class="  " style="height: 100%;" :n="Number(n)" :startAnimation="startAnimation"
                     @header-name="getHeaderName"></RouterView>
             </v-sheet>
         </div>

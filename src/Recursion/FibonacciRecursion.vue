@@ -1,9 +1,9 @@
 <template>
-    <div class="p-1 flex flex-col  h-full">
+    <div class="p-1 flex flex-col items-stretch  justify-center  " style="height: 100%" >
         <TreeMaping class=" " :tree="displayValues" />
-        <div class="h-6"></div>
-        <span v-show="showOutput" class=" mt-auto flex-shrink bottom-0 ">
-            <p class=" pr-1 font-semibold">Result:  {{ displayOutput }} </p>
+        <span v-show="showOutput" class=" h-full flex ">
+            
+            <p class=" pr-1 font-semibold  self-end">Total:  {{ displayOutput }} </p>
         </span>
     </div>
 </template>
