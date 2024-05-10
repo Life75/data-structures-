@@ -1,9 +1,10 @@
 <template>
-  <div class=" shadow-sm space-y-3 text-white z-10">
+  <div class=" bg-base-200 rounded-md p-10 shadow-md z-10">
     <span class="text-2xl ">{{ props.header }}</span>
     <div class="text-lg">
       Amount to be sorted
       <el-slider  v-model="amountOfValues" @change="emitSliderValue()"></el-slider>
+      <input type="range" min="0" max="100" value="40" class="range range-secondary" />    
     </div>
     <div class="text-lg">
       Animation Speed
