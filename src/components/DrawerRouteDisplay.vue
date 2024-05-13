@@ -11,7 +11,7 @@
     <span class="text-white">
       {{ route.name }}
       <el-icon class="el-icon--right">
-        <arrow-down />
+        <arrow-dow />
       </el-icon>
     </span>
     <template #dropdown>

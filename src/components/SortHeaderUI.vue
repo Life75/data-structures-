@@ -1,19 +1,20 @@
 <template>
   <div class=" bg-base-200 rounded-md p-10 shadow-md z-10">
-    <span class="text-2xl ">{{ props.header }}</span>
+    <span class="text-2xl font-semibold ">{{ props.header }}</span>
+    <div class="flex flex-col  pt-7">
     <div class="text-lg">
-      Amount to be sorted
-      <el-slider  v-model="amountOfValues" @change="emitSliderValue()"></el-slider>
-      <input type="range" min="0" max="100" value="40" class="range range-secondary" />    
+      Amount of values to be sorted:    
+      {{ Math.trunc(Number(amountOfValues[1])) }}
+      <v-range-slider v-model="amountOfValues" @end="emitSliderValue()"></v-range-slider>
     </div>
     <div class="text-lg">
       Animation Speed
-      <el-slider v-model="animationSpeed" @change="emitAnimationSpeed()"></el-slider>
+      <v-range-slider v-model="animationSpeed" @end="emitAnimationSpeed()"></v-range-slider>
     </div>
     <div>Time taken: <span :class="timerStyling(props.timer?.getTime())">
      {{ $props.timer?.getTime() != undefined ?  `${props.timer?.getTime()} ms` : undefined  }} 
     </span> </div>
-
+  </div>
     <slot>
       <template> </template>
     </slot>
@@ -34,8 +35,8 @@ const props = defineProps({
   header: { type: String },
 });
 
-const amountOfValues = ref(0);
-const animationSpeed = ref(0);
+const amountOfValues = ref([]);
+const animationSpeed = ref([]);
 
 
 function timerStyling(timer: number | undefined) {
@@ -54,11 +55,12 @@ function timerStyling(timer: number | undefined) {
 }
 
 function emitSliderValue() {
-  emit("emitSliderValue", amountOfValues.value);
+  console.log("emitting")
+  emit("emitSliderValue", amountOfValues.value[1]);
 }
 
 function emitAnimationSpeed() {
-  emit("emitAnimationSpeed", 200 - animationSpeed.value);
+  emit("emitAnimationSpeed", 200 - animationSpeed.value[1]);
 }
 </script>
 
