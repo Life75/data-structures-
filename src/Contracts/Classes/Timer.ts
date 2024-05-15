@@ -17,9 +17,9 @@ export default class Timer {
         this.performance = this.endTime - this.startTime!;
     }
 
-    public getTime(): number {
-
-        return this.performance!;
+    public getTime(): Number {
+        //may be best to convert this to a string and read it later 
+        return Math.trunc(Number(this.performance!)) ?  Math.trunc(Number(this.performance!)) : 0
     }
     
 }

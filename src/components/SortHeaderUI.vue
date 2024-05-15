@@ -4,16 +4,19 @@
     <div class="flex flex-col  pt-7">
     <div class="text-lg">
       Amount of values to be sorted:    
-      {{ Math.trunc(Number(amountOfValues[1])) }}
+      {{  Math.trunc(Number(amountOfValues[1])) ? Math.trunc(Number(amountOfValues[1])) : "0" }}
       <v-range-slider v-model="amountOfValues" @end="emitSliderValue()"></v-range-slider>
     </div>
     <div class="text-lg">
       Animation Speed
       <v-range-slider v-model="animationSpeed" @end="emitAnimationSpeed()"></v-range-slider>
     </div>
-    <div>Time taken: <span :class="timerStyling(props.timer?.getTime())">
+    <div>Time taken: <span :class="timerStyling(props.timer?.getTime().valueOf())">
      {{ $props.timer?.getTime() != undefined ?  `${props.timer?.getTime()} ms` : undefined  }} 
     </span> </div>
+  </div>
+  <div class="mx-5 mt-7">
+    <button class="btn btn-wide bg-base-300" @click="emitStart">Start</button>
   </div>
     <slot>
       <template> </template>
@@ -28,6 +31,7 @@ import Timer from "../Contracts/Classes/Timer";
 const emit = defineEmits<{
   (e: "emitSliderValue", amountOfValues: number): void;
   (e: "emitAnimationSpeed", speedSliderValue: number): void;
+  (e: "emitStart"): void 
 }>();
 
 const props = defineProps({
@@ -38,6 +42,10 @@ const props = defineProps({
 const amountOfValues = ref([]);
 const animationSpeed = ref([]);
 
+
+function emitStart() {
+  emit("emitStart")
+}
 
 function timerStyling(timer: number | undefined) {
   if(timer) {

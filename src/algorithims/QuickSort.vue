@@ -38,6 +38,7 @@
     props: {
       amountOfValues: { type: Number, default: 0 },
       animationSpeed: { type: Number, default: 200 },
+      startSorting: {type: Boolean, default: false}
     },
     emits: ["timer", "header"],
     setup(props, { emit }) {
@@ -84,6 +85,16 @@
         }
       );
 
+      watch(
+        () => props.startSorting, () => {
+          startSortingClick()
+        }
+      )
+        function startSortingClick(): void {
+          clearIterations()
+          sortObj.value.startSort()
+          sortAnimation(props.animationSpeed)
+        }
 
       function initSort() {
         const { sortAlgoRef } = SortAlgorithimShell(
