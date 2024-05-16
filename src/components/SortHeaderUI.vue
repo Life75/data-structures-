@@ -16,7 +16,9 @@
     </span> </div>
   </div>
   <div class="mx-5 mt-7">
-    <button class="btn btn-wide bg-base-300" @click="emitStart">Start</button>
+    <button v-show="!isAnimating" class="btn btn-wide bg-base-300" @click="emitStart">Start</button>
+    <button v-show="isAnimating" class="btn btn-wide bg-base-300" @click="emitStart">Cancel</button>
+
   </div>
     <slot>
       <template> </template>
@@ -31,12 +33,14 @@ import Timer from "../Contracts/Classes/Timer";
 const emit = defineEmits<{
   (e: "emitSliderValue", amountOfValues: number): void;
   (e: "emitAnimationSpeed", speedSliderValue: number): void;
-  (e: "emitStart"): void 
+  (e: "emitStart"): void,
+  (e: "emitCancel"): void 
 }>();
 
 const props = defineProps({
   timer: { type: Timer },
   header: { type: String },
+  isAnimating: { type: Boolean, default: false}
 });
 
 const amountOfValues = ref([]);

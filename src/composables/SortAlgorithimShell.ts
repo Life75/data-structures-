@@ -24,7 +24,10 @@ export function SortAlgorithimShell(sortAlgo: Sort & ISort & IIterations) {
       animating.value = true;
     });
 
-    function cancelAnimation(): void {
+    function cancelAnimation(callback?: () => void): void {
+      
+      callback ? callback() : undefined
+
       clearInterval(id.value);
       frame.value = 0;
       animating.value = false;
@@ -35,9 +38,11 @@ export function SortAlgorithimShell(sortAlgo: Sort & ISort & IIterations) {
     }
 
     //check if the values are already sorted, if so return the values to before being sorted 
-    function sortAnimation(speed: number): void {
+    function sortAnimation(speed: number, callback?: () => void): void {
       //clear iterations 
-
+      if(callback) {
+        callback()
+      }
       animating.value = true;
       if(speed == 0) {
         speed = 200

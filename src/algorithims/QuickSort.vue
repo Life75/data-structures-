@@ -40,7 +40,7 @@
       animationSpeed: { type: Number, default: 200 },
       startSorting: {type: Boolean, default: false}
     },
-    emits: ["timer", "header"],
+    emits: ["timer", "header", "isSorting"],
     setup(props, { emit }) {
       var {
         sortAlgoRef,
@@ -63,7 +63,7 @@
           );
           sortObj.value = sortAlgoRef.value;
   
-          if (animating.value) cancelAnimation();
+          if (animating.value) cancelAnimation(emitIsSorting);
         }
       );
   
@@ -71,7 +71,7 @@
         () => props.animationSpeed,
         (animationSpeed, prevSelc) => {
           if (animating.value) {
-            cancelAnimation();
+            cancelAnimation(emitIsSorting);
             sortAnimation(props.animationSpeed);
           }
         }
@@ -91,9 +91,10 @@
         }
       )
         function startSortingClick(): void {
+          emit("isSorting", true)
           clearIterations()
           sortObj.value.startSort()
-          sortAnimation(props.animationSpeed)
+          sortAnimation(props.animationSpeed, emitIsSorting)
         }
 
       function initSort() {
@@ -102,7 +103,11 @@
           );
           sortObj.value = sortAlgoRef.value;
   
-          if (animating.value) cancelAnimation();
+          if (animating.value) cancelAnimation(emitIsSorting);
+      }
+
+      function emitIsSorting(): void {
+        emit("isSorting", animating.value)
       }
 
       onMounted(() => {
