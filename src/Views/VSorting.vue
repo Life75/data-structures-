@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col">
+    <div :class="`flex ${amountOfValues > 21 ? 'flex-col' : 'flex-row' } `">
         <!--Setup where you can view a header that will emit events to update from the components, will need interface on what data to emit to VSorting Component -->
-        <SortHeaderUI class="mx-2 my-2 md:w-1/3"  @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" @emit-start="wasPressed" :header="header">
+        <SortHeaderUI class="mx-2 my-2 md:w-1/3 h-96 w-52 flex-initial"  @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" @emit-start="wasPressed" :header="header">
         </SortHeaderUI>
         <RouterView class="flex" :startSorting="startAnimation" :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed" @timer="setTimer" @header="setHeaderTitle" @is-sorting="setIsSorting">
         </RouterView>   
