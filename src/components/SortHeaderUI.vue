@@ -16,9 +16,9 @@
     </span> </div>
   </div>
   <div class="mx-5 mt-7">
-    <button v-show="!isAnimating" class="btn btn-wide bg-base-300" @click="emitStart">Start</button>
-    <button v-show="isAnimating" class="btn btn-wide bg-base-300" @click="emitStart">Cancel</button>
-
+    <button v-show="!props.controller?.isAnimating" class="btn btn-wide bg-base-100" @click="props.controller?.startSorting()">Start</button>
+    <button v-show="props.controller?.isAnimating" class="btn btn-wide bg-base-300" @click="props.controller?.cancelAnimation">Cancel</button>
+    {{ props.controller?.isAnimating }}
   </div>
     <slot>
       <template> </template>
@@ -28,8 +28,10 @@
 
 <script lang="ts" setup>
 //replace with vuetify navigation drawers  https://vuetifyjs.com/en/components/navigation-drawers/#caveats
-import { ref } from "vue";
+import { ref, PropType } from "vue";
 import Timer from "../Contracts/Classes/Timer";
+import ISortController from '../Contracts/Interfaces/ISortController';
+
 const emit = defineEmits<{
   (e: "emitSliderValue", amountOfValues: number): void;
   (e: "emitAnimationSpeed", speedSliderValue: number): void;
@@ -40,7 +42,8 @@ const emit = defineEmits<{
 const props = defineProps({
   timer: { type: Timer },
   header: { type: String },
-  isAnimating: { type: Boolean, default: false}
+  isAnimating: { type: Boolean, default: false},
+  controller: {type: Object as PropType<ISortController> },
 });
 
 const amountOfValues = ref([]);

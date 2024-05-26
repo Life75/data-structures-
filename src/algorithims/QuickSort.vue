@@ -31,6 +31,7 @@
   import QuickSort from "../algorithims-ts/QuickSort";
   import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
   import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
+  import ISortController from "../Contracts/Interfaces/ISortController"
   
   export default defineComponent({
     name: "Quick Sort",
@@ -40,8 +41,10 @@
       animationSpeed: { type: Number, default: 200 },
       startSorting: {type: Boolean, default: false}
     },
-    emits: ["timer", "header", "isSorting"],
+    emits: ["timer", "header", "isSorting", "controller"],
     setup(props, { emit }) {
+
+
       var {
         sortAlgoRef,
         sortAnimation,
@@ -111,8 +114,16 @@
       }
 
       onMounted(() => {
-      emit("header", "Quick Sort");
-      initSort()
+        emit("header", "Quick Sort");
+        initSort()
+
+        const controller: ISortController = {
+          startSorting: startSortingClick,
+          cancelAnimation: cancelAnimation, 
+          isAnimating: animating
+        }
+
+        emit("controller", controller )
     });
 
   

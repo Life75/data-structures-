@@ -1,9 +1,9 @@
 <template>
-    <div :class="`flex ${amountOfValues > 21 ? 'flex-col' : 'flex-row' } `">
+    <div :class="`flex flex-col `">
         <!--Setup where you can view a header that will emit events to update from the components, will need interface on what data to emit to VSorting Component -->
-        <SortHeaderUI class="mx-2 my-2 md:w-1/3 h-96 w-52 flex-initial"  @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" @emit-start="wasPressed" :header="header">
+        <SortHeaderUI class="mx-2 my-2 md:w-1/3 h-96 w-52 flex-initial shadow-lg" :controller="sortController"  @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" @emit-start="wasPressed" :header="header">
         </SortHeaderUI>
-        <RouterView class="flex" :startSorting="startAnimation" :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed" @timer="setTimer" @header="setHeaderTitle" @is-sorting="setIsSorting">
+        <RouterView class="flex" @controller="setController" :startSorting="startAnimation" :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed" @timer="setTimer" @header="setHeaderTitle" @is-sorting="setIsSorting">
         </RouterView>   
     </div>
     <!--Make a component for the header for Sorting that way to deal with this problem -->
@@ -11,9 +11,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits } from 'vue';
+import { ref, defineEmits, Ref } from 'vue';
 import Timer from '../Contracts/Classes/Timer';
 import SortHeaderUI from '../components/SortHeaderUI.vue';
+import ISortController from '../Contracts/Interfaces/ISortController';
 
 
 const animeSpeed = ref(0);
@@ -23,6 +24,7 @@ const amountOfValues = ref(0);
 const reset = ref(false);
 let header = ref(" ");
 let trackTime = ref();
+let sortController: Ref<ISortController | undefined > = ref()
 
 const startAnimation = ref(false)
 
@@ -34,6 +36,10 @@ function wasPressed() {
 function setIsSorting(isSorting: boolean) {
     //TODO solving issue with is sorting 
     console.log("is sorting" + isSorting)
+}
+
+function setController(controller: ISortController) {
+    sortController.value = controller
 }
 
 function cancelAnimation(){
@@ -49,7 +55,9 @@ function setHeaderTitle(headerTitle: string) {
 
 
 function startSortingClick() {
-    isSorting.value = true 
+    //isSorting.value = true
+    
+    sortController.value?.startSorting()
 }
 
 function setAnimationSpeed(animationSpeed: number) {
