@@ -15,26 +15,7 @@
       </li>
       <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
-    <span v-if="!hideStart" class="p-2">
-      <el-button 
-        v-show="!animating"
-        class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F] p-4"
-        type="primary"
-        color="#1D1E1F"
-        v-if="amountOfValues"
-        @click="startSorting()"
-        :disabled="animating"
-        >Start Sorting</el-button
-      >
-      <el-button
-        class="p-2"
-        v-show="animating"
-        type="primary"
-        color="green"
-        @click="cancelAnimation()"
-        >Cancel Animation</el-button
-      >
-    </span>
+  
   </div>
 </template>
 
@@ -45,6 +26,7 @@ import VerticalNode from "../components/VerticalNode.vue";
 import BubbleSort from "../algorithims-ts/BubbleSort";
 import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
 import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
+import ISortController from "../Contracts/Interfaces/ISortController";
 
 export default defineComponent({
   name: "Bubble Sort",
@@ -57,7 +39,7 @@ export default defineComponent({
     hideStart: {type: Boolean, default: false},
     showDescription: {type: Boolean, default: false}
   },
-  emits: ["timer", "header"],
+  emits: ["timer", "header", "controller"],
   setup(props, { emit }) {
     var {
       sortAlgoRef,
@@ -72,6 +54,13 @@ export default defineComponent({
 
     onMounted(() => {
       emit("header", "Bubble Sort");
+      const controller: ISortController = {
+          startSorting: startSorting,
+          cancelAnimation: cancelAnimation, 
+          isAnimating: animating
+        }
+
+        emit("controller", controller )
     });
 
     //watching a prop

@@ -12,26 +12,7 @@
       </li>
       <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
-    <span class="p-2">
-      <el-button
-        v-show="!animating"
-        class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F]"
-        type="primary"
-        color="#1D1E1F"
-        v-if="amountOfValues"
-        @click="startSortingClick()"
-        :disabled="animating"
-        >Start Sorting</el-button
-      >
-      <el-button
-        class="p-2"
-        v-show="animating"
-        type="primary"
-        color="green"
-        @click="cancelAnimation()"
-        >Cancel Animation</el-button
-      >
-    </span>
+  
   </div>
 </template>
 
@@ -42,6 +23,7 @@ import VerticalNode from "../components/VerticalNode.vue";
 import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
 import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
 import MergeSort from "../algorithims-ts/MergeSort";
+import ISortController from "../Contracts/Interfaces/ISortController";
 
 export default defineComponent({
   name: "Merge Sort",
@@ -50,7 +32,7 @@ export default defineComponent({
     amountOfValues: { type: Number, default: 0 },
     animationSpeed: { type: Number, default: 200 },
   },
-  emits: ["timer", "header"],
+  emits: ["timer", "header", "controller"],
   setup(props, { emit }) {
     var {
       sortAlgoRef,
@@ -97,10 +79,27 @@ export default defineComponent({
       if (animating.value) cancelAnimation();
     }
 
+    function startSorting(): void {
+      clearIterations()
+      sortObj.value.startSort()
+      sortAnimation(props.animationSpeed);
+    }
+
+
     onMounted(() => {
       emit("header", "Merge Sort");
       initSort();
+
+      const controller: ISortController = {
+          startSorting: startSorting,
+          cancelAnimation: cancelAnimation, 
+          isAnimating: animating
+        }
+
+        emit("controller", controller )
     });
+
+   
 
     return {
       currentIteration, //currentIteration is an iterationObject
