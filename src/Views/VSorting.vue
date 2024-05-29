@@ -2,7 +2,7 @@
     <div :class="`flex flex-col `">
         <!--Setup where you can view a header that will emit events to update from the components, will need interface on what data to emit to VSorting Component -->
         <span class="hidden lg:flex">
-            <SortHeaderUI class="mx-4 my-4 md:w-1/3 h-96 w-52 flex-initial shadow-lg" :controller="sortController"  @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" @emit-start="wasPressed" :header="header">
+            <SortHeaderUI class="w-full" :controller="sortController"  @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" @emit-start="wasPressed" :header="header">
             </SortHeaderUI>
         </span>
         <span class="md:hidden">

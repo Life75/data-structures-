@@ -1,21 +1,21 @@
 <template>
-  <div class=" bg-base-200 rounded-md p-10 shadow-md z-10">
-    <span class="text-2xl font-semibold ">{{ props.header }}</span>
-    <div class="flex flex-col pt-7">
-      <div class="text-lg">
-        Amount of values to be sorted:
+  <div class=" flex flex-row gap-7 mt-5 mx-5">
+  <div class=" bg-base-200 rounded-md w-1/4 shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:shadow-lg hover:text-gray-200 duration-300 ">
+    <!--<span class="text-2xl font-semibold ">{{ props.header }}</span>-->
+    <div class="flex flex-col mx-4 mt-4 ">
+      <p class="    text-xl  ">Settings </p>
+      <div class="text-md">
+        <p>Amount of nodes: </p>
         {{ Math.trunc(Number(amountOfValues[1])) ? Math.trunc(Number(amountOfValues[1])) : "0" }}
         <v-range-slider v-model="amountOfValues" @end="emitSliderValue()"></v-range-slider>
       </div>
-      <div class="text-lg">
+      <div class="text-md">
         Animation Speed
         <v-range-slider v-model="animationSpeed" @end="emitAnimationSpeed()"></v-range-slider>
       </div>
-      <div>Time taken: <span :class="timerStyling(props.timer?.getTime().valueOf())">
-          {{ $props.timer?.getTime() != undefined ? `${props.timer?.getTime()} ms` : undefined }}
-        </span> </div>
+      
     </div>
-    <div class="mx-5 mt-7 flex justify-center items-center">
+    <div v-if="false" class="mx-5 mt-7 flex justify-center items-center">
       <button v-show="!props.controller?.isAnimating" class="btn md:btn-wide  bg-base-100"
         @click="props.controller?.startSorting()">Start</button>
       <button v-show="props.controller?.isAnimating" class="btn md:btn-wide bg-base-300"
@@ -25,6 +25,14 @@
       <template> </template>
     </slot>
   </div>
+  <div class="bg-base-200 w-1/4  h-56">
+    <div>Time taken: <span :class="timerStyling(props.timer?.getTime().valueOf())">
+          {{ $props.timer?.getTime() != undefined ? `${props.timer?.getTime()} ms` : undefined }}
+        </span> </div> </div>
+  <div class="bg-base-200 w-1/4 h-56"> </div>
+  <div class="bg-base-200 w-1/4 h-56"> </div>
+
+</div>
 </template>
 
 <script lang="ts" setup>
