@@ -1,38 +1,73 @@
 <template>
-  <div class=" flex flex-row gap-7 mt-5 mx-5">
-  <div class=" bg-base-200 rounded-md w-1/4 shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:shadow-lg hover:text-gray-200 duration-300 ">
-    <!--<span class="text-2xl font-semibold ">{{ props.header }}</span>-->
-    <div class="flex flex-col mx-4 mt-4 ">
-      <p class="    text-xl  ">Settings </p>
-      <div class="text-md">
-        <p>Amount of nodes: </p>
-        {{ Math.trunc(Number(amountOfValues[1])) ? Math.trunc(Number(amountOfValues[1])) : "0" }}
-        <v-range-slider v-model="amountOfValues" @end="emitSliderValue()"></v-range-slider>
-      </div>
-      <div class="text-md">
-        Animation Speed
-        <v-range-slider v-model="animationSpeed" @end="emitAnimationSpeed()"></v-range-slider>
-      </div>
-      
-    </div>
-    <div v-if="false" class="mx-5 mt-7 flex justify-center items-center">
-      <button v-show="!props.controller?.isAnimating" class="btn md:btn-wide  bg-base-100"
-        @click="props.controller?.startSorting()">Start</button>
-      <button v-show="props.controller?.isAnimating" class="btn md:btn-wide bg-base-300"
-        @click="props.controller?.cancelAnimation()">Cancel</button>
-    </div>
-    <slot>
-      <template> </template>
-    </slot>
-  </div>
-  <div class="bg-base-200 w-1/4  h-56">
-    <div>Time taken: <span :class="timerStyling(props.timer?.getTime().valueOf())">
-          {{ $props.timer?.getTime() != undefined ? `${props.timer?.getTime()} ms` : undefined }}
-        </span> </div> </div>
-  <div class="bg-base-200 w-1/4 h-56"> </div>
-  <div class="bg-base-200 w-1/4 h-56"> </div>
+  <div class=" flex flex-row gap-5 mt-5 mx-5">
+    <div class=" bentoStyling">
+      <!--<span class="text-2xl font-semibold ">{{ props.header }}</span>-->
+      <div class="flex flex-col mx-5 mt-5 ">
+        <p class="    text-lg uppercase   ">Settings </p>
+        <div class="text-md flex flex-col gap-2">
+          <span class="flex gap-2">
+            <p>Amount of nodes: </p>
+            {{ Math.trunc(Number(amountOfValues[1])) ? Math.trunc(Number(amountOfValues[1])) : "0" }}
+          </span>
+          <v-range-slider v-model="amountOfValues" @end="emitSliderValue()"></v-range-slider>
+        </div>
+        <div class="text-md">
+          Animation Speed
+          <v-range-slider v-model="animationSpeed" @end="emitAnimationSpeed()"></v-range-slider>
+        </div>
 
-</div>
+      </div>
+      <div v-if="false" class="mx-5 mt-7 flex justify-center items-center">
+        <button v-show="!props.controller?.isAnimating" class="btn md:btn-wide  bg-base-100"
+          @click="props.controller?.startSorting()">Start</button>
+        <button v-show="props.controller?.isAnimating" class="btn md:btn-wide bg-base-300"
+          @click="props.controller?.cancelAnimation()">Cancel</button>
+      </div>
+      <slot>
+        <template> </template>
+      </slot>
+    </div>
+    <div class="bentoStyling">
+      <div class="mx-5 mt-5">
+        <p class="text-lg uppercase">Time </p> <span
+          :class="` text-4xl ${timerStyling(props.timer?.getTime().valueOf())}`">
+          {{ $props.timer?.getTime() != undefined ? `${props.timer?.getTime()} ms` : undefined }}
+        </span>
+      </div>
+    </div>
+    <div @click="controller?.startSorting()" v-if="!controller?.isAnimating" class="bentoStyling flex justify-center items-center align-middle hover:text-green-400"> 
+      <p class="uppercase text-4xl">Start</p>
+    </div>
+    <div @click="controller.cancelAnimation()" v-else="controller?.isAnimating" class="bentoStyling flex justify-center items-center align-middle hover:text-red-400"> 
+      <p class="uppercase text-4xl">Cancel</p>
+    </div>
+
+    <div class="bentoStyling">
+      <div class="mx-5 mt-5 gap-2 flex flex-col">
+        <p class="text-lg uppercase">Complexity</p>
+        
+        <span class="flex flex-row align-middle items-center text-4xl gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-clock"
+            viewBox="0 0 16 16">
+            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+          </svg>
+          <p>O(N)</p>
+        </span>
+
+
+        <span class="flex flex-row align-middle items-center text-4xl gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-memory"
+            viewBox="0 0 16 16">
+            <path
+              d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z" />
+          </svg>
+          <p>O(N)</p>
+        </span>
+      </div>
+    </div>
+
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -117,5 +152,9 @@ function emitAnimationSpeed() {
   border-radius: 50%;
   background: #04AA6D;
   cursor: pointer;
+}
+
+.bentoStyling {
+  @apply bg-base-200 rounded-md w-1/4 shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:shadow-lg hover:text-gray-200 duration-300
 }
 </style>
