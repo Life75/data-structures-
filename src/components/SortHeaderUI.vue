@@ -1,5 +1,13 @@
 <template>
   <div class=" flex flex-row gap-5 mt-5 mx-5">
+    <div @click="controller?.startSorting()" v-if="!controller?.isAnimating"
+      class="bentoStyling flex justify-center items-center align-middle hover:text-green-400">
+      <p class="uppercase text-4xl">Start</p>
+    </div>
+    <div @click="controller.cancelAnimation()" v-else="controller?.isAnimating"
+      class="bentoStyling flex justify-center items-center align-middle hover:text-red-400">
+      <p class="uppercase text-4xl">Cancel</p>
+    </div>
     <div class=" bentoStyling">
       <!--<span class="text-2xl font-semibold ">{{ props.header }}</span>-->
       <div class="flex flex-col mx-5 mt-5 ">
@@ -35,17 +43,12 @@
         </span>
       </div>
     </div>
-    <div @click="controller?.startSorting()" v-if="!controller?.isAnimating" class="bentoStyling flex justify-center items-center align-middle hover:text-green-400"> 
-      <p class="uppercase text-4xl">Start</p>
-    </div>
-    <div @click="controller.cancelAnimation()" v-else="controller?.isAnimating" class="bentoStyling flex justify-center items-center align-middle hover:text-red-400"> 
-      <p class="uppercase text-4xl">Cancel</p>
-    </div>
+
 
     <div class="bentoStyling">
       <div class="mx-5 mt-5 gap-2 flex flex-col">
         <p class="text-lg uppercase">Complexity</p>
-        
+
         <span class="flex flex-row align-middle items-center text-4xl gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-clock"
             viewBox="0 0 16 16">
@@ -155,6 +158,6 @@ function emitAnimationSpeed() {
 }
 
 .bentoStyling {
-  @apply bg-base-200 rounded-md w-1/4 shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:shadow-lg hover:text-gray-200 duration-300
+  @apply bg-base-200 rounded-md w-1/4 cursor-default shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:shadow-lg hover:text-gray-200 duration-300 
 }
 </style>
