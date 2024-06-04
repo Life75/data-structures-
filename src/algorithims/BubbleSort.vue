@@ -2,7 +2,7 @@
   <!--Weird bug, when making nested routes in vue you'll need to make the sure that the folder hiearchy needs to not be nested in order for hot reloading -->
   <div class="flex-col items-center justify-center ">
     <!--Need to be able to show before and after-->
-    <div v-if="amountOfValues == 0">No Values</div>
+    <div v-if="amountOfValues == 0" class="flex w-full pt-20 justify-center items-center">No Values</div>
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
         <div class="">
@@ -27,6 +27,8 @@ import BubbleSort from "../algorithims-ts/BubbleSort";
 import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
 import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
 import ISortController from "../Contracts/Interfaces/ISortController";
+import ISortRequest from "../Contracts/Interfaces/ISortRequest"
+import IMetadata from "../Contracts/Interfaces/IMetadata"
 
 export default defineComponent({
   name: "Bubble Sort",
@@ -39,7 +41,7 @@ export default defineComponent({
     hideStart: {type: Boolean, default: false},
     showDescription: {type: Boolean, default: false}
   },
-  emits: ["timer", "header", "controller"],
+  emits: ["timer", "header", "controller", "request"],
   setup(props, { emit }) {
     var {
       sortAlgoRef,
@@ -54,11 +56,29 @@ export default defineComponent({
 
     onMounted(() => {
       emit("header", "Bubble Sort");
+     
+
       const controller: ISortController = {
           startSorting: startSorting,
           cancelAnimation: cancelAnimation, 
           isAnimating: animating
         }
+      
+        const metadata: IMetadata = {
+          timeComplexity: `O(N)`,
+          spaceComplexity: `O(1)`,
+          description: "Some description of the algrothim of bubble sort", 
+          header: "Bubble Sort"
+        }
+
+        const request: ISortRequest = {
+        controller: controller, 
+        metadata: metadata, 
+        timer: timer
+
+      }
+
+      //TODO send request up through emit 
 
         emit("controller", controller )
     });
