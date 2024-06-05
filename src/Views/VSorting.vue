@@ -2,13 +2,13 @@
     <div :class="`flex flex-col `">
         <!--Setup where you can view a header that will emit events to update from the components, will need interface on what data to emit to VSorting Component -->
         <span class="hidden lg:flex">
-            <SortHeaderUI class="w-full" :controller="sortController"  @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" @emit-start="wasPressed" :header="header">
+            <SortHeaderUI class="w-full" :controller="sortController" :sort-request-controller="sortRequest"  @emit-slider-value="setAmountOfValues" @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime" @emit-animation-speed="setAnimationSpeed" @emit-start="wasPressed" :header="header">
             </SortHeaderUI>
         </span>
         <span class="md:hidden">
             <p>Controller settings </p>
         </span>
-        <RouterView class="flex" @controller="setController" :startSorting="startAnimation" :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed" @timer="setTimer" @header="setHeaderTitle" @is-sorting="setIsSorting">
+        <RouterView class="flex" @request="setSortRequest" @controller="setController" :startSorting="startAnimation" :amountOfValues="amountOfValues" :reset="reset" :animationSpeed="animeSpeed" @timer="setTimer" @header="setHeaderTitle" @is-sorting="setIsSorting">
         </RouterView>   
     </div>
     <!--Make a component for the header for Sorting that way to deal with this problem -->
@@ -20,6 +20,7 @@ import { ref, defineEmits, Ref } from 'vue';
 import Timer from '../Contracts/Classes/Timer';
 import SortHeaderUI from '../components/SortHeaderUI.vue';
 import ISortController from '../Contracts/Interfaces/ISortController';
+import ISortRequest from '../Contracts/Interfaces/ISortRequest';
 
 
 const animeSpeed = ref(0);
@@ -30,6 +31,7 @@ const reset = ref(false);
 let header = ref(" ");
 let trackTime = ref();
 let sortController: Ref<ISortController | undefined > = ref()
+let sortRequest: Ref<ISortRequest | undefined> = ref()
 
 const startAnimation = ref(false)
 
@@ -41,6 +43,10 @@ function wasPressed() {
 function setIsSorting(isSorting: boolean) {
     //TODO solving issue with is sorting 
     console.log("is sorting" + isSorting)
+}
+
+function setSortRequest(request: ISortRequest) {
+    sortRequest.value = request
 }
 
 function setController(controller: ISortController) {

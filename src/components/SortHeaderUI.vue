@@ -1,10 +1,11 @@
 <template>
   <div class=" flex flex-row gap-5 mt-5 mx-5">
-    <div @click="controller?.startSorting()" v-if="!controller?.isAnimating"
+    <div @click="sortRequestController?.controller?.startSorting()" v-if="!sortRequestController?.controller?.isAnimating"
       class="bentoStyling flex justify-center items-center align-middle hover:text-green-400">
+
       <p class="uppercase text-4xl">Start</p>
     </div>
-    <div @click="controller.cancelAnimation()" v-else="controller?.isAnimating"
+    <div @click="sortRequestController.controller.cancelAnimation()" v-else="sortRequestController?.controller?.isAnimating"
       class="bentoStyling flex justify-center items-center align-middle hover:text-red-400">
       <p class="uppercase text-4xl">Cancel</p>
     </div>
@@ -26,10 +27,10 @@
 
       </div>
       <div v-if="false" class="mx-5 mt-7 flex justify-center items-center">
-        <button v-show="!props.controller?.isAnimating" class="btn md:btn-wide  bg-base-100"
-          @click="props.controller?.startSorting()">Start</button>
-        <button v-show="props.controller?.isAnimating" class="btn md:btn-wide bg-base-300"
-          @click="props.controller?.cancelAnimation()">Cancel</button>
+        <button v-show="!props.sortRequestController?.controller?.isAnimating" class="btn md:btn-wide  bg-base-100"
+          @click="props.sortRequestController?.controller?.startSorting()">Start</button>
+        <button v-show="props.sortRequestController?.controller?.isAnimating" class="btn md:btn-wide bg-base-300"
+          @click="props.sortRequestController?.controller?.cancelAnimation()">Cancel</button>
       </div>
       <slot>
         <template> </template>
@@ -37,9 +38,9 @@
     </div>
     <div class="bentoStyling">
       <div class="mx-5 mt-5">
-        <p class="text-lg uppercase">Time </p> <span
+        <p class="text-lg uppercase">Time</p><span
           :class="` text-4xl ${timerStyling(props.timer?.getTime().valueOf())}`">
-          {{ $props.timer?.getTime() != undefined ? `${props.timer?.getTime()} ms` : undefined }}
+          {{ props.timer?.getTime() != undefined ? `${props.timer?.getTime()} ms` : undefined }}
         </span>
       </div>
     </div>
@@ -78,6 +79,7 @@
 import { ref, PropType } from "vue";
 import Timer from "../Contracts/Classes/Timer";
 import ISortController from '../Contracts/Interfaces/ISortController';
+import ISortRequest from "../Contracts/Interfaces/ISortRequest";
 
 const emit = defineEmits<{
   (e: "emitSliderValue", amountOfValues: number): void;
@@ -91,6 +93,7 @@ const props = defineProps({
   header: { type: String },
   isAnimating: { type: Boolean, default: false },
   controller: { type: Object as PropType<ISortController> },
+  sortRequestController: { type: Object as PropType<ISortRequest>}
 });
 
 const amountOfValues = ref([]);

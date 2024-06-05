@@ -70,16 +70,16 @@ export default defineComponent({
           description: "Some description of the algrothim of bubble sort", 
           header: "Bubble Sort"
         }
-
+        console.log(timer)
         const request: ISortRequest = {
         controller: controller, 
         metadata: metadata, 
-        timer: timer
+        timer: timer.value
 
       }
 
       //TODO send request up through emit 
-
+        emit("request", request)
         emit("controller", controller )
     });
 
