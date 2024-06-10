@@ -6,5 +6,4 @@ import {Ref} from "vue"
 export default interface ISortRequest {
     controller: ISortController, 
     metadata: IMetadata,
-    timer: Timer, 
 }

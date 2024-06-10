@@ -41,7 +41,7 @@ export default defineComponent({
     hideStart: {type: Boolean, default: false},
     showDescription: {type: Boolean, default: false}
   },
-  emits: ["timer", "header", "controller", "request"],
+  emits: ["timer" , "request"],
   setup(props, { emit }) {
     var {
       sortAlgoRef,
@@ -55,9 +55,6 @@ export default defineComponent({
     var sortObj = sortAlgoRef;
 
     onMounted(() => {
-      emit("header", "Bubble Sort");
-     
-
       const controller: ISortController = {
           startSorting: startSorting,
           cancelAnimation: cancelAnimation, 
@@ -65,22 +62,16 @@ export default defineComponent({
         }
       
         const metadata: IMetadata = {
-          timeComplexity: `O(N)`,
+          timeComplexity: `O(n)`,
           spaceComplexity: `O(1)`,
           description: "Some description of the algrothim of bubble sort", 
           header: "Bubble Sort"
         }
-        console.log(timer)
         const request: ISortRequest = {
         controller: controller, 
         metadata: metadata, 
-        timer: timer.value
-
       }
-
-      //TODO send request up through emit 
-        emit("request", request)
-        emit("controller", controller )
+      emit("request", request)
     });
 
     //watching a prop
