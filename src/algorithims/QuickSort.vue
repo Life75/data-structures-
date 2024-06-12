@@ -25,20 +25,21 @@
   import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
   import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
   import ISortController from "../Contracts/Interfaces/ISortController"
+  import SortProps from "../Contracts/Classes/SortProps"
+  import { PropType } from "vue";
   
   export default defineComponent({
     name: "Quick Sort",
     components: { Node, VerticalNode, VerticalNodeAdapter },
-    props: {
+    props: { 
       amountOfValues: { type: Number, default: 0 },
       animationSpeed: { type: Number, default: 200 },
-      startSorting: {type: Boolean, default: false}
+      startSorting: {type: Boolean, default: false},
+      sortController: { type: Object as PropType<SortProps>}
     },
-    emits: ["timer", "header", "isSorting", "controller"],
+    emits: ["timer", "request"],
     setup(props, { emit }) {
-
-
-      var {
+     var {
         sortAlgoRef,
         sortAnimation,
         cancelAnimation,
@@ -142,4 +143,4 @@
 </script>
 <style>
 
-</style>
+</style>../Contracts/Interfaces/SortProps

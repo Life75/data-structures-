@@ -32,6 +32,7 @@ const routes = [
             path: 'BubbleSort',
             component: BubbleSort,
             name: "Bubble Sort",
+            
             meta: {
                 fullPath: `${base}Sorting/BubbleSort`
             }

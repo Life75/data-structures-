@@ -8,9 +8,12 @@
         <span class="md:hidden">
             <p>Controller settings </p>
         </span>
-        <RouterView class="flex" @request="setSortRequest" :amountOfValues="amountOfValues" :animationSpeed="animeSpeed" @timer="setTimer"  >
+        <RouterView class="flex h-[500px] my-10" @request="setSortRequest" :sortProps="sortPropsRef" :animationSpeed="animeSpeed" @timer="setTimer">
         </RouterView>   
-        <div>Description of algorithm </div>
+        <div class="mx-5 bg-base-300 h-[200px] rounded-md shadow-md p-5 flex flex-col gap-3">
+            <p class=" text-2xl uppercase">{{ sortRequest?.metadata.header }}</p>
+            <p> {{ sortRequest?.metadata.description }}</p>
+        </div>
     </div>
 
 </template>
@@ -20,9 +23,11 @@ import { ref, Ref } from 'vue';
 import Timer from '../Contracts/Classes/Timer';
 import SortHeaderUI from '../components/SortHeaderUI.vue';
 import ISortRequest from '../Contracts/Interfaces/ISortRequest';
+import SortProps from '../Contracts/Classes/SortProps';
 
 const animeSpeed = ref(0); 
 const amountOfValues = ref(0);
+const sortPropsRef: Ref<SortProps> = ref(new SortProps())
 let trackTime = ref();
 let sortRequest: Ref<ISortRequest | undefined> = ref()
 
@@ -30,12 +35,16 @@ function setSortRequest(request: ISortRequest) {
     sortRequest.value = request
 }
 
+function setSortProps(sortProps: SortProps) {
+    sortPropsRef.value = sortProps
+}
+
 function setAnimationSpeed(animationSpeed: number) {
-   animeSpeed.value = animationSpeed;
+   sortPropsRef.value.animationSpeed = animationSpeed;
 }
 
 function setAmountOfValues(amount: number) {    
-    amountOfValues.value = amount;
+    sortPropsRef.value.amountOfValues = amount;
 }
 
 function setTimer(timer: Timer): void {

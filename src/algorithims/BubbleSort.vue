@@ -2,7 +2,7 @@
   <!--Weird bug, when making nested routes in vue you'll need to make the sure that the folder hiearchy needs to not be nested in order for hot reloading -->
   <div class="flex-col items-center justify-center ">
     <!--Need to be able to show before and after-->
-    <div v-if="amountOfValues == 0" class="flex w-full pt-20 justify-center items-center">No Values</div>
+    <div v-if="sortProps.amountOfValues == 0" class="flex w-full pt-20 justify-center items-center">No Values</div>
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
         <div class="">
@@ -29,6 +29,8 @@ import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
 import ISortController from "../Contracts/Interfaces/ISortController";
 import ISortRequest from "../Contracts/Interfaces/ISortRequest"
 import IMetadata from "../Contracts/Interfaces/IMetadata"
+import { PropType } from "vue";
+import SortProps from "../Contracts/Classes/SortProps";
 
 export default defineComponent({
   name: "Bubble Sort",
@@ -38,8 +40,7 @@ export default defineComponent({
     animationSpeed: { type: Number, default: 200 },
     autostart: { type: Boolean, default: false},
     start: { type: Boolean, default: false},
-    hideStart: {type: Boolean, default: false},
-    showDescription: {type: Boolean, default: false}
+    sortProps: {type: Object as PropType<SortProps>, default: new SortProps()}
   },
   emits: ["timer" , "request"],
   setup(props, { emit }) {
@@ -51,7 +52,7 @@ export default defineComponent({
       currentIteration,
       timer,
       clearIterations,
-    } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
+    } = SortAlgorithimShell(new BubbleSort(props.sortProps.amountOfValues));
     var sortObj = sortAlgoRef;
 
     onMounted(() => {
@@ -60,7 +61,7 @@ export default defineComponent({
           cancelAnimation: cancelAnimation, 
           isAnimating: animating
         }
-      
+
         const metadata: IMetadata = {
           timeComplexity: `O(n)`,
           spaceComplexity: `O(1)`,
@@ -76,11 +77,10 @@ export default defineComponent({
 
     //watching a prop
     watch(
-      () => props.amountOfValues,
+      () => props.sortProps.amountOfValues,
       (amountOfValues, prevSelc) => {
-        const { sortAlgoRef } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
+        const { sortAlgoRef } = SortAlgorithimShell(new BubbleSort(props.sortProps.amountOfValues));
         sortObj.value = sortAlgoRef.value;
-
         if (animating.value) cancelAnimation();
       }
     );
@@ -93,18 +93,18 @@ export default defineComponent({
     )
 
     function initSort() {
-      const { sortAlgoRef } = SortAlgorithimShell(new BubbleSort(props.amountOfValues));
+      const { sortAlgoRef } = SortAlgorithimShell(new BubbleSort(props.sortProps.amountOfValues));
       sortObj.value = sortAlgoRef.value;
 
       if (animating.value) cancelAnimation();
     }
 
     watch(
-      () => props.animationSpeed,
+      () => props.sortProps.animationSpeed,
       (animationSpeed, prevSelc) => {
         if (animating.value) {
           cancelAnimation();
-          sortAnimation(props.animationSpeed);
+          sortAnimation(props.sortProps.animationSpeed);
         }
       }
     );
@@ -128,8 +128,8 @@ export default defineComponent({
       clearIterations();
       sortObj.value.startSort();
 
-      if (props.animationSpeed == 0) sortAnimation(200);
-      else sortAnimation(props.animationSpeed);
+      if (props.sortProps.animationSpeed == 0) sortAnimation(200);
+      else sortAnimation(props.sortProps.animationSpeed);
     }
 
     return {
@@ -147,3 +147,4 @@ export default defineComponent({
 </script>
 
 <style></style>
+../Contracts/Interfaces/SortProps
