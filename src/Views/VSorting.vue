@@ -13,6 +13,7 @@
         <div class="mx-5 bg-base-300 h-[200px] rounded-md shadow-md p-5 flex flex-col gap-3">
             <p class=" text-2xl uppercase">{{ sortRequest?.metadata.header }}</p>
             <p> {{ sortRequest?.metadata.description }}</p>
+            {{ sortPropsRef }}
         </div>
     </div>
 

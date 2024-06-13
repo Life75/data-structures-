@@ -9,6 +9,7 @@ import BubbleSort from '../algorithims/BubbleSort.vue';
 
 //take in a component and display said component 
 let sortProps = new SortProps()
+sortProps.amountOfValues = 9
 const props = defineProps({
     autostart: {
         type: Boolean,
