@@ -24,19 +24,16 @@ import VerticalNode from "../components/VerticalNode.vue";
 import QuickSort from "../algorithims-ts/QuickSort";
 import { SortAlgorithimShell } from "../composables/SortAlgorithimShell";
 import VerticalNodeAdapter from "../components/VerticalNodeAdapter.vue";
-import IsortProps from "../Contracts/Interfaces/IsortProps"
 import SortProps from "../Contracts/Classes/SortProps"
 import { PropType } from "vue";
 import IMetadata from "../Contracts/Interfaces/IMetadata";
 import ISortRequest from "../Contracts/Interfaces/ISortRequest";
+import ISortController from "../Contracts/Interfaces/ISortController";
 
 export default defineComponent({
   name: "Quick Sort",
   components: { Node, VerticalNode, VerticalNodeAdapter },
   props: {
-    amountOfValues: { type: Number, default: 0 },
-    animationSpeed: { type: Number, default: 200 },
-    startSorting: { type: Boolean, default: false },
     sortProps: { type: Object as PropType<SortProps>, default: new SortProps() }
   },
   emits: ["timer", "request"],
@@ -62,7 +59,7 @@ export default defineComponent({
         );
         sortObj.value = sortAlgoRef.value;
 
-        if (animating.value) cancelAnimation(emitIsSorting);
+        if (animating.value) cancelAnimation();
       }
     );
 
@@ -70,7 +67,7 @@ export default defineComponent({
       () => props.sortProps.animationSpeed,
       (animationSpeed, prevSelc) => {
         if (animating.value) {
-          cancelAnimation(emitIsSorting);
+          cancelAnimation();
           sortAnimation(props.sortProps.animationSpeed);
         }
       }
@@ -85,14 +82,14 @@ export default defineComponent({
     );
 
     watch(
-      () => props.startSorting, () => {
+      () => props.sortProps.autostart, () => {
         startSortingClick()
       }
     )
     function startSortingClick(): void {
       clearIterations()
       sortObj.value.startSort()
-      sortAnimation(props.animationSpeed, emitIsSorting)
+      sortAnimation(props.sortProps.animationSpeed)
     }
 
     function initSort() {
@@ -101,15 +98,13 @@ export default defineComponent({
       );
       sortObj.value = sortAlgoRef.value;
 
-      if (animating.value) cancelAnimation(emitIsSorting);
+      if (animating.value) cancelAnimation();
     }
 
-    function emitIsSorting(): void {
-      emit("isSorting", animating.value)
-    }
+
 
     onMounted(() => {
-      const controller: IsortProps = {
+      const controller: ISortController = {
         startSorting: startSortingClick,
         cancelAnimation: cancelAnimation,
         isAnimating: animating
@@ -123,7 +118,7 @@ export default defineComponent({
       }
 
       const request: ISortRequest = {
-        controller: controller, 
+        controller: controller,
         metadata: metaData
       }
 
@@ -140,13 +135,6 @@ export default defineComponent({
       timer,
       clearIterations
     };
-  },
-  methods: {
-    startSortingClick(): void {
-      this.clearIterations();
-      this.sortObj.startSort();
-      this.sortAnimation(this.animationSpeed);
-    },
   },
 });
 
