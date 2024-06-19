@@ -74,7 +74,6 @@
                         <RouteNode :route="route"></RouteNode>
                 </v-list-item>
             </v-list>
-
         </v-navigation-drawer>
     </v-layout>
 </template>
@@ -85,7 +84,6 @@ import { ref } from 'vue';
 import { VNavigationDrawer } from 'vuetify/lib/components/index.mjs';
 import router from '../router/index'
 import RouteNode from './RouteNode.vue'
-//import isMobile from '../composables/MobileCheck';
 const showDrawer = ref(false)
 const search = ref("")
 

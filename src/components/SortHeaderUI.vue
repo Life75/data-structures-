@@ -1,12 +1,11 @@
-<template>
-  <div class=" flex flex-row gap-5 mt-5 mx-5">
-    <div @click="sortRequestController?.controller?.startSorting()" v-if="!sortRequestController?.controller?.isAnimating"
-      class="bentoStyling flex justify-center items-center align-middle hover:text-green-400">
-
+çç<template>
+  <div class=" flex flex-col md:flex-row gap-5 mt-5 mx-5 justify-center align-middle md:items-stretch items-center \ ">
+    <div @click="amountOfValues[1] > 0 ? sortRequestController?.controller?.startSorting() : undefined " v-if="!sortRequestController?.controller?.isAnimating"
+      :class="`bentoStyling flex justify-center items-center align-middle hover:text-green-400 w-full`">
       <p class="uppercase text-4xl">Start</p>
     </div>
     <div @click="sortRequestController.controller.cancelAnimation()" v-else="sortRequestController?.controller?.isAnimating"
-      class="bentoStyling flex justify-center items-center align-middle hover:text-red-400">
+      class="bentoStyling flex justify-center items-center align-middle hover:text-red-400 ">
       <p class="uppercase text-4xl">Cancel</p>
     </div>
     <div class=" bentoStyling">
@@ -161,6 +160,6 @@ function emitAnimationSpeed() {
 }
 
 .bentoStyling {
-  @apply bg-base-200 rounded-md w-1/4 cursor-default shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:shadow-lg hover:text-gray-200 duration-300 
+  @apply bg-base-200 rounded-md  cursor-default shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:shadow-lg hover:text-gray-200 duration-300 w-full md:h-auto h-[200px]
 }
 </style>

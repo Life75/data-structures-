@@ -16,7 +16,7 @@ function setHeaderTitle(headerTitle: string) {
 
 <template>
 
-    <NavBar class="w-full"></NavBar>
+   <NavBar class="w-full"></NavBar> 
     <RouterView class="" @header="setHeaderTitle"></RouterView> 
 
 </template>

@@ -50,6 +50,7 @@ export function SortAlgorithimShell(sortAlgo: Sort & ISort & IIterations) {
       
 
       var animationID = setInterval(() => {
+        console.log(frame.value)
         if(frame.value == sortAlgoRef.value.getIterations().length) {
           sortAlgoRef.value.clearIterations()
           cancelAnimation();
