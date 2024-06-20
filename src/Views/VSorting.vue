@@ -26,8 +26,10 @@
         </div>
         <v-layout>
             <v-navigation-drawer v-model="drawerIsOpen" location="bottom" class="bg-base-100 py-5" width="500" temporary >
-                <SortHeaderUI/>
-            </v-navigation-drawer>
+                <SortHeaderUI class="" :sort-request-controller="sortRequest" @emit-slider-value="setAmountOfValues($event)"
+                @emit-animation-speed-slider="setAnimationSpeed" :timer="trackTime"
+                @emit-animation-speed="setAnimationSpeed" :is-mobile="true">
+            </SortHeaderUI>            </v-navigation-drawer>
         </v-layout>
     </div>
 </template>

@@ -17,7 +17,7 @@
             <p>Amount of nodes: </p>
             {{ Math.trunc(Number(amountOfValues[1])) ? Math.trunc(Number(amountOfValues[1])) : "0" }}
           </span>
-          <v-range-slider v-model="amountOfValues" @end="emitSliderValue()"></v-range-slider>
+          <v-range-slider v-model="amountOfValues" @end="emitSliderValue()" :max="props.isMobile ? 15 : 100" ></v-range-slider>
         </div>
         <div class="text-md">
           Animation Speed
@@ -92,7 +92,8 @@ const props = defineProps({
   header: { type: String },
   isAnimating: { type: Boolean, default: false },
   controller: { type: Object as PropType<ISortController> },
-  sortRequestController: { type: Object as PropType<ISortRequest>}
+  sortRequestController: { type: Object as PropType<ISortRequest>}, 
+  isMobile: {type: Boolean, default: false}
 });
 
 const amountOfValues = ref([]);
