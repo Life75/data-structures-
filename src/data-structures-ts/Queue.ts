@@ -1,28 +1,41 @@
 import HeaderRequest from "../Contracts/Classes/HeaderRequest";
 import ILinkedLists from "../Contracts/Interfaces/ILinkedList";
 
-export default class Queue extends HeaderRequest implements ILinkedLists {
-    private queue: Array<number> = []
+class Node {
+    payload: number = Number.MAX_SAFE_INTEGER 
+    nextNode: Node | undefined 
 
+    constructor(payload: number, nextNode: Node | undefined) {
+        this.payload = payload
+        this.nextNode = nextNode
+    }
+}
+
+export default class Queue extends HeaderRequest implements ILinkedLists {
+    head: Node | undefined 
+    tail: Node | undefined 
     push(payload: number): void {
-        this.queue.push(payload)
+        if(!this.head) {
+            this.head = new Node(payload, undefined)
+            this.tail = this.head 
+        }
+        else {
+            const newNode = new Node(payload, this.tail)
+            this.tail = newNode 
+        }
+
     }
     pop(): number | undefined {
-       var firstIndex = undefined 
-
-       if(this.queue.length != 0) {
-
-            firstIndex = this.queue.shift()
-       }
-
-       return firstIndex
+       const node = this.head 
+       this.head = this.head?.nextNode
+       return node?.payload 
     }
     peek(): number | undefined {
-        return this.queue[0]
+        return 1
     }
 
     peekAll(): Array<number> {
-        return this.queue
+        return []
     }
     
 }

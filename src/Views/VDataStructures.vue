@@ -1,7 +1,10 @@
 <template>
     <div class="px-2">
         <!--Dependent on the class currently in place it will need to switch to different header components-->
-        <LinkedListHeaderUI @pop-event="popEvent" @push-event="pushEvent" v-show="currentHeader == Header.LinkedList"></LinkedListHeaderUI>
+        <!--<LinkedListHeaderUI @pop-event="popEvent" @push-event="pushEvent" v-show="currentHeader == Header.LinkedList"></LinkedListHeaderUI>
+        <component/>    
+
+        -->
         <RouterView :linkedListAttributes="linkedListAttributes" class="flex " @ui-header-request="setHeader" />
     </div>
 </template>

@@ -1,4 +1,4 @@
-//this is an abstract that will be in charge of asking to request headers for RouterViews that have multiple different headers 
+//this is an abstract that will be in charge of asking to request headers for RouterViews that have multiple different headers (you can pass components and setup the type)
 import {Header} from './Headers'
 export default abstract class HeaderRequest {
     protected header

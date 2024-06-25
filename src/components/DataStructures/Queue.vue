@@ -1,7 +1,7 @@
 <template>
   <!--Take in a list shell for Queue, workout the template and then refactor it later on like before -->
   <div ref="Queue">
-    <div class="flex flex-row flex-wrap py-12 items-center justify-center">
+   <!-- <div class="flex flex-row flex-wrap py-12 items-center justify-center">
       <li class="flex flex-row" v-for="node in queue.peekAll()">
         <span v-show="queue.peekAll().length == 0">No Values currently </span>
         <CircularNode class="pr-2" :value="node"/>
@@ -9,11 +9,12 @@
           <Arrow class="mt-6" :direction="direction" />
         </span>
       </li>
-    </div>
+    </div>-->
+    {{ queue }}
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { PropType, defineComponent, onMounted, ref, watch } from "vue";
 import { Header } from "../../Contracts/Classes/Headers";
 import Queue from "../../data-structures-ts/Queue";
@@ -23,6 +24,8 @@ import Arrow from "../Arrow.vue";
 import { Direction } from "../../Contracts/Classes/Direction";
 import RandomNumberGenerator from "../../Contracts/Classes/RandomNumberGenerator";
 
+let queue = ref(new Queue(Header.LinkedList))
+/*
 export default defineComponent({
   name: "Queue",
   emits: ["ui-header-request"],
@@ -58,5 +61,5 @@ export default defineComponent({
     };
   },
   components: { CircularNode, Arrow },
-});
+}); */
 </script>
