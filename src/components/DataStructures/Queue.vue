@@ -25,6 +25,10 @@ import { Direction } from "../../Contracts/Classes/Direction";
 import RandomNumberGenerator from "../../Contracts/Classes/RandomNumberGenerator";
 
 let queue = ref(new Queue(Header.LinkedList))
+queue.value.push(1)
+queue.value.push(2)
+console.log(queue.value.pop())
+console.log(queue.value.pop())
 /*
 export default defineComponent({
   name: "Queue",
