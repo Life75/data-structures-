@@ -1,23 +1,40 @@
 import HeaderRequest from "../Contracts/Classes/HeaderRequest";
 import ILinkedLists from "../Contracts/Interfaces/ILinkedList";
 
-export default class Stack extends HeaderRequest implements ILinkedLists {
-    private stack: Array<number> = [] 
+class Node {
+    payload: number = Number.MAX_SAFE_INTEGER 
+    nextNode: Node | undefined 
 
+    constructor() {
+    }
+
+    setNode(payload: number , nextNode: Node) {
+        this.payload = payload
+        this.nextNode = nextNode
+    }
+}
+
+export default class Stack extends HeaderRequest implements ILinkedLists {
+    head: Node | undefined 
     push(payload: number) {
-        this.stack.push(payload)
+        const node = new Node()
+        node.payload = payload
+        node.nextNode = this.head 
+
+
+        this.head = node
     }
 
     pop(): number | undefined {
-        return this.stack.pop()
+        return 0
     }
 
     peek(): number | undefined {
-        return this.stack[this.stack.length]
+        return 0 
     }
 
     peekAll(): Array<number> {
-        return this.stack
+        return []
     }
 
     
