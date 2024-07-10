@@ -1,22 +1,21 @@
 //this is an abstract that will be in charge of asking to request headers for RouterViews that have multiple different headers (you can pass components and setup the type)
-import {Header} from './Headers'
 import {extend} from '@vue/shared'
 
 const component = extend({})
 type VueComponent = InstanceType<typeof component>
 
 export default abstract class HeaderRequest {
-    protected header: VueComponent
+    private header: VueComponent
 
-    constructor(header: Header) {
+    constructor(header: VueComponent) {
         this.header = header; 
     }
 
-    public getHeader(): Header {
+    public getHeader(): VueComponent {
         return this.header;
     }
 
-    public setHeader(header: Header): void {
+    public setHeader(header: VueComponent): void {
         this.header = header
     }
 }

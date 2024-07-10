@@ -14,7 +14,7 @@ class Node {
     }
 }
 
-export default class Queue extends HeaderRequest implements ILinkedLists {
+export default class Queue implements ILinkedLists {
     head: Node | undefined = new Node()
     tail: Node | undefined = undefined 
 

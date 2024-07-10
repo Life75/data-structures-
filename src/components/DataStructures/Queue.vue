@@ -23,12 +23,37 @@ import CircularNode from "../CircularNode.vue";
 import Arrow from "../Arrow.vue";
 import { Direction } from "../../Contracts/Classes/Direction";
 import RandomNumberGenerator from "../../Contracts/Classes/RandomNumberGenerator";
+import IMetadata from "../../Contracts/Interfaces/IMetadata";
+import ILinkedListRequest from "../../Contracts/Interfaces/ILinkedListRequest"
+import ILinkedListController from "../../Contracts/Interfaces/ILinkedListController"
 
-let queue = ref(new Queue(Header.LinkedList))
-queue.value.push(1)
-queue.value.push(2)
-console.log(queue.value.pop())
-console.log(queue.value.pop())
+const emits = defineEmits<{
+  (e: "request", request: ILinkedListRequest): void 
+}>()
+
+
+onMounted(() => {
+  const controller: ILinkedListController = {
+
+  }
+
+  const metadata: IMetadata = {
+
+  }
+
+  const request: ILinkedListRequest = {
+    controller: controller,
+    metadata: metadata
+  }
+
+  emits("request", request)
+})
+
+
+let queue = ref(new Queue())
+
+//console.log(queue.value.pop())
+//console.log(queue.value.pop())
 /*
 export default defineComponent({
   name: "Queue",

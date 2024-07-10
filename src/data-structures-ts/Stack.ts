@@ -20,8 +20,7 @@ export default class Stack extends HeaderRequest implements ILinkedLists {
         const node = new Node()
         node.payload = payload
         node.nextNode = this.head 
-
-
+        
         this.head = node
     }
 
