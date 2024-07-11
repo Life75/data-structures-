@@ -5,35 +5,20 @@
         <component/>    
 
         -->
-        <RouterView :linkedListAttributes="linkedListAttributes" class="flex " @ui-header-request="setHeader" />
+        <component :is="request?.component" />
+        <router-view @request="setRequest" />
     </div>
 </template>
 
 <script setup lang="ts">
-import { Ref, ref, watch } from 'vue';
-import { Header } from '../Contracts/Classes/Headers';
-import LinkedListHeaderUI from '../components/LinkedListHeaderUI.vue';
-import LinkedListHeader from '../Contracts/Interfaces/LinkedListAttributes';
+import { ref, Ref } from "vue";
+import IHeaderRequest from "../Contracts/Interfaces/IHeaderRequest"
+let request: Ref<IHeaderRequest<unknown>> | Ref<undefined>  = ref()
 
-var currentHeader = ref(0)
-
-
-
-var linkedListAttributes = ref<LinkedListHeader>({ popIterator: 0, pushIterator:  0, latestAction: ''}) 
-
-function setHeader(header: Header) {
-    currentHeader.value = header
+function setRequest(headerRequest: IHeaderRequest<unknown>) {
+    request.value = headerRequest
 }
 
-function popEvent(iterator: number) {
-    linkedListAttributes.value.popIterator++;
-    linkedListAttributes.value.latestAction = 'pop'
-}
-
-function pushEvent(iterator: number) {
-    linkedListAttributes.value.pushIterator++;
-    linkedListAttributes.value.latestAction = 'push'
-}
 
 </script>
 

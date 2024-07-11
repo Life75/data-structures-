@@ -26,6 +26,7 @@ import RandomNumberGenerator from "../../Contracts/Classes/RandomNumberGenerator
 import IMetadata from "../../Contracts/Interfaces/IMetadata";
 import ILinkedListRequest from "../../Contracts/Interfaces/ILinkedListRequest"
 import ILinkedListController from "../../Contracts/Interfaces/ILinkedListController"
+import LinkedListHeaderUI from "../LinkedListHeaderUI.vue";
 
 const emits = defineEmits<{
   (e: "request", request: ILinkedListRequest): void 
@@ -34,16 +35,23 @@ const emits = defineEmits<{
 
 onMounted(() => {
   const controller: ILinkedListController = {
-
+    push: pushAction, 
+    pop: popAction, 
+    peek: peekAction, 
+    seek: seekAction
   }
 
   const metadata: IMetadata = {
-
+    timeComplexity: "O(1)",
+    spaceComplexity: "O(n)", 
+    description: "This is description for the queue operation", 
+    header: "Queue" 
   }
 
   const request: ILinkedListRequest = {
     controller: controller,
-    metadata: metadata
+    metadata: metadata,
+    component: LinkedListHeaderUI
   }
 
   emits("request", request)
@@ -51,6 +59,26 @@ onMounted(() => {
 
 
 let queue = ref(new Queue())
+
+function pushAction(num?: number): void {
+  if(num != undefined) {
+    queue.value.push(num)
+  } else {
+    queue.value.push(new RandomNumberGenerator().getRandomNumber())
+  }
+}
+
+function popAction(): number | void {
+  return queue.value.pop()
+}
+
+function peekAction(): number | void {
+  return queue.value.peek()
+}
+
+function seekAction(): number | void {
+
+}
 
 //console.log(queue.value.pop())
 //console.log(queue.value.pop())

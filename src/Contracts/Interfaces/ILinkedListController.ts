@@ -1,7 +1,8 @@
 import IMetadata from "./IMetadata";
 
 export default interface ILinkedListController {
-    pop: () => void; 
+    pop: (num?: number) => number | void; 
     push: () => void; 
-    peek: () => void 
+    peek: () => number | void, 
+    seek: () => number | void
 }
