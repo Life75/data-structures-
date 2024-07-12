@@ -1,6 +1,6 @@
 <template>
   <!--Take in a list shell for Queue, workout the template and then refactor it later on like before -->
-  <div ref="Queue">
+  <div ref="queue">
    <!-- <div class="flex flex-row flex-wrap py-12 items-center justify-center">
       <li class="flex flex-row" v-for="node in queue.peekAll()">
         <span v-show="queue.peekAll().length == 0">No Values currently </span>
@@ -10,14 +10,14 @@
         </span>
       </li>
     </div>-->
-    {{ queue }}
+    
   </div>
 </template>
 
 <script setup lang="ts">
+
 import { PropType, defineComponent, onMounted, ref, watch } from "vue";
 import { Header } from "../../Contracts/Classes/Headers";
-import Queue from "../../data-structures-ts/Queue";
 import LinkedListAttributes from "../../Contracts/Interfaces/LinkedListAttributes";
 import CircularNode from "../CircularNode.vue";
 import Arrow from "../Arrow.vue";
@@ -27,11 +27,15 @@ import IMetadata from "../../Contracts/Interfaces/IMetadata";
 import ILinkedListRequest from "../../Contracts/Interfaces/ILinkedListRequest"
 import ILinkedListController from "../../Contracts/Interfaces/ILinkedListController"
 import LinkedListHeaderUI from "../LinkedListHeaderUI.vue";
+import Queue from "../../data-structures-ts/Queue"
 
 const emits = defineEmits<{
   (e: "request", request: ILinkedListRequest): void 
 }>()
 
+
+
+const queue = new Queue()
 
 onMounted(() => {
   const controller: ILinkedListController = {
@@ -58,22 +62,21 @@ onMounted(() => {
 })
 
 
-let queue = ref(new Queue())
 
 function pushAction(num?: number): void {
   if(num != undefined) {
-    queue.value.push(num)
+    queue.push(num)
   } else {
-    queue.value.push(new RandomNumberGenerator().getRandomNumber())
+    queue.push(new RandomNumberGenerator().getRandomNumber())
   }
 }
 
 function popAction(): number | void {
-  return queue.value.pop()
+  return queue.pop()
 }
 
 function peekAction(): number | void {
-  return queue.value.peek()
+  return queue.peek()
 }
 
 function seekAction(): number | void {

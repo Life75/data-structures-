@@ -1,4 +1,3 @@
-import HeaderRequest from "../Contracts/Classes/HeaderRequest";
 import ILinkedLists from "../Contracts/Interfaces/ILinkedList";
 
 class Node {

@@ -1,4 +1,4 @@
-çç<template>
+<template>
   <div class=" flex flex-col md:flex-row gap-5 mt-5 mx-5 justify-center align-middle md:items-stretch items-center \ ">
     <div @click="amountOfValues[1] > 0 ? sortRequestController?.controller?.startSorting() : undefined " v-if="!sortRequestController?.controller?.isAnimating"
       :class="`bentoStyling flex justify-center items-center align-middle hover:text-green-400 w-full`">

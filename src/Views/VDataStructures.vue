@@ -5,7 +5,7 @@
         <component/>    
 
         -->
-        <component :is="request?.component" />
+        <component :is="request?.component" :request="request" />
         <router-view @request="setRequest" />
     </div>
 </template>

@@ -1,46 +1,73 @@
 <template>
-  <div class=" p-3 mr-12 space-y-3">
-    <span class="w-14 text-2xl py-4">Linked List</span>
-    <div>
-      <el-button
-        class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F]"
-        type="primary"
-        color="#1D1E1F"
-        @click="popEvent()"
-        >Pop</el-button
-      >
-    </div>
-    <div>
-      <el-button
-        class="text-green-300 bg-[#1D1E1F] hover:border-green-300 hover:bg-[#1D1E1F]"
-        type="primary"
-        color="#1D1E1F"
-        @click="pushEvent()"
-        >Push</el-button
-      >
+  <div ref="linked-list-header">
+    <div
+      class=" flex flex-col md:flex-row gap-5 mt-5 mx-5 justify-center align-middle md:items-stretch items-center \ ">
+      <div @click=""
+        :class="`uppercase text-4xl bentoStyling flex flex-col justify-center items-center align-middle hover:text-green-400 w-full`">
+        <div class="flex gap-2">
+          <span>
+            <p>Push</p>
+          </span>
+          <span>
+            <p>Pop</p>
+          </span>
+        </div>
+        <div class="flex gap-2">
+          <span>
+            <p>Peek</p>
+          </span>
+          <span>
+            <p>Seek</p>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, defineEmits } from "vue";
+import { ref, PropType } from "vue";
+import ILinkedListRequest from "../Contracts/Interfaces/ILinkedListRequest"
 
-var popIterator = ref(0);
-var pushIterator = ref(0);
+const props = defineProps({
+  request: { type: Object as PropType<ILinkedListRequest> }
+});
 
-const emit = defineEmits<{
-    (e: "pop-event", popIterator: number): void;
-    (e: "push-event", pushIterator: number): void;
-}>()
-
-function popEvent() {
-    popIterator.value++;
-    emit("pop-event", popIterator.value)
-    
-}
-
-function pushEvent() {
-    pushIterator.value++;
-    emit("push-event", pushIterator.value)
-}
 </script>
+
+
+<style>
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.bentoStyling {
+  @apply bg-base-200 rounded-md cursor-default shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:shadow-lg hover:text-gray-200 duration-300 w-full md:h-auto h-[200px]
+}
+</style>
