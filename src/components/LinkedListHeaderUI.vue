@@ -4,21 +4,28 @@
       class=" flex flex-col md:flex-row gap-5 mt-5 mx-5 justify-center align-middle md:items-stretch items-center \ ">
       <div @click=""
         :class="`uppercase text-4xl bentoStyling flex flex-col justify-center items-center align-middle hover:text-green-400 w-full`">
-        <div class="flex gap-2">
-          <span>
-            <p>Push</p>
-          </span>
-          <span>
-            <p>Pop</p>
-          </span>
+        <div class="w-full">
+
+          <div class="flex flex-1 flex-grow w-full  ">
+            <div class=" text-center w-full  ">
+                <p>Push</p>
+            </div>
+              
+            <div class="w-full text-center">
+                <p>Pop</p>
+            </div>
+          </div>
         </div>
-        <div class="flex gap-2">
-          <span>
-            <p>Peek</p>
-          </span>
-          <span>
-            <p>Seek</p>
-          </span>
+        <div class="w-full">
+          <div class="flex flex-1 flex-grow w-full   ">
+            <div class=" text-center w-full  ">
+                <p>Peek</p>
+            </div>
+              
+            <div class="w-full text-center ">
+                <p>Seek</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
