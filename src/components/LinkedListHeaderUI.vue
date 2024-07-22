@@ -1,34 +1,18 @@
 <template>
-  <div ref="linked-list-header" class="flex flex-col md:flex-row gap-5 mt-5 mx-5 justify-center align-middle md:items-stretch items-center">
-    <div
-      class=" flex flex-col md:flex-row  justify-center align-middle md:items-stretch items-center  grow\ ">
-      <div @click=""
-        :class="`uppercase text-4xl bentoStyling flex flex-col justify-center items-center align-middle hover:text-green-400 w-full`">
-        <div class="w-full">
+  <div ref="linked-list-header"
+    class="flex flex-col md:flex-row gap-5 mt-5  justify-center align-middle md:items-stretch items-center">
+    <div class="flex flex-col items-stretch w-full gap-2 uppercase">
+      <span class="flex w-full h-full ">
+        <div class=" flex justify-center  items-center grow text-center  bentoStyling ">Pop</div>
+        <div class="flex justify-center items-center grow text-center mx-2  bentoStyling">Push</div>
+      </span>
+      <span class="flex w-full h-full">
+        <div class=" flex justify-center  items-center grow text-center  bentoStyling">Peek</div>
+        <div class="flex justify-center  items-center grow text-center mx-2 bentoStyling">Seek</div>
 
-          <div class="flex flex-1 flex-grow w-full  ">
-            <div class=" text-center w-full  ">
-                <p>Push</p>
-            </div>
-              
-            <div class="w-full text-center">
-                <p>Pop</p>
-            </div>
-          </div>
-        </div>
-        <div class="w-full">
-          <div class="flex flex-1 flex-grow w-full   ">
-            <div class=" text-center w-full  ">
-                <p>Peek</p>
-            </div>
-              
-            <div class="w-full text-center ">
-                <p>Seek</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      </span>
     </div>
+
     <div class="bentoStyling">
       <div class="mx-5 mt-5 gap-2 flex flex-col">
         <p class="text-lg uppercase">Complexity</p>
@@ -49,7 +33,7 @@
             <path
               d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z" />
           </svg>
-          <p class="uppercase">{{ props.sortRequestController?.metadata.spaceComplexity  }}</p>
+          <p class="uppercase">{{ props.sortRequestController?.metadata.spaceComplexity }}</p>
         </span>
       </div>
     </div>
@@ -74,7 +58,7 @@
             <path
               d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z" />
           </svg>
-          <p class="uppercase">{{ props.sortRequestController?.metadata.spaceComplexity  }}</p>
+          <p class="uppercase">{{ props.sortRequestController?.metadata.spaceComplexity }}</p>
         </span>
       </div>
     </div>
@@ -99,7 +83,7 @@
             <path
               d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z" />
           </svg>
-          <p class="uppercase">{{ props.sortRequestController?.metadata.spaceComplexity  }}</p>
+          <p class="uppercase">{{ props.sortRequestController?.metadata.spaceComplexity }}</p>
         </span>
       </div>
     </div>
