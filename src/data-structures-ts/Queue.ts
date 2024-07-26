@@ -1,8 +1,9 @@
 import ILinkedLists from "../Contracts/Interfaces/ILinkedList";
-
+import { v4 as uuidv4 } from 'uuid'
 class Node {
     payload: number = Number.MAX_SAFE_INTEGER 
-    nextNode: Node | undefined 
+    nextNode: Node | undefined
+    id: string =  uuidv4()
 
     constructor() {
     }

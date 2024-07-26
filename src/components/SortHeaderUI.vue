@@ -100,9 +100,7 @@ const amountOfValues = ref([]);
 const animationSpeed = ref([]);
 
 
-function emitStart() {
-  emit("emitStart")
-}
+
 
 function timerStyling(timer: number | undefined) {
   if (timer) {

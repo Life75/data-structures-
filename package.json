@@ -17,12 +17,14 @@
     "element-plus": "^2.2.17",
     "pinia": "^2.0.32",
     "tw-elements": "^1.0.0-beta2",
+    "uuid": "^10.0.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.5",
     "vuetify": "^3.5.1"
   },
   "devDependencies": {
     "@mdi/js": "^7.4.47",
+    "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
     "@vitejs/plugin-vue": "^3.1.0",

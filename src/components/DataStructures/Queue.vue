@@ -10,6 +10,7 @@
         </span>
       </li>
     </div>-->
+
     
   </div>
 </template>
@@ -38,12 +39,8 @@ const emits = defineEmits<{
 const queue = new Queue()
 
 onMounted(() => {
-  const controller: ILinkedListController = {
-    push: pushAction, 
-    pop: popAction, 
-    peek: peekAction, 
-    seek: seekAction
-  }
+  const controller = new ILinkedListController(pushAction) 
+  
 
   const metadata: IMetadata = {
     timeComplexity: "O(1)",
@@ -69,6 +66,7 @@ function pushAction(num?: number): void {
   } else {
     queue.push(new RandomNumberGenerator().getRandomNumber())
   }
+  console.log(queue)
 }
 
 function popAction(): number | void {

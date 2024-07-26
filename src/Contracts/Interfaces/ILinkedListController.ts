@@ -1,8 +1,13 @@
 import IMetadata from "./IMetadata";
 
-export default interface ILinkedListController {
-    pop: (num?: number) => number | void; 
-    push: () => void; 
-    peek: () => number | void, 
-    seek: () => number | void
+export default class ILinkedListController {
+    private pushAction: () => void 
+
+    constructor(pushAction: () => void) {
+        this.pushAction = pushAction
+    }
+
+    push() {
+        this.pushAction()
+    }
 }
