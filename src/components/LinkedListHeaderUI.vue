@@ -1,8 +1,8 @@
 <template>
   <div ref="linked-list-header"
-    class="flex flex-col md:flex-row gap-5 mt-5 mx-4  justify-center align-middle md:items-stretch items-center">
+    class="flex flex-col md:flex-row gap-5 mt-5 mx-4  justify-center align-middle md:items-stretch items-center  ">
     <div class="flex flex-col items-stretch w-full gap-2 uppercase">
-      <span class="flex w-full h-full ">
+      <span class="flex w-full h-full cursor-pointer ">
         <div class=" flex justify-center  items-center grow text-center  bentoStyling " @click="onClickPop()">Pop</div>
         <div class="flex justify-center items-center grow text-center mx-2  bentoStyling" @click="onClickPush()">Push</div>
       </span>

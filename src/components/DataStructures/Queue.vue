@@ -1,6 +1,6 @@
 <template>
   <!--Take in a list shell for Queue, workout the template and then refactor it later on like before -->
-  <div ref="queue">
+  <div class="flex gap-4 mx-4 pt-4 w-full h-full  flex-row flex-wrap">
    <!-- <div class="flex flex-row flex-wrap py-12 items-center justify-center">
       <li class="flex flex-row" v-for="node in queue.peekAll()">
         <span v-show="queue.peekAll().length == 0">No Values currently </span>
@@ -11,7 +11,8 @@
       </li>
     </div>-->
 
-    
+   <RecursiveNode v-if="queue.head" :node="queue.head"/>
+  
   </div>
 </template>
 
@@ -29,15 +30,15 @@ import ILinkedListRequest from "../../Contracts/Interfaces/ILinkedListRequest"
 import ILinkedListController from "../../Contracts/Interfaces/ILinkedListController"
 import LinkedListHeaderUI from "../LinkedListHeaderUI.vue";
 import Queue from "../../data-structures-ts/Queue"
-
+import RecursiveNode from "../Nodes/RecursiveNode.vue"
 const emits = defineEmits<{
   (e: "request", request: ILinkedListRequest): void 
 }>()
 
 
 
-const queue = new Queue()
-
+const queue = ref(new Queue())
+let arr = ref([])
 onMounted(() => {
   const controller = new ILinkedListController(pushAction) 
   
@@ -61,20 +62,20 @@ onMounted(() => {
 
 
 function pushAction(num?: number): void {
-  if(num != undefined) {
-    queue.push(num)
-  } else {
-    queue.push(new RandomNumberGenerator().getRandomNumber())
-  }
-  console.log(queue)
+ if(num != undefined) {
+   queue.value.push(num)
+ } else {
+   queue.value.push(new RandomNumberGenerator().getRandomNumber())
+ }
+ console.log(queue)
 }
 
 function popAction(): number | void {
-  return queue.pop()
+ // return queue.pop()
 }
 
 function peekAction(): number | void {
-  return queue.peek()
+  //return queue.peek()
 }
 
 function seekAction(): number | void {

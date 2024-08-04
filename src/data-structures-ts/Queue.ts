@@ -1,20 +1,8 @@
 import ILinkedLists from "../Contracts/Interfaces/ILinkedList";
-import { v4 as uuidv4 } from 'uuid'
-class Node {
-    payload: number = Number.MAX_SAFE_INTEGER 
-    nextNode: Node | undefined
-    id: string =  uuidv4()
-
-    constructor() {
-    }
-
-    setNode(payload: number , nextNode: Node) {
-        this.payload = payload
-        this.nextNode = nextNode
-    }
-}
+import Node from "../Contracts/Classes/Node";
 
 export default class Queue implements ILinkedLists {
+    tracker: Array<Node> = []
     head: Node | undefined = new Node()
     tail: Node | undefined = undefined 
 
@@ -30,6 +18,7 @@ export default class Queue implements ILinkedLists {
         this.tail.nextNode = node 
         this.tail = node 
       }
+      this.tracker.push(node)
 
     }
     pop(): number | undefined {
@@ -42,12 +31,12 @@ export default class Queue implements ILinkedLists {
         return payload
        
     }
-    peek(): number | undefined {
-        return 1
+    peek(): Node | undefined {
+        return this.head 
     }
 
-    peekAll(): Array<number> {
-        return []
+    peekAll(): Array<Node> {
+        return this.tracker
     }
     
 }
