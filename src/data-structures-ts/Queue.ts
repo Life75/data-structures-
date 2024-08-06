@@ -18,7 +18,7 @@ export default class Queue implements ILinkedLists {
         this.tail.nextNode = node 
         this.tail = node 
       }
-      this.tracker.push(node)
+      this.tracker.unshift(node)
 
     }
     pop(): number | undefined {
@@ -27,7 +27,7 @@ export default class Queue implements ILinkedLists {
         }
         const payload = this.head?.payload 
         this.head = this.head?.nextNode
-
+        this.tracker.shift()
         return payload
        
     }

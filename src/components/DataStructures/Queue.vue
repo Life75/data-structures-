@@ -11,8 +11,7 @@
       </li>
     </div>-->
 
-   <RecursiveNode v-if="queue.head" :node="queue.head"/>
-  
+   <RecursiveNode  v-if="queue.peekAll().length != 0" :node="queue.head"/>
   </div>
 </template>
 
