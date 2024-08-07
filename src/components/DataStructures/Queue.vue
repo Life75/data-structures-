@@ -53,7 +53,7 @@ onMounted(() => {
     controller: controller,
     metadata: metadata,
     component: LinkedListHeaderUI, 
-    pushAction: pushAction
+    push: pushAction
   }
 
   emits("request", request)

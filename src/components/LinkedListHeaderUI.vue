@@ -81,7 +81,7 @@ let currentSeekValue = ref()
 
 function onClickPush() {
   if(currentPushValue.value != undefined || Number(currentPushValue.value) ) {
-    console.log(props.request?.pushAction(currentPushValue.value))
+    console.log(props.request?.push(currentPushValue.value))
   }
 }
 
