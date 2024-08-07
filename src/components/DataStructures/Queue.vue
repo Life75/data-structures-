@@ -52,7 +52,8 @@ onMounted(() => {
   const request: ILinkedListRequest = {
     controller: controller,
     metadata: metadata,
-    component: LinkedListHeaderUI
+    component: LinkedListHeaderUI, 
+    pushAction: pushAction
   }
 
   emits("request", request)
