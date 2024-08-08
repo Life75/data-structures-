@@ -38,5 +38,9 @@ export default class Queue implements ILinkedLists {
     peekAll(): Array<Node> {
         return this.tracker
     }
+
+    seek(num: number): Node | undefined {
+      throw new Error("Method not implemented.");
+    }
     
 }

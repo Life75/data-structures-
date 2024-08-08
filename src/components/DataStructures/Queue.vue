@@ -30,6 +30,7 @@ import ILinkedListController from "../../Contracts/Interfaces/ILinkedListControl
 import LinkedListHeaderUI from "../LinkedListHeaderUI.vue";
 import Queue from "../../data-structures-ts/Queue"
 import RecursiveNode from "../Nodes/RecursiveNode.vue"
+import Node from "../../Contracts/Classes/Node"
 const emits = defineEmits<{
   (e: "request", request: ILinkedListRequest): void 
 }>()
@@ -50,10 +51,13 @@ onMounted(() => {
   }
 
   const request: ILinkedListRequest = {
-    controller: controller,
     metadata: metadata,
     component: LinkedListHeaderUI, 
-    push: pushAction
+    push: pushAction, 
+    pop: popAction, 
+    peek: peekAction, 
+    seek: seekAction,
+    peekAll: queue.value.peekAll
   }
 
   emits("request", request)
@@ -70,16 +74,17 @@ function pushAction(num?: number): void {
  console.log(queue)
 }
 
-function popAction(): number | void {
- // return queue.pop()
+function popAction(): number | undefined   {
+    return queue.value.pop()
 }
 
-function peekAction(): number | void {
-  //return queue.peek()
+function peekAction(): Node | undefined  {
+  return queue.value.peek()
 }
 
-function seekAction(): number | void {
-
+function seekAction(num: number): Node | undefined {
+  //add timeout seek animtation to light up each node when looking 
+  return queue.value.seek(num)
 }
 
 //console.log(queue.value.pop())
