@@ -81,7 +81,7 @@ let showValueTooBigErr = ref(false)
 
 
 function onClickPush() {
-    if(currentPushValue.value < 999) {
+    if(currentPushValue.value < 999 && currentPushValue.value != undefined ) {
       showValueTooBigErr.value = false  
       props.request?.push(currentPushValue.value)
     }
@@ -99,7 +99,7 @@ function onClickSeek() {
 }
 
 function onClickPeek() {
-
+  props.request?.peek() 
 }
 
 </script>

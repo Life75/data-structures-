@@ -84,6 +84,10 @@ function peekAction(): Node | undefined  {
 
 function seekAction(num: number): Node | undefined {
   //add timeout seek animtation to light up each node when looking 
+  //for the animation it will be done in the view portion 
+
+  
+
   return queue.value.seek(num)
 }
 
