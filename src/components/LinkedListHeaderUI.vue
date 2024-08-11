@@ -3,12 +3,12 @@
     class="flex flex-col md:flex-row gap-5 mt-5 mx-4  justify-center align-middle md:items-stretch items-center  ">
     <div class="flex flex-col items-stretch w-full gap-2 uppercase">
       <span class="flex w-full h-full cursor-pointer ">
-        <div  class=" flex justify-center items-center grow text-center  bentoStyling " @click="onClickPop()">Pop</div>
-        <div class="flex justify-center items-center grow text-center mx-2  bentoStyling" @click="onClickPush()">Push</div>
+        <button  class=" flex justify-center items-center grow text-center  bentoStyling  " @click="onClickPop()">Pop</button>
+        <button class="flex justify-center items-center grow text-center mx-2  bentoStyling " @click="onClickPush()">Push</button>
       </span>
       <span class="flex w-full h-full">
-        <div class=" flex justify-center  items-center grow text-center  bentoStyling" @click="onClickPeek()">Peek</div>
-        <div class="flex justify-center  items-center grow text-center mx-2 bentoStyling" @click="onClickSeek()">Seek</div>
+        <button class=" flex justify-center  items-center grow text-center  bentoStyling " @click="onClickPeek()">Peek</button>
+        <button class="flex justify-center  items-center grow text-center mx-2 bentoStyling " @click="onClickSeek()">Seek</button>
       </span>
     </div>
 
@@ -94,8 +94,9 @@ function onClickPop() {
   props.request?.pop()
 }
 
-function onClickSeek() {
-  props.request?.seek(currentSeekValue.value)
+async function onClickSeek() {
+
+  await props.request?.seek(currentSeekValue.value)
 }
 
 function onClickPeek() {

@@ -39,29 +39,23 @@ export default class Queue implements ILinkedLists {
     return this.tracker
   }
 
-  async seek(num: number): Node | undefined {
-    
+  async seek(num: number): Promise<void> {
     //lets seek the value 
     let pointer = this.head
     let defaultTime = 600
-    let foundAdditionalTime = 500
+    let foundAdditionalTime = 800
       while (pointer) {
         pointer.isLit = true
-        await this.sleep( pointer.payload == num ? defaultTime + foundAdditionalTime : defaultTime )
+         await this.sleep( pointer.payload == num ? defaultTime + foundAdditionalTime : defaultTime )
         pointer.isLit = false
         if(pointer.payload == num) break
         pointer = pointer.nextNode
-      }       
+      }  
   }
-
 
   sleep(millisec: number): Promise<void> {
     return new Promise(resolve => {
       setTimeout(() => { resolve() }, millisec);
     })
   }
-
-
-
-
 }

@@ -1,133 +1,61 @@
 <template>
   <!--Take in a list shell for Queue, workout the template and then refactor it later on like before -->
   <div class="flex gap-4 mx-4 pt-4 w-full h-full  flex-row flex-wrap">
-   <!-- <div class="flex flex-row flex-wrap py-12 items-center justify-center">
-      <li class="flex flex-row" v-for="node in queue.peekAll()">
-        <span v-show="queue.peekAll().length == 0">No Values currently </span>
-        <CircularNode class="pr-2" :value="node"/>
-        <span class="flex pr-2">
-          <Arrow class="mt-6" :direction="direction" />
-        </span>
-      </li>
-    </div>-->
-
-   <RecursiveNode  v-if="queue.peekAll().length != 0" :node="queue.head"/>
+    <RecursiveNode v-if="queue.peekAll().length != 0" :arrow-direction="Direction.right" :node="queue.head"/>
   </div>
 </template>
 
 <script setup lang="ts">
-
-import { PropType, defineComponent, onMounted, ref, watch } from "vue";
-import { Header } from "../../Contracts/Classes/Headers";
-import LinkedListAttributes from "../../Contracts/Interfaces/LinkedListAttributes";
-import CircularNode from "../CircularNode.vue";
-import Arrow from "../Arrow.vue";
-import { Direction } from "../../Contracts/Classes/Direction";
+import { onMounted, ref } from "vue";
 import RandomNumberGenerator from "../../Contracts/Classes/RandomNumberGenerator";
 import IMetadata from "../../Contracts/Interfaces/IMetadata";
 import ILinkedListRequest from "../../Contracts/Interfaces/ILinkedListRequest"
-import ILinkedListController from "../../Contracts/Interfaces/ILinkedListController"
 import LinkedListHeaderUI from "../LinkedListHeaderUI.vue";
 import Queue from "../../data-structures-ts/Queue"
 import RecursiveNode from "../Nodes/RecursiveNode.vue"
-import Node from "../../Contracts/Classes/Node"
+import { Direction } from "../../Contracts/Classes/Direction"
+import Arrow from "../Arrow.vue"
 const emits = defineEmits<{
-  (e: "request", request: ILinkedListRequest): void 
+  (e: "request", request: ILinkedListRequest): void
 }>()
-
-
 
 const queue = ref(new Queue())
 let arr = ref([])
 onMounted(() => {
-  const controller = new ILinkedListController(pushAction) 
-  
-
   const metadata: IMetadata = {
     timeComplexity: "O(1)",
-    spaceComplexity: "O(n)", 
-    description: "This is description for the queue operation", 
-    header: "Queue" 
+    spaceComplexity: "O(n)",
+    description: "This is description for the queue operation",
+    header: "Queue"
   }
 
   const request: ILinkedListRequest = {
     metadata: metadata,
-    component: LinkedListHeaderUI, 
-    push: pushAction, 
-    pop: popAction, 
-    peek: peekAction, 
-    seek: seekAction,
+    component: LinkedListHeaderUI,
+    push: pushAction,
+    pop: popAction,
+    peek: queue.value.peek,
+    seek: seek,
     peekAll: queue.value.peekAll
   }
 
   emits("request", request)
 })
 
-
-
 function pushAction(num?: number): void {
- if(num != undefined) {
-   queue.value.push(num)
- } else {
-   queue.value.push(new RandomNumberGenerator().getRandomNumber())
- }
- console.log(queue)
+  if (num != undefined) {
+    queue.value.push(num)
+  } else {
+    queue.value.push(new RandomNumberGenerator().getRandomNumber())
+  }
 }
 
-function popAction(): number | undefined   {
-    return queue.value.pop()
+async function seek(num: number): Promise<void> {
+    await queue.value.seek(num)
 }
 
-function peekAction(): Node | undefined  {
-  return queue.value.peek()
+function popAction(): number | undefined  {
+  return queue.value.pop()
 }
 
-function seekAction(num: number): Node | undefined {
-  //add timeout seek animtation to light up each node when looking 
-  //for the animation it will be done in the view portion 
-
-  
-
-  return queue.value.seek(num)
-}
-
-//console.log(queue.value.pop())
-//console.log(queue.value.pop())
-/*
-export default defineComponent({
-  name: "Queue",
-  emits: ["ui-header-request"],
-  props: {
-    linkedListAttributes: { type: Object as PropType<LinkedListAttributes> },
-    default: (): LinkedListAttributes => {
-      const linkedList: LinkedListAttributes = { popIterator: 0, pushIterator: 0, latestAction: undefined };
-      return linkedList;
-    },
-  },
-  setup(props, { emit }) {
-    let queue = ref(new Queue(Header.LinkedList));
-    let direction = Direction.right;
-    onMounted(() => {
-      emit("ui-header-request", queue.value.getHeader());
-    });
-    watch(
-      () => props.linkedListAttributes!,
-      (old: LinkedListAttributes, updated: LinkedListAttributes) => {
-        if (props.linkedListAttributes?.latestAction == "pop") {
-          queue.value.pop()
-        }
-        if (props.linkedListAttributes?.latestAction == "push") {
-          const generator = new RandomNumberGenerator()
-          queue.value.push(generator.getRandomNumber());
-        }
-      },
-      { deep: true }
-    );
-    return {
-      queue,
-      direction,
-    };
-  },
-  components: { CircularNode, Arrow },
-}); */
 </script>
