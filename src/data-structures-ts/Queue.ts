@@ -46,7 +46,12 @@ export default class Queue implements ILinkedLists {
     let foundAdditionalTime = 800
       while (pointer) {
         pointer.isLit = true
-         await this.sleep( pointer.payload == num ? defaultTime + foundAdditionalTime : defaultTime )
+        
+        if(pointer.payload == num)
+          pointer.classname = "bg-red-600 "
+        
+        await this.sleep( pointer.payload == num ? defaultTime + foundAdditionalTime : defaultTime )
+        pointer.classname = ""
         pointer.isLit = false
         if(pointer.payload == num) break
         pointer = pointer.nextNode
