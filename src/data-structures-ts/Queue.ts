@@ -2,7 +2,7 @@ import ILinkedLists from "../Contracts/Interfaces/ILinkedList";
 import Node from "../Contracts/Classes/Node";
 
 export default class Queue implements ILinkedLists {
-  tracker: Array<Node> = []
+  counter = 0
   head: Node | undefined = new Node()
   tail: Node | undefined = undefined
 
@@ -18,44 +18,47 @@ export default class Queue implements ILinkedLists {
       this.tail.nextNode = node
       this.tail = node
     }
-    this.tracker.unshift(node)
+    this.counter++
 
   }
   pop(): number | undefined {
+    this.counter--
     if (this.head == this.tail) {
       this.tail = undefined
     }
     const payload = this.head?.payload
     this.head = this.head?.nextNode
-    this.tracker.shift()
-    return payload
 
+    return payload
   }
   peek(): Node | undefined {
     return this.head
   }
-
-  peekAll(): Array<Node> {
-    return this.tracker
-  }
-
-  async seek(num: number): Promise<void> {
+  //create a base class with an implementation to make this easier implementing seek operations 
+  async seek(num: number, animationSpeed?: number): Promise<void> {
     //lets seek the value 
     let pointer = this.head
     let defaultTime = 600
+    
+    if(animationSpeed)
+      animationSpeed > 0 ? defaultTime = animationSpeed : null 
+
     let foundAdditionalTime = 800
-      while (pointer) {
-        pointer.isLit = true
-        
-        if(pointer.payload == num)
-          pointer.classname = "bg-red-600 "
-        
-        await this.sleep( pointer.payload == num ? defaultTime + foundAdditionalTime : defaultTime )
-        pointer.classname = ""
-        pointer.isLit = false
-        if(pointer.payload == num) break
-        pointer = pointer.nextNode
-      }  
+    while (pointer) {
+      pointer.isLit = true
+
+      //found 
+      if (pointer.payload == num)
+        pointer.classname = "bg-red-600 "
+
+
+      await this.sleep(pointer.payload == num ? defaultTime + foundAdditionalTime : defaultTime)
+      pointer.classname = ""
+      pointer.isLit = false
+
+      if (pointer.payload == num) break
+      pointer = pointer.nextNode
+    }
   }
 
   sleep(millisec: number): Promise<void> {

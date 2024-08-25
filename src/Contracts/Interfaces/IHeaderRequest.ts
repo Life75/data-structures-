@@ -6,7 +6,7 @@ type VueComponent = InstanceType<typeof component>
 
 export default interface IHeaderRequest {
     metadata: IMetadata, 
-    component: VueComponent
+    component: VueComponent, 
 }
 
 

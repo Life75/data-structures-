@@ -32,7 +32,7 @@
       <div class="mx-5 mt-5 gap-2 flex flex-col">
         <p class="text-lg uppercase">Settings</p>
         <p>Animation Speed </p>
-        <v-range-slider></v-range-slider>
+        <v-range-slider v-model="animationSpeed"></v-range-slider>
 
         
       </div>
@@ -68,7 +68,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, PropType } from "vue";
+import { ref, PropType, Ref } from "vue";
 import ILinkedListRequest from "../Contracts/Interfaces/ILinkedListRequest"
 
 const props = defineProps({
@@ -78,7 +78,7 @@ const props = defineProps({
 let currentPushValue = ref()
 let currentSeekValue = ref()
 let showValueTooBigErr = ref(false)
-
+let animationSpeed: Ref<Array<number> | undefined> =  ref([])
 
 function onClickPush() {
     if(currentPushValue.value < 999 && currentPushValue.value != undefined ) {
@@ -95,8 +95,11 @@ function onClickPop() {
 }
 
 async function onClickSeek() {
+  //get current animation speed 
+  console.log(animationSpeed.value)
 
-  await props.request?.seek(currentSeekValue.value)
+  //@ts-ignore
+  await props.request?.seek(currentSeekValue.value, animationSpeed.value[1])
 }
 
 function onClickPeek() {

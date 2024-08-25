@@ -1,7 +1,6 @@
 <template>
-  <!--Take in a list shell for Queue, workout the template and then refactor it later on like before -->
   <div class="flex gap-4 mx-4 pt-4 w-full h-full  flex-row flex-wrap">
-    <RecursiveNode v-if="queue.peekAll().length != 0" :arrow-direction="Direction.right" :node="queue.head"/>
+    <RecursiveNode v-if="queue.counter != 0" :arrow-direction="Direction.right" :node="queue.head"/>
   </div>
 </template>
 
@@ -36,7 +35,7 @@ onMounted(() => {
     pop: popAction,
     peek: queue.value.peek,
     seek: seek,
-    peekAll: queue.value.peekAll
+    counter: queue.value.counter
   }
 
   emits("request", request)
@@ -50,8 +49,8 @@ function pushAction(num?: number): void {
   }
 }
 
-async function seek(num: number): Promise<void> {
-    await queue.value.seek(num)
+async function seek(num: number, animationSpeed?: number): Promise<void> {
+    await queue.value.seek(num, animationSpeed)
 }
 
 function popAction(): number | undefined  {
