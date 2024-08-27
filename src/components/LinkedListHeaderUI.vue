@@ -99,7 +99,7 @@ async function onClickSeek() {
   console.log(animationSpeed.value)
 
   //@ts-ignore
-  await props.request?.seek(currentSeekValue.value, animationSpeed.value[1])
+  await props.request?.seek(currentSeekValue.value, 200 - animationSpeed.value[1])
 }
 
 function onClickPeek() {
