@@ -1,9 +1,11 @@
 <template>
-    <!--Take in a list shell for Linked Lists, workout the template and then refactor it later on like before -->
-  
-      <div class="flex gap-4 mx-4 pt-4 w-full h-full  flex-row flex-wrap">
-        <RecursiveNode v-if="stack.counter != 0" :arrow-direction="Direction.right" :node="stack.head"/>
-      </div>
+  <!--Take in a list shell for Linked Lists, workout the template and then refactor it later on like before -->
+  <div class="flex gap-4 mx-4 pt-4 w-full h-full  flex-row flex-wrap">
+    <RecursiveNode v-if="stack.counter != 0" :arrow-direction="Direction.right" :node="stack.head" />
+    <div class="flex items-center w-full mr-5 " v-else>
+      <p class="text-center mx-auto">No nodes pushed :(</p>
+    </div>
+  </div>
 </template>
 
 <script setup lang='ts'>
@@ -51,10 +53,10 @@ function pushAction(num?: number): void {
 }
 
 async function seek(num: number): Promise<void> {
-    await stack.value.seek(num)
+  await stack.value.seek(num)
 }
 
-function popAction(): number | undefined  {
+function popAction(): number | undefined {
   return stack.value.pop()
 }
 

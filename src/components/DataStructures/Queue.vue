@@ -1,6 +1,9 @@
 <template>
   <div class="flex gap-4 mx-4 pt-4 w-full h-full  flex-row flex-wrap">
     <RecursiveNode v-if="queue.counter != 0" :arrow-direction="Direction.right" :node="queue.head"/>
+    <div class="flex items-center w-full mr-5 " v-else>
+      <p class="text-center mx-auto" >No nodes pushed :(</p>
+    </div>
   </div>
 </template>
 
@@ -13,7 +16,6 @@ import LinkedListHeaderUI from "../LinkedListHeaderUI.vue";
 import Queue from "../../data-structures-ts/Queue"
 import RecursiveNode from "../Nodes/RecursiveNode.vue"
 import { Direction } from "../../Contracts/Classes/Direction"
-import Arrow from "../Arrow.vue"
 const emits = defineEmits<{
   (e: "request", request: ILinkedListRequest): void
 }>()
