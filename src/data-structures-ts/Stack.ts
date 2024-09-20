@@ -5,12 +5,14 @@ import Node from "../Contracts/Classes/Node";
 export default class Stack implements ILinkedLists {
   head: Node | undefined
   counter = 0
-  push(payload: number) {
+  push(payload: number): string {
     const node = new Node()
     node.payload = payload
     node.nextNode = this.head
     this.head = node
     this.counter++
+
+    return node.id
   }
 
   pop(): number | undefined {

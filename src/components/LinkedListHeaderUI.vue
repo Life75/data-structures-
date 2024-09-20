@@ -70,6 +70,7 @@
 <script lang="ts" setup>
 import { ref, PropType, Ref } from "vue";
 import ILinkedListRequest from "../Contracts/Interfaces/ILinkedListRequest"
+import anime from "animejs";
 
 const props = defineProps({
   request: { type: Object as PropType<ILinkedListRequest> }
@@ -81,13 +82,14 @@ let showValueTooBigErr = ref(false)
 let animationSpeed: Ref<Array<number> | undefined> =  ref([])
 
 function onClickPush() {
+  let id = ""
     if(currentPushValue.value < 999 && currentPushValue.value != undefined ) {
       showValueTooBigErr.value = false  
-      props.request?.push(currentPushValue.value)
+      id = String(props.request?.push(currentPushValue.value))
     }
     else
       showValueTooBigErr.value = true 
-  
+
 }
 
 function onClickPop() {

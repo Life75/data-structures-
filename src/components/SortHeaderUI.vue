@@ -8,6 +8,7 @@
       class="bentoStyling flex justify-center items-center align-middle hover:text-red-400 ">
       <p class="uppercase text-4xl">Cancel</p>
     </div>
+
     <div class=" bentoStyling">
       <!--<span class="text-2xl font-semibold ">{{ props.header }}</span>-->
       <div class="flex flex-col mx-5 mt-5 ">
@@ -35,6 +36,7 @@
         <template> </template>
       </slot>
     </div>
+
     <div class="bentoStyling">
       <div class="mx-5 mt-5">
         <p class="text-lg uppercase">Time</p><span
@@ -43,7 +45,6 @@
         </span>
       </div>
     </div>
-
 
     <div class="bentoStyling">
       <div class="mx-5 mt-5 gap-2 flex flex-col">

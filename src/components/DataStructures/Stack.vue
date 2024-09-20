@@ -6,6 +6,7 @@
       <p class="text-center mx-auto">No nodes pushed :(</p>
     </div>
   </div>
+  {{ stack }}
 </template>
 
 <script setup lang='ts'>
@@ -40,7 +41,6 @@ onMounted(() => {
     seek: seek,
     counter: stack.value.counter
   }
-  console.log(request)
   emits("request", request)
 })
 

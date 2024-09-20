@@ -6,7 +6,7 @@ export default class Queue implements ILinkedLists {
   head: Node | undefined = new Node()
   tail: Node | undefined = undefined
 
-  push(payload: number): void {
+  push(payload: number): string {
     const node = new Node()
     node.payload = payload
 
@@ -19,6 +19,7 @@ export default class Queue implements ILinkedLists {
       this.tail = node
     }
     this.counter++
+    return node.id
 
   }
   pop(): number | undefined {
