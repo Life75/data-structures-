@@ -70,7 +70,6 @@
 <script lang="ts" setup>
 import { ref, PropType, Ref } from "vue";
 import ILinkedListRequest from "../Contracts/Interfaces/ILinkedListRequest"
-import anime from "animejs";
 
 const props = defineProps({
   request: { type: Object as PropType<ILinkedListRequest> }

@@ -51,9 +51,8 @@ function pushAction(num?: number): string {
   } else {
     id = queue.value.push(new RandomNumberGenerator().getRandomNumber())
   }
-
+  
   //active an animation on the node when its pushed in this can be done here 
- 
   return id
 
 }
