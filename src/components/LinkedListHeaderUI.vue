@@ -3,12 +3,16 @@
     class="flex flex-col md:flex-row gap-5 mt-5 mx-4  justify-center align-middle md:items-stretch items-center  ">
     <div class="flex flex-col items-stretch w-full gap-2 uppercase">
       <span class="flex w-full h-full cursor-pointer ">
-        <button  class=" flex justify-center items-center grow text-center  bentoStyling  " @click="onClickPop()">Pop</button>
-        <button class="flex justify-center items-center grow text-center mx-2  bentoStyling " @click="onClickPush()">Push</button>
+        <button class=" flex justify-center items-center grow text-center  bentoStyling  "
+          @click="onClickPop()">Pop</button>
+        <button class="flex justify-center items-center grow text-center mx-2  bentoStyling "
+          @click="onClickPush()">Push</button>
       </span>
       <span class="flex w-full h-full">
-        <button class=" flex justify-center  items-center grow text-center  bentoStyling " @click="onClickPeek()">Peek</button>
-        <button class="flex justify-center  items-center grow text-center mx-2 bentoStyling " @click="onClickSeek()">Seek</button>
+        <button class=" flex justify-center  items-center grow text-center  bentoStyling "
+          @click="onClickPeek()">Peek</button>
+        <button class="flex justify-center  items-center grow text-center mx-2 bentoStyling "
+          @click="onClickSeek()">Seek</button>
       </span>
     </div>
 
@@ -16,7 +20,9 @@
       <div class="mx-5 mt-5 gap-2 flex flex-col mb-5 ">
         <p class="text-lg uppercase">Controls</p>
         <div class="flex flex-col gap-2 align-middle ">
-          <p class="w-full">Next value to push </p> <p v-show="showValueTooBigErr" class="text-red">Value is too big, try again</p>
+          <p class="w-full">Next value to push </p>
+          <p v-show="showValueTooBigErr" class="text-red">Value is too big</p>
+          <p v-show="showValueIsNotNumErr" class="text-red">Value is not a number</p>
           <input type="text" placeholder="" v-model="currentPushValue" class="input  w-full max-w-xs" />
 
         </div>
@@ -34,7 +40,7 @@
         <p>Animation Speed </p>
         <v-range-slider v-model="animationSpeed"></v-range-slider>
 
-        
+
       </div>
     </div>
 
@@ -78,35 +84,46 @@ const props = defineProps({
 let currentPushValue = ref()
 let currentSeekValue = ref()
 let showValueTooBigErr = ref(false)
-let animationSpeed: Ref<Array<number> | undefined> =  ref([])
+let showValueIsNotNumErr = ref(false)
+let animationSpeed: Ref<Array<number> | undefined> = ref([0, 0])
 
 function onClickPush() {
-  let id = ""
-    if(currentPushValue.value < 999 && currentPushValue.value != undefined ) {
-      showValueTooBigErr.value = false  
-      id = String(props.request?.push(currentPushValue.value))
-    }
-    else
-      showValueTooBigErr.value = true 
-
+  resetDisplayErrors()
+  if (numberFormValidation(currentPushValue.value)) {
+    String(props.request?.push(currentPushValue.value))
+  }
 }
 
 function onClickPop() {
   props.request?.pop()
 }
 
-async function onClickSeek() {
-  //get current animation speed 
-  console.log(animationSpeed.value)
-
-  //@ts-ignore
-  await props.request?.seek(currentSeekValue.value, 200 - animationSpeed.value[1])
-}
-
 function onClickPeek() {
-  props.request?.peek() 
+  props.request?.peek()
 }
 
+async function onClickSeek() {
+  resetDisplayErrors()
+  if (numberFormValidation(currentSeekValue.value)) {
+    //@ts-ignore
+    await props.request?.seek(currentSeekValue.value, 200 - animationSpeed.value[1])
+  }
+}
+
+function numberFormValidation(num: number): boolean {
+  if (num < 999 && num != undefined) {
+    return true
+  } else {
+    if (!Number(num)) showValueIsNotNumErr.value = true
+    else showValueTooBigErr.value = true
+    return false
+  }
+}
+
+function resetDisplayErrors(): void {
+  showValueTooBigErr.value = false
+  showValueIsNotNumErr.value = false
+}
 </script>
 
 
