@@ -14,7 +14,8 @@
         </span>
         <router-view @request="setRequest" />
         <v-layout>
-            <v-navigation-drawer v-model="drawerIsOpen" location="bottom" class="bg-base-100 py-5" width="500" temporary >
+            <v-navigation-drawer v-model="drawerIsOpen" location="bottom" class="bg-base-100 py-5" width="500" temporary>
+                <h1 class="dark:text-zinc-50 text-2xl text-center">Controls</h1>
                 <component  :is="request?.component" :request="request" />   
             </v-navigation-drawer>
         </v-layout>

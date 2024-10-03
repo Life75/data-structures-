@@ -16,20 +16,19 @@
       </span>
     </div>
 
-    <div class="bentoStyling">
-      <div class="mx-5 mt-5 gap-2 flex flex-col mb-5 ">
+    <div class="bentoStyling flex-1">
+      <div class="mx-5  gap-2 flex flex-col  my-5 ">
         <p class="text-lg uppercase">Controls</p>
         <div class="flex flex-col gap-2 align-middle ">
           <p class="w-full">Next value to push </p>
           <p v-show="showValueTooBigErr" class="text-red">Value is too big</p>
           <p v-show="showValueIsNotNumErr" class="text-red">Value is not a number</p>
-          <input type="text" placeholder="" v-model="currentPushValue" class="input  w-full max-w-xs" />
+          <input type="text" placeholder="" v-model="currentPushValue" class="input w-full max-w-20 " />
 
         </div>
         <div class="flex flex-col gap-2 align-middle">
           <p class="w-full">Value to seek</p>
-          <input type="text" placeholder="" v-model="currentSeekValue" class="input  w-full max-w-xs" />
-
+          <input type="text" placeholder="" v-model="currentSeekValue" class="input  w-full max-w-20 " />
         </div>
       </div>
     </div>

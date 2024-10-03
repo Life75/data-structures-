@@ -6,7 +6,6 @@
       <p class="text-center mx-auto">No nodes pushed :(</p>
     </div>
   </div>
-  {{ stack }}
 </template>
 
 <script setup lang='ts'>
@@ -18,7 +17,6 @@ import ILinkedListRequest from "../../Contracts/Interfaces/ILinkedListRequest"
 import LinkedListHeaderUI from "../LinkedListHeaderUI.vue";
 import IMetadata from "../../Contracts/Interfaces/IMetadata";
 import RecursiveNode from "../Nodes/RecursiveNode.vue"
-import anime from "animejs";
 const emits = defineEmits<{
   (e: "request", request: ILinkedListRequest): void
 }>()
