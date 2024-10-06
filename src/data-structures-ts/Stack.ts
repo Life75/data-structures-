@@ -4,13 +4,12 @@ import Node from "../Contracts/Classes/Node";
 
 export default class Stack implements ILinkedLists {
   head: Node | undefined
-  counter = 0
+ 
   push(payload: number): string {
     const node = new Node()
     node.payload = payload
     node.nextNode = this.head
     this.head = node
-    this.counter++
 
     return node.id
   }
@@ -18,7 +17,6 @@ export default class Stack implements ILinkedLists {
   pop(): number | undefined {
     const node = this.head
     this.head = this.head?.nextNode
-    this.counter--
     return node?.payload
   }
 

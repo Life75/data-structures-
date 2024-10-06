@@ -1,7 +1,7 @@
 <template>
   <!--Take in a list shell for Linked Lists, workout the template and then refactor it later on like before -->
   <div class="flex gap-4 mx-4 pt-4 w-full h-full  flex-row flex-wrap">
-    <RecursiveNode v-if="stack.counter != 0"  :arrow-direction="Direction.right" :node="stack.head" />
+    <RecursiveNode v-if="stack.head"  :arrow-direction="Direction.right" :node="stack.head" />
     <div class="flex items-center w-full mr-5 " v-else>
       <p class="text-center mx-auto">No nodes pushed :(</p>
     </div>

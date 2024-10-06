@@ -2,7 +2,6 @@ import ILinkedLists from "../Contracts/Interfaces/ILinkedList";
 import Node from "../Contracts/Classes/Node";
 
 export default class Queue implements ILinkedLists {
-  counter = 0
   head: Node | undefined 
   tail: Node | undefined = undefined
 
@@ -18,12 +17,10 @@ export default class Queue implements ILinkedLists {
       this.tail.nextNode = node
       this.tail = node
     }
-    this.counter++
     return node.id
 
   }
   pop(): number | undefined {
-    this.counter--
     if (this.head == this.tail) {
       this.tail = undefined
     }
