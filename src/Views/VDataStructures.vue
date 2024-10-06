@@ -1,6 +1,6 @@
 <template>
-    <div class="px-2">
-        <component class="hidden lg:flex" :is="request?.component" :request="request" />
+    <!---->
+    <div class="mx-5">
         <span class="md:hidden mt-5 mx-5 w-full  flex flex-row   ">
             <span class="flex flex-row  ml-auto mr-5 gap-4" @click="drawerIsOpen = !drawerIsOpen">
                 
