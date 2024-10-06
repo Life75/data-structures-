@@ -3,7 +3,7 @@ import Node from "../Contracts/Classes/Node";
 
 export default class Queue implements ILinkedLists {
   counter = 0
-  head: Node | undefined = new Node()
+  head: Node | undefined 
   tail: Node | undefined = undefined
 
   push(payload: number): string {
