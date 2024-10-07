@@ -36,10 +36,8 @@
       <div class="">
         <h1 class="text-5xl  text-center flex gap-2">
           <p>Why use</p>
-          <p class="flex">Index <p class="text-green-400">Zero</p>?</p>
-          
+          <p class="flex">Index <p class="text-green-400">Zero</p>?</p>  
         </h1>
-
       </div>
     </div>
   </div>
