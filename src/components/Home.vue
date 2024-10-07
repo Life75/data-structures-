@@ -1,65 +1,62 @@
 <template>
-  <div class="text-xl  font-serif text-white  w-full flex-row  justify-between">
-    <div class=" flex flex-col gap-20  w-full items-center" >
-    <div class=" md:flex   mt-20   ">
-      <div class=" flex flex-col gap-y-14  ">
-      <h1 class=" text-6xl lg:text-7xl  ">
-        <p>
-          <Transition name="slide-fade">
-            <p class=" " v-show="headerMotion">Visualize</p>
-          </Transition>
-          <Transition name="slide-fade-delay1">
-            <p v-show="headerMotion" class=" text-green-400">Algorithims</p>
-          </Transition>
-          <Transition name="slide-fade-delay2">
-            <p v-show="headerMotion" class=" ">in Motion</p>
-          </Transition>
-        </p>
-      </h1>
-      <div>
-        <div class="flex">
-          <p class="text-base">Interested in learning how data structures work visually?</p>
-        </div>
-       
-      </div>
-      <div class="flex flex-row gap-6 ">
-          <button class="btn  bg-neutral-800 rounded-lg  hover:bg-neutral-800">How does it work?</button>
-          <button class="btn bg-green-400 rounded-lg hover:bg-green-400">Get Started</button>
-        </div>
-    </div>
-    <div class="lg:hidden flex w-[400px]"></div>
-      <div class="md:w-3/4 md:ml-5 ">
-        <AnimationDisplay />
-      </div>
-    </div>
-    <div class="md:mx-40">
-      <h1 class="text-5xl  text-center">Why use IndexZero?</h1>
+  <div class="text-xl font-serif text-white w-full flex-row   ">
+    <div class=" flex flex-col gap-20 w-full items-center ">
+      <div class=" flex flex-col-reverse md:flex-row   mt-7 md:mt-20   ">
+        <div class=" flex flex-col gap-y-14 mx-4   ">
+          <h1 class=" text-6xl lg:text-7xl   ">
+            <p>
+              <Transition name="slide-fade">
+                <p class=" " v-show="headerMotion">Visualize</p>
+              </Transition>
+              <Transition name="slide-fade-delay1">
+                <p v-show="headerMotion" class=" text-green-400">Algorithims</p>
+              </Transition>
+              <Transition name="slide-fade-delay2">
+                <p v-show="headerMotion" class=" ">in Motion</p>
+              </Transition>
+            </p>
+          </h1>
+          <div>
+            <div class=" ">
+              <p class="text-base  md:w-full">Interested in learning how data structures work visually?</p>
+            </div>
 
+          </div>
+          <div class="flex flex-col md:flex-row gap-6 items-stretch">
+            <button class="btn   bg-neutral-800 rounded-lg  hover:bg-neutral-800">How does it work?</button>
+            <button class="btn buttonAnimation bg-green-400 rounded-lg shadow-md text-neutral-800 hover:bg-green-400">Get
+              Started</button>
+          </div>
+        </div>
+        <div class="lg:hidden flex  "></div>
+        <div class="md:w-[200px]  md:ml-5  h-[500px] ">
+          <AnimationDisplay />
+        </div>
+      </div>
+      <div class="">
+        <h1 class="text-5xl  text-center flex gap-2">
+          <p>Why use</p>
+          <p class="flex">Index <p class="text-green-400">Zero</p>?</p>
+          
+        </h1>
+
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import AnimationDisplay from "./AnimationDisplay.vue";
-import router from "../router";
 var headerMotion = ref(false);
-var sortMouseOverEvent = ref(false);
 onMounted(() => {
   headerMotion.value = true;
 });
 
-function onMouseHover(event: boolean) {
-
-  sortMouseOverEvent.value = true;
-}
 
 
 
-function isMobile(): boolean {
-  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-}
+
 </script>
 //fit this color schema
 https://realtimecolors.com/?colors=e5eaf3-141414-bef264-f9f5fa-22d3ee 300 green/cyan
@@ -123,7 +120,7 @@ https://realtimecolors.com/?colors=e5eaf3-141414-bef264-f9f5fa-22d3ee 300 green/
   opacity: 0;
 }
 
- .textFix {
+.textFix {
   @apply text-center md:!text-left
- }
+}
 </style>
