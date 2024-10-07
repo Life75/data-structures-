@@ -1,6 +1,8 @@
 <template>
   <div class="text-xl  font-serif text-white  w-full flex-row  justify-between">
-    <div class=" md:flex textFix  mt-20  lg:mx-40">
+    <div class=" flex flex-col gap-20  w-full items-center" >
+    <div class=" md:flex   mt-20   ">
+      <div class=" flex flex-col gap-y-14  ">
       <h1 class=" text-6xl lg:text-7xl  ">
         <p>
           <Transition name="slide-fade">
@@ -13,15 +15,28 @@
             <p v-show="headerMotion" class=" ">in Motion</p>
           </Transition>
         </p>
-        <p class="md:my-40 my-20 text-2xl md:w-1/2">
-          This project was designed to help showcase the beauty in data structures and
-          help soldify a firm grasp into how these respected algorithms works
-        </p>
       </h1>
-      <div class="md:w-3/4 md:ml-5">
+      <div>
+        <div class="flex">
+          <p class="text-base">Interested in learning how data structures work visually?</p>
+        </div>
+       
+      </div>
+      <div class="flex flex-row gap-6 ">
+          <button class="btn  bg-neutral-800 rounded-lg  hover:bg-neutral-800">How does it work?</button>
+          <button class="btn bg-green-400 rounded-lg hover:bg-green-400">Get Started</button>
+        </div>
+    </div>
+    <div class="lg:hidden flex w-[400px]"></div>
+      <div class="md:w-3/4 md:ml-5 ">
         <AnimationDisplay />
       </div>
     </div>
+    <div class="md:mx-40">
+      <h1 class="text-5xl  text-center">Why use IndexZero?</h1>
+
+    </div>
+  </div>
   </div>
 </template>
 
