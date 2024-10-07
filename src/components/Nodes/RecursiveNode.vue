@@ -1,9 +1,9 @@
 <template>
 
   <div :id="props.node.id" v-if="props.node?.isVisible" class="flex items-center">
-    <div class="flex  py-2 pr-3">
+    <div class="flex relative   py-2 pr-3">
       <div
-        :class="`w-12 h-12 bg-green-600 rounded-full ${$props.node?.isLit ? `bg-neutral-50` : ``} ${props.node?.classname}`">
+        :class="`w-12 h-12     bg-green-600 rounded-full ${$props.node?.isLit ? `bg-neutral-50` : ``} ${props.node?.classname}`">
       </div>
       <span :class="`absolute w-12 my-3 z-10 justify-center items-center text-center text-xl font-sans  `">{{
         props.node?.payload }}</span>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-4 mx-4 pt-4 w-full h-full  flex-row flex-wrap">
+  <div class="flex md:gap-3 gap-3  pt-4 w-full h-full  flex-row flex-wrap">
     <RecursiveNode v-if="queue.head" :arrow-direction="Direction.right" :node="queue.head" />
     <div class="flex items-center w-full mr-5 " v-else>
       <p class="text-center mx-auto">No nodes pushed :(</p>
@@ -39,7 +39,6 @@ onMounted(() => {
     pop: popAction,
     peek: queue.value.peek,
     seek: seek,
-    counter: queue.value.counter
   }
 
   emits("request", request)

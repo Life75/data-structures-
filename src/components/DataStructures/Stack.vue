@@ -39,7 +39,6 @@ onMounted(() => {
     pop: popAction,
     peek: stack.value.peek,
     seek: seek,
-    counter: stack.value.counter
   }
   emits("request", request)
 })
