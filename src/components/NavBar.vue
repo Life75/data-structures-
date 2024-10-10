@@ -1,6 +1,6 @@
 <template>
     <!--New Nav-->
-    <div class="navbar  border-1 shadow-lg  backdrop-blur  ">
+    <div class="navbar  border-1 shadow-lg bg-transparent  backdrop-blur  ">
         <div class="navbar-start ">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost " @click="showDrawer = !showDrawer">
