@@ -1,6 +1,6 @@
 <template>
     <!--New Nav-->
-    <div class="navbar  border-1 shadow-lg bg-transparent  backdrop-blur  ">
+    <div class="navbar sticky top-0 z-50 shadow-lg backdrop-blur-md  ">
         <div class="navbar-start ">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost " @click="showDrawer = !showDrawer">
@@ -17,7 +17,7 @@
                 <p class="text-green-400">Index</p>
                 <p>Zero</p>
             </a>
-            <input type="text" placeholder="Search..." class="input input-bordered w-full max-w-xs ml-5 hidden lg:flex" />
+          <!--  <input type="text" placeholder="Search..." class="input input-bordered w-full max-w-xs ml-5 hidden lg:flex" />-->
         </div>
         <div class="navbar-center  md:hidden">
             <a class="text-2xl flex ">
@@ -70,7 +70,7 @@
                         <p>Zero</p>
                     </div>
                 </v-list-subheader>
-                <v-list-item v-for="(route, i) in router.routes" class="" :key="i" :value="route" :ripple="false">
+                <v-list-item v-for="(route, i) in router.routes" class="  text-zinc-50" :key="i" :value="route" :ripple="false">
                         <RouteNode :route="route"></RouteNode>
                 </v-list-item>
             </v-list>
