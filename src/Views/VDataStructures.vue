@@ -13,7 +13,7 @@
                 </svg></span>
         </span>
         <router-view class="     h-[400px] overflow-y-auto " @request="setRequest" />
-        <div class=" bg-base-200 h-[200px] rounded-md shadow-md p-5 mt-5 flex flex-col gap-3">
+        <div v-if="request" class=" bg-base-200 h-[200px] rounded-md shadow-md p-5 mt-5 flex flex-col gap-3">
             <p class=" text-2xl uppercase">{{  }}</p>
             <p> {{  }}</p>
             {{  }}

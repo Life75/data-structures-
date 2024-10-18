@@ -31,10 +31,10 @@
             </v-list>
         </div>
     </div>
-    <div v-else>
+    <div @click="router.router.push({ path: route.meta?.fullPath })" v-else>
        <span class="flex gap-2"> 
         <div v-if="route.meta?.svg" v-html="`${route.meta?.svg}`"></div>
-            <p @click="router.router.push({ path: route.meta?.fullPath })"> {{ route.name }}</p>
+            <p > {{ route.name }}</p>
         </span>
     </div>
 </template>

@@ -91,7 +91,7 @@
             </div>
           </div>
           <div id="card-item">
-            <div class="card bg-base-300 rounded-md text-neutral-content w-96">
+            <div class="card bg-base-300 rounded-md  text-neutral-content w-96">
               <div class="card-body items-center text-center">
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  class="size-20 fill-green-400  stroke-base-100">
@@ -115,6 +115,13 @@
           </div>
 
         </span>
+      </div>
+      <div>
+        <h2 class="text-5xl">Explore the endless possibilties </h2>
+        <p class=" text-sm text-center">(currently only 3 :D)</p>
+        <div>
+          
+        </div>
       </div>
     </div>
   </div>

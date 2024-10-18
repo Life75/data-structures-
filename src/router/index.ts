@@ -11,6 +11,7 @@ import NotFound from '/src/components/NotFound.vue'
 import Roadmap from '../components/Roadmap.vue'
 import VRecursion from '../Views/VRecursion.vue'
 import FibonacciRecursion from '../Recursion/FibonacciRecursion.vue'
+import Maze from '../components/DataStructures/Maze.vue'
 const base = '/data-structures-/'
  
 const routes = [
@@ -75,6 +76,14 @@ const routes = [
             component: Stack,
             meta: {
                 fullPath: `${base}DataStructures/Stack`
+            }
+        }, 
+        {
+            path: 'Maze', 
+            component: Maze, 
+            name: "Maze", 
+            meta: {
+                fullPath: `${base}DataStructures/Maze`
             }
         }
     ]
