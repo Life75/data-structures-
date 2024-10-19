@@ -19,10 +19,10 @@ import IMetadata from "../../Contracts/Interfaces/IMetadata";
 import RecursiveNode from "../Nodes/RecursiveNode.vue"
 const emits = defineEmits<{
   (e: "request", request: ILinkedListRequest): void
+  (e: "main-styles", styles: string): void 
 }>()
 
 const stack = ref(new Stack())
-let arr = ref([])
 
 onMounted(() => {
   const metadata: IMetadata = {
@@ -40,6 +40,7 @@ onMounted(() => {
     peek: stack.value.peek,
     seek: seek,
   }
+  emits('main-styles', 'h-[400px] overflow-y-auto')
   emits("request", request)
 })
 

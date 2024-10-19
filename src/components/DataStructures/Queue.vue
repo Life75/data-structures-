@@ -20,10 +20,10 @@ import { Direction } from "../../Contracts/Classes/Direction"
 import anime from "animejs";
 const emits = defineEmits<{
   (e: "request", request: ILinkedListRequest): void
+  (e: "main-styles", styles: string): void 
 }>()
 
 const queue = ref(new Queue())
-let arr = ref([])
 onMounted(() => {
   const metadata: IMetadata = {
     timeComplexity: "O(1)",
@@ -40,7 +40,7 @@ onMounted(() => {
     peek: queue.value.peek,
     seek: seek,
   }
-
+  emits('main-styles', 'h-[400px] overflow-y-auto')
   emits("request", request)
 })
 
