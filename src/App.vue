@@ -15,12 +15,15 @@ function setHeaderTitle(headerTitle: string) {
 </script>
 
 <template>
-  <NavBar class="w-full "></NavBar> 
-  <RouterView class="" @header="setHeaderTitle"></RouterView> 
+  <div id="app" class="flex flex-col     ">
+    <NavBar class="w-full shadow-lg  "></NavBar> 
+    <RouterView class=" " @header="setHeaderTitle"></RouterView> 
+  </div>
 </template>
 
 <style >
-
-
+#app {
+  
+}
 
 </style>

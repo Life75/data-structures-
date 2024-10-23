@@ -1,6 +1,6 @@
 <template>
     <!--New Nav-->
-    <div class="navbar sticky top-0 z-50 shadow-lg backdrop-blur-md  ">
+    <div class="navbar sticky top-0 z-50 bg-base-100  border-b-2 border-base-200">
         <div class="navbar-start ">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost " @click="showDrawer = !showDrawer">
