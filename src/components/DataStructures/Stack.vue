@@ -40,7 +40,7 @@ onMounted(() => {
     peek: stack.value.peek,
     seek: seek,
   }
-  emits('main-styles', 'h-[400px] overflow-y-auto')
+  emits('main-styles', ' overflow-y-auto')
   emits("request", request)
 })
 
