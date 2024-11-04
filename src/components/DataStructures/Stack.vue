@@ -40,16 +40,12 @@ onMounted(() => {
     peek: stack.value.peek,
     seek: seek,
   }
-  emits('main-styles', ' overflow-y-auto')
+  emits('main-styles', 'overflow-y-auto')
   emits("request", request)
 })
 
 
-
-
-
 function pushAction(num?: number): void {
- 
   if (num != undefined) {
     stack.value.push(num)
   } else {

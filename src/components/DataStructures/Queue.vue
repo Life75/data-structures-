@@ -1,10 +1,9 @@
 <template>
-  <div class="flex md:gap-3 gap-3  pt-4 w-full h-full  flex-row flex-wrap">
+  <div class="flex md:gap-3 gap-3  pt-4 w-full h-1/2  flex-row flex-wrap">
     <RecursiveNode v-if="queue.head" :arrow-direction="Direction.right" :node="queue.head" />
-    <div class="flex items-center w-full mr-5 " v-else>
+    <div class="flex  md:items-start items-center w-full mr-5 " v-else>
       <p class="text-center mx-auto">No nodes pushed :(</p>
     </div>
-   
   </div>
 </template>
 
@@ -40,8 +39,9 @@ onMounted(() => {
     peek: queue.value.peek,
     seek: seek,
   }
-  emits('main-styles', 'h-[400px] overflow-y-auto')
+  emits('main-styles', 'h-[600px] overflow-y-auto')
   emits("request", request)
+  //need to weave a component dedicated for explaining the the div information, adjustments for mobile view  
 })
 
 function pushAction(num?: number): string {

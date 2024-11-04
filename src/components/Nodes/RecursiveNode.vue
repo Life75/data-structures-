@@ -1,6 +1,6 @@
 <template>
 
-  <div :id="props.node.id" v-if="props.node?.isVisible" class="flex items-center">
+  <div :id="props.node.id" v-if="props.node?.isVisible" class="flex items-center ">
     <div class="flex relative   py-2 pr-3">
       <div
         :class="`w-12 h-12     bg-green-600 rounded-full ${$props.node?.isLit ? `bg-neutral-50` : ``} ${props.node?.classname}`">

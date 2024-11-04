@@ -15,7 +15,7 @@
         <!--h-[400px] overflow-y-auto-->
         <router-view :class="mainStyles" @request="setRequest" @main-styles="setMainStyles" />
         <div v-if="request" class=" bg-base-200 h-[200px] rounded-md shadow-md p-5 mt-5 flex flex-col gap-3">
-            <p class=" text-2xl uppercase">{{  }}</p>
+            <p class=" text-2xl uppercase">{{ `Queue` }} </p>
             <p> {{  }}</p>
             {{  }}
         </div>
