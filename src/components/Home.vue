@@ -42,89 +42,123 @@
             <p class="text-green-400">Zero</p>?
           </span>
         </h1>
-        <span class="w-full flex flex-col md:flex-row pt-9 gap-5">
-          <div id="card-item">
-            <div class="card bg-base-300 rounded-md text-neutral-content w-96">
-              <div class="card-body items-center text-center">
-                <div>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
-                    class="size-20 fill-[#4ade80]  stroke-base-200">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  </svg>
+        <div class="">
+          <span class="w-full flex flex-col md:flex-row pt-9 gap-5">
+            <div id="card-item">
+              <div class="card bg-base-300 rounded-md text-neutral-content w-96">
+                <div class="card-body items-center text-center">
+                  <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
+                      class="size-20 fill-[#4ade80]  stroke-base-200">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
 
-                </div>
-                <h2 class="card-title text-2xl relative">
-                  <p class="">Seeing is believing</p>
-                  <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
-                </h2>
-                <p>
-                  The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-                </p>
-                <div class="card-actions justify-end">
+                  </div>
+                  <h2 class="card-title text-2xl relative">
+                    <p class="">Seeing is believing</p>
+                    <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
+                  </h2>
+                  <p>
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                  </p>
+                  <div class="card-actions justify-end">
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div id="card-item">
-            <div class="card bg-base-300 rounded-md text-neutral-content w-96">
-              <div class="card-body items-center text-center">
-                <div>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1"
-                    stroke="currentColor" class="size-20">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z" />
-                  </svg>
+            <div id="card-item">
+              <div class="card bg-base-300 rounded-md text-neutral-content w-96">
+                <div class="card-body items-center text-center">
+                  <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1"
+                      stroke="currentColor" class="size-20">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z" />
+                    </svg>
 
-                </div>
-                <h2 class="card-title text-2xl relative">
-                  <p class="">Learning for you and me</p>
-                  <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
-                </h2>
-                <p>
-                  The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-                </p>
-                <div class="card-actions justify-end">
+                  </div>
+                  <h2 class="card-title text-2xl relative">
+                    <p class="">Learning for you and me</p>
+                    <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
+                  </h2>
+                  <p>
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                  </p>
+                  <div class="card-actions justify-end">
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div id="card-item">
-            <div class="card bg-base-300 rounded-md  text-neutral-content w-96">
-              <div class="card-body items-center text-center">
-                <div>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                    class="size-20 fill-green-400  stroke-base-100">
-                    <path fill-rule="evenodd"
-                      d="M11.622 1.602a.75.75 0 0 1 .756 0l2.25 1.313a.75.75 0 0 1-.756 1.295L12 3.118 10.128 4.21a.75.75 0 1 1-.756-1.295l2.25-1.313ZM5.898 5.81a.75.75 0 0 1-.27 1.025l-1.14.665 1.14.665a.75.75 0 1 1-.756 1.295L3.75 8.806v.944a.75.75 0 0 1-1.5 0V7.5a.75.75 0 0 1 .372-.648l2.25-1.312a.75.75 0 0 1 1.026.27Zm12.204 0a.75.75 0 0 1 1.026-.27l2.25 1.312a.75.75 0 0 1 .372.648v2.25a.75.75 0 0 1-1.5 0v-.944l-1.122.654a.75.75 0 1 1-.756-1.295l1.14-.665-1.14-.665a.75.75 0 0 1-.27-1.025Zm-9 5.25a.75.75 0 0 1 1.026-.27L12 11.882l1.872-1.092a.75.75 0 1 1 .756 1.295l-1.878 1.096V15a.75.75 0 0 1-1.5 0v-1.82l-1.878-1.095a.75.75 0 0 1-.27-1.025ZM3 13.5a.75.75 0 0 1 .75.75v1.82l1.878 1.095a.75.75 0 1 1-.756 1.295l-2.25-1.312a.75.75 0 0 1-.372-.648v-2.25A.75.75 0 0 1 3 13.5Zm18 0a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-.372.648l-2.25 1.312a.75.75 0 1 1-.756-1.295l1.878-1.096V14.25a.75.75 0 0 1 .75-.75Zm-9 5.25a.75.75 0 0 1 .75.75v.944l1.122-.654a.75.75 0 1 1 .756 1.295l-2.25 1.313a.75.75 0 0 1-.756 0l-2.25-1.313a.75.75 0 1 1 .756-1.295l1.122.654V19.5a.75.75 0 0 1 .75-.75Z"
-                      clip-rule="evenodd" />
-                  </svg>
+            <div id="card-item">
+              <div class="card bg-base-300 rounded-md  text-neutral-content w-96">
+                <div class="card-body items-center text-center">
+                  <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                      class="size-20 fill-green-400  stroke-base-100">
+                      <path fill-rule="evenodd"
+                        d="M11.622 1.602a.75.75 0 0 1 .756 0l2.25 1.313a.75.75 0 0 1-.756 1.295L12 3.118 10.128 4.21a.75.75 0 1 1-.756-1.295l2.25-1.313ZM5.898 5.81a.75.75 0 0 1-.27 1.025l-1.14.665 1.14.665a.75.75 0 1 1-.756 1.295L3.75 8.806v.944a.75.75 0 0 1-1.5 0V7.5a.75.75 0 0 1 .372-.648l2.25-1.312a.75.75 0 0 1 1.026.27Zm12.204 0a.75.75 0 0 1 1.026-.27l2.25 1.312a.75.75 0 0 1 .372.648v2.25a.75.75 0 0 1-1.5 0v-.944l-1.122.654a.75.75 0 1 1-.756-1.295l1.14-.665-1.14-.665a.75.75 0 0 1-.27-1.025Zm-9 5.25a.75.75 0 0 1 1.026-.27L12 11.882l1.872-1.092a.75.75 0 1 1 .756 1.295l-1.878 1.096V15a.75.75 0 0 1-1.5 0v-1.82l-1.878-1.095a.75.75 0 0 1-.27-1.025ZM3 13.5a.75.75 0 0 1 .75.75v1.82l1.878 1.095a.75.75 0 1 1-.756 1.295l-2.25-1.312a.75.75 0 0 1-.372-.648v-2.25A.75.75 0 0 1 3 13.5Zm18 0a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-.372.648l-2.25 1.312a.75.75 0 1 1-.756-1.295l1.878-1.096V14.25a.75.75 0 0 1 .75-.75Zm-9 5.25a.75.75 0 0 1 .75.75v.944l1.122-.654a.75.75 0 1 1 .756 1.295l-2.25 1.313a.75.75 0 0 1-.756 0l-2.25-1.313a.75.75 0 1 1 .756-1.295l1.122.654V19.5a.75.75 0 0 1 .75-.75Z"
+                        clip-rule="evenodd" />
+                    </svg>
 
-                </div>
-                <h2 class="card-title text-2xl relative">
-                  <p class="">It's simple</p>
-                  <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30 "></div>
-                </h2>
-                <p>
-                  The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-                </p>
-                <div class="card-actions justify-end">
+                  </div>
+                  <h2 class="card-title text-2xl relative">
+                    <p class="">It's simple</p>
+                    <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30 "></div>
+                  </h2>
+                  <p>
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                  </p>
+                  <div class="card-actions justify-end">
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-        </span>
+          </span>
+        </div>
       </div>
       <div class="">
-        <h2 class="text-5xl">Explore the endless possibilties </h2>
-        <p class=" text-sm text-center">(currently only 3 :D)</p>
+        <h2 class="text-5xl text-center">Future Features</h2>
+        <div class="flex flex-col md:flex-row gap-10 pt-9">
+          <div class="card bg-base-100 image-full w-80 h-96 shadow-xl rounded-lg">
+            <figure>
+              <img src="https://pngimg.com/uploads/sonic_hedgehog/sonic_hedgehog_PNG26.png" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title justify-center text-center">Sorting Speed Comparision</h2>
+              <p>Thought process behind this idea was when testing different sorting algorithims I typically found myself going back and forth testing them 
+                to see which one was faster. I wanted to create a tool that would allow me to compare the speed of different sorting algorithms.
+              </p>
+              <p></p>
+              
+            </div>
+          </div>
+          <div class="card bg-base-100 image-full w-80 h-96 shadow-xl rounded-lg">
+            <figure>
+              <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">More Data Structures!!</h2>
+              <div>
+                <p class="pb-3">Currently looking into adding/testing animations for: </p>
+                <ul class="">
+                  <li>- Hashtables</li>
+                  <li>- Arrays</li>
+                  <li>- Doubly linked lists</li>
+                </ul>
+              </div>
+            
+            </div>
+          </div>
+          
+        </div>
         <div>
 
         </div>
       </div>
-      
+
       <footer class="footer bg-neutral-900 rounded-md shadow-md  text-neutral-content  p-4 mb-auto h-full">
         <aside class="grid-flow-col items-center">
           <svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
