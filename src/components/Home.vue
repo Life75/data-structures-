@@ -1,6 +1,6 @@
 <template>
-  <div class="  text-white w-full flex-row  h-full ">
-    <div class="flex flex-col gap-28 w-full items-center px-7 ">
+  <div class="  text-white w-full  min-h-screen flex flex-col items-center overflow-x-hidden">
+    <div class="flex-grow flex flex-col gap-28 w-full items-center px-7 ">
       <div class="flex flex-col-reverse md:flex-row   mt-7 md:mt-20   ">
         <div class="flex flex-col gap-y-14 mx-4   ">
           <h1 class=" text-6xl lg:text-7xl  mt-6 md:mt-0">
@@ -42,10 +42,10 @@
             <p class="text-green-400">Zero</p>?
           </span>
         </h1>
-        <div class="">
-          <span class="w-full flex flex-col md:flex-row pt-9 gap-5">
+        <div class=" pb-20">
+          <span class="w-full flex flex-col items-center md:flex-row pt-9 gap-5">
             <div id="card-item">
-              <div class="card bg-base-300 rounded-md text-neutral-content w-96">
+              <div class="card bg-base-300 rounded-md text-neutral-50 md:w-96 w-80">
                 <div class="card-body items-center text-center">
                   <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
@@ -56,7 +56,7 @@
                     </svg>
 
                   </div>
-                  <h2 class="card-title text-2xl relative">
+                  <h2 class="card-title md:text-2xl text-xl relative">
                     <p class="">Seeing is believing</p>
                     <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
                   </h2>
@@ -69,7 +69,7 @@
               </div>
             </div>
             <div id="card-item">
-              <div class="card bg-base-300 rounded-md text-neutral-content w-96">
+              <div class="card bg-base-300 rounded-md text-neutral-50 md:w-96 w-80">
                 <div class="card-body items-center text-center">
                   <div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1"
@@ -79,8 +79,8 @@
                     </svg>
 
                   </div>
-                  <h2 class="card-title text-2xl relative">
-                    <p class="">Learning for you and me</p>
+                  <h2 class="card-title md:text-2xl text-xl relative">
+                    <p class="text-white">Learning for you and me</p>
                     <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
                   </h2>
                   <p>
@@ -92,7 +92,7 @@
               </div>
             </div>
             <div id="card-item">
-              <div class="card bg-base-300 rounded-md  text-neutral-content w-96">
+              <div class="card bg-base-300 rounded-md  text-neutral-50 md:w-96 w-80">
                 <div class="card-body items-center text-center">
                   <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -103,7 +103,7 @@
                     </svg>
 
                   </div>
-                  <h2 class="card-title text-2xl relative">
+                  <h2 class="card-title md:text-2xl text-xl relative">
                     <p class="">It's simple</p>
                     <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30 "></div>
                   </h2>
@@ -119,8 +119,8 @@
           </span>
         </div>
       </div>
-      <div class="">
-        <h2 class="text-5xl text-center">Future Features</h2>
+      <!--     <div class="">
+        <h2 class="text-5xl text-center">Upcoming Features</h2>
         <div class="flex flex-col md:flex-row gap-10 pt-9">
           <div class="card bg-base-100 image-full w-80 h-96 shadow-xl rounded-lg">
             <figure>
@@ -135,18 +135,18 @@
               
             </div>
           </div>
-          <div class="card bg-base-100 image-full w-80 h-96 shadow-xl rounded-lg">
+          <div class="card bg-base-100 image-full w-80 h-96 shadow-xl text-netural-50 rounded-lg">
             <figure>
               <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
             </figure>
             <div class="card-body">
-              <h2 class="card-title">More Data Structures!!</h2>
+              <h2 class="card-title">More Sorting!</h2>
               <div>
-                <p class="pb-3">Currently looking into adding/testing animations for: </p>
+                <p class="pb-3">Currently looking into adding/testing animations for the following: </p>
                 <ul class="">
-                  <li>- Hashtables</li>
-                  <li>- Arrays</li>
-                  <li>- Doubly linked lists</li>
+                  <li>- Insertion Sort</li>
+                  <li>- Heap Sort </li>
+                  <li>- Selection Sort</li>
                 </ul>
               </div>
             
@@ -158,16 +158,24 @@
 
         </div>
       </div>
+-->
 
-      <footer class="footer bg-neutral-900 rounded-md shadow-md  text-neutral-content  p-4 mb-auto h-full">
+
+    
+    </div>
+
+    <footer class="footer bg-neutral-900 text-neutral-content rounded-lg p-4 bottom-0 md:w-full w-96 ">
         <aside class="grid-flow-col items-center">
-          <svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
-            clip-rule="evenodd" class="fill-current">
-            <path
-              d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z">
-            </path>
-          </svg>
-          <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+          <div>
+          <h1 class="text-2xl text-center flex flex-col md:flex-row gap-2">
+            <span class="flex ">
+              <p>Index</p>
+              <p class="text-green-400">Zero</p>
+            </span>
+          </h1>
+          <p class="text-right">Copyright © {{ copywright }} - All right reserved</p>
+        </div>
+        
         </aside>
         <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
           <a>
@@ -193,7 +201,6 @@
           </a>
         </nav>
       </footer>
-    </div>
   </div>
 </template>
 
@@ -206,6 +213,7 @@ onMounted(() => {
 });
 
 
+let copywright = ref(new Date().getFullYear());
 
 
 
