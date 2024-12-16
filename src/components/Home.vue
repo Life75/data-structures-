@@ -104,7 +104,7 @@
 
                   </div>
                   <h2 class="card-title md:text-2xl text-xl relative">
-                    <p class="">It's simple</p>
+                    <p class="">Mobile Friendly!</p>
                     <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30 "></div>
                   </h2>
                   <p>
@@ -117,6 +117,55 @@
             </div>
 
           </span>
+        </div>
+      </div>
+      <div id="FAQ" class="w-full flex flex-col gap-10  ">
+        <div class="flex flex-col items-center md:items-start w-full">
+          <h2 class=" text-bold text-3xl">FAQ</h2>
+          <p>Answers for some questions you may have</p>
+        </div>
+        <div class="flex flex-col gap-4 items-end justify-end">
+          <div class=" w-full md:w-1/2 collapse rounded-lg collapse-arrow bg-base-300">
+            <input type="checkbox" />
+            <div class="collapse-title text-xl text-neutral-200 font-medium">
+              <span class="flex align-middle">
+                <p class="mr-auto">How long have you spent working on this project</p>
+              </span>
+
+            </div>
+            <div class="collapse-content flex flex-col">
+              <p>This is a project I've been constantly iterating upon
+                for the past 2 years. I've been working on it. 
+              </p>
+              <p>
+                Honestly, there was certain parts when jumping into this project I had no clue what I was doing and I'm still learning.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 collapse rounded-lg collapse-arrow  bg-base-300">
+            <input type="checkbox" />
+            <div class="collapse-title text-xl text-neutral-200 font-medium ">
+              <span class="flex align-middle">
+                <p class="mr-auto">What's the tech stack used?</p>
+              </span>
+
+            </div>
+            <div class="collapse-content">
+              <p>hello</p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 collapse rounded-lg collapse-arrow  bg-base-300">
+            <input type="checkbox" />
+            <div class="collapse-title text-xl text-neutral-200 font-medium ">
+              <span class="flex align-middle">
+                <p class="mr-auto">What's the tech stack used?</p>
+              </span>
+
+            </div>
+            <div class="collapse-content">
+              <p>hello</p>
+            </div>
+          </div>
         </div>
       </div>
       <!--     <div class="">
@@ -161,46 +210,46 @@
 -->
 
 
-    
+
     </div>
 
-    <footer class="footer bg-neutral-900 text-neutral-content rounded-lg p-4 bottom-0 md:w-full w-96 ">
-        <aside class="grid-flow-col items-center">
-          <div>
+    <footer class="footer bg-neutral-900 text-neutral-content rounded-lg p-4 bottom-0 md:w-full w-96  mt-28">
+      <aside class="grid-flow-col items-center">
+        <div>
           <h1 class="text-2xl text-center flex flex-col md:flex-row gap-2">
             <span class="flex ">
               <p>Index</p>
               <p class="text-green-400">Zero</p>
             </span>
           </h1>
-          <p class="text-right">Copyright © {{ copywright }} - All right reserved</p>
+          <p class="text-right">Copyright © {{ copyright }} - All right reserved</p>
         </div>
-        
-        </aside>
-        <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-          <a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-              <path
-                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
-              </path>
-            </svg>
-          </a>
-          <a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-              <path
-                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
-              </path>
-            </svg>
-          </a>
-          <a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-              <path
-                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
-              </path>
-            </svg>
-          </a>
-        </nav>
-      </footer>
+
+      </aside>
+      <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+        <a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+            <path
+              d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+            </path>
+          </svg>
+        </a>
+        <a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+            <path
+              d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+            </path>
+          </svg>
+        </a>
+        <a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+            <path
+              d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+            </path>
+          </svg>
+        </a>
+      </nav>
+    </footer>
   </div>
 </template>
 
@@ -213,7 +262,7 @@ onMounted(() => {
 });
 
 
-let copywright = ref(new Date().getFullYear());
+let copyright = ref(new Date().getFullYear());
 
 
 
@@ -279,4 +328,10 @@ https://realtimecolors.com/?colors=e5eaf3-141414-bef264-f9f5fa-22d3ee 300 green/
   transform: translateX(40px);
   opacity: 0;
 }
+
+.card {
+  transition: all 0.3s ease-in-out;
+}
+
 </style>
+
