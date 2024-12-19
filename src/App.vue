@@ -13,18 +13,16 @@ function setHeaderTitle(headerTitle: string) {
   header.value = headerTitle;
 }
 </script>
+  <template>
+    <div id="app" class="flex flex-col min-h-screen">
+      <NavBar class="w-full shadow-lg"></NavBar>
+      <RouterView class="flex-1" @header="setHeaderTitle"></RouterView>
+    </div>
+  </template>
 
-<template>
-  <div id="app" class="flex flex-col  ">
-    <NavBar class="w-full shadow-lg  "></NavBar> 
-    <RouterView class=" " @header="setHeaderTitle"></RouterView> 
-  </div>
-  
-</template>
-
-<style >
-#app {
-  
-}
-
-</style>
+  <style>
+  #app {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  </style>

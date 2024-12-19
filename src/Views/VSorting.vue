@@ -26,7 +26,7 @@
             {{ sortPropsRef }}
         </div>
         <v-layout>
-            <v-navigation-drawer v-model="drawerIsOpen" location="bottom" class="bg-base-100 py-5" width="500"
+            <v-navigation-drawer v-model="drawerIsOpen" location="bottom" class="bg-base-100  bg-opacity-65 backdrop-blur-sm py-5" width="500"
                 temporary>
                 <SortHeaderUI class="" :sort-request-controller="sortRequest"
                     @emit-slider-value="setAmountOfValues($event)" @emit-animation-speed-slider="setAnimationSpeed"
