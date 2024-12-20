@@ -23,7 +23,7 @@
 
           </div>
           <div class="flex flex-col md:flex-row gap-6 items-stretch">
-            <button class="btn   bg-neutral-900 rounded-lg  hover:bg-neutral-800">How does it work?</button>
+            <button class="btn bg-neutral-900 rounded-lg  hover:bg-neutral-800">Why use IndexZero? </button>
             <button
               class="btn buttonAnimation bg-green-400 rounded-lg shadow-md text-neutral-800 hover:bg-green-400">Get
               Started</button>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="flex flex-col items-center">
-        <h1 class="text-5xl text-center flex flex-col md:flex-row gap-2">
+        <h1 class="text-4xl font-bold text-center flex flex-col md:flex-row gap-2">
           <p>Why use</p>
           <span class="flex justify-center items-center">
             <p>Index</p>
@@ -60,7 +60,7 @@
 
                   </div>
 
-                  <h2 class="card-title md:text-2xl text-xl relative mt-4">
+                  <h2 class="card-title md:text-xl text-xl relative mt-4">
                     <p class="">Seeing is believing</p>
                     <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
                   </h2>
@@ -87,7 +87,7 @@
 
                   </div>
 
-                  <h2 class="card-title md:text-2xl text-xl relative mt-4">
+                  <h2 class="card-title text-xl relative mt-4">
                     <p class="text-white">Learning for you and me</p>
                     <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
                   </h2>
@@ -136,7 +136,7 @@
       </div>
       <div id="FAQ" class="w-full flex flex-col gap-10  ">
         <div class="flex flex-col items-center md:items-start w-full">
-          <h2 class=" text-bold text-4xl">FAQ</h2>
+          <h2 class="text-4xl font-bold">FAQ</h2>
           <p>Answers for some questions you may have</p>
         </div>
         <div class="flex flex-col gap-4 items-end justify-end">
