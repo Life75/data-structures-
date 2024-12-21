@@ -62,15 +62,15 @@ export default defineComponent({
           isAnimating: animating
         }
 
-        const metadata: IMetadata = {
-          timeComplexity: `O(n)`,
+        const metaData: IMetadata = {
+          timeComplexity: `O(n²)`,
           spaceComplexity: `O(1)`,
-          description: "Some description of the algrothim of bubble sort", 
+          description: "Some description of the algorithm of bubble sort", 
           header: "Bubble Sort"
         }
         const request: ISortRequest = {
         controller: controller, 
-        metadata: metadata, 
+        metadata: metaData, 
       }
       emit("request", request)
     });
@@ -143,8 +143,7 @@ export default defineComponent({
       startSorting
     };
   },
-});
-</script>
+});</script>
 
 <style></style>
 ../Contracts/Interfaces/SortProps

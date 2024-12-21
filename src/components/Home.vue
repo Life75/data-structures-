@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="flex flex-col items-center">
-        <h1 class="text-4xl font-bold text-center flex flex-col md:flex-row gap-2">
+        <h1 class="text-3xl font-semibold text-center flex flex-col md:flex-row gap-2">
           <p>Why use</p>
           <span class="flex justify-center items-center">
             <p>Index</p>

@@ -72,14 +72,6 @@ export default defineComponent({
 </script>
 
 <style>
-.square {
-  height: 100px;
-  width: 50px;
-  background-color: #ffffff;
-  border-color: #8e05c2;
-}
-
-
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }

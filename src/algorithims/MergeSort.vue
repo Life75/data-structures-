@@ -100,7 +100,7 @@ export default defineComponent({
       }
 
       const metaData: IMetadata = {
-        timeComplexity: "O(nlog(n))",
+        timeComplexity: "O(n log n)",
         spaceComplexity: "O(n)",
         description: "This is the description for merge sort ",
         header: "Merge Sort "

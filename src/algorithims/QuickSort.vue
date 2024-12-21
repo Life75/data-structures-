@@ -111,8 +111,8 @@ export default defineComponent({
       }
 
       const metaData: IMetadata = {
-        timeComplexity: `O(nlog(n))`,
-        spaceComplexity: `O(nlog(n))`,
+        timeComplexity: `O(n²)`, // Worst case
+        spaceComplexity: `O(log n)`,
         description: "This is the description for quicksort",
         header: "Quick Sort"
       }

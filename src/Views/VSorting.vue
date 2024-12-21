@@ -26,12 +26,30 @@
             {{ sortPropsRef }}
         </div>
         <v-layout>
-            <v-navigation-drawer v-model="drawerIsOpen" location="bottom" class="bg-base-100  bg-opacity-65 backdrop-blur-sm py-5" width="500"
-                temporary>
-                <SortHeaderUI class="" :sort-request-controller="sortRequest"
-                    @emit-slider-value="setAmountOfValues($event)" @emit-animation-speed-slider="setAnimationSpeed"
-                    :timer="trackTime" @emit-animation-speed="setAnimationSpeed" :is-mobile="true">
-                </SortHeaderUI>
+            <v-navigation-drawer 
+                v-model="drawerIsOpen" 
+                location="bottom" 
+                class="bg-base-100 bg-opacity-65 backdrop-blur-sm py-5 rounded-t-3xl" 
+                width="500"
+                temporary
+                :scrim="false"
+                elevation="10"
+            >
+                <!-- Add a subtle drag indicator at the top -->
+                <div class="w-12 h-1.5 bg-gray-400 rounded-full mx-auto mb-4 opacity-50"></div>
+                
+                <!-- Add smooth transition for content -->
+                <div class="transition-all duration-300 ease-in-out">
+                    <SortHeaderUI 
+                        :sort-request-controller="sortRequest"
+                        @emit-slider-value="setAmountOfValues($event)" 
+                        @emit-animation-speed-slider="setAnimationSpeed"
+                        :timer="trackTime" 
+                        @emit-animation-speed="setAnimationSpeed" 
+                        :is-mobile="true"
+                    >
+                    </SortHeaderUI>
+                </div>
             </v-navigation-drawer>
         </v-layout>
     </div>
