@@ -102,8 +102,8 @@ export default defineComponent({
       const metaData: IMetadata = {
         timeComplexity: "O(n log n)",
         spaceComplexity: "O(n)",
-        description: "This is the description for merge sort ",
-        header: "Merge Sort "
+        description: "Merge Sort follows the divide-and-conquer strategy! It works by breaking down the array into smaller subarrays until each contains just one element, then merges them back together in sorted order. Think of it like sorting cards by splitting your deck in half repeatedly, then merging the piles back together in order. With its consistent O(n log n) time complexity, Merge Sort is highly efficient and stable, making it ideal for sorting linked lists and large datasets where memory isn't a constraint.",
+        header: "Merge Sort"
       }
 
       const request: ISortRequest = {

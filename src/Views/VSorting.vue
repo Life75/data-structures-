@@ -19,13 +19,23 @@
         </span>
         <RouterView class="flex h-[500px] my-10" @request="setSortRequest" :sortProps="sortPropsRef"
             :animationSpeed="animeSpeed" @timer="setTimer">
-        </RouterView>
-        <div class="mx-5 bg-base-300 h-[200px] rounded-md shadow-md p-5 flex flex-col gap-3">
-            <p class=" text-2xl uppercase">{{ sortRequest?.metadata.header }}</p>
-            <p> {{ sortRequest?.metadata.description }}</p>
-            {{ sortPropsRef }}
-        </div>
-        <v-layout>
+          </RouterView>
+          <div class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg">
+            <h3 class="text-xl font-semibold text-green-400 mb-4">{{sortRequest?.metadata.header}}</h3>
+          
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="complexity-box flex flex-col">
+                <span class="text-sm text-neutral-400 whitespace-nowrap">Time Complexity</span>
+                <span class="text-lg font-mono whitespace-nowrap" >{{sortRequest?.metadata.timeComplexity}}</span>
+              </div>
+              <div class="complexity-box flex flex-col">
+                <span class="text-sm text-neutral-400 whitespace-nowrap">Space Complexity</span>
+                <span class="text-lg font-mono whitespace-nowrap">{{sortRequest?.metadata.spaceComplexity}}</span>
+              </div>
+            </div>
+            <p class="text-neutral-200 leading-relaxed">{{sortRequest?.metadata.description}}</p>
+          </div>
+          <v-layout>
             <v-navigation-drawer 
                 v-model="drawerIsOpen" 
                 location="bottom" 

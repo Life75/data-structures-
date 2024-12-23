@@ -61,12 +61,11 @@ export default defineComponent({
           cancelAnimation: cancelAnimation, 
           isAnimating: animating
         }
-
-        const metaData: IMetadata = {
-          timeComplexity: `O(n²)`,
-          spaceComplexity: `O(1)`,
-          description: "Some description of the algorithm of bubble sort", 
-          header: "Bubble Sort"
+          const metaData: IMetadata = {
+            timeComplexity: `O(n²)`,
+            spaceComplexity: `O(1)`,
+            description: "Bubble Sort is like bubbles rising to the surface! It works by repeatedly stepping through a list, comparing adjacent elements and swapping them if they're in the wrong order. The algorithim gets its name because smaller elements 'bubble' to the top with each iteration, similar to air bubbles rising in water. While simple to understand and implement, Bubble Sort has an average time complexity of O(n²), making it less efficient for large datasets. However, it's excellent for teaching purposes and works well with small lists or nearly sorted data.",
+            header: "Bubble Sort"
         }
         const request: ISortRequest = {
         controller: controller, 

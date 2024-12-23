@@ -111,9 +111,9 @@ export default defineComponent({
       }
 
       const metaData: IMetadata = {
-        timeComplexity: `O(n²)`, // Worst case
+        timeComplexity: `O(n log n)`, 
         spaceComplexity: `O(log n)`,
-        description: "This is the description for quicksort",
+        description: "QuickSort is a highly efficient, comparison-based algorithm that uses a 'divide and conquer' approach. It works by selecting a 'pivot' element and partitioning the array around it - smaller elements go to the left, larger to the right. This process repeats recursively for each partition. While its worst-case time complexity is O(n²), QuickSort typically performs exceptionally well in practice with an average case of O(n log n), making it a popular choice in real-world applications and standard library implementations.",
         header: "Quick Sort"
       }
 
