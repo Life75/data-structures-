@@ -1,7 +1,5 @@
 <template>
-  <!--Weird bug, when making nested routes in vue you'll need to make the sure that the folder hiearchy needs to not be nested in order for hot reloading -->
   <div class="flex-col items-center justify-center ">
-    <!--Need to be able to show before and after-->
     <div v-if="sortProps.amountOfValues == 0" class="flex w-full pt-20 justify-center items-center">No Values</div>
     <div class="flex items-center justify-center p-5">
       <li v-show="!animating" class="flex" v-for="node in sortObj.getCurrentValues()">
@@ -20,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, watch } from "vue";
+import { defineComponent, onMounted, ref, watch } from "vue";
 import Node from "../components/Node.vue";
 import VerticalNode from "../components/VerticalNode.vue";
 import BubbleSort from "../algorithims-ts/BubbleSort";
@@ -126,7 +124,6 @@ export default defineComponent({
     function startSorting(): void {
       clearIterations();
       sortObj.value.startSort();
-
       if (props.sortProps.animationSpeed == 0) sortAnimation(200);
       else sortAnimation(props.sortProps.animationSpeed);
     }
@@ -139,10 +136,11 @@ export default defineComponent({
       sortObj,
       timer,
       clearIterations,
-      startSorting
+      startSorting, 
     };
   },
 });</script>
 
-<style></style>
-../Contracts/Interfaces/SortProps
+<style>
+
+</style>

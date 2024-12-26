@@ -50,9 +50,6 @@ export function AnimateEngine<T>(entity: Snapshots<T>) {
 
             }, speed)
         }
-        else {
-            console.log(entityRef.value)
-        }
     }
     return { animate, cancelAnimation, animating, currentIteration }
 }

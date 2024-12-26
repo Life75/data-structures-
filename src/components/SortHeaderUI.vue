@@ -142,7 +142,6 @@ function timerStyling(timer: number | undefined) {
 }
 
 function emitSliderValue() {
-  console.log(amountOfValues.value);
   emit("emitSliderValue", amountOfValues.value);
 }
 

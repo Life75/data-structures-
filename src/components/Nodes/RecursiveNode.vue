@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import Node from "../../Contracts/Classes/Node"
-import { onMounted, onUnmounted, PropType } from "vue"
+import { onMounted, PropType } from "vue"
 import Arrow from "../Arrow.vue"
 import { Direction } from "../../Contracts/Classes/Direction"
 //@ts-ignore
@@ -43,9 +43,6 @@ onMounted(async () => {
 
 })
 
-onUnmounted(() => {
-  //console.log("test") setup leave animation 
-})
 
 function emitID(): void {
   emit("added", String(props.node?.id))

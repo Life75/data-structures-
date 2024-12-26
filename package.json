@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "cd dist && copy index.html 404.html"
+    "deploy": "vite build && firebase deploy"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",

@@ -83,7 +83,7 @@ let sortRequest: Ref<ISortRequest | undefined> = ref()
 function setSortRequest(request: ISortRequest) {
     sortRequest.value = request
 }
-
+//TODO: Fix the animation speed for when it is set to 0
 function setSortProps(sortProps: SortProps) {
     sortPropsRef.value = sortProps
 }
