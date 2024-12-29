@@ -103,7 +103,7 @@
             <!-- Footer section -->
             <div class="absolute bottom-0 w-full p-6 border-t border-base-200">
                 <div class="flex items-center justify-between text-sm text-gray-400">
-                    <span>Version 1.0</span>
+                    <span>Version {{ version }}</span>
                     <span>Made with ❤️</span>
                 </div>
             </div>
@@ -117,10 +117,9 @@ import { ref } from 'vue';
 import { VNavigationDrawer } from 'vuetify/lib/components/index.mjs';
 import router from '../router/index'
 import RouteNode from './RouteNode.vue'
+import { version } from '../../package.json'
 const showDrawer = ref(false)
 const search = ref("")
-
-
 
 async function onShareClick(event: Event) {
     event.preventDefault();

@@ -4,7 +4,10 @@
     <div class="flex  md:items-start items-center w-full mr-5 " v-else>
       <p class="text-center mx-auto">No nodes pushed :(</p>
     </div>
-  </div>
+    <!--<v-number-input :reverse="false" controlVariant="default" label="" :hideInput="false" :inset="false"
+      variant="solo-inverted"></v-number-input>
+    -->
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -15,11 +18,12 @@ import ILinkedListRequest from "../../Contracts/Interfaces/ILinkedListRequest"
 import LinkedListHeaderUI from "../LinkedListHeaderUI.vue";
 import Queue from "../../data-structures-ts/Queue"
 import RecursiveNode from "../Nodes/RecursiveNode.vue"
+//import { VNumberInput } from 'vuetify/labs/VNumberInput'
 import { Direction } from "../../Contracts/Classes/Direction"
 import anime from "animejs";
 const emits = defineEmits<{
   (e: "request", request: ILinkedListRequest): void
-  (e: "main-styles", styles: string): void 
+  (e: "main-styles", styles: string): void
 }>()
 
 const queue = ref(new Queue())
@@ -51,7 +55,7 @@ function pushAction(num?: number): string {
   } else {
     id = queue.value.push(new RandomNumberGenerator().getRandomNumber())
   }
-  
+
   //active an animation on the node when its pushed in this can be done here 
   return id
 
