@@ -13,7 +13,6 @@
       </li>
       <VerticalNodeAdapter v-if="animating" :iteration="currentIteration" />
     </div>
-  
   </div>
 </template>
 

@@ -15,7 +15,7 @@ export default class BubbleSort extends Sort implements ISort, IIterations {
     }
 
     this.timer.start();
-    for (var i = 0; i < this.values.length; i++) {
+    for (var i = 0; i < this.values.length;   i++) {
       for (var j = 0; j < this.values.length - i; j++) {
         if (this.values[j] > this.values[j + 1]) {
           var temp = this.values[j];

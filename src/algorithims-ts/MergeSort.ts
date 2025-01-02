@@ -46,7 +46,6 @@ export default class MergeSort extends Sort implements ISort, IIterations {
     {
         this.arrClone[k] = arr[k];
         movedIndexes.push(new MovedIndex(Direction.left, k))
-
     }
 
     for(k = low; k <= high; k++)
