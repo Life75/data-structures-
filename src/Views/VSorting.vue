@@ -43,7 +43,7 @@
                 class="bg-base-100 bg-opacity-65 backdrop-blur-sm py-5 rounded-t-3xl" 
                 width="500"
                 temporary
-                :scrim="false"
+                :scrim="true"
                 elevation="10"
             >
                 <!-- Add a subtle drag indicator at the top -->

@@ -80,7 +80,7 @@
               <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
               <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
             </svg>
-            <p class="uppercase">{{ props.sortRequestController?.metadata.timeComplexity }}</p>
+            <p class="uppercase text-xl md:text-2xl">{{ props.sortRequestController?.metadata.timeComplexity }}</p>
           </span>
 
           <span class="flex flex-row align-middle items-center text-2xl md:text-4xl gap-2">
@@ -89,7 +89,7 @@
               <path
                 d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z" />
             </svg>
-            <p class="uppercase">{{ props.sortRequestController?.metadata.spaceComplexity  }}</p>
+            <p class="uppercase text-xl md:text-2xl">{{ props.sortRequestController?.metadata.spaceComplexity  }}</p>
           </span>
         </div>
       </div>

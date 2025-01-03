@@ -36,38 +36,39 @@
         </div>
       </div>
       <div class="flex flex-col items-center">
-        <h1 class="text-3xl font-semibold text-center flex flex-col md:flex-row gap-2">
+        <h1 class="text-4xl font-semibold text-center flex flex-col md:flex-row gap-2">
           <p>Why use</p>
           <span class="flex justify-center items-center">
             <p>Index</p>
             <p class="text-green-400">Zero</p>?
           </span>
         </h1>
-        <div class=" pb-20">
-          <span class="w-full flex flex-col items-center md:flex-row pt-9 gap-5">
+        <div class="">
+          <span class="w-full flex flex-col items-center md:flex-row pt-9 gap-5 ">
             <div id="card-item">
 
-              <div
-                class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg md:w-96 w-80">
+              <div class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg md:w-96 w-80
+                h-auto min-h-[350px] md:min-h-[275px] 
+                ">
                 <div class="card-body items-center text-center">
 
                   <div class="bg-green-400 bg-opacity-20 p-2 rounded-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
-                      class="size-20 fill-[#4ade80] stroke-base-200">
+                      class="size-20 stroke-green-400 fill-none">
                       <path stroke-linecap="round" stroke-linejoin="round"
                         d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                       <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                     </svg>
-
                   </div>
 
-                  <h2 class="card-title md:text-xl text-xl relative mt-4">
-                    <p class="">Seeing is believing</p>
-                    <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
+                  <h2 class="card-title md:text-xl text-lg relative mt-4 z-10">
+                    <p class="text-white">Seeing is believing</p>
+                    <div class="absolute bg-green-400 h-2 mt-6 w-full bg-opacity-60 -z-10"></div>
                   </h2>
 
                   <p class="text-neutral-300 mt-4">
-                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                    Watch algorithms spring to life through dynamic visualizations. Complex data structures become
+                    crystal clear as you witness every step unfold.
                   </p>
 
 
@@ -76,26 +77,26 @@
             </div>
             <div id="card-item">
 
-              <div
-                class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg md:w-96 w-80">
+              <div class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg md:w-96 w-80
+                h-auto min-h-[350px] md:min-h-[275px]
+                ">
                 <div class="card-body items-center text-center">
-
                   <div class="bg-green-400 bg-opacity-20 p-2 rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1"
-                      stroke="currentColor" class="size-20">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
+                      class="size-20 stroke-green-400 fill-none">
                       <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z" />
+                        d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                     </svg>
-
                   </div>
 
-                  <h2 class="card-title text-xl relative mt-4">
+                  <h2 class="card-title text-xl relative mt-4 text-nowrap z-10">
                     <p class="text-white">Learning for you and me</p>
-                    <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
+                    <div class="absolute bg-green-400 h-2 mt-6 w-full bg-opacity-60 -z-10"></div>
                   </h2>
 
                   <p class="text-neutral-300 mt-4">
-                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                    Perfect for both students and educators. Clear, interactive demonstrations make learning data
+                    structures engaging and help concepts stick for the long term.
                   </p>
 
 
@@ -104,30 +105,28 @@
             </div>
             <div id="card-item">
 
-              <div
-                class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg md:w-96 w-80">
+              <div class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg md:w-96 w-80
+                h-auto min-h-[350px] md:min-h-[275px]
+                ">
                 <div class="card-body items-center text-center">
-
                   <div class="bg-green-400 bg-opacity-20 p-2 rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                      class="size-20 fill-green-400 stroke-base-100">
-                      <path fill-rule="evenodd"
-                        d="M11.622 1.602a.75.75 0 0 1 .756 0l2.25 1.313a.75.75 0 0 1-.756 1.295L12 3.118 10.128 4.21a.75.75 0 1 1-.756-1.295l2.25-1.313ZM5.898 5.81a.75.75 0 0 1-.27 1.025l-1.14.665 1.14.665a.75.75 0 1 1-.756 1.295L3.75 8.806v.944a.75.75 0 0 1-1.5 0V7.5a.75.75 0 0 1 .372-.648l2.25-1.312a.75.75 0 0 1 1.026.27Zm12.204 0a.75.75 0 0 1 1.026-.27l2.25 1.312a.75.75 0 0 1 .372.648v2.25a.75.75 0 0 1-1.5 0v-.944l-1.122.654a.75.75 0 1 1-.756-1.295l1.14-.665-1.14-.665a.75.75 0 0 1-.27-1.025Zm-9 5.25a.75.75 0 0 1 1.026-.27L12 11.882l1.872-1.092a.75.75 0 1 1 .756 1.295l-1.878 1.096V15a.75.75 0 0 1-1.5 0v-1.82l-1.878-1.095a.75.75 0 0 1-.27-1.025ZM3 13.5a.75.75 0 0 1 .75.75v1.82l1.878 1.095a.75.75 0 1 1-.756 1.295l-2.25-1.312a.75.75 0 0 1-.372-.648v-2.25A.75.75 0 0 1 3 13.5Zm18 0a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-.372.648l-2.25 1.312a.75.75 0 1 1-.756-1.295l1.878-1.096V14.25a.75.75 0 0 1 .75-.75Zm-9 5.25a.75.75 0 0 1 .75.75v.944l1.122-.654a.75.75 0 1 1 .756 1.295l-2.25 1.313a.75.75 0 0 1-.756 0l-2.25-1.313a.75.75 0 1 1 .756-1.295l1.122.654V19.5a.75.75 0 0 1 .75-.75Z"
-                        clip-rule="evenodd" />
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5"
+                      class="size-20 stroke-green-400 fill-none">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 10.5h3m-3 4.5h3m3-4.5h3m-3 4.5h3" />
                     </svg>
-
                   </div>
 
-                  <h2 class="card-title md:text-2xl text-xl relative mt-4">
-                    <p class="">Mobile Friendly!</p>
+                  <h2 class="card-title md:text-2xl text-xl relative mt-4 z-10">
+                    <p class="text-white">Mobile Friendly!</p>
 
-                    <div class="absolute bg-green-500 h-2 mt-6 w-full bg-opacity-30"></div>
+                    <div class="absolute bg-green-400 h-2 mt-6 w-full bg-opacity-60 -z-10"></div>
                   </h2>
 
                   <p class="text-neutral-300 mt-4">
-                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                    Take your learning anywhere. Our responsive design ensures smooth visualization on any device, from
+                    desktop to mobile, without compromising functionality.
                   </p>
-
 
                 </div>
               </div>
@@ -144,13 +143,13 @@
         <div class="flex flex-col gap-4 items-end justify-end">
           <div class=" w-full md:w-1/2 collapse rounded-lg collapse-arrow bg-base-300">
             <input type="checkbox" />
-            <div class="collapse-title text-xl text-neutral-200 font-medium">
-              <span class="flex align-middle">
+            <div class="collapse-title md:text-lg text-neutral-200 font-medium">
+              <span class="flex align-middle justify-center">
                 <p class="mr-auto">How long have you spent working on this project</p>
               </span>
 
             </div>
-            <div class="collapse-content flex flex-col">
+            <div class="collapse-content flex flex-col text-sm">
               <p>This is a project I've been constantly iterating upon
                 for the past 2 years. I've been working on it.
               </p>
@@ -162,13 +161,13 @@
           </div>
           <div class="w-full md:w-1/2 collapse rounded-lg collapse-arrow  bg-base-300">
             <input type="checkbox" />
-            <div class="collapse-title text-xl text-neutral-200 font-medium ">
+            <div class="collapse-title md:text-lg text-neutral-200 font-medium ">
               <span class="flex align-middle">
                 <p class="mr-auto">What makes IndexZero different from other visualization tools?</p>
               </span>
 
             </div>
-            <div class="collapse-content">
+            <div class="collapse-content text-sm">
               <p>The app is capable of mobile responsiveness across the board.
                 This is something I personally wanted to make a focal point. Along with real time data visualization
                 comparison.
@@ -177,13 +176,13 @@
           </div>
           <div class="w-full md:w-1/2 collapse rounded-lg collapse-arrow  bg-base-300">
             <input type="checkbox" />
-            <div class="collapse-title text-xl text-neutral-200 font-medium ">
+            <div class="collapse-title md:text-lg text-neutral-200 font-medium ">
               <span class="flex align-middle">
                 <p class="mr-auto">Can I use this for learning/teaching?</p>
               </span>
 
             </div>
-            <div class="collapse-content">
+            <div class="collapse-content text-sm">
               <p>
                 Absolutely! I wanted this project to be able to help people as well since most data structure and
                 algorithims
@@ -307,7 +306,7 @@
               <p class="text-green-400">Zero</p>
             </span>
           </h1>
-          <p class="text-right">Copyright © {{ copyright }} - All right reserved</p>
+          <p class="text-right text-xs">Copyright © {{ copyright }} - All right reserved</p>
         </div>
 
       </aside>

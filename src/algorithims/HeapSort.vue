@@ -1,4 +1,3 @@
-import { onMounted } from 'vue';
 <template>
     <div class="flex-col items-center justify-center ">
         <div v-if="sortProps.amountOfValues == 0" class="flex w-full pt-20 justify-center items-center">No Values</div>
@@ -21,6 +20,8 @@ import { onMounted } from 'vue';
 import { ref, onMounted, defineProps, PropType } from 'vue';
 import SortProps from '../Contracts/Classes/SortProps';
 import ISortController from '../Contracts/Interfaces/ISortController';
+import { SortAlgorithimShell } from '../composables/SortAlgorithimShell';
+import HeapSort from '../algorithims-ts/HeapSort';
 
 defineProps({
     amountOfValues: { type: Number, default: 0 },
@@ -29,6 +30,17 @@ defineProps({
     start: { type: Boolean, default: false },
     sortProps: { type: Object as PropType<SortProps>, default: new SortProps() }
 })
+
+let {
+      sortAlgoRef,
+      sortAnimation,
+      cancelAnimation,
+      animating,
+      currentIteration,
+      timer,
+      clearIterations,
+    } = SortAlgorithimShell(new HeapSort(sortProps.amountOfValues));
+    var sortObj = sortAlgoRef;
 
 onMounted(() => {
     const controller: ISortController = {

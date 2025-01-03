@@ -13,6 +13,8 @@ import VRecursion from '../Views/VRecursion.vue'
 import FibonacciRecursion from '../Recursion/FibonacciRecursion.vue'
 import Maze from '../components/DataStructures/Maze.vue'
 import component from '../vite-env';
+import HeapSort from '../algorithims/HeapSort.vue'
+
 const routes = [
   {
     path: '/',
@@ -51,6 +53,12 @@ const routes = [
             name: 'Quick Sort',
             component: QuickSort,
             meta: { fullPath: '/algorithm/sorting/quick' }
+          }, 
+          {   
+            path: 'heap',
+            name: 'Heap Sort',
+            component: HeapSort,
+            meta: { fullPath: '/algorithm/sorting/heap' }
           }
         ]
       }

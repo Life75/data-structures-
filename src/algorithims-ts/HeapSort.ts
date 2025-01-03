@@ -1,7 +1,8 @@
 import IIterations from '../Contracts/Interfaces/IIterations';
 import ISort from '../Contracts/Interfaces/ISort';
 import MovedIndex from '../Contracts/Classes/MovedIndex';
-import { Direction } from ".../Contracts/Classes/Direction"
+import { Direction } from "../Contracts/Classes/Direction";
+import Sort from "./Sort";
 
 export default class HeapSort extends Sort implements ISort, IIterations {
     public startSort(): void {
