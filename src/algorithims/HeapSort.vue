@@ -23,7 +23,7 @@ import ISortController from '../Contracts/Interfaces/ISortController';
 import { SortAlgorithimShell } from '../composables/SortAlgorithimShell';
 import HeapSort from '../algorithims-ts/HeapSort';
 
-defineProps({
+const props = defineProps({
     amountOfValues: { type: Number, default: 0 },
     animationSpeed: { type: Number, default: 200 },
     autostart: { type: Boolean, default: false },
@@ -39,12 +39,12 @@ let {
       currentIteration,
       timer,
       clearIterations,
-    } = SortAlgorithimShell(new HeapSort(sortProps.amountOfValues));
+    } = SortAlgorithimShell(new HeapSort(props.sortProps.amountOfValues));
     var sortObj = sortAlgoRef;
 
 onMounted(() => {
     const controller: ISortController = {
-          startSorting: startSorting,
+          startSorting: onStartClick,
           cancelAnimation: cancelAnimation, 
           isAnimating: animating
         }
@@ -60,5 +60,11 @@ onMounted(() => {
       }
       emit("request", request)
 })
+
+function onStartClick() {
+    clearIterations()
+    sortObj.value.startSort()
+    sortAnimation(props.sortProps.animationSpeed)
+}
 
 </script>

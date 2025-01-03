@@ -139,4 +139,4 @@ export default defineComponent({
 });
 
 </script>
-<style></style>../Contracts/Interfaces/SortProps
+<style></style>
