@@ -62,7 +62,9 @@
         </div>
 
     </div>
-    <v-layout>
+    <v-layout class="flex-none" 
+     
+    >
         <v-navigation-drawer 
             v-model="showDrawer" 
             location="left" 
@@ -139,3 +141,14 @@ async function onShareClick(event: Event) {
 </script>
 
 <style></style>
+
+<style scoped>
+:deep(.v-layout) {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+:deep(.v-navigation-drawer__content) {
+  height: 100vh;
+}
+</style>

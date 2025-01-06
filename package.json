@@ -29,7 +29,7 @@
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
-    "@vitejs/plugin-vue": "^3.1.0",
+    "@vitejs/plugin-vue": "^5.2.1",
     "@vue/eslint-config-typescript": "^11.0.1",
     "autoprefixer": "^10.4.11",
     "daisyui": "^4.6.0",
