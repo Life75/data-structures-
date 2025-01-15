@@ -20,7 +20,7 @@
             </a>
             <!--  <input type="text" placeholder="Search..." class="input input-bordered w-full max-w-xs ml-5 hidden lg:flex" />-->
         </div>
-        <div class="navbar-center  md:hidden">
+        <div class="navbar-center  md:hidden" @click="() => router.router.push('/')">
             <a class="text-2xl flex ">
                 <p class="text-green-400">Index</p>
                 <p>Zero</p>
@@ -82,7 +82,7 @@
                             <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
                         </svg>
                     </div>
-                    <div class="flex text-2xl font-medium">
+                    <div class="flex text-2xl font-medium" @click="() => router.router.push('/')">
                         <p class="text-green-400">Index</p>
                         <p class="text-white">Zero</p>
                     </div>
