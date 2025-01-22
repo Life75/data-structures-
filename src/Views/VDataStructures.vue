@@ -20,9 +20,12 @@
             {{  }}
         </div>
         <v-layout>
-            <v-navigation-drawer v-model="drawerIsOpen" location="bottom" class="bg-base-100 py-5" width="500" temporary>
-                <h1 class="dark:text-zinc-50 text-2xl text-center">Controls</h1>
-                <component  :is="request?.component" :request="request" />   
+            <v-navigation-drawer v-model="drawerIsOpen" location="bottom" class="bg-base-100 bg-opacity-65 backdrop-blur-sm py-5 rounded-t-3xl" width="500" temporary>
+                <div class="flex flex-col gap-3">
+                    <div class="w-12 h-1.5 bg-gray-400 rounded-full mx-auto mb-4 opacity-50"></div>
+
+                    <component :is="request?.component" :request="request" />   
+                </div>
             </v-navigation-drawer>
         </v-layout>
     </div>
@@ -55,4 +58,11 @@ router.router.beforeEach(() => {
 </script>
 
 <style>
+.bentoStyling {
+  @apply rounded-t-xl cursor-default shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:text-gray-200 duration-300;
+}
+
+.v-navigation-drawer {
+  border-radius: 20px 20px 0 0 !important;
+}
 </style>

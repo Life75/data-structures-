@@ -1,37 +1,38 @@
 <template>
   <div ref="linked-list-header"
-    class="flex flex-col md:flex-row gap-5 mt-5   justify-center align-middle md:items-stretch items-center  ">
-  <span class="flex flex-col w-full gap-2 uppercase">
-    <div class="flex flex-row  w-full gap-2 align-middle">
-      <div class="flex flex-col items-stretch w-full gap-2 uppercase">
-        <span class="flex w-full h-full cursor-pointer ">
-          <button class=" flex justify-center items-center grow text-center bentoStyling"
-            @click="onClickPop()">Pop</button>
-          <button class="flex justify-center items-center grow text-center mx-2 bentoStyling "
-            @click="onClickPush()">Push</button>
-        </span>
-        <span class="flex w-full h-full">
-          <button class=" flex justify-center  items-center grow text-center  bentoStyling "
-            @click="onClickPeek()">Peek</button>
-          <button class="flex justify-center  items-center grow text-center mx-2 bentoStyling "
-            @click="onClickSeek()">Seek</button>
-        </span>
+    class="flex flex-col md:flex-row gap-5 mt-5 justify-center align-middle md:items-stretch items-center  ">
+  <span class="flex flex-col w-full gap-2 uppercase  ">
+    <div class="flex flex-row w-full gap-2 align-middle">
+
+      <div class="flex gap-2 uppercase w-full">
+        <div class="bentoStyling flex flex-row  ">
+          <span class="flex flex-col grow cursor-pointer">
+            <button class="flex flex-row  justify-center items-center text-center bentoStyling"
+              @click="onClickPop()">Pop</button>
+            <button class="flex justify-center items-center text-center  bentoStyling "
+              @click="onClickPush()">Push</button>
+          </span>
+          <span class="flex flex-col grow cursor-pointer ">
+            <button class=" flex justify-center  items-center text-center  bentoStyling "
+              @click="onClickPeek()">Peek</button>
+            <button class="flex justify-center  items-center text-center bentoStyling "
+              @click="onClickSeek()">Seek</button>
+          </span>
+        </div>
       </div>
 
-      <div class="bentoStyling h-56">
-        <div class=" flex flex-col mx-5 my-3  ">
+      <div class="bentoStyling w-full">
+        <div class="flex flex-col mx-5 my-3 ">
           <p class="text-lg uppercase">Controls</p>
           <div class="flex flex-col gap-2 align-middle ">
-            <p class="w-full">Next value to push </p>
+            <p class=" text-sm">Next value to push </p>
             <div class="flex flex-row gap-2">
-              <input type="text" placeholder="" v-model="currentPushValue" :class="`input w-full max-w-20 `" />
-              <p v-show="showValueTooBigErr" class="text-red mt-3 ml-3 text-sm">Value is too big</p>
-              <p v-show="showValueIsNotNumErr" class="text-red mt-1.5 ml-3 text-sm">Value is not a number</p>
+              <v-slider ></v-slider>
             </div>
           </div>
           <div class="flex flex-col gap-2 align-middle">
-            <p class="w-full">Value to seek</p>
-            <input type="text" placeholder="" v-model="currentSeekValue" class="input  w-full max-w-20 " />
+            <p class="text-sm">Value to seek</p>
+            <v-slider class=""></v-slider>
           </div>
         </div>
       </div>
@@ -161,6 +162,6 @@ function resetDisplayErrors(): void {
 }
 
 .bentoStyling {
-  @apply bg-base-200  rounded-md cursor-default shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:shadow-lg hover:text-gray-200 duration-300 w-full md:h-auto h-[200px]
+  @apply bg-base-200 rounded-md bg-opacity-30 cursor-default shadow-sm z-10 transition ease-in-out delay-150 text-gray-400 hover:shadow-lg hover:text-gray-200 duration-300 w-full md:h-auto h-[200px]
 }
 </style>
