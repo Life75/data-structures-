@@ -53,12 +53,12 @@ const routes = [
             component: QuickSort,
             meta: { fullPath: '/algorithm/sorting/quick' }
           }, 
-          {   
+       /*   {   
             path: 'heap',
             name: 'Heap Sort',
             component: HeapSort,
             meta: { fullPath: '/algorithm/sorting/heap' }
-          }
+          } */
         ]
       }
     ]
