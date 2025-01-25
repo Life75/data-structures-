@@ -1,24 +1,35 @@
 <template>
-    <div class="md:px-2 px-5 ">
+    <div class=" flex flex-col pb-5 ">
         <component class="hidden lg:flex" :is="request?.component" :request="request" />
-        <span class="md:hidden mt-5 mx-5 w-full  flex flex-row   ">
-            <span class="flex flex-row  ml-auto mr-5 gap-4" @click="drawerIsOpen = !drawerIsOpen">
-                
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                    fill="currentColor" class="bi bi-gear " viewBox="0 0 16 16">
-                    <path
-                        d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
-                    <path
-                        d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
-                </svg></span>
-        </span>
+        <span class="md:hidden mt-5 mx-5 ml-auto">
+            <span @click="drawerIsOpen = !drawerIsOpen">
+                <button id="mobile-drawer" 
+                    class="btn rounded-full w-14 h-14 bg-neutral-800/70 backdrop-blur-lg border border-neutral-700/50 hover:bg-neutral-700/70 shadow-lg flex items-center justify-center"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-7 text-green-400">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5" />
+                    </svg>
+                </button>
+            </span>
+        </span> 
         <!--h-[400px] overflow-y-auto-->
         <router-view :class="mainStyles" @request="setRequest" @main-styles="setMainStyles" />
-        <div v-if="request" class=" bg-base-200 h-[200px] rounded-md shadow-md p-5 mt-5 flex flex-col gap-3">
-            <p class=" text-2xl uppercase">{{ `Queue` }} </p>
-            <p> {{  }}</p>
-            {{  }}
-        </div>
+        <div class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg">
+            <h3 class="text-xl font-semibold text-green-400 mb-4">{{request?.metadata.header}}</h3>
+          
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="complexity-box flex flex-col">
+                <span class="text-sm text-neutral-400 whitespace-nowrap">Time Complexity</span>
+                <span class="text-lg font-mono whitespace-nowrap" >{{request?.metadata.timeComplexity}}</span>
+              </div>
+              <div class="complexity-box flex flex-col">
+                <span class="text-sm text-neutral-400 whitespace-nowrap">Space Complexity</span>
+                <span class="text-lg font-mono whitespace-nowrap">{{request?.metadata.spaceComplexity}}</span>
+              </div>
+            </div>
+            <p class="text-neutral-200 leading-relaxed">{{request?.metadata.description}}</p>
+          </div>
         <v-layout>
             <v-navigation-drawer v-model="drawerIsOpen" location="bottom" class="bg-base-100 bg-opacity-65 backdrop-blur-sm py-5 rounded-t-3xl" width="500" temporary>
                 <div class="flex flex-col gap-3">

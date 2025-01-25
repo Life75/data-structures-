@@ -1,13 +1,14 @@
 <template>
   <div class="flex md:gap-3 gap-3  pt-4 w-full h-1/2  flex-row flex-wrap">
     <RecursiveNode v-if="queue.head" :arrow-direction="Direction.right" :node="queue.head" />
-    <div class="flex  md:items-start items-center w-full mr-5 " v-else>
-      <p class="text-center mx-auto">No nodes pushed :(</p>
-    </div>
-    <!--<v-number-input :reverse="false" controlVariant="default" label="" :hideInput="false" :inset="false"
-      variant="solo-inverted"></v-number-input>
-    -->
-    </div>
+    <div v-else class="flex flex-col items-center justify-center w-full space-y-4 p-8 bg-base-200/30 backdrop-blur-sm rounded-xl border border-neutral-700/50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+        <p class="text-lg font-medium text-neutral-400">Queue is Empty</p>
+        <p class="text-sm text-neutral-500">Add nodes to visualize the queue structure</p>
+      </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -31,21 +32,20 @@ onMounted(() => {
   const metadata: IMetadata = {
     timeComplexity: "O(1)",
     spaceComplexity: "O(n)",
-    description: "This is description for the queue operation",
+    description: "A Queue is a linear data structure that follows First In First Out (FIFO) principle. Like a line of people, the first element added to the queue will be the first one to be removed. Elements are added at the back (enqueue) and removed from the front (dequeue). Common real-world examples include print job scheduling, task management, and breadth-first search algorithms.",
     header: "Queue"
   }
 
   const request: ILinkedListRequest = {
     metadata: metadata,
     component: LinkedListHeaderUI,
-    push: pushAction, //running into a race condition for when to animate the ID value, it'll need to be when it gets mounted so most likely passing the value through the recursive nodes to watch which one should do its animating 
+    push: pushAction, 
     pop: popAction,
     peek: queue.value.peek,
     seek: seek,
   }
-  emits('main-styles', 'h-[600px] overflow-y-auto')
+  emits('main-styles', 'h-[600px] px-2 overflow-y-auto')
   emits("request", request)
-  //need to weave a component dedicated for explaining the the div information, adjustments for mobile view  
 })
 
 function pushAction(num?: number): string {

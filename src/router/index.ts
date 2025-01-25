@@ -12,7 +12,6 @@ import Roadmap from '../components/Roadmap.vue'
 import VRecursion from '../Views/VRecursion.vue'
 import FibonacciRecursion from '../Recursion/FibonacciRecursion.vue'
 import Maze from '../components/DataStructures/Maze.vue'
-import component from '../vite-env';
 import HeapSort from '../algorithims/HeapSort.vue'
 
 const routes = [
