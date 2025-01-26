@@ -36,7 +36,7 @@
             </div>
             <p class="text-neutral-200 leading-relaxed">{{sortRequest?.metadata.description}}</p>
           </div>
-          <v-layout class="md:hidden">
+          <v-layout class="sm:hidden ">
             <v-navigation-drawer 
                 v-model="drawerIsOpen" 
                 location="bottom" 
