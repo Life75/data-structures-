@@ -21,7 +21,7 @@
         </span>        <RouterView class="flex h-[500px] my-10" @request="setSortRequest" :sortProps="sortPropsRef"
             :animationSpeed="animeSpeed" @timer="setTimer">
           </RouterView>
-          <div class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg">
+          <div class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg grow">
             <h3 class="text-xl font-semibold text-green-400 mb-4">{{sortRequest?.metadata.header}}</h3>
           
             <div class="grid grid-cols-2 gap-4 mb-6">
@@ -36,7 +36,7 @@
             </div>
             <p class="text-neutral-200 leading-relaxed">{{sortRequest?.metadata.description}}</p>
           </div>
-          <v-layout>
+          <v-layout class="md:hidden">
             <v-navigation-drawer 
                 v-model="drawerIsOpen" 
                 location="bottom" 
