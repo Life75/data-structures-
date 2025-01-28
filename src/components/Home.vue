@@ -23,7 +23,7 @@
 
           </div>
           <div class="flex flex-col md:flex-row gap-6 items-stretch">
-            <button class="btn bg-neutral-900 rounded-lg  hover:bg-neutral-800">Why use IndexZero? </button>
+            <button @click="scrollDiv" class="btn bg-neutral-900 rounded-lg hover:bg-neutral-800">Why use IndexZero? </button>
             <button @click="$router.push('/algorithm/sorting/bubble')"
               class="btn buttonAnimation bg-green-400 rounded-lg shadow-md text-neutral-800 hover:bg-green-400">
               Get Started
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="flex flex-col items-center">
-        <h1 class="text-4xl font-semibold text-center flex flex-col md:flex-row gap-2">
+        <h1 id="why-use-indexZero" class="text-4xl font-semibold text-center flex flex-col md:flex-row gap-2">
           <p>Why use</p>
           <span class="flex justify-center items-center">
             <p>Index</p>
@@ -334,10 +334,25 @@ onMounted(() => {
 let copyright = ref(new Date().getFullYear());
 
 
+function scrollDiv() {
+      window.scroll(0, findPosition(document.getElementById("why-use-indexZero")));
+}
+
+
+function findPosition(obj: any): any {
+  let currenttop = 0;
+            if (obj.offsetParent) {
+                do {
+                    currenttop += obj.offsetTop;
+                } while ((obj = obj.offsetParent));
+                return [currenttop];
+            }
+}
+
+
 
 </script>
-//fit this color schema
-https://realtimecolors.com/?colors=e5eaf3-141414-bef264-f9f5fa-22d3ee 300 green/cyan
+
 <style>
 .buttonAnimation:hover {
   animation-name: up-movement;
@@ -400,5 +415,9 @@ https://realtimecolors.com/?colors=e5eaf3-141414-bef264-f9f5fa-22d3ee 300 green/
 
 .card {
   transition: all 0.3s ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 </style>
