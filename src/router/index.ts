@@ -7,12 +7,12 @@ import MergeSort from '/src/algorithims/MergeSort.vue'
 import VDataStructures from '/src/Views/VDataStructures.vue'
 import Queue from '/src/components/DataStructures/Queue.vue'
 import Stack from '/src/components//DataStructures/Stack.vue'
-import NotFound from '/src/components/NotFound.vue'
-import Roadmap from '../components/Roadmap.vue'
-import VRecursion from '../Views/VRecursion.vue'
-import FibonacciRecursion from '../Recursion/FibonacciRecursion.vue'
-import Maze from '../components/DataStructures/Maze.vue'
-import HeapSort from '../algorithims/HeapSort.vue'
+//import NotFound from '/src/components/NotFound.vue'
+//import Roadmap from '../components/Roadmap.vue'
+//import VRecursion from '../Views/VRecursion.vue'
+//import FibonacciRecursion from '../Recursion/FibonacciRecursion.vue'
+//import Maze from '../components/DataStructures/Maze.vue'
+//import HeapSort from '../algorithims/HeapSort.vue'
 
 const routes = [
   {
@@ -59,6 +59,12 @@ const routes = [
          //  component: HeapSort,
          //  meta: { fullPath: '/algorithm/sorting/heap' }
          //} 
+         {
+          path: 'insertion',
+          name: 'Insertion Sort',
+          component: InsertionSort,
+          meta: { fullPath: '/algorithm/sorting/insertion' }
+         }
         ]
       }
     ]
