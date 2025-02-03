@@ -198,57 +198,43 @@
           <p class="text-neutral-300">See what's new with IndexZero</p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Update Card 1 -->
-          <div
-            class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg">
+          <div class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg">
             <div class="flex items-center gap-3 mb-4">
               <div class="bg-green-400 bg-opacity-20 p-2 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <span class="text-sm text-neutral-400">Jan 8, 2024</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Insertion Sort Implementation</h3>
+            <p class="text-neutral-300">Added new Insertion Sort visualization with step-by-step animation and real-time performance tracking.</p>
+          </div>
+
+          <div class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="bg-green-400 bg-opacity-20 p-2 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <span class="text-sm text-neutral-400">Dec 15, 2023</span>
             </div>
             <h3 class="text-xl font-semibold mb-2">Quick Sort Implementation</h3>
-            <p class="text-neutral-300">Added new Quick Sort visualization with step-by-step animation and performance
-              metrics.</p>
+            <p class="text-neutral-300">Added new Quick Sort visualization with step-by-step animation and performance metrics.</p>
           </div>
 
-          <!-- Update Card 2 -->
-          <div
-            class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg">
+          <div class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg">
             <div class="flex items-center gap-3 mb-4">
               <div class="bg-green-400 bg-opacity-20 p-2 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                 </svg>
               </div>
               <span class="text-sm text-neutral-400">Dec 10, 2023</span>
             </div>
             <h3 class="text-xl font-semibold mb-2">Mobile Optimization</h3>
-            <p class="text-neutral-300">Enhanced mobile experience with responsive visualizations and touch controls.
-            </p>
-          </div>
-
-          <!-- Update Card 3 -->
-          <div
-            class="backdrop-blur-md bg-base-300/30 rounded-lg p-6 border border-neutral-700/50 hover:border-green-400 transition-all shadow-lg">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="bg-green-400 bg-opacity-20 p-2 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <span class="text-sm text-neutral-400">Dec 5, 2023</span>
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Performance Boost</h3>
-            <p class="text-neutral-300">Improved animation performance and added real-time speed controls.</p>
+            <p class="text-neutral-300">Enhanced mobile experience with responsive visualizations and touch controls.</p>
           </div>
         </div>
       </div>

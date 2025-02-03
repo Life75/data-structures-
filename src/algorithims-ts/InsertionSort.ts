@@ -21,7 +21,6 @@ export default class InsertionSort extends Sort implements ISort, IIterations {
 
     private insertionSort(arr: Array<number>) {
         let n = arr.length;
-        let movedIndexes: Array<MovedIndex> = [];
         
         for (let i = 1; i < n; i++) {
             let key = arr[i];
@@ -29,23 +28,25 @@ export default class InsertionSort extends Sort implements ISort, IIterations {
             let j = i - 1;
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
-                movedIndexes.push(new MovedIndex(Direction.left, j))
-                movedIndexes.push(new MovedIndex(Direction.right, j+1))
-                
+                var movedIndexes: Array<MovedIndex> = [] 
+                movedIndexes.push(new MovedIndex( Direction.left , j+1))
+                movedIndexes.push(new MovedIndex( Direction.right, j))
+                         
+                this.addToIterations(this.values, movedIndexes);
                 j = j - 1;
             }
+            var movedIndexes: Array<MovedIndex> = [] 
+
             movedIndexes.push(new MovedIndex(Direction.right, i))
             arr[j + 1] = key;
-            movedIndexes.push(new MovedIndex(Direction.right, j+1))
             this.addToIterations(arr, movedIndexes);
         }
     }
 
-
     getIterations(): Iteration[] {
-        throw new Error("Method not implemented.");
+        return this.iterations;
     }
     clearIterations(): void {
-        throw new Error("Method not implemented.");
+        this.iterations = []
     }
 }

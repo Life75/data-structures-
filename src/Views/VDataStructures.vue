@@ -34,7 +34,6 @@
             <v-navigation-drawer v-model="drawerIsOpen" location="bottom" class="bg-base-100 bg-opacity-65 backdrop-blur-sm py-5 rounded-t-3xl" width="500" temporary>
                 <div class="flex flex-col gap-3">
                     <div class="w-12 h-1.5 bg-gray-400 rounded-full mx-auto mb-4 opacity-50"></div>
-
                     <component :is="request?.component" :request="request" />   
                 </div>
             </v-navigation-drawer>
