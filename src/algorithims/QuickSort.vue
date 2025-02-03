@@ -16,7 +16,6 @@
     </div>
 
     <div class="flex items-center justify-center p-5">
-      {{ sortObj.getCurrentValues() }}
       <li v-show="!animating" class="flex " v-for="node in sortObj.getCurrentValues()">
         <div class="">
           <VerticalNode :value="node"></VerticalNode>
